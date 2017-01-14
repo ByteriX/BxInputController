@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.version      = "VERSION_NUMBER"
   s.summary      = "Swift library for all"
   s.description  = "This framework will help iOS developers for simplify development general inputing controllers"
-  s.homepage     = "https://github.com/ByteriX/BxObjC"
+  s.homepage     = "https://github.com/ByteriX/BxInputController.git"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -68,7 +68,7 @@ s.platform     = :ios, "8.0"
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-s.source       = { :git => "https://github.com/ByteriX/BxObjC.git", :tag => s.version }
+s.source       = { :git => "https://github.com/ByteriX/BxInputController.git", :tag => s.version }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -87,61 +87,6 @@ s.source       = { :git => "https://github.com/ByteriX/BxObjC.git", :tag => s.ve
     s.source_files  = "BxInputController/Sources/**/*.{swift}"
 
 
-s.subspec 'Data' do |ds|
-    ds.dependency 'BxObjC/Common'
-    ds.dependency 'XMLDictionary', '1.4'
-
-    ds.frameworks = ["Foundation", "UIKit"]
-    ds.public_header_files = "**/iBXData/Frameworks/**/*.h", "**/iBXData/Sources/**/*.h"
-
-    ds.source_files  = "**/iBXData/Frameworks/**/*.{h,m,c}", "**/iBXData/Sources/**/*.{h,m,c}"
-    ds.exclude_files = "**/**Tests/**/*.*", "**/**Test/**/*.*"
-    ds.requires_arc = []
-end
-
-s.subspec 'DB' do |dbs|
-    dbs.dependency 'BxObjC/Common'
-
-### it need for SQLite BxDB
-    dbs.xcconfig = { "GCC_PREPROCESSOR_DEFINITIONS" => '$(inherited) SQLITE_CORE=1 SQLITE_UNICODE_ENABLE=1 SQLITE_ENABLE_FTS4=1 SQLITE_ENABLE_FTS4_PARENTHESIS=1' }
-    dbs.frameworks = ["Foundation", "UIKit"]
-    dbs.public_header_files = "**/iBXDB/Frameworks/**/*.h", "**/iBXDB/Sources/**/*.h"
-
-    dbs.source_files  = "**/iBXDB/Frameworks/**/*.{h,m,c}", "**/iBXDB/Sources/**/*.{h,m,c}"
-    dbs.exclude_files = "**/**Tests/**/*.*", "**/**Test/**/*.*"
-    dbs.requires_arc = []
-end
-
-s.subspec 'Map' do |ms|
-    ms.dependency 'BxObjC/Common'
-    ms.dependency 'BxObjC/Data'
-
-    ms.frameworks = ["Foundation", "UIKit", "MapKit", "CoreLocation"]
-    ms.public_header_files = "**/iBXMap/Frameworks/**/*.h", "**/iBXMap/Sources/**/*.h"
-
-    ms.source_files  = "**/iBXMap/Frameworks/**/*.{h,m,c}", "**/iBXMap/Sources/**/*.{h,m,c}"
-    ms.exclude_files = "**/**Tests/**/*.*", "**/**Test/**/*.*"
-    ms.requires_arc = []
-end
-
-s.subspec 'Vcl' do |vs|
-    vs.dependency 'BxObjC/Common'
-    vs.dependency 'BxObjC/Data'
-
-    vs.frameworks = ["Foundation", "UIKit", "MapKit", "CoreLocation"]
-    vs.resources = "**/iBXVcl/**/*.{png,xib}"
-    vs.public_header_files = "**/iBXVcl/Frameworks/**/*.h", "**/iBXVcl/Sources/**/*.h"
-
-    vs.source_files  = "**/iBXVcl/Frameworks/**/*.{h,m,c}", "**/iBXVcl/Sources/**/*.{h,m,c}"
-    vs.exclude_files = "**/**Tests/**/*.*", "**/**Test/**/*.*"
-
-    vs.requires_arc = [
-        "**/BxIconWorkspace**.m",
-        "**/Navigation/**/*.*"
-    ]
-end
-
-
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -149,15 +94,6 @@ end
   #  the lib prefix of their name.
   #
 
-  # s.framework  = "SomeFramework"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
 
-  # s.library   = "iconv"
-  # s.libraries = "iconv", "xml2"
-
-
-  # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-
-#s.dependency "XMLDictionary"
 
 end
