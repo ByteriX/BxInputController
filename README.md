@@ -1,4 +1,4 @@
-# BxObjC
+# BxInputController
 
 This framework will help iOS developers for simplify development general inputing controllers
 

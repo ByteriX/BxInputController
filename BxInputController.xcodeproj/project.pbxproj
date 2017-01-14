@@ -38,6 +38,10 @@
 		F92184131E241927002E1781 /* BxInputSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92184121E241927002E1781 /* BxInputSettings.swift */; };
 		F928615E1E2A925400B50369 /* BxInputController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F928615D1E2A925400B50369 /* BxInputController+UITableViewDataSource.swift */; };
 		F92861601E2A930900B50369 /* BxInputController+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F928615F1E2A930900B50369 /* BxInputController+UITableViewDelegate.swift */; };
+		F92861651E2A9D4A00B50369 /* build.sh in Resources */ = {isa = PBXBuildFile; fileRef = F92861611E2A9D4A00B50369 /* build.sh */; };
+		F92861661E2A9D4A00B50369 /* BxInputController.Template.podspec in Resources */ = {isa = PBXBuildFile; fileRef = F92861621E2A9D4A00B50369 /* BxInputController.Template.podspec */; };
+		F92861671E2A9D4A00B50369 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = F92861631E2A9D4A00B50369 /* LICENSE */; };
+		F92861681E2A9D4A00B50369 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = F92861641E2A9D4A00B50369 /* README.md */; };
 		F964954A1E261213007154EC /* BxInputActionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96495491E261213007154EC /* BxInputActionRow.swift */; };
 		F9847E6F1E279229007C26EC /* BxInputSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9847E6D1E279229007C26EC /* BxInputSelectorCell.swift */; };
 		F9847E701E279229007C26EC /* BxInputSelectorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9847E6E1E279229007C26EC /* BxInputSelectorCell.xib */; };
@@ -89,6 +93,10 @@
 		F92184121E241927002E1781 /* BxInputSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSettings.swift; sourceTree = "<group>"; };
 		F928615D1E2A925400B50369 /* BxInputController+UITableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BxInputController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
 		F928615F1E2A930900B50369 /* BxInputController+UITableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BxInputController+UITableViewDelegate.swift"; sourceTree = "<group>"; };
+		F92861611E2A9D4A00B50369 /* build.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
+		F92861621E2A9D4A00B50369 /* BxInputController.Template.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BxInputController.Template.podspec; sourceTree = "<group>"; };
+		F92861631E2A9D4A00B50369 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		F92861641E2A9D4A00B50369 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F96495491E261213007154EC /* BxInputActionRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputActionRow.swift; sourceTree = "<group>"; };
 		F9847E6D1E279229007C26EC /* BxInputSelectorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSelectorCell.swift; sourceTree = "<group>"; };
 		F9847E6E1E279229007C26EC /* BxInputSelectorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BxInputSelectorCell.xib; sourceTree = "<group>"; };
@@ -129,6 +137,10 @@
 		F92183B51E23AA2D002E1781 = {
 			isa = PBXGroup;
 			children = (
+				F92861611E2A9D4A00B50369 /* build.sh */,
+				F92861621E2A9D4A00B50369 /* BxInputController.Template.podspec */,
+				F92861631E2A9D4A00B50369 /* LICENSE */,
+				F92861641E2A9D4A00B50369 /* README.md */,
 				F92183C01E23AA2D002E1781 /* BxInputController */,
 				F92183BF1E23AA2D002E1781 /* Products */,
 			);
@@ -330,9 +342,12 @@
 				F91998391E28D05000DF1717 /* BxInputStandartHeader.xib in Resources */,
 				F91998441E28F38800DF1717 /* BxInputStandartFooter.xib in Resources */,
 				F92183EC1E23AFB9002E1781 /* Assets.xcassets in Resources */,
+				F92861671E2A9D4A00B50369 /* LICENSE in Resources */,
 				F9847E7E1E27CCEB007C26EC /* BxInputSelectorDateCell.xib in Resources */,
 				F9847E781E279B60007C26EC /* Assets.xcassets in Resources */,
 				F9847E701E279229007C26EC /* BxInputSelectorCell.xib in Resources */,
+				F92861661E2A9D4A00B50369 /* BxInputController.Template.podspec in Resources */,
+				F92861651E2A9D4A00B50369 /* build.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +364,7 @@
 				F92183F61E23C52E002E1781 /* BxInputController.swift in Sources */,
 				F92183DF1E23AB21002E1781 /* CommonController.swift in Sources */,
 				F92183F81E23C723002E1781 /* BxInputSection.swift in Sources */,
+				F92861681E2A9D4A00B50369 /* README.md in Sources */,
 				F91998431E28F07C00DF1717 /* BxInputSectionStringFooter.swift in Sources */,
 				F92861601E2A930900B50369 /* BxInputController+UITableViewDelegate.swift in Sources */,
 				F964954A1E261213007154EC /* BxInputActionRow.swift in Sources */,
