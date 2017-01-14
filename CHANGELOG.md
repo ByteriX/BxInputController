@@ -6,6 +6,11 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 0.9.5 (15.01.2017)
+##### Improvements
+* add didChangedRow method to BxInputController
+* fix bug with dissmiss keyboard
+
 ## 0.9.4 (15.01.2017)
 ##### Bug fixing
 * change accessing for BxInputSettings

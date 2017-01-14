@@ -35,6 +35,7 @@ open class BxInputSelectorSuggestionCell: BxInputStandartCell {
                 parentRow.isOpened = false
                 parent?.deleteRows(parentRow.children)
                 parent?.updateRow(parentRow)
+                parent?.didChangedRow(parentRow)
             }
         }
     }

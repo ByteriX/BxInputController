@@ -237,7 +237,7 @@ open class BxInputController : UIViewController
         }
     }
     
-    open func dissmissAllRows(exclude excludeRow: BxInputRow? = nil) {
+    open func dissmissSelectors(exclude excludeRow: BxInputRow? = nil) {
         for section in sections {
             for row in section.rows {
                 if let selectorData = row as? BxInputSelectorRow,
@@ -252,9 +252,16 @@ open class BxInputController : UIViewController
                 }
             }
         }
+    }
+    
+    open func dissmissAllRows(exclude excludeRow: BxInputRow? = nil) {
+        dissmissSelectors(exclude: excludeRow)
         activeControl?.resignFirstResponder()
     }
     
-    
+    open func didChangedRow(_ row: BxInputRow)
+    {
+        // you can override
+    }
     
 }

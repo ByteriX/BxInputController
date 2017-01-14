@@ -90,6 +90,7 @@ open class BxInputStandartTextCell: BxInputStandartCell {
     @IBAction func valueTextFieldEditingChanged(_ sender: Any) {
         if let textRow = data as? BxInputTextRow {
             textRow.value = valueTextField.text
+            parent?.didChangedRow(textRow)
         } else if let dateRow = data as? BxInputDateRow {
             //
         }
@@ -103,6 +104,7 @@ open class BxInputStandartTextCell: BxInputStandartCell {
         if let dateRow = data as? BxInputDateRow
         {
             dateRow.value = date
+            parent?.didChangedRow(dateRow)
         }
     }
 }
@@ -143,7 +145,7 @@ extension BxInputStandartTextCell: UITextFieldDelegate {
             valueTextField.inputView = variantsPicker
         }
         if parent?.settings.isAutodissmissSelector ?? false {
-            parent?.dissmissAllRows(exclude: data)
+            parent?.dissmissSelectors()
         }
         parent?.activeControl = textField
         return true
@@ -221,6 +223,7 @@ extension BxInputStandartTextCell: UIPickerViewDelegate, UIPickerViewDataSource 
         let value = variantsRow.items[row]
         variantsRow.value = value
         valueTextField.text = value.name
+        parent?.didChangedRow(variantsRow)
     }
 
 }

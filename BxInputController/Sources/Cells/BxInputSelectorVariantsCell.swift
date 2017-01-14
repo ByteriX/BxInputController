@@ -97,9 +97,11 @@ extension BxInputSelectorVariantsCell: UIPickerViewDelegate, UIPickerViewDataSou
             return
         }
         let value = parentRow.items[row]
-        parentRow.value = value
         
+        parentRow.value = value
         parent?.updateRow(parentRow)
+        parent?.didChangedRow(parentRow)
+        
         if parentRow.timeForAutoselection > 0.499 {
             NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(autoselection), object: nil)
             self.perform(#selector(autoselection), with: nil, afterDelay: parentRow.timeForAutoselection)

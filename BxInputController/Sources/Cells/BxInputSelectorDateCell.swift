@@ -41,6 +41,7 @@ open class BxInputSelectorDateCell: BxInputStandartCell {
         {
             parentRow.value = datePicker.date
             parent?.updateRow(parentRow)
+            parent?.didChangedRow(parentRow)
             
             if parentRow.timeForAutoselection > 0.499 {
                 NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(autoselection), object: nil)
