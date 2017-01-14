@@ -13,18 +13,18 @@ open class BxInputController : UIViewController
 {
     open var settings: BxInputSettings = BxInputSettings.standart
     
-    var tableView: UITableView = UITableView(frame: CGRect(), style: .grouped)
-    var clearsSelectionOnViewWillAppear: Bool = true
+    public var tableView: UITableView = UITableView(frame: CGRect(), style: .grouped)
+    public var clearsSelectionOnViewWillAppear: Bool = true
     
-    internal(set) var datePicker: UIDatePicker = UIDatePicker()
-    internal(set) var variantsPicker: UIPickerView = UIPickerView()
+    internal(set) public var datePicker: UIDatePicker = UIDatePicker()
+    internal(set) public var variantsPicker: UIPickerView = UIPickerView()
     
     private var addedResources = NSMutableSet()
-    internal var contentRect: CGRect = CGRect()
+    internal(set) public var contentRect: CGRect = CGRect()
     
-    var activeControl: UIControl? = nil
+    internal(set) public var activeControl: UIControl? = nil
     
-    var sections: [BxInputSection] = []
+    public var sections: [BxInputSection] = []
     {
         didSet {
             refresh()
