@@ -23,6 +23,7 @@ open class BxInputController : UIViewController
     internal(set) public var contentRect: CGRect = CGRect()
     
     internal(set) public var activeControl: UIControl? = nil
+    internal(set) public var currentBundle: Bundle = Bundle(for: BxInputController.self)
     
     public var sections: [BxInputSection] = []
     {
@@ -82,12 +83,22 @@ open class BxInputController : UIViewController
         tableView.scrollIndicatorInsets = tableView.contentInset
     }
     
+    public func getNib(resourceId: String) -> UINib
+    {
+        var bundle: Bundle? = nil
+        if let _ = currentBundle.path(forResource: resourceId, ofType: "xib") {
+            bundle = currentBundle
+        }
+        return UINib(nibName: resourceId, bundle: bundle)
+    }
+    
     public func checkResources(row: BxInputRow)
     {
         if !addedResources.contains(row.resourceId) {
             addedResources.add(row.resourceId)
-            tableView.register(UINib(nibName: row.resourceId, bundle: nil),
+            tableView.register(getNib(resourceId: row.resourceId),
                                forCellReuseIdentifier: row.resourceId)
+            
         }
     }
     
@@ -98,7 +109,7 @@ open class BxInputController : UIViewController
         }
         if !addedResources.contains(content.resourceId) {
             addedResources.add(content.resourceId)
-            tableView.register(UINib(nibName: content.resourceId, bundle: nil),
+            tableView.register(getNib(resourceId: content.resourceId),
                                forHeaderFooterViewReuseIdentifier: content.resourceId)
         }
     }
