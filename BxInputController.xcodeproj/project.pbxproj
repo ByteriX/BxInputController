@@ -42,6 +42,7 @@
 		F92861661E2A9D4A00B50369 /* BxInputController.Template.podspec in Resources */ = {isa = PBXBuildFile; fileRef = F92861621E2A9D4A00B50369 /* BxInputController.Template.podspec */; };
 		F92861671E2A9D4A00B50369 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = F92861631E2A9D4A00B50369 /* LICENSE */; };
 		F92861681E2A9D4A00B50369 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = F92861641E2A9D4A00B50369 /* README.md */; };
+		F928616A1E2A9D8E00B50369 /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = F92861691E2A9D8E00B50369 /* CHANGELOG.md */; };
 		F964954A1E261213007154EC /* BxInputActionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96495491E261213007154EC /* BxInputActionRow.swift */; };
 		F9847E6F1E279229007C26EC /* BxInputSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9847E6D1E279229007C26EC /* BxInputSelectorCell.swift */; };
 		F9847E701E279229007C26EC /* BxInputSelectorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9847E6E1E279229007C26EC /* BxInputSelectorCell.xib */; };
@@ -97,6 +98,7 @@
 		F92861621E2A9D4A00B50369 /* BxInputController.Template.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BxInputController.Template.podspec; sourceTree = "<group>"; };
 		F92861631E2A9D4A00B50369 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		F92861641E2A9D4A00B50369 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F92861691E2A9D8E00B50369 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		F96495491E261213007154EC /* BxInputActionRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputActionRow.swift; sourceTree = "<group>"; };
 		F9847E6D1E279229007C26EC /* BxInputSelectorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSelectorCell.swift; sourceTree = "<group>"; };
 		F9847E6E1E279229007C26EC /* BxInputSelectorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BxInputSelectorCell.xib; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				F92861621E2A9D4A00B50369 /* BxInputController.Template.podspec */,
 				F92861631E2A9D4A00B50369 /* LICENSE */,
 				F92861641E2A9D4A00B50369 /* README.md */,
+				F92861691E2A9D8E00B50369 /* CHANGELOG.md */,
 				F92183C01E23AA2D002E1781 /* BxInputController */,
 				F92183BF1E23AA2D002E1781 /* Products */,
 			);
@@ -393,6 +396,7 @@
 				F92184091E23DF0B002E1781 /* BxInputStandartCell.swift in Sources */,
 				F92183DE1E23AB21002E1781 /* AppDelegate.swift in Sources */,
 				F9847E6F1E279229007C26EC /* BxInputSelectorCell.swift in Sources */,
+				F928616A1E2A9D8E00B50369 /* CHANGELOG.md in Sources */,
 				F919983B1E28D0E100DF1717 /* BxInputStandartHeaderFooter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
