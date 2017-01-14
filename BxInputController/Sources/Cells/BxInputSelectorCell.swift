@@ -8,24 +8,18 @@
 
 import UIKit
 
-class BxInputSelectorCell: BxInputStandartCell {
+open class BxInputSelectorCell: BxInputStandartCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var valueTextField: UITextField!
     @IBOutlet weak var arrowImage: UIImageView!
 
-    override func awakeFromNib() {
+    override open func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
-    override func didSelected()
+    override open func didSelected()
     {
         super.didSelected()
         guard let data = self.data as? BxInputSelectorRow else {
@@ -55,7 +49,7 @@ class BxInputSelectorCell: BxInputStandartCell {
         }
     }
     
-    override func update(data: BxInputRow)
+    override open func update(data: BxInputRow)
     {
         super.update(data: data)
         //
@@ -79,7 +73,7 @@ class BxInputSelectorCell: BxInputStandartCell {
         refreshOpened(animated: false)
     }
     
-    func refreshOpened(animated: Bool) {
+    open func refreshOpened(animated: Bool) {
         guard let data = self.data as? BxInputSelectorRow else {
             return
         }

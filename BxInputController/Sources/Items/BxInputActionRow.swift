@@ -8,25 +8,25 @@
 
 import Foundation
 
-class BxInputActionRow: BxInputStringRow
+open class BxInputActionRow: BxInputStringRow
 {
-    var resourceId = "BxInputStandartTextCell"
+    open var resourceId = "BxInputStandartTextCell"
     
-    var title : String?
-    var placeholder : String?
-    var isEnabled : Bool = true
-    var stringValue : String? {
+    open var title : String?
+    open var placeholder : String?
+    open var isEnabled : Bool = true
+    open var stringValue : String? {
         get {
             return value
         }
     }
     
-    var value: String? = nil
-    var data: Any? = nil
-    var handler: ((_ actionRow: BxInputActionRow) -> Void)? = nil
-    var isAutomaticDeselect: Bool = true
+    open var value: String? = nil
+    open var data: Any? = nil
+    open var handler: ((_ actionRow: BxInputActionRow) -> Void)? = nil
+    open var isAutomaticDeselect: Bool = true
     
-    init(title: String? = nil, placeholder: String? = nil, value: String? = nil) {
+    public init(title: String? = nil, placeholder: String? = nil, value: String? = nil) {
         self.title = title
         self.placeholder = placeholder
         self.value = value

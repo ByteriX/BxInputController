@@ -8,22 +8,22 @@
 
 import UIKit
 
-class BxInputTextRow: BxInputStringRow
+open class BxInputTextRow: BxInputStringRow
 {
-    var resourceId = "BxInputStandartTextCell"
+    open var resourceId = "BxInputStandartTextCell"
     
-    var title : String?
-    var placeholder : String?
-    var isEnabled : Bool = true
-    var stringValue : String? {
+    open var title : String?
+    open var placeholder : String?
+    open var isEnabled : Bool = true
+    open var stringValue : String? {
         get {
             return value
         }
     }
     
-    var value: String? = nil
+    open var value: String? = nil
 
-    init(title: String? = nil, placeholder: String? = nil, value: String? = nil) {
+    public init(title: String? = nil, placeholder: String? = nil, value: String? = nil) {
         self.title = title
         self.placeholder = placeholder
         self.value = value
@@ -31,14 +31,14 @@ class BxInputTextRow: BxInputStringRow
     
     
     
-    var autocapitalizationType: UITextAutocapitalizationType = .none// UITextAutocapitalizationTypeSentences
-    var autocorrectionType: UITextAutocorrectionType = .no
-    var spellCheckingType: UITextSpellCheckingType = .no
-    var keyboardType: UIKeyboardType  = .default
-    var keyboardAppearance: UIKeyboardAppearance = .default
-    //var returnKeyType: UIReturnKeyType = .go
-    var enablesReturnKeyAutomatically: Bool = false
-    var isSecureTextEntry: Bool = false
+    open var autocapitalizationType: UITextAutocapitalizationType = .none// UITextAutocapitalizationTypeSentences
+    open var autocorrectionType: UITextAutocorrectionType = .no
+    open var spellCheckingType: UITextSpellCheckingType = .no
+    open var keyboardType: UIKeyboardType  = .default
+    open var keyboardAppearance: UIKeyboardAppearance = .default
+    //open var returnKeyType: UIReturnKeyType = .go
+    open var enablesReturnKeyAutomatically: Bool = false
+    open var isSecureTextEntry: Bool = false
     
     
 }

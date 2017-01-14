@@ -8,16 +8,16 @@
 
 import UIKit
 
-class BxInputStandartHeader: BxInputStandartHeaderFooter {
+open class BxInputStandartHeader: BxInputStandartHeaderFooter {
     
-    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak open var contentLabel: UILabel!
 
-    override func awakeFromNib() {
+    override open func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func update(data: BxInputSectionContent)
+    override open func update(data: BxInputSectionContent)
     {
         super.update(data: data)
         

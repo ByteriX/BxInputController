@@ -8,23 +8,23 @@
 
 import UIKit
 
-class BxInputSelectorSuggestionCell: BxInputStandartCell {
+open class BxInputSelectorSuggestionCell: BxInputStandartCell {
     
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak open var titleLabel: UILabel!
 
-    override func awakeFromNib() {
+    override open func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
+    override open func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     
     
-    override func didSelected()
+    override open func didSelected()
     {
         super.didSelected()
         if data?.isEnabled ?? true {
@@ -39,7 +39,7 @@ class BxInputSelectorSuggestionCell: BxInputStandartCell {
         }
     }
     
-    override func update(data: BxInputRow)
+    override open func update(data: BxInputRow)
     {
         super.update(data: data)
         //

@@ -9,19 +9,19 @@
 import Foundation
 
 
-class BxInputVariantsRow : BxInputRow
+open class BxInputVariantsRow : BxInputRow
 {
     
-    var resourceId = "BxInputStandartTextCell"
+    open var resourceId = "BxInputStandartTextCell"
     
-    var title : String?
-    var placeholder : String?
-    var isEnabled : Bool = true
+    open var title : String?
+    open var placeholder : String?
+    open var isEnabled : Bool = true
     
-    var items: [BxInputVariantsItem] = []
-    var value: BxInputVariantsItem?
+    open var items: [BxInputVariantsItem] = []
+    open var value: BxInputVariantsItem?
     
-    init(title: String? = nil, placeholder: String? = nil, value: BxInputVariantsItem? = nil) {
+    public init(title: String? = nil, placeholder: String? = nil, value: BxInputVariantsItem? = nil) {
         self.title = title
         self.placeholder = placeholder
         self.value = value

@@ -8,13 +8,13 @@
 
 import UIKit
 
-class BxInputSection
+open class BxInputSection
 {
-    var header: BxInputSectionContent? = nil
-    var rows: [BxInputRow] = []
-    var footer: BxInputSectionContent? = nil
+    open var header: BxInputSectionContent? = nil
+    open var rows: [BxInputRow] = []
+    open var footer: BxInputSectionContent? = nil
     
-    init(headerText: String? = nil, rows: [BxInputRow], footerText: String? = nil) {
+    public init(headerText: String? = nil, rows: [BxInputRow], footerText: String? = nil) {
         self.rows = rows
         if let headerText = headerText {
             header = BxInputSectionStringHeader(headerText)

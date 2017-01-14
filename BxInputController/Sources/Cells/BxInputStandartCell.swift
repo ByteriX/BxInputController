@@ -8,22 +8,22 @@
 
 import UIKit
 
-class BxInputStandartCell: UITableViewCell {
+open class BxInputStandartCell: UITableViewCell {
     
-    weak var parent: BxInputController? = nil
-    internal var data: BxInputRow? = nil
+    public weak var parent: BxInputController? = nil
+    public var data: BxInputRow? = nil
 
-    func update(data: BxInputRow)
+    open func update(data: BxInputRow)
     {
         self.data = data
     }
     
-    func didSelected()
+    open func didSelected()
     {
         //
     }
     
-    override func resignFirstResponder() -> Bool {
+    override open func resignFirstResponder() -> Bool {
         return false
     }
     

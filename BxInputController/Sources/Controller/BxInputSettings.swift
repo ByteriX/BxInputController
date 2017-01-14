@@ -9,9 +9,9 @@
 import UIKit
 
 
-class BxInputSettings
+open class BxInputSettings
 {
-    internal(set) static var standart = BxInputSettings()
+    internal(set) open static var standart = BxInputSettings()
     
     var headerColor: UIColor = UIColor.darkGray
     var headerFont: UIFont = UIFont.systemFont(ofSize:  16)

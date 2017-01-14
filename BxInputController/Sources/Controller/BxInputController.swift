@@ -9,9 +9,9 @@
 import UIKit
 import Foundation
 
-class BxInputController : UIViewController
+open class BxInputController : UIViewController
 {
-    var settings: BxInputSettings = BxInputSettings.standart
+    open var settings: BxInputSettings = BxInputSettings.standart
     
     var tableView: UITableView = UITableView(frame: CGRect(), style: .grouped)
     var clearsSelectionOnViewWillAppear: Bool = true
@@ -31,7 +31,7 @@ class BxInputController : UIViewController
         }
     }
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
         datePicker.datePickerMode = .date
@@ -50,7 +50,7 @@ class BxInputController : UIViewController
         tableView.sectionFooterHeight = UITableViewAutomaticDimension
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         contentRect = self.view.bounds
         registerKeyboardNotification()
@@ -61,18 +61,18 @@ class BxInputController : UIViewController
         }
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    override open func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         unregisterKeyboardNotification()
     }
     
-    override func viewDidLayoutSubviews() {
+    override open func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = self.view.bounds
         updateInsets()
     }
     
-    func updateInsets() {
+    open func updateInsets() {
         var bottom = bottomLayoutGuide.length
         let height = self.view.frame.size.height - contentRect.size.height
         if height > bottom {
@@ -82,7 +82,7 @@ class BxInputController : UIViewController
         tableView.scrollIndicatorInsets = tableView.contentInset
     }
     
-    private func checkResources(row: BxInputRow)
+    public func checkResources(row: BxInputRow)
     {
         if !addedResources.contains(row.resourceId) {
             addedResources.add(row.resourceId)
@@ -91,7 +91,7 @@ class BxInputController : UIViewController
         }
     }
     
-    private func checkResources(sectionContent: BxInputSectionContent?)
+    public func checkResources(sectionContent: BxInputSectionContent?)
     {
         guard let content = sectionContent as? BxInputSectionNibContent else {
             return
@@ -103,14 +103,14 @@ class BxInputController : UIViewController
         }
     }
     
-    private func refreshResources()
+    public func refreshResources()
     {
         for section in sections {
             refreshSectionResources(section: section)
         }
     }
     
-    private func refreshSectionResources(section: BxInputSection)
+    public func refreshSectionResources(section: BxInputSection)
     {
         for row in section.rows {
             checkResources(row: row)
@@ -119,17 +119,17 @@ class BxInputController : UIViewController
         checkResources(sectionContent: section.footer)
     }
     
-    func refresh()
+    open func refresh()
     {
         refreshResources()
         tableView.reloadData()
     }
     
-    func getRow(for indexPath: IndexPath) -> BxInputRow{
+    open func getRow(for indexPath: IndexPath) -> BxInputRow{
         return sections[indexPath.section].rows[indexPath.row]
     }
     
-    func getIndex(for currentRow: BxInputRow) -> IndexPath?{
+    open func getIndex(for currentRow: BxInputRow) -> IndexPath?{
         var sectionIndex = 0
         for section in sections {
             var rowIndex = 0
@@ -144,7 +144,7 @@ class BxInputController : UIViewController
         return nil
     }
     
-    func getCell(for currentRow: BxInputRow) -> UITableViewCell?
+    open func getCell(for currentRow: BxInputRow) -> UITableViewCell?
     {
         if let indexPath = getIndex(for: currentRow) {
             return tableView.cellForRow(at: indexPath)
@@ -152,13 +152,13 @@ class BxInputController : UIViewController
         return nil
     }
     
-    func deselectRow(row: BxInputRow, animated: Bool = true) {
+    open func deselectRow(row: BxInputRow, animated: Bool = true) {
         if let indexPath = getIndex(for: row) {
             tableView.deselectRow(at: indexPath, animated: animated)
         }
     }
     
-    func reloadRow(_ row: BxInputRow, with animation: UITableViewRowAnimation = .fade) {
+    open func reloadRow(_ row: BxInputRow, with animation: UITableViewRowAnimation = .fade) {
         if let indexPath = getIndex(for: row) {
             tableView.reloadRows(at: [indexPath], with: animation)
             //tableView.reloadSections(IndexSet(integer: indexPath.section), with: animation)
@@ -166,7 +166,7 @@ class BxInputController : UIViewController
         }
     }
     
-    func deleteRow(_ row: BxInputRow, with animation: UITableViewRowAnimation = .fade) {
+    open func deleteRow(_ row: BxInputRow, with animation: UITableViewRowAnimation = .fade) {
         if let indexPath = getIndex(for: row) {
             tableView.beginUpdates()
             sections[indexPath.section].rows.remove(at: indexPath.row)
@@ -175,7 +175,7 @@ class BxInputController : UIViewController
         }
     }
     
-    func deleteRows(_ rows: [BxInputRow], with animation: UITableViewRowAnimation = .fade)
+    open func deleteRows(_ rows: [BxInputRow], with animation: UITableViewRowAnimation = .fade)
     {
         var indexes: [IndexPath] = []
         for row in rows {
@@ -197,7 +197,7 @@ class BxInputController : UIViewController
         tableView.endUpdates()
     }
     
-    func addRow(_ row: BxInputRow, after currentRow: BxInputRow, with animation: UITableViewRowAnimation = .fade) {
+    open func addRow(_ row: BxInputRow, after currentRow: BxInputRow, with animation: UITableViewRowAnimation = .fade) {
         if let indexPath = getIndex(for: currentRow) {
             tableView.beginUpdates()
             sections[indexPath.section].rows.insert(row, at: indexPath.row + 1)
@@ -207,7 +207,7 @@ class BxInputController : UIViewController
         }
     }
     
-    func addRows(_ rows: [BxInputRow], after currentRow: BxInputRow, with animation: UITableViewRowAnimation = .fade) {
+    open func addRows(_ rows: [BxInputRow], after currentRow: BxInputRow, with animation: UITableViewRowAnimation = .fade) {
         if let currentIndexPath = getIndex(for: currentRow) {
             tableView.beginUpdates()
             var indexes: [IndexPath] = []
@@ -223,7 +223,7 @@ class BxInputController : UIViewController
         }
     }
     
-    func updateRow(_ row: BxInputRow, with animation: UITableViewRowAnimation = .fade) {
+    open func updateRow(_ row: BxInputRow, with animation: UITableViewRowAnimation = .fade) {
         if let indexPath = getIndex(for: row),
             let cell = tableView.cellForRow(at: indexPath) as? BxInputStandartCell
         {
@@ -231,13 +231,13 @@ class BxInputController : UIViewController
         }
     }
     
-    func scrollRow(_ row: BxInputRow, at position: UITableViewScrollPosition = .middle, animated: Bool = true) {
+    open func scrollRow(_ row: BxInputRow, at position: UITableViewScrollPosition = .middle, animated: Bool = true) {
         if let indexPath = getIndex(for: row) {
             tableView.scrollToRow(at: indexPath, at: position, animated: animated)
         }
     }
     
-    func dissmissAllRows(exclude excludeRow: BxInputRow? = nil) {
+    open func dissmissAllRows(exclude excludeRow: BxInputRow? = nil) {
         for section in sections {
             for row in section.rows {
                 if let selectorData = row as? BxInputSelectorRow,

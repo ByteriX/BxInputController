@@ -8,13 +8,13 @@
 
 import UIKit
 
-class BxInputStandartHeaderFooter : UITableViewHeaderFooterView
+open class BxInputStandartHeaderFooter : UITableViewHeaderFooterView
 {
     
-    weak var parent: BxInputController? = nil
-    internal var data: BxInputSectionContent? = nil
+    weak open var parent: BxInputController? = nil
+    internal(set) public var data: BxInputSectionContent? = nil
     
-    func update(data: BxInputSectionContent)
+    public func update(data: BxInputSectionContent)
     {
         self.data = data
     }

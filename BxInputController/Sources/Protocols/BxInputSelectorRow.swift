@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol BxInputSelectorRow : BxInputRow
+public protocol BxInputSelectorRow : BxInputRow
 {
     
     var isOpened: Bool {get set}
@@ -17,7 +17,7 @@ protocol BxInputSelectorRow : BxInputRow
     
 }
 
-protocol BxInputChildSelectorRow : BxInputRow
+public protocol BxInputChildSelectorRow : BxInputRow
 {
     
     weak var parent: BxInputSelectorRow? {get set}

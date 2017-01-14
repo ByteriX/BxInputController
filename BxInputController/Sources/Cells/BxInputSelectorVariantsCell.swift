@@ -8,17 +8,17 @@
 
 import UIKit
 
-class BxInputSelectorVariantsCell: BxInputStandartCell {
+open class BxInputSelectorVariantsCell: BxInputStandartCell {
 
-    @IBOutlet weak var variantsPicker: UIPickerView!
+    @IBOutlet weak open var variantsPicker: UIPickerView!
     
     
-    override func awakeFromNib() {
+    override open func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
+    override open func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
@@ -26,7 +26,7 @@ class BxInputSelectorVariantsCell: BxInputStandartCell {
     
     
     
-    override func update(data: BxInputRow)
+    override open func update(data: BxInputRow)
     {
         super.update(data: data)
         //
@@ -47,7 +47,7 @@ class BxInputSelectorVariantsCell: BxInputStandartCell {
         }
     }
     
-    func autoselection() {
+    open func autoselection() {
         if let row = data as? BxInputChildSelectorVariantsRow,
             let parentRow = row.parent as? BxInputSelectorVariantsRow
         {
@@ -63,13 +63,13 @@ class BxInputSelectorVariantsCell: BxInputStandartCell {
 
 extension BxInputSelectorVariantsCell: UIPickerViewDelegate, UIPickerViewDataSource {
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int
+    open func numberOfComponents(in pickerView: UIPickerView) -> Int
     {
         return 1
     }
     
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
+    open func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
     {
         guard let currentRow = data as? BxInputChildSelectorVariantsRow,
             let variantsRow = currentRow.parent as? BxInputSelectorVariantsRow else
@@ -79,7 +79,7 @@ extension BxInputSelectorVariantsCell: UIPickerViewDelegate, UIPickerViewDataSou
         return variantsRow.items.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+    open func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
         guard let currentRow = data as? BxInputChildSelectorVariantsRow,
             let variantsRow = currentRow.parent as? BxInputSelectorVariantsRow
@@ -89,7 +89,7 @@ extension BxInputSelectorVariantsCell: UIPickerViewDelegate, UIPickerViewDataSou
         return variantsRow.items[row].name
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    open func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         guard let currentRow = data as? BxInputChildSelectorVariantsRow,
             let parentRow = currentRow.parent as? BxInputSelectorVariantsRow

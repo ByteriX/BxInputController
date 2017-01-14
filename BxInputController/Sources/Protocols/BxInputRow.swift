@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol BxInputRow : AnyObject{
+public protocol BxInputRow : AnyObject{
     
     var title : String? {get}
     

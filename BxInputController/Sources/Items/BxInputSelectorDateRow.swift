@@ -8,20 +8,20 @@
 
 import Foundation
 
-class BxInputSelectorDateRow : BxInputDateRow, BxInputSelectorRow
+open class BxInputSelectorDateRow : BxInputDateRow, BxInputSelectorRow
 {
     
-    var isOpened: Bool = false
-    var timeForAutoselection: TimeInterval = 0.0 // if < 0.5 then autoselection turned off
+    open var isOpened: Bool = false
+    open var timeForAutoselection: TimeInterval = 0.0 // if < 0.5 then autoselection turned off
     
-    var chield : BxInputChildSelectorDateRow
-    var children: [BxInputChildSelectorRow] {
+    public var chield : BxInputChildSelectorDateRow
+    public var children: [BxInputChildSelectorRow] {
         get {
             return [chield]
         }
     }
     
-    override init(title: String? = nil, placeholder: String? = nil, value: Date? = nil) {
+    override public init(title: String? = nil, placeholder: String? = nil, value: Date? = nil) {
         chield = BxInputChildSelectorDateRow()
         super.init(title: title, placeholder: placeholder, value: value)
         resourceId = "BxInputSelectorCell"
@@ -30,25 +30,25 @@ class BxInputSelectorDateRow : BxInputDateRow, BxInputSelectorRow
     
 }
 
-class BxInputChildSelectorDateRow: BxInputChildSelectorRow
+open class BxInputChildSelectorDateRow: BxInputChildSelectorRow
 {
-    var resourceId = "BxInputSelectorDateCell"
+    open var resourceId = "BxInputSelectorDateCell"
     
-    var title : String? {
+    open var title : String? {
         get {
             return parent?.title ?? nil
         }
     }
-    var placeholder : String? {
+    open var placeholder : String? {
         get {
             return parent?.placeholder ?? nil
         }
     }
-    var isEnabled : Bool {
+    open var isEnabled : Bool {
         get {
             return parent?.isEnabled ?? false
         }
     }
     
-    weak var parent: BxInputSelectorRow? = nil
+    weak open var parent: BxInputSelectorRow? = nil
 }

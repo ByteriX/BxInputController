@@ -6,6 +6,11 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+
+## 0.9.2 (15.01.2017)
+##### Start project
+* change accessing for all classes & protocols
+
 ## 0.9.1 (14.01.2017)
 ##### Start project
 * fix Pod::Spec file

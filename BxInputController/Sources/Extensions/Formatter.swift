@@ -10,12 +10,12 @@ import Foundation
 
 extension DateFormatter
 {
-    convenience init(dateFormat: String) {
+    public convenience init(dateFormat: String) {
         self.init()
         self.dateFormat = dateFormat
     }
     
-    convenience init(dateStyle: DateFormatter.Style, timeStyle: DateFormatter.Style) {
+    public convenience init(dateStyle: DateFormatter.Style, timeStyle: DateFormatter.Style) {
         self.init()
         self.dateStyle = dateStyle
         self.timeStyle = timeStyle
@@ -24,7 +24,7 @@ extension DateFormatter
 
 extension NumberFormatter
 {
-    convenience init(style: NumberFormatter.Style) {
+    public convenience init(style: NumberFormatter.Style) {
         self.init()
         self.numberStyle = style
     }

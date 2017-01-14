@@ -9,19 +9,19 @@
 import Foundation
 
 
-class BxInputSelectorVariantsRow : BxInputVariantsRow, BxInputSelectorRow, BxInputStringRow
+open class BxInputSelectorVariantsRow : BxInputVariantsRow, BxInputSelectorRow, BxInputStringRow
 {
     
-    var isOpened: Bool = false
-    var timeForAutoselection: TimeInterval = 0.0 // if < 0.5 then autoselection turned off
+    open var isOpened: Bool = false
+    open var timeForAutoselection: TimeInterval = 0.0 // if < 0.5 then autoselection turned off
     
-    var chield : BxInputChildSelectorVariantsRow
-    var children: [BxInputChildSelectorRow] {
+    public var chield : BxInputChildSelectorVariantsRow
+    public var children: [BxInputChildSelectorRow] {
         get {
             return [chield]
         }
     }
-    var stringValue: String? {
+    open var stringValue: String? {
         get {
             if let value = value {
                 return value.name
@@ -30,7 +30,7 @@ class BxInputSelectorVariantsRow : BxInputVariantsRow, BxInputSelectorRow, BxInp
         }
     }
     
-    override init(title: String? = nil, placeholder: String? = nil, value: BxInputVariantsItem? = nil) {
+    override public init(title: String? = nil, placeholder: String? = nil, value: BxInputVariantsItem? = nil) {
         chield = BxInputChildSelectorVariantsRow()
         super.init(title: title, placeholder: placeholder, value: value)
         resourceId = "BxInputSelectorCell"
@@ -39,25 +39,25 @@ class BxInputSelectorVariantsRow : BxInputVariantsRow, BxInputSelectorRow, BxInp
     
 }
 
-class BxInputChildSelectorVariantsRow: BxInputChildSelectorRow
+open class BxInputChildSelectorVariantsRow: BxInputChildSelectorRow
 {
-    var resourceId = "BxInputSelectorVariantsCell"
+    open var resourceId = "BxInputSelectorVariantsCell"
     
-    var title : String? {
+    open var title : String? {
         get {
             return parent?.title ?? nil
         }
     }
-    var placeholder : String? {
+    open var placeholder : String? {
         get {
             return parent?.placeholder ?? nil
         }
     }
-    var isEnabled : Bool {
+    open var isEnabled : Bool {
         get {
             return parent?.isEnabled ?? false
         }
     }
     
-    weak var parent: BxInputSelectorRow? = nil
+    weak open var parent: BxInputSelectorRow? = nil
 }

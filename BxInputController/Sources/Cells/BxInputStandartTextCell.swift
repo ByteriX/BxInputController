@@ -8,22 +8,22 @@
 
 import UIKit
 
-class BxInputStandartTextCell: BxInputStandartCell {
+open class BxInputStandartTextCell: BxInputStandartCell {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var valueTextField: UITextField!
+    @IBOutlet weak open var titleLabel: UILabel!
+    @IBOutlet weak open var valueTextField: UITextField!
 
-    override func awakeFromNib() {
+    override open func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
+    override open func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
     }
     
-    override func didSelected()
+    override open func didSelected()
     {
         super.didSelected()
         if data?.isEnabled ?? true {
@@ -39,7 +39,7 @@ class BxInputStandartTextCell: BxInputStandartCell {
         }
     }
     
-    override func update(data: BxInputRow)
+    override open func update(data: BxInputRow)
     {
         super.update(data: data)
         //
@@ -83,7 +83,7 @@ class BxInputStandartTextCell: BxInputStandartCell {
         valueTextField.placeholder = data.placeholder
     }
     
-    override func resignFirstResponder() -> Bool {
+    override open func resignFirstResponder() -> Bool {
         return valueTextField.resignFirstResponder()
     }
     
@@ -110,7 +110,7 @@ class BxInputStandartTextCell: BxInputStandartCell {
 
 extension BxInputStandartTextCell: UITextFieldDelegate {
     
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool
+    open func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool
     {
         if let dateRow = data as? BxInputDateRow,
             let datePicker = parent?.datePicker
@@ -149,7 +149,7 @@ extension BxInputStandartTextCell: UITextFieldDelegate {
         return true
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField)
+    open func textFieldDidEndEditing(_ textField: UITextField)
     {
         if let datePicker = parent?.datePicker
         {
@@ -160,7 +160,7 @@ extension BxInputStandartTextCell: UITextFieldDelegate {
         }
     }
 
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
+    open func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
     {
         if let text = textField.text,
             range.location == text.characters.count && string == " "
@@ -175,13 +175,13 @@ extension BxInputStandartTextCell: UITextFieldDelegate {
     }
 
 
-    func textFieldShouldClear(_ textField: UITextField) -> Bool
+    open func textFieldShouldClear(_ textField: UITextField) -> Bool
     {
         textField.text = ""
         return true
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    open func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         textField.resignFirstResponder()
         return true
@@ -191,13 +191,13 @@ extension BxInputStandartTextCell: UITextFieldDelegate {
 
 extension BxInputStandartTextCell: UIPickerViewDelegate, UIPickerViewDataSource {
 
-    func numberOfComponents(in pickerView: UIPickerView) -> Int
+    open func numberOfComponents(in pickerView: UIPickerView) -> Int
     {
         return 1
     }
     
 
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
+    open func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
     {
         guard let variantsRow = data as? BxInputVariantsRow else {
             return 0
@@ -205,7 +205,7 @@ extension BxInputStandartTextCell: UIPickerViewDelegate, UIPickerViewDataSource 
         return variantsRow.items.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+    open func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
         guard let variantsRow = data as? BxInputVariantsRow else {
             return nil
@@ -213,7 +213,7 @@ extension BxInputStandartTextCell: UIPickerViewDelegate, UIPickerViewDataSource 
         return variantsRow.items[row].name
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    open func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         guard let variantsRow = data as? BxInputVariantsRow else {
             return

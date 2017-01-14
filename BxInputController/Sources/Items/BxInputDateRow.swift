@@ -8,20 +8,20 @@
 
 import Foundation
 
-class BxInputDateRow : BxInputRow
+open class BxInputDateRow : BxInputRow
 {
     
-    var resourceId = "BxInputStandartTextCell"
+    open var resourceId = "BxInputStandartTextCell"
     
-    var title : String?
-    var placeholder : String?
-    var isEnabled : Bool = true
+    open var title : String?
+    open var placeholder : String?
+    open var isEnabled : Bool = true
     
-    var value: Date? = nil
-    var minimumDate: Date? = nil
-    var maximumDate: Date? = nil
+    open var value: Date? = nil
+    open var minimumDate: Date? = nil
+    open var maximumDate: Date? = nil
     
-    init(title: String? = nil, placeholder: String? = nil, value: Date? = nil) {
+    public init(title: String? = nil, placeholder: String? = nil, value: Date? = nil) {
         self.title = title
         self.placeholder = placeholder
         self.value = value

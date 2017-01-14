@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol BxInputStringRow : BxInputRow
+public protocol BxInputStringRow : BxInputRow
 {
     
     var stringValue : String? {get}

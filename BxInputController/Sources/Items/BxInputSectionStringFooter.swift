@@ -8,12 +8,12 @@
 
 import Foundation
 
-class BxInputSectionStringFooter: BxInputSectionStringContent
+open class BxInputSectionStringFooter: BxInputSectionStringContent
 {
-    var resourceId = "BxInputStandartFooter"
-    var contentText : String
+    open var resourceId = "BxInputStandartFooter"
+    open var contentText : String
     
-    init(_ text: String) {
+    public init(_ text: String) {
         contentText = text
     }
 }

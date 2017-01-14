@@ -11,17 +11,17 @@ import UIKit
 extension BxInputController : UITableViewDataSource
 {
 
-    public func numberOfSections(in tableView: UITableView) -> Int
+    open func numberOfSections(in tableView: UITableView) -> Int
     {
         return sections.count
     }
     
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return sections[section].rows.count
     }
     
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let row = getRow(for: indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier: row.resourceId, for: indexPath) as! BxInputStandartCell

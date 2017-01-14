@@ -8,17 +8,18 @@
 
 import Foundation
 
-class BxInputCheckRow: BxInputRow
+//! this is not realized
+open class BxInputCheckRow: BxInputRow
 {
-    var resourceId = ""
+    open var resourceId = ""
     
-    var title : String?
-    var placeholder : String?
-    var isEnabled : Bool = true
+    open var title : String?
+    open var placeholder : String?
+    open var isEnabled : Bool = true
     
-    var value: Bool
+    open var value: Bool
     
-    init(title: String? = nil, placeholder: String? = nil, value: Bool = false) {
+    public init(title: String? = nil, placeholder: String? = nil, value: Bool = false) {
         self.title = title
         self.placeholder = placeholder
         self.value = value

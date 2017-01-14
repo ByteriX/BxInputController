@@ -12,7 +12,7 @@ import UIKit
 extension BxInputController : UITableViewDelegate
 {
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let row = getRow(for: indexPath)
         
         if !row.isEnabled {
@@ -32,7 +32,7 @@ extension BxInputController : UITableViewDelegate
         }
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+    open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
     {
         let sectionData = sections[section]
         guard let headerData = sectionData.header else {
@@ -53,7 +53,7 @@ extension BxInputController : UITableViewDelegate
         return nil
     }
     
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
+    open func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
     {
         let sectionData = sections[section]
         guard let footerData = sectionData.footer else {

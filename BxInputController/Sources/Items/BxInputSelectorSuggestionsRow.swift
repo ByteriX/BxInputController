@@ -9,15 +9,15 @@
 import Foundation
 
 
-class BxInputSelectorSuggestionsRow : BxInputStringRow, BxInputSelectorRow
+open class BxInputSelectorSuggestionsRow : BxInputStringRow, BxInputSelectorRow
 {
     
-    var resourceId = "BxInputSelectorCell"
+    open var resourceId = "BxInputSelectorCell"
     
-    var title : String?
-    var placeholder : String?
-    var isEnabled : Bool = true
-    var stringValue: String? {
+    open var title : String?
+    open var placeholder : String?
+    open var isEnabled : Bool = true
+    open var stringValue: String? {
         get {
             if let item = value as? BxInputStringRow {
                 return item.stringValue
@@ -26,9 +26,9 @@ class BxInputSelectorSuggestionsRow : BxInputStringRow, BxInputSelectorRow
         }
     }
     
-    var value: BxInputChildSelectorRow? = nil
-    var isOpened: Bool = false
-    var children: [BxInputChildSelectorRow] = []
+    open var value: BxInputChildSelectorRow? = nil
+    open var isOpened: Bool = false
+    public var children: [BxInputChildSelectorRow] = []
     {
         didSet {
             for chield in children {
@@ -37,33 +37,33 @@ class BxInputSelectorSuggestionsRow : BxInputStringRow, BxInputSelectorRow
         }
     }
     
-    init(title: String? = nil, placeholder: String? = nil) {
+    public init(title: String? = nil, placeholder: String? = nil) {
         self.title = title
         self.placeholder = placeholder
     }
     
 }
 
-class BxInputSelectorSuggestionsItemRow: BxInputStringRow, BxInputChildSelectorRow
+open class BxInputSelectorSuggestionsItemRow: BxInputStringRow, BxInputChildSelectorRow
 {
-    var resourceId = "BxInputSelectorSuggestionCell"
+    open var resourceId = "BxInputSelectorSuggestionCell"
     
-    var title : String?
-    var placeholder : String?
-    var isEnabled : Bool {
+    open var title : String?
+    open var placeholder : String?
+    open var isEnabled : Bool {
         get {
             return parent?.isEnabled ?? false
         }
     }
-    var stringValue: String? {
+    open var stringValue: String? {
         get {
             return title
         }
     }
     
-    weak var parent: BxInputSelectorRow? = nil
+    weak open var parent: BxInputSelectorRow? = nil
     
-    init(title: String? = nil, placeholder: String? = nil) {
+    public init(title: String? = nil, placeholder: String? = nil) {
         self.title = title
         self.placeholder = placeholder
     }

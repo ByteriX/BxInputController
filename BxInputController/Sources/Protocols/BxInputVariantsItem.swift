@@ -9,17 +9,17 @@
 import Foundation
 
 
-protocol BxInputVariantsItem : AnyObject {
+public protocol BxInputVariantsItem : AnyObject {
     var id: String {get}
     var name: String {get}
 }
 
-class BxInputVariantsValue: BxInputVariantsItem
+public class BxInputVariantsValue: BxInputVariantsItem
 {
-    var id: String
-    var name: String
+    public var id: String
+    public var name: String
     
-    init(id: String, name: String)
+    public init(id: String, name: String)
     {
         self.id = id
         self.name = name

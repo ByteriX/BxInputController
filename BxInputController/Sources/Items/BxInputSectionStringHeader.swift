@@ -9,12 +9,12 @@
 import Foundation
 
 
-class BxInputSectionStringHeader: BxInputSectionStringContent
+open class BxInputSectionStringHeader: BxInputSectionStringContent
 {
-    var resourceId = "BxInputStandartHeader"
-    var contentText : String
+    open var resourceId = "BxInputStandartHeader"
+    open var contentText : String
     
-    init(_ text: String) {
+    public init(_ text: String) {
         contentText = text
     }
 }

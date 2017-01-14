@@ -8,23 +8,23 @@
 
 import UIKit
 
-protocol BxInputSectionContent : AnyObject {
+public protocol BxInputSectionContent : AnyObject {
     //
 }
 
-protocol BxInputSectionViewContent : BxInputSectionContent {
+public protocol BxInputSectionViewContent : BxInputSectionContent {
     
     var contentView: UIView {get}
     
 }
 
-protocol BxInputSectionNibContent : BxInputSectionContent {
+public protocol BxInputSectionNibContent : BxInputSectionContent {
     
     var resourceId : String {get}
     
 }
 
-protocol BxInputSectionStringContent : BxInputSectionNibContent {
+public protocol BxInputSectionStringContent : BxInputSectionNibContent {
     
     var contentText : String {get}
     

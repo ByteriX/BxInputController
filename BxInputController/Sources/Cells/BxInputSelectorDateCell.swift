@@ -8,25 +8,17 @@
 
 import UIKit
 
-class BxInputSelectorDateCell: BxInputStandartCell {
+open class BxInputSelectorDateCell: BxInputStandartCell {
 
-    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak open var datePicker: UIDatePicker!
     
     
-    override func awakeFromNib() {
+    override open func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
-    
-    
-    override func update(data: BxInputRow)
+    override open func update(data: BxInputRow)
     {
         super.update(data: data)
         //
@@ -43,7 +35,7 @@ class BxInputSelectorDateCell: BxInputStandartCell {
         }
     }
     
-    @IBAction func changeDate(_ sender: Any) {
+    @IBAction open func changeDate(_ sender: Any) {
         if let dateRow = data as? BxInputChildSelectorDateRow,
             let parentRow = dateRow.parent as? BxInputSelectorDateRow
         {
@@ -57,7 +49,7 @@ class BxInputSelectorDateCell: BxInputStandartCell {
         }
     }
     
-    func autoselection() {
+    open func autoselection() {
         if let dateRow = data as? BxInputChildSelectorDateRow,
             let parentRow = dateRow.parent
         {
