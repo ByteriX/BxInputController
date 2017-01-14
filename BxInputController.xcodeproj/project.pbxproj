@@ -1,0 +1,547 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F902B15D1E25315D00C6C8D9 /* BxInputVariantsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902B15C1E25315D00C6C8D9 /* BxInputVariantsRow.swift */; };
+		F902B15F1E2532B000C6C8D9 /* BxInputVariantsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902B15E1E2532B000C6C8D9 /* BxInputVariantsItem.swift */; };
+		F902B1611E253F3000C6C8D9 /* BxInputController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902B1601E253F3000C6C8D9 /* BxInputController+Keyboard.swift */; };
+		F902E4411E24E755000DAF1C /* BxInputDateRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902E4401E24E755000DAF1C /* BxInputDateRow.swift */; };
+		F902E4441E24EFF9000DAF1C /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902E4431E24EFF9000DAF1C /* Formatter.swift */; };
+		F91998351E28CC2500DF1717 /* BxInputSectionContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91998341E28CC2500DF1717 /* BxInputSectionContent.swift */; };
+		F91998381E28D05000DF1717 /* BxInputStandartHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91998361E28D05000DF1717 /* BxInputStandartHeader.swift */; };
+		F91998391E28D05000DF1717 /* BxInputStandartHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = F91998371E28D05000DF1717 /* BxInputStandartHeader.xib */; };
+		F919983B1E28D0E100DF1717 /* BxInputStandartHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919983A1E28D0E100DF1717 /* BxInputStandartHeaderFooter.swift */; };
+		F919983D1E28DB6200DF1717 /* BxInputSectionStringHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919983C1E28DB6200DF1717 /* BxInputSectionStringHeader.swift */; };
+		F91998401E28EFC300DF1717 /* BxInputStandartFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919983E1E28EFC300DF1717 /* BxInputStandartFooter.swift */; };
+		F91998431E28F07C00DF1717 /* BxInputSectionStringFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91998421E28F07C00DF1717 /* BxInputSectionStringFooter.swift */; };
+		F91998441E28F38800DF1717 /* BxInputStandartFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = F919983F1E28EFC300DF1717 /* BxInputStandartFooter.xib */; };
+		F92183DE1E23AB21002E1781 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92183D41E23AB21002E1781 /* AppDelegate.swift */; };
+		F92183DF1E23AB21002E1781 /* CommonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92183D61E23AB21002E1781 /* CommonController.swift */; };
+		F92183EC1E23AFB9002E1781 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92183E61E23AFB9002E1781 /* Assets.xcassets */; };
+		F92183ED1E23AFB9002E1781 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F92183E71E23AFB9002E1781 /* LaunchScreen.storyboard */; };
+		F92183EE1E23AFB9002E1781 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F92183E91E23AFB9002E1781 /* Main.storyboard */; };
+		F92183EF1E23AFB9002E1781 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F92183EB1E23AFB9002E1781 /* Info.plist */; };
+		F92183F61E23C52E002E1781 /* BxInputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92183F51E23C52E002E1781 /* BxInputController.swift */; };
+		F92183F81E23C723002E1781 /* BxInputSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92183F71E23C723002E1781 /* BxInputSection.swift */; };
+		F92183FA1E23C7B3002E1781 /* BxInputRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92183F91E23C7B3002E1781 /* BxInputRow.swift */; };
+		F92183FC1E23C89C002E1781 /* BxInputTextRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92183FB1E23C89C002E1781 /* BxInputTextRow.swift */; };
+		F92184091E23DF0B002E1781 /* BxInputStandartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92184081E23DF0B002E1781 /* BxInputStandartCell.swift */; };
+		F921840B1E23F298002E1781 /* BxInputSwitchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F921840A1E23F298002E1781 /* BxInputSwitchRow.swift */; };
+		F921840D1E23F2B3002E1781 /* BxInputCheckRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F921840C1E23F2B3002E1781 /* BxInputCheckRow.swift */; };
+		F92184101E2405F3002E1781 /* BxInputStandartTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F921840E1E2405F3002E1781 /* BxInputStandartTextCell.swift */; };
+		F92184111E2405F3002E1781 /* BxInputStandartTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F921840F1E2405F3002E1781 /* BxInputStandartTextCell.xib */; };
+		F92184131E241927002E1781 /* BxInputSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92184121E241927002E1781 /* BxInputSettings.swift */; };
+		F928615E1E2A925400B50369 /* BxInputController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F928615D1E2A925400B50369 /* BxInputController+UITableViewDataSource.swift */; };
+		F92861601E2A930900B50369 /* BxInputController+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F928615F1E2A930900B50369 /* BxInputController+UITableViewDelegate.swift */; };
+		F964954A1E261213007154EC /* BxInputActionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96495491E261213007154EC /* BxInputActionRow.swift */; };
+		F9847E6F1E279229007C26EC /* BxInputSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9847E6D1E279229007C26EC /* BxInputSelectorCell.swift */; };
+		F9847E701E279229007C26EC /* BxInputSelectorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9847E6E1E279229007C26EC /* BxInputSelectorCell.xib */; };
+		F9847E741E279815007C26EC /* SelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9847E731E279815007C26EC /* SelectionController.swift */; };
+		F9847E761E279932007C26EC /* BxInputSelectorDateRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9847E751E279932007C26EC /* BxInputSelectorDateRow.swift */; };
+		F9847E781E279B60007C26EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9847E771E279B60007C26EC /* Assets.xcassets */; };
+		F9847E7D1E27CCEB007C26EC /* BxInputSelectorDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9847E7B1E27CCEB007C26EC /* BxInputSelectorDateCell.swift */; };
+		F9847E7E1E27CCEB007C26EC /* BxInputSelectorDateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9847E7C1E27CCEB007C26EC /* BxInputSelectorDateCell.xib */; };
+		F9847E801E280A4B007C26EC /* BxInputSelectorSuggestionsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9847E7F1E280A4B007C26EC /* BxInputSelectorSuggestionsRow.swift */; };
+		F9847E821E280BDD007C26EC /* BxInputStringRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9847E811E280BDD007C26EC /* BxInputStringRow.swift */; };
+		F9847E841E280D51007C26EC /* BxInputSelectorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9847E831E280D51007C26EC /* BxInputSelectorRow.swift */; };
+		F9847E8B1E2822D1007C26EC /* BxInputSelectorSuggestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9847E891E2822D1007C26EC /* BxInputSelectorSuggestionCell.swift */; };
+		F9847E8C1E2822D1007C26EC /* BxInputSelectorSuggestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9847E8A1E2822D1007C26EC /* BxInputSelectorSuggestionCell.xib */; };
+		F9847E8F1E2830DD007C26EC /* BxInputSelectorVariantsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9847E8D1E2830DD007C26EC /* BxInputSelectorVariantsCell.swift */; };
+		F9847E901E2830DD007C26EC /* BxInputSelectorVariantsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9847E8E1E2830DD007C26EC /* BxInputSelectorVariantsCell.xib */; };
+		F9847E921E28315D007C26EC /* BxInputSelectorVariantsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9847E911E28315D007C26EC /* BxInputSelectorVariantsRow.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F902B15C1E25315D00C6C8D9 /* BxInputVariantsRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputVariantsRow.swift; sourceTree = "<group>"; };
+		F902B15E1E2532B000C6C8D9 /* BxInputVariantsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputVariantsItem.swift; sourceTree = "<group>"; };
+		F902B1601E253F3000C6C8D9 /* BxInputController+Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BxInputController+Keyboard.swift"; sourceTree = "<group>"; };
+		F902E4401E24E755000DAF1C /* BxInputDateRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputDateRow.swift; sourceTree = "<group>"; };
+		F902E4431E24EFF9000DAF1C /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		F91998341E28CC2500DF1717 /* BxInputSectionContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSectionContent.swift; sourceTree = "<group>"; };
+		F91998361E28D05000DF1717 /* BxInputStandartHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputStandartHeader.swift; sourceTree = "<group>"; };
+		F91998371E28D05000DF1717 /* BxInputStandartHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BxInputStandartHeader.xib; sourceTree = "<group>"; };
+		F919983A1E28D0E100DF1717 /* BxInputStandartHeaderFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputStandartHeaderFooter.swift; sourceTree = "<group>"; };
+		F919983C1E28DB6200DF1717 /* BxInputSectionStringHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSectionStringHeader.swift; sourceTree = "<group>"; };
+		F919983E1E28EFC300DF1717 /* BxInputStandartFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputStandartFooter.swift; sourceTree = "<group>"; };
+		F919983F1E28EFC300DF1717 /* BxInputStandartFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BxInputStandartFooter.xib; sourceTree = "<group>"; };
+		F91998421E28F07C00DF1717 /* BxInputSectionStringFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSectionStringFooter.swift; sourceTree = "<group>"; };
+		F92183BE1E23AA2D002E1781 /* BxInputController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BxInputController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F92183D41E23AB21002E1781 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F92183D61E23AB21002E1781 /* CommonController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonController.swift; sourceTree = "<group>"; };
+		F92183E61E23AFB9002E1781 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F92183E81E23AFB9002E1781 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F92183EA1E23AFB9002E1781 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F92183EB1E23AFB9002E1781 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F92183F51E23C52E002E1781 /* BxInputController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputController.swift; sourceTree = "<group>"; };
+		F92183F71E23C723002E1781 /* BxInputSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSection.swift; sourceTree = "<group>"; };
+		F92183F91E23C7B3002E1781 /* BxInputRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputRow.swift; sourceTree = "<group>"; };
+		F92183FB1E23C89C002E1781 /* BxInputTextRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputTextRow.swift; sourceTree = "<group>"; };
+		F92184081E23DF0B002E1781 /* BxInputStandartCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputStandartCell.swift; sourceTree = "<group>"; };
+		F921840A1E23F298002E1781 /* BxInputSwitchRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSwitchRow.swift; sourceTree = "<group>"; };
+		F921840C1E23F2B3002E1781 /* BxInputCheckRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputCheckRow.swift; sourceTree = "<group>"; };
+		F921840E1E2405F3002E1781 /* BxInputStandartTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputStandartTextCell.swift; sourceTree = "<group>"; };
+		F921840F1E2405F3002E1781 /* BxInputStandartTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BxInputStandartTextCell.xib; sourceTree = "<group>"; };
+		F92184121E241927002E1781 /* BxInputSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSettings.swift; sourceTree = "<group>"; };
+		F928615D1E2A925400B50369 /* BxInputController+UITableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BxInputController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
+		F928615F1E2A930900B50369 /* BxInputController+UITableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BxInputController+UITableViewDelegate.swift"; sourceTree = "<group>"; };
+		F96495491E261213007154EC /* BxInputActionRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputActionRow.swift; sourceTree = "<group>"; };
+		F9847E6D1E279229007C26EC /* BxInputSelectorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSelectorCell.swift; sourceTree = "<group>"; };
+		F9847E6E1E279229007C26EC /* BxInputSelectorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BxInputSelectorCell.xib; sourceTree = "<group>"; };
+		F9847E731E279815007C26EC /* SelectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionController.swift; sourceTree = "<group>"; };
+		F9847E751E279932007C26EC /* BxInputSelectorDateRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSelectorDateRow.swift; sourceTree = "<group>"; };
+		F9847E771E279B60007C26EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F9847E7B1E27CCEB007C26EC /* BxInputSelectorDateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSelectorDateCell.swift; sourceTree = "<group>"; };
+		F9847E7C1E27CCEB007C26EC /* BxInputSelectorDateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BxInputSelectorDateCell.xib; sourceTree = "<group>"; };
+		F9847E7F1E280A4B007C26EC /* BxInputSelectorSuggestionsRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSelectorSuggestionsRow.swift; sourceTree = "<group>"; };
+		F9847E811E280BDD007C26EC /* BxInputStringRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputStringRow.swift; sourceTree = "<group>"; };
+		F9847E831E280D51007C26EC /* BxInputSelectorRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSelectorRow.swift; sourceTree = "<group>"; };
+		F9847E891E2822D1007C26EC /* BxInputSelectorSuggestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSelectorSuggestionCell.swift; sourceTree = "<group>"; };
+		F9847E8A1E2822D1007C26EC /* BxInputSelectorSuggestionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BxInputSelectorSuggestionCell.xib; sourceTree = "<group>"; };
+		F9847E8D1E2830DD007C26EC /* BxInputSelectorVariantsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSelectorVariantsCell.swift; sourceTree = "<group>"; };
+		F9847E8E1E2830DD007C26EC /* BxInputSelectorVariantsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BxInputSelectorVariantsCell.xib; sourceTree = "<group>"; };
+		F9847E911E28315D007C26EC /* BxInputSelectorVariantsRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSelectorVariantsRow.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F92183BB1E23AA2D002E1781 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F902E4421E24EA14000DAF1C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F902E4431E24EFF9000DAF1C /* Formatter.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F92183B51E23AA2D002E1781 = {
+			isa = PBXGroup;
+			children = (
+				F92183C01E23AA2D002E1781 /* BxInputController */,
+				F92183BF1E23AA2D002E1781 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F92183BF1E23AA2D002E1781 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F92183BE1E23AA2D002E1781 /* BxInputController.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F92183C01E23AA2D002E1781 /* BxInputController */ = {
+			isa = PBXGroup;
+			children = (
+				F92183D31E23AB21002E1781 /* Example */,
+				F92183F01E23C270002E1781 /* Sources */,
+			);
+			path = BxInputController;
+			sourceTree = "<group>";
+		};
+		F92183D31E23AB21002E1781 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				F92183D41E23AB21002E1781 /* AppDelegate.swift */,
+				F92183D51E23AB21002E1781 /* Controllers */,
+				F92183E51E23AFB9002E1781 /* Resources */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		F92183D51E23AB21002E1781 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F92183D61E23AB21002E1781 /* CommonController.swift */,
+				F9847E731E279815007C26EC /* SelectionController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F92183E51E23AFB9002E1781 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F92183E61E23AFB9002E1781 /* Assets.xcassets */,
+				F92183E71E23AFB9002E1781 /* LaunchScreen.storyboard */,
+				F92183E91E23AFB9002E1781 /* Main.storyboard */,
+				F92183EB1E23AFB9002E1781 /* Info.plist */,
+			);
+			name = Resources;
+			path = BxInputController/Example/Resources;
+			sourceTree = SOURCE_ROOT;
+		};
+		F92183F01E23C270002E1781 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				F9847E771E279B60007C26EC /* Assets.xcassets */,
+				F92183F11E23C270002E1781 /* Cells */,
+				F92183F21E23C270002E1781 /* Controller */,
+				F902E4421E24EA14000DAF1C /* Extensions */,
+				F92183F31E23C270002E1781 /* Items */,
+				F92183F41E23C270002E1781 /* Protocols */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		F92183F11E23C270002E1781 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F92184081E23DF0B002E1781 /* BxInputStandartCell.swift */,
+				F921840E1E2405F3002E1781 /* BxInputStandartTextCell.swift */,
+				F921840F1E2405F3002E1781 /* BxInputStandartTextCell.xib */,
+				F9847E6D1E279229007C26EC /* BxInputSelectorCell.swift */,
+				F9847E6E1E279229007C26EC /* BxInputSelectorCell.xib */,
+				F9847E7B1E27CCEB007C26EC /* BxInputSelectorDateCell.swift */,
+				F9847E7C1E27CCEB007C26EC /* BxInputSelectorDateCell.xib */,
+				F9847E891E2822D1007C26EC /* BxInputSelectorSuggestionCell.swift */,
+				F9847E8A1E2822D1007C26EC /* BxInputSelectorSuggestionCell.xib */,
+				F9847E8D1E2830DD007C26EC /* BxInputSelectorVariantsCell.swift */,
+				F9847E8E1E2830DD007C26EC /* BxInputSelectorVariantsCell.xib */,
+				F919983A1E28D0E100DF1717 /* BxInputStandartHeaderFooter.swift */,
+				F91998361E28D05000DF1717 /* BxInputStandartHeader.swift */,
+				F91998371E28D05000DF1717 /* BxInputStandartHeader.xib */,
+				F919983E1E28EFC300DF1717 /* BxInputStandartFooter.swift */,
+				F919983F1E28EFC300DF1717 /* BxInputStandartFooter.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		F92183F21E23C270002E1781 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F92184121E241927002E1781 /* BxInputSettings.swift */,
+				F92183F51E23C52E002E1781 /* BxInputController.swift */,
+				F902B1601E253F3000C6C8D9 /* BxInputController+Keyboard.swift */,
+				F928615D1E2A925400B50369 /* BxInputController+UITableViewDataSource.swift */,
+				F928615F1E2A930900B50369 /* BxInputController+UITableViewDelegate.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F92183F31E23C270002E1781 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				F92183F71E23C723002E1781 /* BxInputSection.swift */,
+				F92183FB1E23C89C002E1781 /* BxInputTextRow.swift */,
+				F921840A1E23F298002E1781 /* BxInputSwitchRow.swift */,
+				F921840C1E23F2B3002E1781 /* BxInputCheckRow.swift */,
+				F902E4401E24E755000DAF1C /* BxInputDateRow.swift */,
+				F902B15C1E25315D00C6C8D9 /* BxInputVariantsRow.swift */,
+				F96495491E261213007154EC /* BxInputActionRow.swift */,
+				F9847E751E279932007C26EC /* BxInputSelectorDateRow.swift */,
+				F9847E7F1E280A4B007C26EC /* BxInputSelectorSuggestionsRow.swift */,
+				F9847E911E28315D007C26EC /* BxInputSelectorVariantsRow.swift */,
+				F919983C1E28DB6200DF1717 /* BxInputSectionStringHeader.swift */,
+				F91998421E28F07C00DF1717 /* BxInputSectionStringFooter.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		F92183F41E23C270002E1781 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F92183F91E23C7B3002E1781 /* BxInputRow.swift */,
+				F9847E811E280BDD007C26EC /* BxInputStringRow.swift */,
+				F902B15E1E2532B000C6C8D9 /* BxInputVariantsItem.swift */,
+				F9847E831E280D51007C26EC /* BxInputSelectorRow.swift */,
+				F91998341E28CC2500DF1717 /* BxInputSectionContent.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F92183BD1E23AA2D002E1781 /* BxInputController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F92183D01E23AA2D002E1781 /* Build configuration list for PBXNativeTarget "BxInputController" */;
+			buildPhases = (
+				F92183BA1E23AA2D002E1781 /* Sources */,
+				F92183BB1E23AA2D002E1781 /* Frameworks */,
+				F92183BC1E23AA2D002E1781 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BxInputController;
+			productName = BxInputController;
+			productReference = F92183BE1E23AA2D002E1781 /* BxInputController.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F92183B61E23AA2D002E1781 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = Byterix;
+				TargetAttributes = {
+					F92183BD1E23AA2D002E1781 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = FDK83T8QNS;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = F92183B91E23AA2D002E1781 /* Build configuration list for PBXProject "BxInputController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F92183B51E23AA2D002E1781;
+			productRefGroup = F92183BF1E23AA2D002E1781 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F92183BD1E23AA2D002E1781 /* BxInputController */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F92183BC1E23AA2D002E1781 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F92183EF1E23AFB9002E1781 /* Info.plist in Resources */,
+				F92184111E2405F3002E1781 /* BxInputStandartTextCell.xib in Resources */,
+				F92183EE1E23AFB9002E1781 /* Main.storyboard in Resources */,
+				F92183ED1E23AFB9002E1781 /* LaunchScreen.storyboard in Resources */,
+				F9847E8C1E2822D1007C26EC /* BxInputSelectorSuggestionCell.xib in Resources */,
+				F9847E901E2830DD007C26EC /* BxInputSelectorVariantsCell.xib in Resources */,
+				F91998391E28D05000DF1717 /* BxInputStandartHeader.xib in Resources */,
+				F91998441E28F38800DF1717 /* BxInputStandartFooter.xib in Resources */,
+				F92183EC1E23AFB9002E1781 /* Assets.xcassets in Resources */,
+				F9847E7E1E27CCEB007C26EC /* BxInputSelectorDateCell.xib in Resources */,
+				F9847E781E279B60007C26EC /* Assets.xcassets in Resources */,
+				F9847E701E279229007C26EC /* BxInputSelectorCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F92183BA1E23AA2D002E1781 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9847E921E28315D007C26EC /* BxInputSelectorVariantsRow.swift in Sources */,
+				F928615E1E2A925400B50369 /* BxInputController+UITableViewDataSource.swift in Sources */,
+				F92183FC1E23C89C002E1781 /* BxInputTextRow.swift in Sources */,
+				F92183F61E23C52E002E1781 /* BxInputController.swift in Sources */,
+				F92183DF1E23AB21002E1781 /* CommonController.swift in Sources */,
+				F92183F81E23C723002E1781 /* BxInputSection.swift in Sources */,
+				F91998431E28F07C00DF1717 /* BxInputSectionStringFooter.swift in Sources */,
+				F92861601E2A930900B50369 /* BxInputController+UITableViewDelegate.swift in Sources */,
+				F964954A1E261213007154EC /* BxInputActionRow.swift in Sources */,
+				F902E4411E24E755000DAF1C /* BxInputDateRow.swift in Sources */,
+				F9847E8B1E2822D1007C26EC /* BxInputSelectorSuggestionCell.swift in Sources */,
+				F902B15F1E2532B000C6C8D9 /* BxInputVariantsItem.swift in Sources */,
+				F91998401E28EFC300DF1717 /* BxInputStandartFooter.swift in Sources */,
+				F92184101E2405F3002E1781 /* BxInputStandartTextCell.swift in Sources */,
+				F92184131E241927002E1781 /* BxInputSettings.swift in Sources */,
+				F92183FA1E23C7B3002E1781 /* BxInputRow.swift in Sources */,
+				F921840D1E23F2B3002E1781 /* BxInputCheckRow.swift in Sources */,
+				F902B1611E253F3000C6C8D9 /* BxInputController+Keyboard.swift in Sources */,
+				F91998381E28D05000DF1717 /* BxInputStandartHeader.swift in Sources */,
+				F9847E801E280A4B007C26EC /* BxInputSelectorSuggestionsRow.swift in Sources */,
+				F9847E7D1E27CCEB007C26EC /* BxInputSelectorDateCell.swift in Sources */,
+				F919983D1E28DB6200DF1717 /* BxInputSectionStringHeader.swift in Sources */,
+				F9847E841E280D51007C26EC /* BxInputSelectorRow.swift in Sources */,
+				F9847E821E280BDD007C26EC /* BxInputStringRow.swift in Sources */,
+				F9847E761E279932007C26EC /* BxInputSelectorDateRow.swift in Sources */,
+				F902B15D1E25315D00C6C8D9 /* BxInputVariantsRow.swift in Sources */,
+				F91998351E28CC2500DF1717 /* BxInputSectionContent.swift in Sources */,
+				F9847E741E279815007C26EC /* SelectionController.swift in Sources */,
+				F9847E8F1E2830DD007C26EC /* BxInputSelectorVariantsCell.swift in Sources */,
+				F902E4441E24EFF9000DAF1C /* Formatter.swift in Sources */,
+				F921840B1E23F298002E1781 /* BxInputSwitchRow.swift in Sources */,
+				F92184091E23DF0B002E1781 /* BxInputStandartCell.swift in Sources */,
+				F92183DE1E23AB21002E1781 /* AppDelegate.swift in Sources */,
+				F9847E6F1E279229007C26EC /* BxInputSelectorCell.swift in Sources */,
+				F919983B1E28D0E100DF1717 /* BxInputStandartHeaderFooter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F92183E71E23AFB9002E1781 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F92183E81E23AFB9002E1781 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F92183E91E23AFB9002E1781 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F92183EA1E23AFB9002E1781 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F92183CE1E23AA2D002E1781 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F92183CF1E23AA2D002E1781 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F92183D11E23AA2D002E1781 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FDK83T8QNS;
+				INFOPLIST_FILE = BxInputController/Example/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.byterix.BxInputController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		F92183D21E23AA2D002E1781 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FDK83T8QNS;
+				INFOPLIST_FILE = BxInputController/Example/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.byterix.BxInputController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F92183B91E23AA2D002E1781 /* Build configuration list for PBXProject "BxInputController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F92183CE1E23AA2D002E1781 /* Debug */,
+				F92183CF1E23AA2D002E1781 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F92183D01E23AA2D002E1781 /* Build configuration list for PBXNativeTarget "BxInputController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F92183D11E23AA2D002E1781 /* Debug */,
+				F92183D21E23AA2D002E1781 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F92183B61E23AA2D002E1781 /* Project object */;
+}
