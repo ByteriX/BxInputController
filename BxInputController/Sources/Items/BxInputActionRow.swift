@@ -24,7 +24,7 @@ open class BxInputActionRow: BxInputStringRow
     open var value: String? = nil
     open var data: Any? = nil
     open var handler: ((_ actionRow: BxInputActionRow) -> Void)? = nil
-    open var isAutomaticDeselect: Bool = true
+    open var isImmediatelyDeselect: Bool = false
     
     public init(title: String? = nil, placeholder: String? = nil, value: String? = nil) {
         self.title = title

@@ -37,7 +37,7 @@ extension BxInputController : UITableViewDelegate
         
         var isDeselect = true
         if let actionRow = row as? BxInputActionRow {
-            isDeselect = actionRow.isAutomaticDeselect
+            isDeselect = actionRow.isImmediatelyDeselect
         }
         if isDeselect {
             tableView.deselectRow(at: indexPath, animated: true)
@@ -52,7 +52,8 @@ extension BxInputController : UITableViewDelegate
     {
         let sectionData = sections[section]
         guard let headerData = sectionData.header else {
-            return nil
+            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: type(of: self).emptyHeaderFooterId) as! BxInputStandartEmptyHeaderFooter
+            return view
         }
         
         if let headerData = headerData as? BxInputSectionViewContent {
@@ -73,7 +74,8 @@ extension BxInputController : UITableViewDelegate
     {
         let sectionData = sections[section]
         guard let footerData = sectionData.footer else {
-            return nil
+            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: type(of: self).emptyHeaderFooterId) as! BxInputStandartEmptyHeaderFooter
+            return view
         }
         
         if let footerData = footerData as? BxInputSectionViewContent {
@@ -89,5 +91,42 @@ extension BxInputController : UITableViewDelegate
         
         return nil
     }
+    
+    open func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat
+    {
+        let sectionData = sections[section]
+        guard let _ = sectionData.header else {
+            return 10
+        }
+        return 36
+    }
+    
+    open func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat
+    {
+        let sectionData = sections[section]
+        guard let _ = sectionData.footer else {
+            return 10
+        }
+        return 36
+    }
+//
+//    open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
+//    {
+//        let sectionData = sections[section]
+//        guard let _ = sectionData.header else {
+//            return CGFloat.leastNonzeroMagnitude
+//        }
+//        return UITableViewAutomaticDimension
+//    }
+//    
+//    open func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
+//    {
+//        
+//        let sectionData = sections[section]
+//        guard let _ = sectionData.footer else {
+//            return CGFloat.leastNonzeroMagnitude
+//        }
+//        return UITableViewAutomaticDimension
+//    }
 
 }

@@ -32,20 +32,23 @@ open class BxInputController : UIViewController
         }
     }
     
+    public static var emptyHeaderFooterId = "BxInputStandartEmptyHeaderFooter"
+    
     override open func viewDidLoad() {
         super.viewDidLoad()
+        
+        checkResources(sectionResourceId: type(of: self).emptyHeaderFooterId)
         
         datePicker.datePickerMode = .date
         variantsPicker.showsSelectionIndicator = true
         
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.size.width, height: CGFloat.leastNonzeroMagnitude))
         tableView.tableFooterView = UIView()
         self.view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
         
         tableView.estimatedRowHeight = 60
-        tableView.estimatedSectionHeaderHeight = 40
-        tableView.estimatedSectionFooterHeight = 40
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.sectionHeaderHeight = UITableViewAutomaticDimension
         tableView.sectionFooterHeight = UITableViewAutomaticDimension
@@ -102,16 +105,21 @@ open class BxInputController : UIViewController
         }
     }
     
+    public func checkResources(sectionResourceId: String)
+    {
+        if !addedResources.contains(sectionResourceId) {
+            addedResources.add(sectionResourceId)
+            tableView.register(getNib(resourceId: sectionResourceId),
+                               forHeaderFooterViewReuseIdentifier: sectionResourceId)
+        }
+    }
+    
     public func checkResources(sectionContent: BxInputSectionContent?)
     {
         guard let content = sectionContent as? BxInputSectionNibContent else {
             return
         }
-        if !addedResources.contains(content.resourceId) {
-            addedResources.add(content.resourceId)
-            tableView.register(getNib(resourceId: content.resourceId),
-                               forHeaderFooterViewReuseIdentifier: content.resourceId)
-        }
+        checkResources(sectionResourceId: content.resourceId)
     }
     
     public func refreshResources()

@@ -53,7 +53,6 @@ class CommonController: BxInputController {
         passwordValue.isSecureTextEntry = true
         disabledValue.isEnabled = false
         
-        deselectedActionAlert.isAutomaticDeselect = false
         deselectedActionAlert.handler = {[weak self] (actionRow) -> Void in
             guard let this = self else {
                 return
@@ -67,6 +66,7 @@ class CommonController: BxInputController {
             this.present(alert, animated: true, completion: nil)
             actionRow.value = "changed"
         }
+        actionAlert.isImmediatelyDeselect = true
         actionAlert.handler = {[weak self] (actionRow) -> Void in
             guard let this = self else {
                 return
@@ -79,7 +79,6 @@ class CommonController: BxInputController {
             actionRow.value = "alert showed"
             this.reloadRow(actionRow)
         }
-        pushAlert.isAutomaticDeselect = false
         pushAlert.handler = {[weak self] (actionRow) -> Void in
             guard let this = self else {
                 return
@@ -87,17 +86,17 @@ class CommonController: BxInputController {
             this.performSegue(withIdentifier: "push", sender: nil)
         }
         disabledAction.isEnabled = false
-        insertSectionAction.isAutomaticDeselect = true
+        insertSectionAction.isImmediatelyDeselect = true
         insertSectionAction.handler = {[weak self] (actionRow) -> Void in
             guard let this = self else {
                 return
             }
-            this.addSection(BxInputSection(rows: [BxInputTextRow(title: "just value"), BxInputTextRow(title: "yet value")]))
+            this.addSection(BxInputSection(headerText: " ", rows: [BxInputTextRow(title: "just value"), BxInputTextRow(title: "yet value")]))
         }
         
         self.sections = [
             BxInputSection(rows: [nameValue, emailValue, passwordValue, disabledValue]),
-            BxInputSection(rows: [filledDate, emptyDate, lastDate]),
+            BxInputSection(headerText: "", rows: [filledDate, emptyDate, lastDate]),
             BxInputSection(rows: [emptyVariants, filledVariants, otherVariantsRow]),
             BxInputSection(rows: [deselectedActionAlert, actionAlert, pushAlert, disabledAction, insertSectionAction])
         ]

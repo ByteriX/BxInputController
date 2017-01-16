@@ -6,6 +6,14 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 0.9.9 (16.01.2017)
+##### Bug fixing
+* definition a placeholder color from the settings
+* fix autodissmiss from action
+* change logic of isImmediatelyDeselect for action type
+* fix table header height
+* fix header & footer heght for empty section
+
 ## 0.9.8 (16.01.2017)
 ##### Bug fixing
 * fix appear keyboard from all selectors
