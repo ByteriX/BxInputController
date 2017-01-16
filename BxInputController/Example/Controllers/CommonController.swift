@@ -8,6 +8,19 @@
 
 import UIKit
 
+class ActionItem: BxInputActionItem {
+    
+    var name: String
+    
+    init (name: String) {
+        self.name = name
+    }
+    
+    var stringValue : String? {
+        return name
+    }
+}
+
 class CommonController: BxInputController {
     
     private var nameValue = BxInputTextRow(title: "name value")
@@ -34,11 +47,11 @@ class CommonController: BxInputController {
     private var filledVariants = BxInputVariantsRow(title: "filled variant")
     private var otherVariantsRow = BxInputVariantsRow(title: "other variant")
     
-    private var deselectedActionAlert = BxInputActionRow(title: "deselected alert", value: "Value is selected")
-    private var actionAlert = BxInputActionRow(title: "action push", value: "Value is selected")
-    private var pushAlert = BxInputActionRow(title: "action push", placeholder: "Please select")
-    private var disabledAction = BxInputActionRow(title: "disabled action", placeholder: "Not touchable")
-    private var insertSectionAction = BxInputActionRow(title: "insert action")
+    private var deselectedActionAlert = BxInputActionStringRow(title: "deselected alert", value: "Value is selected")
+    private var actionAlert = BxInputActionCustomRow<ActionItem>(title: "action push", value: ActionItem(name: "Value is selected"))
+    private var pushAlert = BxInputActionCustomRow<ActionItem>(title: "action push", placeholder: "Please select")
+    private var disabledAction = BxInputActionCustomRow<ActionItem>(title: "disabled action", placeholder: "Not touchable")
+    private var insertSectionAction = BxInputActionCustomRow<ActionItem>(title: "insert action")
     
 
     override func viewDidLoad() {
@@ -53,7 +66,7 @@ class CommonController: BxInputController {
         passwordValue.isSecureTextEntry = true
         disabledValue.isEnabled = false
         
-        deselectedActionAlert.handler = {[weak self] (actionRow) -> Void in
+        deselectedActionAlert.handler = {[weak self, weak deselectedActionAlert] (actionRow) -> Void in
             guard let this = self else {
                 return
             }
@@ -64,10 +77,10 @@ class CommonController: BxInputController {
                 this?.updateRow(actionRow)
             }))
             this.present(alert, animated: true, completion: nil)
-            actionRow.value = "changed"
+            deselectedActionAlert?.value = "changed"
         }
         actionAlert.isImmediatelyDeselect = true
-        actionAlert.handler = {[weak self] (actionRow) -> Void in
+        actionAlert.handler = {[weak self, weak actionAlert] (actionRow) -> Void in
             guard let this = self else {
                 return
             }
@@ -76,7 +89,7 @@ class CommonController: BxInputController {
                 alert.dismiss(animated: true, completion: nil)
             }))
             this.present(alert, animated: true, completion: nil)
-            actionRow.value = "alert showed"
+            actionAlert?.value = ActionItem(name: "alert showed")
             this.reloadRow(actionRow)
         }
         pushAlert.handler = {[weak self] (actionRow) -> Void in

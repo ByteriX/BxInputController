@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 0.9.10 (16.01.2017)
+##### Improvements
+* abstraction BxInputActionRow for generic supporting
+
 ## 0.9.9 (16.01.2017)
 ##### Bug fixing
 * definition a placeholder color from the settings

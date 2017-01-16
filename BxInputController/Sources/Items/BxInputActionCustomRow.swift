@@ -1,5 +1,5 @@
 //
-//  BxInputActionRow.swift
+//  BxInputActionCustomRow.swift
 //  BxInputController
 //
 //  Created by Sergey Balalaev on 11/01/17.
@@ -8,7 +8,8 @@
 
 import Foundation
 
-open class BxInputActionRow: BxInputStringRow
+
+open class BxInputActionCustomRow<T : BxInputActionItem>: BxInputActionRow
 {
     open var resourceId = "BxInputStandartTextCell"
     
@@ -17,18 +18,27 @@ open class BxInputActionRow: BxInputStringRow
     open var isEnabled : Bool = true
     open var stringValue : String? {
         get {
-            return value
+            return value?.stringValue
         }
     }
     
-    open var value: String? = nil
-    open var data: Any? = nil
+    open var value: T? = nil
     open var handler: ((_ actionRow: BxInputActionRow) -> Void)? = nil
     open var isImmediatelyDeselect: Bool = false
     
-    public init(title: String? = nil, placeholder: String? = nil, value: String? = nil) {
+    public init(title: String? = nil, placeholder: String? = nil, value: T? = nil) {
         self.title = title
         self.placeholder = placeholder
         self.value = value
     }
 }
+
+extension String : BxInputActionItem {
+    public var stringValue : String? {
+        get {
+            return self
+        }
+    }
+}
+
+typealias BxInputActionStringRow = BxInputActionCustomRow<String>

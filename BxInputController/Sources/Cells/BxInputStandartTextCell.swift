@@ -54,7 +54,7 @@ open class BxInputStandartTextCell: BxInputStandartCell {
         
         if let actionRow = data as? BxInputActionRow {
             valueTextField.isEnabled = false
-            valueTextField.text = actionRow.value // may be all values rewrite to stringValue
+            valueTextField.text = actionRow.stringValue // may be all values rewrite to stringValue
             self.accessoryType = .disclosureIndicator
             self.selectionStyle = .default
         } else {
