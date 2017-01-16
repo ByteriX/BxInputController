@@ -22,6 +22,7 @@ open class BxInputStandartCell: UITableViewCell {
     open func update(data: BxInputRow)
     {
         self.data = data
+        self.isEnabled = data.isEnabled
     }
     
     open func didSelected()
