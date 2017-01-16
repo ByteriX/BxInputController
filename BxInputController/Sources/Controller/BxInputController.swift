@@ -117,11 +117,11 @@ open class BxInputController : UIViewController
     public func refreshResources()
     {
         for section in sections {
-            refreshSectionResources(section: section)
+            refreshResources(section: section)
         }
     }
     
-    public func refreshSectionResources(section: BxInputSection)
+    public func refreshResources(section: BxInputSection)
     {
         for row in section.rows {
             checkResources(row: row)
@@ -232,6 +232,26 @@ open class BxInputController : UIViewController
             tableView.insertRows(at: indexes, with: animation)
             tableView.endUpdates()
         }
+    }
+    
+    // if after is nil then section will be inserted to end of the table
+    open func addSection(_ section: BxInputSection, after index: Int? = nil, with animation: UITableViewRowAnimation = .bottom) {
+        var insertIndex = sections.count
+        if let index = index {
+            insertIndex = index
+        }
+        refreshResources(section: section)
+        tableView.beginUpdates()
+        sections.insert(section, at: insertIndex)
+        tableView.insertSections(IndexSet(integer: insertIndex), with: animation)
+//        var indexes: [IndexPath] = []
+//        var index = 0
+//        for _ in section.rows {
+//            indexes.append(IndexPath(row: index, section: insertIndex))
+//            index = index + 1
+//        }
+//        tableView.insertRows(at: indexes, with: animation)
+        tableView.endUpdates()
     }
     
     open func updateRow(_ row: BxInputRow, with animation: UITableViewRowAnimation = .fade) {

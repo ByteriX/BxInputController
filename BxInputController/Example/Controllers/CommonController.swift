@@ -38,6 +38,7 @@ class CommonController: BxInputController {
     private var actionAlert = BxInputActionRow(title: "action push", value: "Value is selected")
     private var pushAlert = BxInputActionRow(title: "action push", placeholder: "Please select")
     private var disabledAction = BxInputActionRow(title: "disabled action", placeholder: "Not touchable")
+    private var insertSectionAction = BxInputActionRow(title: "insert action")
     
 
     override func viewDidLoad() {
@@ -86,12 +87,19 @@ class CommonController: BxInputController {
             this.performSegue(withIdentifier: "push", sender: nil)
         }
         disabledAction.isEnabled = false
+        insertSectionAction.isAutomaticDeselect = true
+        insertSectionAction.handler = {[weak self] (actionRow) -> Void in
+            guard let this = self else {
+                return
+            }
+            this.addSection(BxInputSection(rows: [BxInputTextRow(title: "just value"), BxInputTextRow(title: "yet value")]))
+        }
         
         self.sections = [
             BxInputSection(rows: [nameValue, emailValue, passwordValue, disabledValue]),
             BxInputSection(rows: [filledDate, emptyDate, lastDate]),
             BxInputSection(rows: [emptyVariants, filledVariants, otherVariantsRow]),
-            BxInputSection(rows: [deselectedActionAlert, actionAlert, pushAlert, disabledAction])
+            BxInputSection(rows: [deselectedActionAlert, actionAlert, pushAlert, disabledAction, insertSectionAction])
         ]
     }
 
