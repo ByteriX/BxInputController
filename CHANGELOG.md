@@ -6,6 +6,13 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 0.9.8 (16.01.2017)
+##### Bug fixing
+* fix appear keyboard from all selectors
+* fix highlighting cells for disabled mode
+* correct updating for a setting up enable mode
+* inserting sections
+
 ## 0.9.7 (16.01.2017)
 ##### Improvements
 * support isEnabled with logic & visual effects
