@@ -74,7 +74,7 @@ open class BxInputSelectorCell: BxInputStandartCell {
     override open func didSetEnabled(_ value: Bool)
     {
         super.didSetEnabled(value)
-        valueTextField.isEnabled = value
+        //valueTextField.isEnabled = value this is disabled everytime
         valueTextField.alpha = value ? 1 : 0.5
         titleLabel.alpha = value ? 1 : 0.5
         arrowImage.alpha = value ? 1 : 0.5
