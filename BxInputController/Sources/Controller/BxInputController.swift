@@ -86,7 +86,7 @@ open class BxInputController : UIViewController
     public func getNib(resourceId: String) -> UINib
     {
         var bundle: Bundle? = nil
-        if let _ = currentBundle.path(forResource: resourceId, ofType: "xib") {
+        if let _ = currentBundle.path(forResource: resourceId, ofType: "nib") {
             bundle = currentBundle
         }
         return UINib(nibName: resourceId, bundle: bundle)
