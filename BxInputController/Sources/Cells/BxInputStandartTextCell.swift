@@ -26,17 +26,16 @@ open class BxInputStandartTextCell: BxInputStandartCell {
     override open func didSelected()
     {
         super.didSelected()
-        if data?.isEnabled ?? true {
-            if let actionRow = data as? BxInputActionRow
-            {
-                if let handler = actionRow.handler {
-                    handler(actionRow)
-                }
-            } else {
-                valueTextField.becomeFirstResponder()
+        
+        if let actionRow = data as? BxInputActionRow
+        {
+            if let handler = actionRow.handler {
+                handler(actionRow)
             }
-            
+        } else {
+            valueTextField.becomeFirstResponder()
         }
+        
     }
     
     override open func update(data: BxInputRow)
@@ -83,6 +82,14 @@ open class BxInputStandartTextCell: BxInputStandartCell {
         valueTextField.placeholder = data.placeholder
     }
     
+    override open func didSetEnabled(_ value: Bool)
+    {
+        super.didSetEnabled(value)
+        valueTextField.isEnabled = value
+        valueTextField.alpha = value ? 1 : 0.5
+        titleLabel.alpha = value ? 1 : 0.5
+    }
+    
     override open func resignFirstResponder() -> Bool {
         return valueTextField.resignFirstResponder()
     }
@@ -114,6 +121,9 @@ extension BxInputStandartTextCell: UITextFieldDelegate {
     
     open func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool
     {
+        if !isEnabled {
+            return false
+        }
         if let dateRow = data as? BxInputDateRow,
             let datePicker = parent?.datePicker
         {
@@ -144,10 +154,10 @@ extension BxInputStandartTextCell: UITextFieldDelegate {
             self.pickerView(variantsPicker, didSelectRow: index, inComponent: 0)
             valueTextField.inputView = variantsPicker
         }
-        if parent?.settings.isAutodissmissSelector ?? false {
-            parent?.dissmissSelectors()
+        if let parent = parent, parent.settings.isAutodissmissSelector {
+            parent.dissmissSelectors()
+            parent.activeControl = textField
         }
-        parent?.activeControl = textField
         return true
     }
     

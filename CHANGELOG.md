@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 0.9.7 (16.01.2017)
+##### Improvements
+* support isEnabled with logic & visual effects
+
 ## 0.9.6.1 (15.01.2017)
 ##### Bug fixing
 * supporting itself bundle resources

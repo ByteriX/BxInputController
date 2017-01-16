@@ -12,6 +12,12 @@ open class BxInputStandartCell: UITableViewCell {
     
     public weak var parent: BxInputController? = nil
     public var data: BxInputRow? = nil
+    public var isEnabled: Bool = true
+    {
+        didSet {
+            didSetEnabled(isEnabled)
+        }
+    }
 
     open func update(data: BxInputRow)
     {
@@ -19,6 +25,11 @@ open class BxInputStandartCell: UITableViewCell {
     }
     
     open func didSelected()
+    {
+        //
+    }
+    
+    open func didSetEnabled(_ value: Bool)
     {
         //
     }

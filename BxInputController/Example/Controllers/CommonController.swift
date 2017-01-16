@@ -13,6 +13,7 @@ class CommonController: BxInputController {
     private var nameValue = BxInputTextRow(title: "name value")
     private var emailValue = BxInputTextRow(title: "email value", value: "")
     private var passwordValue = BxInputTextRow(title: "password value", placeholder: "last")
+    private var disabledValue = BxInputTextRow(title: "disabled value", placeholder: "didn't selected")
     
     private var filledDate = BxInputDateRow(title: "filled date", value: Date().addingTimeInterval(300000))
     private var emptyDate = BxInputDateRow(title: "empty value")
@@ -48,6 +49,7 @@ class CommonController: BxInputController {
         
         emailValue.keyboardType = .emailAddress
         passwordValue.isSecureTextEntry = true
+        disabledValue.isEnabled = false
         
         deselectedActionAlert.isAutomaticDeselect = false
         deselectedActionAlert.handler = {[weak self] (actionRow) -> Void in
@@ -84,7 +86,7 @@ class CommonController: BxInputController {
         }
         
         self.sections = [
-            BxInputSection(rows: [nameValue, emailValue, passwordValue]),
+            BxInputSection(rows: [nameValue, emailValue, passwordValue, disabledValue]),
             BxInputSection(rows: [filledDate, emptyDate, lastDate]),
             BxInputSection(rows: [emptyVariants, filledVariants, otherVariantsRow]),
             BxInputSection(rows: [deselectedActionAlert, actionAlert, pushAlert])

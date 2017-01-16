@@ -25,27 +25,25 @@ open class BxInputSelectorCell: BxInputStandartCell {
         guard let data = self.data as? BxInputSelectorRow else {
             return
         }
-        if data.isEnabled {
-            data.isOpened = !data.isOpened
-            refreshOpened(animated: true)
+        data.isOpened = !data.isOpened
+        refreshOpened(animated: true)
+        
+        if data.isOpened {
+            parent?.addRows(data.children, after: data)
             
-            if data.isOpened {
-                parent?.addRows(data.children, after: data)
-                
-                if parent?.settings.isAutodissmissSelector ?? false {
-                    parent?.dissmissAllRows(exclude: data)
-                }
-                
-                if data.children.count > 1 {
-                    parent?.scrollRow(data, at: .top, animated: true)
-                } else if let firstItem = data.children.first {
-                    parent?.scrollRow(firstItem, at: .middle, animated: true)
-                } else {
-                    parent?.scrollRow(data, at: .middle, animated: true)
-                }
-            } else {
-                parent?.deleteRows(data.children)
+            if parent?.settings.isAutodissmissSelector ?? false {
+                parent?.dissmissAllRows(exclude: data)
             }
+            
+            if data.children.count > 1 {
+                parent?.scrollRow(data, at: .top, animated: true)
+            } else if let firstItem = data.children.first {
+                parent?.scrollRow(firstItem, at: .middle, animated: true)
+            } else {
+                parent?.scrollRow(data, at: .middle, animated: true)
+            }
+        } else {
+            parent?.deleteRows(data.children)
         }
     }
     
@@ -71,6 +69,15 @@ open class BxInputSelectorCell: BxInputStandartCell {
         }
         valueTextField.placeholder = data.placeholder
         refreshOpened(animated: false)
+    }
+    
+    override open func didSetEnabled(_ value: Bool)
+    {
+        super.didSetEnabled(value)
+        valueTextField.isEnabled = value
+        valueTextField.alpha = value ? 1 : 0.5
+        titleLabel.alpha = value ? 1 : 0.5
+        arrowImage.alpha = value ? 1 : 0.5
     }
     
     open func refreshOpened(animated: Bool) {

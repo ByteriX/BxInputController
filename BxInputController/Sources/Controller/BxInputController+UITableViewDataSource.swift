@@ -26,6 +26,7 @@ extension BxInputController : UITableViewDataSource
         let row = getRow(for: indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier: row.resourceId, for: indexPath) as! BxInputStandartCell
         cell.parent = self
+        cell.isEnabled = row.isEnabled
         cell.update(data: row)
         return cell
     }
