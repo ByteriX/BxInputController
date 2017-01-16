@@ -23,7 +23,7 @@ open class BxInputSettings
     
     public var titleColor: UIColor = UIColor.black
     public var valueColor: UIColor = UIColor.black
-    public var placeholderColor: UIColor = UIColor.lightGray
+    public var placeholderColor: UIColor? = nil
     
     public var titleFont: UIFont = UIFont.boldSystemFont(ofSize:  15)
     public var valueFont: UIFont = UIFont.systemFont(ofSize:  15)

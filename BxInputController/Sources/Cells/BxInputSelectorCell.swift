@@ -67,7 +67,13 @@ open class BxInputSelectorCell: BxInputStandartCell {
         } else if let row = data as? BxInputStringRow {
             valueTextField.text = row.stringValue
         }
-        valueTextField.placeholder = data.placeholder
+        if let placeholder = data.placeholder,
+            let placeholderColor = parent?.settings.placeholderColor
+        {
+            valueTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSForegroundColorAttributeName : placeholderColor])
+        } else {
+            valueTextField.placeholder = data.placeholder
+        }
         refreshOpened(animated: false)
     }
     

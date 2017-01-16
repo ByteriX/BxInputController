@@ -79,7 +79,14 @@ open class BxInputStandartTextCell: BxInputStandartCell {
                 valueTextField.text = ""
             }
         }
-        valueTextField.placeholder = data.placeholder
+        if let placeholder = data.placeholder,
+            let placeholderColor = parent?.settings.placeholderColor
+        {
+            valueTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSForegroundColorAttributeName : placeholderColor])
+        } else {
+            valueTextField.placeholder = data.placeholder
+        }
+        
     }
     
     override open func didSetEnabled(_ value: Bool)
