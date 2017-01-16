@@ -31,8 +31,8 @@ open class BxInputSelectorCell: BxInputStandartCell {
         if data.isOpened {
             parent?.addRows(data.children, after: data)
             
-            if parent?.settings.isAutodissmissSelector ?? false {
-                parent?.dissmissAllRows(exclude: data)
+            if let parent = parent, parent.settings.isAutodissmissSelector {
+                parent.dissmissAllRows(exclude: data)
             }
             
             if data.children.count > 1 {

@@ -29,6 +29,9 @@ open class BxInputStandartTextCell: BxInputStandartCell {
         
         if let actionRow = data as? BxInputActionRow
         {
+            if let parent = parent, parent.settings.isAutodissmissSelector {
+                parent.dissmissAllRows()
+            }
             if let handler = actionRow.handler {
                 handler(actionRow)
             }
@@ -163,8 +166,8 @@ extension BxInputStandartTextCell: UITextFieldDelegate {
         }
         if let parent = parent, parent.settings.isAutodissmissSelector {
             parent.dissmissSelectors()
-            parent.activeControl = textField
         }
+        parent?.activeControl = textField
         return true
     }
     
