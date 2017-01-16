@@ -11,6 +11,22 @@ import UIKit
 
 extension BxInputController : UITableViewDelegate
 {
+    
+    open func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool
+    {
+        let row = getRow(for: indexPath)
+        return row.isEnabled
+    }
+    
+    open func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
+    {
+        let row = getRow(for: indexPath)
+        if row.isEnabled {
+            return indexPath
+        } else {
+            return nil
+        }
+    }
 
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let row = getRow(for: indexPath)
