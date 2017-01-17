@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import BxObjC
 
 open class BxInputController : UIViewController
 {
@@ -57,6 +58,8 @@ open class BxInputController : UIViewController
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         contentRect = self.view.bounds
+        updateInsets()
+        tableView.setContentOffset( CGPoint(x: 0, y: -1 * tableView.contentInset.top), animated: false)
         registerKeyboardNotification()
         if clearsSelectionOnViewWillAppear,
             let indexPath = tableView.indexPathForSelectedRow
@@ -82,7 +85,9 @@ open class BxInputController : UIViewController
         if height > bottom {
             bottom = height
         }
-        tableView.contentInset = UIEdgeInsetsMake(topLayoutGuide.length, 0, bottom, 0)
+        let extendedEdgesBounds = self.extendedEdgesBounds()
+        let top = extendedEdgesBounds.origin.y - contentRect.origin.y
+        tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0)
         tableView.scrollIndicatorInsets = tableView.contentInset
     }
     

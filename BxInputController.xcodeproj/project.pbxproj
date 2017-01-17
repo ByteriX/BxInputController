@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B0240F32D7035DFA339DE59 /* Pods_BxInputController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDE3CA360A31AF4DA9BAFDDB /* Pods_BxInputController.framework */; };
 		F902B15D1E25315D00C6C8D9 /* BxInputVariantsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902B15C1E25315D00C6C8D9 /* BxInputVariantsRow.swift */; };
 		F902B15F1E2532B000C6C8D9 /* BxInputVariantsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902B15E1E2532B000C6C8D9 /* BxInputVariantsItem.swift */; };
 		F902B1611E253F3000C6C8D9 /* BxInputController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902B1601E253F3000C6C8D9 /* BxInputController+Keyboard.swift */; };
@@ -66,6 +67,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		426287E844423C4C137BCD01 /* Pods-BxInputController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BxInputController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BxInputController/Pods-BxInputController.debug.xcconfig"; sourceTree = "<group>"; };
+		A529CAF1FC63502159F31EBF /* Pods-BxInputController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BxInputController.release.xcconfig"; path = "Pods/Target Support Files/Pods-BxInputController/Pods-BxInputController.release.xcconfig"; sourceTree = "<group>"; };
+		EDE3CA360A31AF4DA9BAFDDB /* Pods_BxInputController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BxInputController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F902B15C1E25315D00C6C8D9 /* BxInputVariantsRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputVariantsRow.swift; sourceTree = "<group>"; };
 		F902B15E1E2532B000C6C8D9 /* BxInputVariantsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputVariantsItem.swift; sourceTree = "<group>"; };
 		F902B1601E253F3000C6C8D9 /* BxInputController+Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BxInputController+Keyboard.swift"; sourceTree = "<group>"; };
@@ -130,12 +134,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B0240F32D7035DFA339DE59 /* Pods_BxInputController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18C735A61EBFE45B04B197BF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				426287E844423C4C137BCD01 /* Pods-BxInputController.debug.xcconfig */,
+				A529CAF1FC63502159F31EBF /* Pods-BxInputController.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		772335DE5CE2619C0740BFA7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EDE3CA360A31AF4DA9BAFDDB /* Pods_BxInputController.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F902E4421E24EA14000DAF1C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +176,8 @@
 				F92861691E2A9D8E00B50369 /* CHANGELOG.md */,
 				F92183C01E23AA2D002E1781 /* BxInputController */,
 				F92183BF1E23AA2D002E1781 /* Products */,
+				18C735A61EBFE45B04B197BF /* Pods */,
+				772335DE5CE2619C0740BFA7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -295,9 +319,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F92183D01E23AA2D002E1781 /* Build configuration list for PBXNativeTarget "BxInputController" */;
 			buildPhases = (
+				DF58BA2CADF6F9D41CD58920 /* [CP] Check Pods Manifest.lock */,
 				F92183BA1E23AA2D002E1781 /* Sources */,
 				F92183BB1E23AA2D002E1781 /* Frameworks */,
 				F92183BC1E23AA2D002E1781 /* Resources */,
+				CBB2B0348D204C962169760F /* [CP] Embed Pods Frameworks */,
+				0993AA811CF215586546F6BE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -368,6 +395,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0993AA811CF215586546F6BE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BxInputController/Pods-BxInputController-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CBB2B0348D204C962169760F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BxInputController/Pods-BxInputController-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF58BA2CADF6F9D41CD58920 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F92183BA1E23AA2D002E1781 /* Sources */ = {
@@ -532,6 +607,7 @@
 		};
 		F92183D11E23AA2D002E1781 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 426287E844423C4C137BCD01 /* Pods-BxInputController.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = FDK83T8QNS;
@@ -545,6 +621,7 @@
 		};
 		F92183D21E23AA2D002E1781 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A529CAF1FC63502159F31EBF /* Pods-BxInputController.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = FDK83T8QNS;

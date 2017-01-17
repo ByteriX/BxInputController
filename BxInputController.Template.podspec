@@ -54,38 +54,21 @@ Pod::Spec.new do |s|
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-s.platform     = :ios, "8.0"
+    s.platform     = :ios, "8.0"
 
 #s.ios.deployment_target = "5.0"
 #s.osx.deployment_target = "10.7"
-  # s.watchos.deployment_target = "2.0"
-  # s.tvos.deployment_target = "9.0"
+# s.watchos.deployment_target = "2.0"
+# s.tvos.deployment_target = "9.0"
 
-
-  # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Specify the location from where the source should be retrieved.
-  #  Supports git, hg, bzr, svn and HTTP.
-  #
-
-s.source       = { :git => "https://github.com/ByteriX/BxInputController.git", :tag => s.version }
-
-
-  # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  CocoaPods is smart about how it includes source code. For source files
-  #  giving a folder will include any swift, h, m, mm, c & cpp files.
-  #  For header files it will include any header in the folder.
-  #  Not including the public_header_files will make all headers public.
-  #
-
-
+    s.source       = { :git => "https://github.com/ByteriX/BxInputController.git", :tag => s.version }
     s.frameworks = ["Foundation", "UIKit"]
     s.resources = "BxInputController/Sources/Assets.xcassets", "BxInputController/Sources/**/*.xib"
-#    public_header_files = "**/iBXCommon/Frameworks/**/*.h", "**/iBXCommon/Sources/**/*.h"
+#s.public_header_files = "**/iBXCommon/Frameworks/**/*.h", "**/iBXCommon/Sources/**/*.h"
 
     s.source_files  = "BxInputController/Sources/**/*.{swift}"
 
+    s.dependency 'BxObjC/Vcl'
 
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
