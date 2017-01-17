@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 0.9.13 (17.01.2017)
+##### Features
+* add selectRow method to BxInputController
+
 ## 0.9.12 (17.01.2017)
 ##### Improvements
 * accessing for keyboardWillChange method in BxInputController

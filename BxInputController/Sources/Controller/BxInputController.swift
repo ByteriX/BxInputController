@@ -276,6 +276,23 @@ open class BxInputController : UIViewController
         }
     }
     
+    @objc internal func select(indexPath: IndexPath) {
+        tableView(tableView, didSelectRowAt: indexPath)
+    }
+    
+    open func selectRow(_ row: BxInputRow, at position: UITableViewScrollPosition = .middle, animated: Bool = true)
+    {
+        //scrollRow(row, at: position, animated: animated)
+        if let indexPath = getIndex(for: row) {
+            tableView.selectRow(at: indexPath, animated: animated, scrollPosition: position)
+            if animated {
+                self.perform(#selector(select(indexPath:)), with: indexPath, afterDelay: 0.25)
+            } else {
+                select(indexPath: indexPath)
+            }
+        }
+    }
+    
     open func dissmissSelectors(exclude excludeRow: BxInputRow? = nil) {
         for section in sections {
             for row in section.rows {

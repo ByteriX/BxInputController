@@ -52,6 +52,7 @@ class CommonController: BxInputController {
     private var pushAlert = BxInputActionCustomRow<ActionItem>(title: "action push", placeholder: "Please select")
     private var disabledAction = BxInputActionCustomRow<ActionItem>(title: "disabled action", placeholder: "Not touchable")
     private var insertSectionAction = BxInputActionCustomRow<ActionItem>(title: "insert action")
+    private var selectSectionAction = BxInputActionStringRow(title: "select email", value: "")
     
 
     override func viewDidLoad() {
@@ -106,12 +107,18 @@ class CommonController: BxInputController {
             }
             this.addSection(BxInputSection(headerText: " ", rows: [BxInputTextRow(title: "just value"), BxInputTextRow(title: "yet value")]))
         }
+        selectSectionAction.handler = {[weak self] (actionRow) -> Void in
+            guard let this = self else {
+                return
+            }
+            this.selectRow(this.emailValue)
+        }
         
         self.sections = [
             BxInputSection(rows: [nameValue, emailValue, passwordValue, disabledValue]),
             BxInputSection(headerText: "", rows: [filledDate, emptyDate, lastDate]),
             BxInputSection(rows: [emptyVariants, filledVariants, otherVariantsRow]),
-            BxInputSection(rows: [deselectedActionAlert, actionAlert, pushAlert, disabledAction, insertSectionAction])
+            BxInputSection(rows: [deselectedActionAlert, actionAlert, pushAlert, disabledAction, insertSectionAction, selectSectionAction])
         ]
     }
 
