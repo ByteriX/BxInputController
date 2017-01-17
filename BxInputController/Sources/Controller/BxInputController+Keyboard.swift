@@ -11,41 +11,48 @@ import UIKit
 extension BxInputController
 {
     
-    func registerKeyboardNotification()
+    internal func registerKeyboardNotification()
     {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShown), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    func unregisterKeyboardNotification()
+    internal func unregisterKeyboardNotification()
     {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     
-    func keyboardWillShown(aNotification: Notification)
+    internal func keyboardWillShown(aNotification: Notification)
     {
         if let data = aNotification.userInfo {
-            onWillChangeWithKeyboard(isShowing: true, data: data)
+            keyboardWillChange(isShowing: true, data: data)
         }
     }
     
-    func keyboardWillHide(aNotification: Notification)
+    internal func keyboardWillHide(aNotification: Notification)
     {
         if let data = aNotification.userInfo {
-            onWillChangeWithKeyboard(isShowing: false, data: data)
+            keyboardWillChange(isShowing: false, data: data)
         }
     }
     
-    private func onWillChangeWithKeyboard(isShowing: Bool, data: [AnyHashable: Any])
+    private func keyboardWillChange(isShowing: Bool, data: [AnyHashable: Any])
     {
         var keyBoardRect = getKeyBoardRect(data: data)
         keyBoardRect = view.convert(keyBoardRect, from: nil)
-        onWillChangeWithKeyboard(isShowing: isShowing, frame: keyBoardRect)
+        keyboardWillChange(isShowing: isShowing, frame: keyBoardRect)
+    }
+
+    private func getKeyBoardRect(data: [AnyHashable: Any]) -> CGRect{
+        if let frameInfo = data[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+            return frameInfo.cgRectValue
+        }
+        return CGRect()
     }
     
-    func onWillChangeWithKeyboard(isShowing: Bool, frame: CGRect)
+    open func keyboardWillChange(isShowing: Bool, frame: CGRect)
     {
         if isShowing {
             contentRect = self.view.bounds
@@ -54,13 +61,6 @@ extension BxInputController
             contentRect = self.view.bounds
         }
         updateInsets()
-    }
-
-    func getKeyBoardRect(data: [AnyHashable: Any]) -> CGRect{
-        if let frameInfo = data[UIKeyboardFrameEndUserInfoKey] as? NSValue {
-            return frameInfo.cgRectValue
-        }
-        return CGRect()
     }
     
 }
