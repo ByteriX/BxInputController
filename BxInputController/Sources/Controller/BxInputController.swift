@@ -34,6 +34,10 @@ open class BxInputController : UIViewController
     }
     
     public static var emptyHeaderFooterId = "BxInputStandartEmptyHeaderFooter"
+    open func smallView() -> UIView
+    {
+        return UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.size.width, height: CGFloat.leastNonzeroMagnitude))
+    }
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +47,8 @@ open class BxInputController : UIViewController
         datePicker.datePickerMode = .date
         variantsPicker.showsSelectionIndicator = true
         
-        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.size.width, height: CGFloat.leastNonzeroMagnitude))
-        tableView.tableFooterView = UIView()
+        tableView.tableHeaderView = smallView()
+        tableView.tableFooterView = smallView()
         self.view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
