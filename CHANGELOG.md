@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 0.9.11 (17.01.2017)
+##### Improvements
+* adding BxInputSectionView for headers & footers
+
 ## 0.9.10 (16.01.2017)
 ##### Improvements
 * abstraction BxInputActionRow for generic supporting
