@@ -8,11 +8,11 @@
 
 import UIKit
 
-class BxInputSectionView : BxInputSectionViewContent
+open class BxInputSectionView : BxInputSectionViewContent
 {
-    var contentView: UIView
+    public var contentView: UIView
     
-    init(view: UIView) {
+    public init(view: UIView) {
         contentView = view
     }
 }
