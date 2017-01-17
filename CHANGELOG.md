@@ -6,6 +6,11 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 0.9.15 (17.01.2017)
+##### Improvements
+* refactoring code
+* change abstraction of BxInputSelectorSuggestionCell
+
 ## 0.9.14 (17.01.2017)
 ##### Bug fixing
 * add dependency with BxObjC/Vcl and fix scroll content

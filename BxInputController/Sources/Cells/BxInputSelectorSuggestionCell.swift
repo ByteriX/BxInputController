@@ -27,8 +27,8 @@ open class BxInputSelectorSuggestionCell: BxInputStandartCell {
     override open func didSelected()
     {
         super.didSelected()
-        if let row = data as? BxInputSelectorSuggestionsItemRow,
-            let parentRow = row.parent as? BxInputSelectorSuggestionsRow
+        if let row = data as? BxInputChildSelectorRow,
+            let parentRow = row.parent as? BxInputParentSelectorRow
         {
             parentRow.value = row
             parentRow.isOpened = false

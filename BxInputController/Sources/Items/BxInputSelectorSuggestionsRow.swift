@@ -9,7 +9,7 @@
 import Foundation
 
 
-open class BxInputSelectorSuggestionsRow : BxInputStringRow, BxInputSelectorRow
+open class BxInputSelectorSuggestionsRow : BxInputStringRow, BxInputParentSelectorRow
 {
     
     open var resourceId = "BxInputSelectorCell"
@@ -46,6 +46,7 @@ open class BxInputSelectorSuggestionsRow : BxInputStringRow, BxInputSelectorRow
 
 open class BxInputSelectorSuggestionsItemRow: BxInputStringRow, BxInputChildSelectorRow
 {
+    
     open var resourceId = "BxInputSelectorSuggestionCell"
     
     open var title : String?
