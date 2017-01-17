@@ -27,16 +27,14 @@ open class BxInputSelectorSuggestionCell: BxInputStandartCell {
     override open func didSelected()
     {
         super.didSelected()
-        if data?.isEnabled ?? true {
-            if let row = data as? BxInputSelectorSuggestionsItemRow,
-                let parentRow = row.parent as? BxInputSelectorSuggestionsRow
-            {
-                parentRow.value = row
-                parentRow.isOpened = false
-                parent?.deleteRows(parentRow.children)
-                parent?.updateRow(parentRow)
-                parent?.didChangedRow(parentRow)
-            }
+        if let row = data as? BxInputSelectorSuggestionsItemRow,
+            let parentRow = row.parent as? BxInputSelectorSuggestionsRow
+        {
+            parentRow.value = row
+            parentRow.isOpened = false
+            parent?.deleteRows(parentRow.children)
+            parent?.updateRow(parentRow)
+            parent?.didChangedRow(parentRow)
         }
     }
     
