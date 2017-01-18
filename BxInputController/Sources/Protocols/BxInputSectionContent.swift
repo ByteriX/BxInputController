@@ -9,7 +9,9 @@
 import UIKit
 
 public protocol BxInputSectionContent : AnyObject {
-    //
+    
+    var parent: BxInputSection? {get set}
+    
 }
 
 public protocol BxInputSectionViewContent : BxInputSectionContent {

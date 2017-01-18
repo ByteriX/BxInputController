@@ -10,7 +10,9 @@ import UIKit
 
 open class BxInputSectionView : BxInputSectionViewContent
 {
-    public var contentView: UIView
+    public var parent: BxInputSection? = nil
+
+    open var contentView: UIView
     
     public init(view: UIView) {
         contentView = view

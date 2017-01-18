@@ -12,6 +12,7 @@ import Foundation
 open class BxInputSectionStringHeader: BxInputSectionStringContent
 {
     open var resourceId = "BxInputStandartHeader"
+    public var parent: BxInputSection? = nil
     open var contentText : String
     
     public init(_ text: String) {

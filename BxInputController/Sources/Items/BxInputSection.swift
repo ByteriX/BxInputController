@@ -11,8 +11,20 @@ import UIKit
 open class BxInputSection
 {
     open var header: BxInputSectionContent? = nil
+    {
+        didSet {
+            header?.parent = self
+        }
+    }
+    
     open var rows: [BxInputRow] = []
+    
     open var footer: BxInputSectionContent? = nil
+        {
+        didSet {
+            header?.parent = self
+        }
+    }
     
     public init(headerText: String? = nil, rows: [BxInputRow], footerText: String? = nil) {
         self.rows = rows

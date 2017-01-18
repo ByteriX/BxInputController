@@ -172,6 +172,24 @@ open class BxInputController : UIViewController
         return nil
     }
     
+    open func getIndex(for currentSection: BxInputSection) -> Int?{
+        var sectionIndex = 0
+        for section in sections {
+            if section === currentSection{
+                return sectionIndex
+            }
+            sectionIndex = sectionIndex + 1
+        }
+        return nil
+    }
+    
+    open func getIndex(for currentSectionContent: BxInputSectionContent) -> Int?{
+        if let currentSection = currentSectionContent.parent {
+            return getIndex(for: currentSection)
+        }
+        return nil
+    }
+    
     open func getCell(for currentRow: BxInputRow) -> UITableViewCell?
     {
         if let indexPath = getIndex(for: currentRow) {
@@ -268,6 +286,50 @@ open class BxInputController : UIViewController
 //            index = index + 1
 //        }
 //        tableView.insertRows(at: indexes, with: animation)
+        tableView.endUpdates()
+    }
+    
+    open func deleteSection(_ section: BxInputSection, with animation: UITableViewRowAnimation = .top) {
+        guard let index = getIndex(for: section) else {
+            return
+        }
+        tableView.beginUpdates()
+        tableView.deleteSections(IndexSet(integer: index), with: animation)
+        tableView.endUpdates()
+    }
+    
+    open func updateSection(_ section: BxInputSection, with animation: UITableViewRowAnimation = .top) {
+        guard let index = getIndex(for: section) else {
+            return
+        }
+        var isNeedReloadSection = false
+        if let header = tableView.headerView(forSection: index) as? BxInputStandartHeaderFooter
+        {
+            if let headerData = section.header {
+                header.update(data: headerData)
+            } else {
+                isNeedReloadSection = true
+            }
+        }
+        if let footer = tableView.footerView(forSection: index) as? BxInputStandartHeaderFooter
+        {
+            if let footerData = section.footer {
+                footer.update(data: footerData)
+            } else {
+                isNeedReloadSection = true
+            }
+        }
+        if isNeedReloadSection {
+            reloadSection(section, with: animation)
+        }
+    }
+    
+    open func reloadSection(_ section: BxInputSection, with animation: UITableViewRowAnimation = .top) {
+        guard let index = getIndex(for: section) else {
+            return
+        }
+        tableView.beginUpdates()
+        tableView.reloadSections(IndexSet(integer: index), with: animation)
         tableView.endUpdates()
     }
     

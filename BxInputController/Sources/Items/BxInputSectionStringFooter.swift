@@ -11,6 +11,7 @@ import Foundation
 open class BxInputSectionStringFooter: BxInputSectionStringContent
 {
     open var resourceId = "BxInputStandartFooter"
+    public var parent: BxInputSection? = nil
     open var contentText : String
     
     public init(_ text: String) {
