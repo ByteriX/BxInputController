@@ -294,6 +294,7 @@ open class BxInputController : UIViewController
             return
         }
         tableView.beginUpdates()
+        sections.remove(at: index)
         tableView.deleteSections(IndexSet(integer: index), with: animation)
         tableView.endUpdates()
     }
@@ -302,7 +303,7 @@ open class BxInputController : UIViewController
         guard let index = getIndex(for: section) else {
             return
         }
-        var isNeedReloadSection = false
+        var isNeedReloadSection = !(sections[index] === section)
         if let header = tableView.headerView(forSection: index) as? BxInputStandartHeaderFooter
         {
             if let headerData = section.header {
@@ -329,6 +330,7 @@ open class BxInputController : UIViewController
             return
         }
         tableView.beginUpdates()
+        sections[index] = section
         tableView.reloadSections(IndexSet(integer: index), with: animation)
         tableView.endUpdates()
     }

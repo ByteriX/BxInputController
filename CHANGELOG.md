@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 0.9.16.1 (18.01.2017)
+##### Improvements
+* fix deleteSection, reloadSection, updateSection
+
 ## 0.9.16 (18.01.2017)
 ##### Improvements
 * added parent to BxInputSectionContent protocol
