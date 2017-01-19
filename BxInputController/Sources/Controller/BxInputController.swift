@@ -49,8 +49,8 @@ open class BxInputController : UIViewController
         datePicker.datePickerMode = .date
         variantsPicker.showsSelectionIndicator = true
         
-        //tableView.tableHeaderView = smallView()
-        tableView.tableFooterView = smallView()
+        //tableView.tableHeaderView = smallView() it leads to insets
+        //tableView.tableFooterView = smallView() it leads to insets
         self.view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
