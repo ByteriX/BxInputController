@@ -17,7 +17,7 @@ class SelectionController : BxInputController {
     private var autoselectedDateValue = BxInputSelectorDateRow(title: "autoselected", placeholder: "SELECT")
     private var fromCurrentValue = BxInputSelectorDateRow(title: "from current", value: Date())
     
-    private var stundartSuggestionsValue = BxInputSelectorSuggestionsRow(title: "standart", placeholder: "SELECT")
+    private var standartSuggestionsValue = BxInputSelectorSuggestionsRow<BxInputSelectorSuggestionsItemRow>(title: "standart", placeholder: "SELECT")
     private var justValue = BxInputTextRow(title: "just", placeholder: "for keyboard opening")
     
     private var filledVariants = BxInputSelectorVariantsRow(title: "variants")
@@ -43,7 +43,7 @@ class SelectionController : BxInputController {
         autoselectedDateValue.timeForAutoselection = 3
         fromCurrentValue.minimumDate = Date()
         
-        stundartSuggestionsValue.children = [
+        standartSuggestionsValue.children = [
             BxInputSelectorSuggestionsItemRow(title: "value 1"),
             BxInputSelectorSuggestionsItemRow(title: "value 2"),
             BxInputSelectorSuggestionsItemRow(title: "value 3"),
@@ -63,7 +63,7 @@ class SelectionController : BxInputController {
         
         self.sections = [
             BxInputSection(headerText: "Date", rows: [dateValue, emptyDateValue, autoselectedDateValue, fromCurrentValue], footerText: "all variants of dates"),
-            BxInputSection(headerText: "Suggestions", rows: [stundartSuggestionsValue, justValue]),
+            BxInputSection(headerText: "Suggestions", rows: [standartSuggestionsValue, justValue]),
             BxInputSection(headerText: "Variants", rows: [filledVariants, emptyVariants, autoselectedVariants]),
         ]
     }

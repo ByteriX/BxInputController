@@ -28,9 +28,9 @@ open class BxInputSelectorSuggestionCell: BxInputStandartCell {
     {
         super.didSelected()
         if let row = data as? BxInputChildSelectorRow,
-            let parentRow = row.parent as? BxInputParentSelectorRow
+            let parentRow = row.parent as? BxInputParentSelectorSuggestionsRow
         {
-            parentRow.value = row
+            parentRow.selectedChild = row
             parentRow.isOpened = false
             parent?.deleteRows(parentRow.children)
             parent?.updateRow(parentRow)

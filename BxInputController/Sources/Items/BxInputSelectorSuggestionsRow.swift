@@ -9,7 +9,7 @@
 import UIKit
 
 
-open class BxInputSelectorSuggestionsRow : BxInputStringRow, BxInputParentSelectorRow
+open class BxInputSelectorSuggestionsRow<T : BxInputChildSelectorRow> : BxInputStringRow, BxInputParentSelectorSuggestionsRow
 {
     
     open var resourceId : String {
@@ -24,16 +24,24 @@ open class BxInputSelectorSuggestionsRow : BxInputStringRow, BxInputParentSelect
     open var isEnabled : Bool = true
     open var stringValue: String? {
         get {
-            if let item = value as? BxInputStringRow {
-                return item.stringValue
+            if let item = selectedChild {
+                if let item = selectedChild as? BxInputStringRow {
+                    return item.stringValue
+                } else {
+                    return item.title
+                }
             }
             return nil
         }
     }
-    
-    open var value: BxInputChildSelectorRow? = nil
     open var isOpened: Bool = false
-    public var children: [BxInputChildSelectorRow] = []
+    
+    open var value: T? {
+        get { return selectedChild as? T}
+        set { selectedChild = value}
+    }
+    public var selectedChild: BxInputChildSelectorRow? = nil
+    internal(set) public var children: [BxInputChildSelectorRow]
     {
         didSet {
             for chield in children {
@@ -42,9 +50,14 @@ open class BxInputSelectorSuggestionsRow : BxInputStringRow, BxInputParentSelect
         }
     }
     
-    public init(title: String? = nil, placeholder: String? = nil) {
+    public init(title: String? = nil, placeholder: String? = nil, children: [T] = []) {
         self.title = title
         self.placeholder = placeholder
+        self.children = children
+    }
+    
+    open func setChildren(_ children: [T]) {
+        self.children = children
     }
     
 }

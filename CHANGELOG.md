@@ -11,6 +11,7 @@ ByteriX, 2017. All right reserved.
 * fixing with scroll insets for 9/10 iOS in different "input tables" screens
 * extract estimatedHeight in bases entities
 * remove setting scroll to default position when appeared
+* creating generic for BxInputSelectorSuggestionsRow
 
 ## 0.9.17 (19.01.2017)
 ##### Improvements

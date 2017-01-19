@@ -24,10 +24,10 @@ public protocol BxInputChildSelectorRow : BxInputRow
     
 }
 
-public protocol BxInputParentSelectorRow : BxInputSelectorRow
+public protocol BxInputParentSelectorSuggestionsRow : BxInputSelectorRow
 {
 
-    var value: BxInputChildSelectorRow? {get set}
+    var selectedChild: BxInputChildSelectorRow? {get set}
     
 }
 
