@@ -10,16 +10,20 @@ import UIKit
 
 open class BxInputTextRow: BxInputStringRow
 {
-    open var resourceId = "BxInputStandartTextCell"
+    open var resourceId : String {
+        get { return "BxInputStandartTextCell" }
+    }
+    open var stringValue : String? {
+        get { return value }
+    }
+    open var estimatedHeight : CGFloat {
+        get { return 60 }
+    }
     
     open var title : String?
     open var placeholder : String?
     open var isEnabled : Bool = true
-    open var stringValue : String? {
-        get {
-            return value
-        }
-    }
+    
     
     open var value: String? = nil
 

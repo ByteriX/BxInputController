@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public protocol BxInputRow : AnyObject{
     
@@ -17,5 +18,7 @@ public protocol BxInputRow : AnyObject{
     var isEnabled : Bool {get}
     
     var resourceId : String {get}
+    
+    var estimatedHeight : CGFloat {get}
     
 }

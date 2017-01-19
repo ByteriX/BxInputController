@@ -6,21 +6,22 @@
 //  Copyright © 2017 Byterix. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 
 open class BxInputActionCustomRow<T : BxInputActionItem>: BxInputActionRow
 {
     open var resourceId = "BxInputStandartTextCell"
+    open var stringValue : String? {
+        get { return value?.stringValue }
+    }
+    open var estimatedHeight : CGFloat {
+        get { return 60 }
+    }
     
     open var title : String?
     open var placeholder : String?
     open var isEnabled : Bool = true
-    open var stringValue : String? {
-        get {
-            return value?.stringValue
-        }
-    }
     
     open var value: T? = nil
     open var handler: ((_ actionRow: BxInputActionRow) -> Void)? = nil

@@ -92,41 +92,29 @@ extension BxInputController : UITableViewDelegate
         return nil
     }
     
+    open func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        let row = getRow(for: indexPath)
+        return row.estimatedHeight
+    }
+    
     open func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat
     {
         let sectionData = sections[section]
-        guard let _ = sectionData.header else {
+        guard let header = sectionData.header else {
             return 10
         }
-        return 36
+        return header.estimatedHeight
     }
     
     open func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat
     {
         let sectionData = sections[section]
-        guard let _ = sectionData.footer else {
+        guard let footer = sectionData.footer else {
             return 10
         }
-        return 36
+        return footer.estimatedHeight
     }
-//
-//    open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
-//    {
-//        let sectionData = sections[section]
-//        guard let _ = sectionData.header else {
-//            return CGFloat.leastNonzeroMagnitude
-//        }
-//        return UITableViewAutomaticDimension
-//    }
-//    
-//    open func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
-//    {
-//        
-//        let sectionData = sections[section]
-//        guard let _ = sectionData.footer else {
-//            return CGFloat.leastNonzeroMagnitude
-//        }
-//        return UITableViewAutomaticDimension
-//    }
+
 
 }

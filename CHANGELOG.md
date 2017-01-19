@@ -6,6 +6,12 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 0.9.18 (19.01.2017)
+##### Bug fixing
+* fixing with scroll insets for 9/10 iOS in different "input tables" screens
+* extract estimatedHeight in bases entities
+* remove setting scroll to default position when appeared
+
 ## 0.9.17 (19.01.2017)
 ##### Improvements
 * fixing bug with first date selection

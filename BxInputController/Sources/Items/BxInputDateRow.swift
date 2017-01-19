@@ -6,12 +6,17 @@
 //  Copyright © 2017 Byterix. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 open class BxInputDateRow : BxInputRow
 {
     
-    open var resourceId = "BxInputStandartTextCell"
+    open var resourceId : String {
+        get { return "BxInputStandartTextCell" }
+    }
+    open var estimatedHeight : CGFloat {
+        get { return 60 }
+    }
     
     open var title : String?
     open var placeholder : String?

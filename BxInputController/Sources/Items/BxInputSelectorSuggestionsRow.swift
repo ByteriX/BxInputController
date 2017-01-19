@@ -6,13 +6,18 @@
 //  Copyright © 2017 Byterix. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 
 open class BxInputSelectorSuggestionsRow : BxInputStringRow, BxInputParentSelectorRow
 {
     
-    open var resourceId = "BxInputSelectorCell"
+    open var resourceId : String {
+        get { return "BxInputSelectorCell" }
+    }
+    open var estimatedHeight : CGFloat {
+        get { return 54 }
+    }
     
     open var title : String?
     open var placeholder : String?
@@ -47,7 +52,12 @@ open class BxInputSelectorSuggestionsRow : BxInputStringRow, BxInputParentSelect
 open class BxInputSelectorSuggestionsItemRow: BxInputStringRow, BxInputChildSelectorRow
 {
     
-    open var resourceId = "BxInputSelectorSuggestionCell"
+    open var resourceId : String {
+        get { return "BxInputSelectorSuggestionCell" }
+    }
+    open var estimatedHeight : CGFloat {
+        get { return 60 }
+    }
     
     open var title : String?
     open var placeholder : String?

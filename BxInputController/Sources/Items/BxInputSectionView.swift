@@ -10,6 +10,10 @@ import UIKit
 
 open class BxInputSectionView : BxInputSectionViewContent
 {
+    open var estimatedHeight : CGFloat {
+        get { return contentView.frame.size.height }
+    }
+    
     public var parent: BxInputSection? = nil
 
     open var contentView: UIView

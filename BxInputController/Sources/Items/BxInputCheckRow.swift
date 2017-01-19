@@ -6,12 +6,15 @@
 //  Copyright © 2017 Byterix. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 //! this is not realized
 open class BxInputCheckRow: BxInputRow
 {
     open var resourceId = ""
+    open var estimatedHeight : CGFloat {
+        get { return 60 }
+    }
     
     open var title : String?
     open var placeholder : String?

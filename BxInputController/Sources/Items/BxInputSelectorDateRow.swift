@@ -6,10 +6,16 @@
 //  Copyright © 2017 Byterix. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 open class BxInputSelectorDateRow : BxInputDateRow, BxInputSelectorRow
 {
+    override open var resourceId : String {
+        get { return "BxInputSelectorCell" }
+    }
+    override open var estimatedHeight : CGFloat {
+        get { return 54 }
+    }
     
     open var isOpened: Bool = false
     open var timeForAutoselection: TimeInterval = 0.0 // if < 0.5 then autoselection turned off
@@ -24,7 +30,6 @@ open class BxInputSelectorDateRow : BxInputDateRow, BxInputSelectorRow
     override public init(title: String? = nil, placeholder: String? = nil, value: Date? = nil) {
         chield = BxInputChildSelectorDateRow()
         super.init(title: title, placeholder: placeholder, value: value)
-        resourceId = "BxInputSelectorCell"
         chield.parent = self
     }
     
@@ -32,7 +37,12 @@ open class BxInputSelectorDateRow : BxInputDateRow, BxInputSelectorRow
 
 open class BxInputChildSelectorDateRow: BxInputChildSelectorRow
 {
-    open var resourceId = "BxInputSelectorDateCell"
+    open var resourceId : String {
+        get { return "BxInputSelectorDateCell" }
+    }
+    open var estimatedHeight : CGFloat {
+        get { return 216 }
+    }
     
     open var title : String? {
         get {

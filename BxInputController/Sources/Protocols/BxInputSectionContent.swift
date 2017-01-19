@@ -12,6 +12,7 @@ public protocol BxInputSectionContent : AnyObject {
     
     var parent: BxInputSection? {get set}
     
+    var estimatedHeight : CGFloat {get}
 }
 
 public protocol BxInputSectionViewContent : BxInputSectionContent {

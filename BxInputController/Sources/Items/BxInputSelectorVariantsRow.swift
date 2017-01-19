@@ -6,11 +6,17 @@
 //  Copyright © 2017 Byterix. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 
 open class BxInputSelectorVariantsRow : BxInputVariantsRow, BxInputSelectorRow, BxInputStringRow
 {
+    override open var resourceId : String {
+        get { return "BxInputSelectorCell" }
+    }
+    override open var estimatedHeight : CGFloat {
+        get { return 54 }
+    }
     
     open var isOpened: Bool = false
     open var timeForAutoselection: TimeInterval = 0.0 // if < 0.5 then autoselection turned off
@@ -33,7 +39,6 @@ open class BxInputSelectorVariantsRow : BxInputVariantsRow, BxInputSelectorRow, 
     override public init(title: String? = nil, placeholder: String? = nil, value: BxInputVariantsItem? = nil) {
         chield = BxInputChildSelectorVariantsRow()
         super.init(title: title, placeholder: placeholder, value: value)
-        resourceId = "BxInputSelectorCell"
         chield.parent = self
     }
     
@@ -41,7 +46,12 @@ open class BxInputSelectorVariantsRow : BxInputVariantsRow, BxInputSelectorRow, 
 
 open class BxInputChildSelectorVariantsRow: BxInputChildSelectorRow
 {
-    open var resourceId = "BxInputSelectorVariantsCell"
+    open var resourceId : String {
+        get { return "BxInputSelectorVariantsCell" }
+    }
+    open var estimatedHeight : CGFloat {
+        get { return 216 }
+    }
     
     open var title : String? {
         get {

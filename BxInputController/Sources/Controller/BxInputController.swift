@@ -42,28 +42,31 @@ open class BxInputController : UIViewController
     override open func viewDidLoad() {
         super.viewDidLoad()
         
+        automaticallyAdjustsScrollViewInsets = false
+        
         checkResources(sectionResourceId: type(of: self).emptyHeaderFooterId)
         
         datePicker.datePickerMode = .date
         variantsPicker.showsSelectionIndicator = true
         
-        tableView.tableHeaderView = smallView()
+        //tableView.tableHeaderView = smallView()
         tableView.tableFooterView = smallView()
         self.view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
         
-        tableView.estimatedRowHeight = 60
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.sectionHeaderHeight = UITableViewAutomaticDimension
         tableView.sectionFooterHeight = UITableViewAutomaticDimension
+        
+        contentRect = self.view.bounds
+        updateInsets()
+        tableView.setContentOffset( CGPoint(x: 0, y: -1 * tableView.contentInset.top), animated: false)
     }
     
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        contentRect = self.view.bounds
-        updateInsets()
-        tableView.setContentOffset( CGPoint(x: 0, y: -1 * tableView.contentInset.top), animated: false)
+        
         registerKeyboardNotification()
         if clearsSelectionOnViewWillAppear,
             let indexPath = tableView.indexPathForSelectedRow

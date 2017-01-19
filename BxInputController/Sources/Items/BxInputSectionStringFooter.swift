@@ -6,11 +6,13 @@
 //  Copyright © 2017 Byterix. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 open class BxInputSectionStringFooter: BxInputSectionStringContent
 {
     open var resourceId = "BxInputStandartFooter"
+    open var estimatedHeight : CGFloat = 36
+    
     public var parent: BxInputSection? = nil
     open var contentText : String
     
