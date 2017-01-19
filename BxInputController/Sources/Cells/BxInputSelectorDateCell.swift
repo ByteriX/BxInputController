@@ -33,6 +33,7 @@ open class BxInputSelectorDateCell: BxInputStandartCell {
                 datePicker.setDate(Date(), animated: false)
             }
         }
+        changeDate(datePicker)
     }
     
     @IBAction open func changeDate(_ sender: Any) {

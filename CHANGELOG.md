@@ -6,6 +6,11 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 0.9.17 (19.01.2017)
+##### Improvements
+* fixing bug with first date selection
+* @discardableResult for resignFirstResponder()
+
 ## 0.9.16.1 (18.01.2017)
 ##### Improvements
 * fix deleteSection, reloadSection, updateSection

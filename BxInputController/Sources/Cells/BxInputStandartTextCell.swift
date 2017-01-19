@@ -100,6 +100,7 @@ open class BxInputStandartTextCell: BxInputStandartCell {
         titleLabel.alpha = value ? 1 : 0.5
     }
     
+    @discardableResult
     override open func resignFirstResponder() -> Bool {
         return valueTextField.resignFirstResponder()
     }
@@ -146,6 +147,7 @@ extension BxInputStandartTextCell: UITextFieldDelegate {
             } else {
                 datePicker.date = Date()
             }
+            changeDate()
         } else if let variantsRow = data as? BxInputVariantsRow,
             let variantsPicker = parent?.variantsPicker
         {

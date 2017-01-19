@@ -35,6 +35,7 @@ open class BxInputStandartCell: UITableViewCell {
         //
     }
     
+    @discardableResult
     override open func resignFirstResponder() -> Bool {
         return false
     }
