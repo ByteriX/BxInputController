@@ -8,6 +8,11 @@
 
 import Foundation
 
+public protocol BxInputStringObject: AnyObject
+{
+    var stringValue : String? {get}
+}
+
 public protocol BxInputString: Any
 {
     var stringValue : String? {get}

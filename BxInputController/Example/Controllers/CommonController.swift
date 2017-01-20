@@ -33,19 +33,19 @@ class CommonController: BxInputController {
     private var lastDate = BxInputDateRow(title: "last value", placeholder: "last")
     
     private var variants : [BxInputVariantsItem] = [
-        BxInputVariantsValue(id: "1", name: "first"),
-        BxInputVariantsValue(id: "2", name: "second"),
-        BxInputVariantsValue(id: "3", name: "last"),
+        BxInputVariantsItem(id: "1", name: "first"),
+        BxInputVariantsItem(id: "2", name: "second"),
+        BxInputVariantsItem(id: "3", name: "last"),
         ]
     private var otherVariants : [BxInputVariantsItem] = [
-        BxInputVariantsValue(id: "1", name: "value1"),
-        BxInputVariantsValue(id: "2", name: "value2"),
-        BxInputVariantsValue(id: "3", name: "value3"),
-        BxInputVariantsValue(id: "4", name: "value4"),
+        BxInputVariantsItem(id: "1", name: "value1"),
+        BxInputVariantsItem(id: "2", name: "value2"),
+        BxInputVariantsItem(id: "3", name: "value3"),
+        BxInputVariantsItem(id: "4", name: "value4"),
         ]
-    private var emptyVariants = BxInputVariantsRow(title: "empty variant", placeholder: "please select value")
-    private var filledVariants = BxInputVariantsRow(title: "filled variant")
-    private var otherVariantsRow = BxInputVariantsRow(title: "other variant")
+    private var emptyVariants = BxInputVariantsRow<BxInputVariantsItem>(title: "empty variant", placeholder: "please select value")
+    private var filledVariants = BxInputVariantsRow<BxInputVariantsItem>(title: "filled variant")
+    private var otherVariantsRow = BxInputVariantsRow<BxInputVariantsItem>(title: "other variant")
     
     private var deselectedActionAlert = BxInputActionStringRow(title: "deselected alert", value: "Value is selected")
     private var actionAlert = BxInputActionCustomRow<ActionItem>(title: "action push", value: ActionItem(name: "Value is selected"))

@@ -9,7 +9,7 @@
 import UIKit
 
 
-open class BxInputVariantsRow : BxInputRow
+open class BxInputVariantsRow<T : BxInputStringObject> : BxInputRow, BxInputVariants
 {
     
     open var resourceId : String {
@@ -23,13 +23,43 @@ open class BxInputVariantsRow : BxInputRow
     open var placeholder : String?
     open var isEnabled : Bool = true
     
-    open var items: [BxInputVariantsItem] = []
-    open var value: BxInputVariantsItem?
+    open var items: [T] = []
+    open var value: T?
     
-    public init(title: String? = nil, placeholder: String? = nil, value: BxInputVariantsItem? = nil) {
+    internal var variants: [BxInputStringObject] {
+        get { return items }
+    }
+    internal var selectedVariant: BxInputStringObject? {
+        get { return value }
+        set(value) {
+            if let value = value as? T {
+                self.value = value
+            } else {
+                self.value = nil
+            }
+        }
+    }
+    
+    public init(title: String? = nil, placeholder: String? = nil, value: T? = nil) {
         self.title = title
         self.placeholder = placeholder
         self.value = value
     }
     
+}
+
+open class BxInputVariantsItem: BxInputStringObject
+{
+    public var id: String
+    public var name: String
+    
+    open var stringValue: String? {
+        get { return name }
+    }
+    
+    public init(id: String, name: String)
+    {
+        self.id = id
+        self.name = name
+    }
 }

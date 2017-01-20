@@ -20,20 +20,20 @@ class SelectionController : BxInputController {
     private var standartSuggestionsValue = BxInputSelectorSuggestionsRow<BxInputSelectorSuggestionsItemRow>(title: "standart", placeholder: "SELECT")
     private var justValue = BxInputTextRow(title: "just", placeholder: "for keyboard opening")
     
-    private var filledVariants = BxInputSelectorVariantsRow(title: "variants")
-    private var emptyVariants = BxInputSelectorVariantsRow(title: "empty variants", placeholder: "SELECT")
-    private var autoselectedVariants = BxInputSelectorVariantsRow(title: "autoselected", placeholder: "SELECT")
+    private var filledVariants = BxInputSelectorVariantsRow<BxInputVariantsItem>(title: "variants")
+    private var emptyVariants = BxInputSelectorVariantsRow<BxInputVariantsItem>(title: "empty variants", placeholder: "SELECT")
+    private var autoselectedVariants = BxInputSelectorVariantsRow<BxInputVariantsItem>(title: "autoselected", placeholder: "SELECT")
     
     private var variants : [BxInputVariantsItem] = [
-        BxInputVariantsValue(id: "1", name: "first"),
-        BxInputVariantsValue(id: "2", name: "second"),
-        BxInputVariantsValue(id: "3", name: "last"),
+        BxInputVariantsItem(id: "1", name: "first"),
+        BxInputVariantsItem(id: "2", name: "second"),
+        BxInputVariantsItem(id: "3", name: "last"),
         ]
     private var otherVariants : [BxInputVariantsItem] = [
-        BxInputVariantsValue(id: "1", name: "value1"),
-        BxInputVariantsValue(id: "2", name: "value2"),
-        BxInputVariantsValue(id: "3", name: "value3"),
-        BxInputVariantsValue(id: "4", name: "value4"),
+        BxInputVariantsItem(id: "1", name: "value1"),
+        BxInputVariantsItem(id: "2", name: "value2"),
+        BxInputVariantsItem(id: "3", name: "value3"),
+        BxInputVariantsItem(id: "4", name: "value4"),
     ]
     
     

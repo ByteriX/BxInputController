@@ -9,7 +9,7 @@
 import UIKit
 
 
-open class BxInputSelectorVariantsRow : BxInputVariantsRow, BxInputSelectorRow, BxInputStringRow
+open class BxInputSelectorVariantsRow<T: BxInputStringObject> : BxInputVariantsRow<T>, BxInputSelectorRow, BxInputStringRow
 {
     override open var resourceId : String {
         get { return "BxInputSelectorCell" }
@@ -30,13 +30,13 @@ open class BxInputSelectorVariantsRow : BxInputVariantsRow, BxInputSelectorRow, 
     open var stringValue: String? {
         get {
             if let value = value {
-                return value.name
+                return value.stringValue
             }
             return nil
         }
     }
     
-    override public init(title: String? = nil, placeholder: String? = nil, value: BxInputVariantsItem? = nil) {
+    override public init(title: String? = nil, placeholder: String? = nil, value: T? = nil) {
         chield = BxInputChildSelectorVariantsRow()
         super.init(title: title, placeholder: placeholder, value: value)
         chield.parent = self

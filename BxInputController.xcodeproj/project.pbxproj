@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0B0240F32D7035DFA339DE59 /* Pods_BxInputController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDE3CA360A31AF4DA9BAFDDB /* Pods_BxInputController.framework */; };
 		F902B15D1E25315D00C6C8D9 /* BxInputVariantsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902B15C1E25315D00C6C8D9 /* BxInputVariantsRow.swift */; };
-		F902B15F1E2532B000C6C8D9 /* BxInputVariantsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902B15E1E2532B000C6C8D9 /* BxInputVariantsItem.swift */; };
+		F902B15F1E2532B000C6C8D9 /* BxInputVariants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902B15E1E2532B000C6C8D9 /* BxInputVariants.swift */; };
 		F902B1611E253F3000C6C8D9 /* BxInputController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902B1601E253F3000C6C8D9 /* BxInputController+Keyboard.swift */; };
 		F902E4411E24E755000DAF1C /* BxInputDateRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902E4401E24E755000DAF1C /* BxInputDateRow.swift */; };
 		F902E4441E24EFF9000DAF1C /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F902E4431E24EFF9000DAF1C /* Formatter.swift */; };
@@ -72,7 +72,7 @@
 		A529CAF1FC63502159F31EBF /* Pods-BxInputController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BxInputController.release.xcconfig"; path = "Pods/Target Support Files/Pods-BxInputController/Pods-BxInputController.release.xcconfig"; sourceTree = "<group>"; };
 		EDE3CA360A31AF4DA9BAFDDB /* Pods_BxInputController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BxInputController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F902B15C1E25315D00C6C8D9 /* BxInputVariantsRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputVariantsRow.swift; sourceTree = "<group>"; };
-		F902B15E1E2532B000C6C8D9 /* BxInputVariantsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputVariantsItem.swift; sourceTree = "<group>"; };
+		F902B15E1E2532B000C6C8D9 /* BxInputVariants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputVariants.swift; sourceTree = "<group>"; };
 		F902B1601E253F3000C6C8D9 /* BxInputController+Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BxInputController+Keyboard.swift"; sourceTree = "<group>"; };
 		F902E4401E24E755000DAF1C /* BxInputDateRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputDateRow.swift; sourceTree = "<group>"; };
 		F902E4431E24EFF9000DAF1C /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
@@ -307,7 +307,7 @@
 				F92183F91E23C7B3002E1781 /* BxInputRow.swift */,
 				F944E7111E31E78C00DD0D64 /* BxInputString.swift */,
 				F9847E811E280BDD007C26EC /* BxInputStringRow.swift */,
-				F902B15E1E2532B000C6C8D9 /* BxInputVariantsItem.swift */,
+				F902B15E1E2532B000C6C8D9 /* BxInputVariants.swift */,
 				F9847E831E280D51007C26EC /* BxInputSelectorRow.swift */,
 				F91998341E28CC2500DF1717 /* BxInputSectionContent.swift */,
 				F9244BFB1E2D42DA00F91B65 /* BxInputActionRow.swift */,
@@ -467,7 +467,7 @@
 				F964954A1E261213007154EC /* BxInputActionCustomRow.swift in Sources */,
 				F902E4411E24E755000DAF1C /* BxInputDateRow.swift in Sources */,
 				F9847E8B1E2822D1007C26EC /* BxInputSelectorSuggestionCell.swift in Sources */,
-				F902B15F1E2532B000C6C8D9 /* BxInputVariantsItem.swift in Sources */,
+				F902B15F1E2532B000C6C8D9 /* BxInputVariants.swift in Sources */,
 				F91998401E28EFC300DF1717 /* BxInputStandartFooter.swift in Sources */,
 				F92184101E2405F3002E1781 /* BxInputStandartTextCell.swift in Sources */,
 				F92184131E241927002E1781 /* BxInputSettings.swift in Sources */,

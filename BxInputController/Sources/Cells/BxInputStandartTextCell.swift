@@ -75,9 +75,9 @@ open class BxInputStandartTextCell: BxInputStandartCell {
             } else {
                 valueTextField.text = ""
             }
-        } else if let variantsRow = data as? BxInputVariantsRow {
-            if let value = variantsRow.value {
-                valueTextField.text = value.name
+        } else if let variantsRow = data as? BxInputVariants {
+            if let value = variantsRow.selectedVariant {
+                valueTextField.text = value.stringValue
             } else {
                 valueTextField.text = ""
             }
@@ -148,15 +148,15 @@ extension BxInputStandartTextCell: UITextFieldDelegate {
                 datePicker.date = Date()
             }
             changeDate()
-        } else if let variantsRow = data as? BxInputVariantsRow,
+        } else if let variantsRow = data as? BxInputVariants,
             let variantsPicker = parent?.variantsPicker
         {
             variantsPicker.dataSource = self
             variantsPicker.delegate = self
             variantsPicker.reloadAllComponents()
             var index = 0
-            if let value = variantsRow.value {
-                if let foundIndex = variantsRow.items.index(where: { (item) -> Bool in
+            if let value = variantsRow.selectedVariant {
+                if let foundIndex = variantsRow.variants.index(where: { (item) -> Bool in
                     return item === value
                 }) {
                     index = foundIndex
@@ -223,29 +223,31 @@ extension BxInputStandartTextCell: UIPickerViewDelegate, UIPickerViewDataSource 
 
     open func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
     {
-        guard let variantsRow = data as? BxInputVariantsRow else {
+        guard let variantsRow = data as? BxInputVariants else {
             return 0
         }
-        return variantsRow.items.count
+        return variantsRow.variants.count
     }
     
     open func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
-        guard let variantsRow = data as? BxInputVariantsRow else {
+        guard let variantsRow = data as? BxInputVariants else {
             return nil
         }
-        return variantsRow.items[row].name
+        return variantsRow.variants[row].stringValue
     }
     
     open func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
-        guard let variantsRow = data as? BxInputVariantsRow else {
+        guard let rowData = data,
+            var variantsRow = rowData as? BxInputVariants
+        else {
             return
         }
-        let value = variantsRow.items[row]
-        variantsRow.value = value
-        valueTextField.text = value.name
-        parent?.didChangedRow(variantsRow)
+        let value = variantsRow.variants[row]
+        variantsRow.selectedVariant = value
+        valueTextField.text = value.stringValue
+        parent?.didChangedRow(rowData)
     }
 
 }

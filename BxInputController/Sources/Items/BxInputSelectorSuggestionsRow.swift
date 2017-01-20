@@ -11,7 +11,6 @@ import UIKit
 
 open class BxInputSelectorSuggestionsRow<T : BxInputChildSelectorRow> : BxInputStringRow, BxInputParentSelectorSuggestionsRow
 {
-    
     open var resourceId : String {
         get { return "BxInputSelectorCell" }
     }
@@ -33,6 +32,10 @@ open class BxInputSelectorSuggestionsRow<T : BxInputChildSelectorRow> : BxInputS
             }
             return nil
         }
+    }
+    // this is doesn't use
+    public var timeForAutoselection: TimeInterval {
+        get { return 0.0 }
     }
     open var isOpened: Bool = false
     

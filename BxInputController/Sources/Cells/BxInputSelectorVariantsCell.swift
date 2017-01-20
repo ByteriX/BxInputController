@@ -31,12 +31,12 @@ open class BxInputSelectorVariantsCell: BxInputStandartCell {
         super.update(data: data)
         //
         if let row = data as? BxInputChildSelectorVariantsRow,
-            let parentRow = row.parent as? BxInputSelectorVariantsRow
+            let parentRow = row.parent as? BxInputVariants
         {
             variantsPicker.reloadAllComponents()
             var index = 0
-            if let value = parentRow.value {
-                if let foundIndex = parentRow.items.index(where: { (item) -> Bool in
+            if let value = parentRow.selectedVariant {
+                if let foundIndex = parentRow.variants.index(where: { (item) -> Bool in
                     return item === value
                 }) {
                     index = foundIndex
@@ -49,7 +49,7 @@ open class BxInputSelectorVariantsCell: BxInputStandartCell {
     
     open func autoselection() {
         if let row = data as? BxInputChildSelectorVariantsRow,
-            let parentRow = row.parent as? BxInputSelectorVariantsRow
+            let parentRow = row.parent
         {
             if parentRow.isOpened {
                 parentRow.isOpened = false
@@ -72,33 +72,34 @@ extension BxInputSelectorVariantsCell: UIPickerViewDelegate, UIPickerViewDataSou
     open func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
     {
         guard let currentRow = data as? BxInputChildSelectorVariantsRow,
-            let variantsRow = currentRow.parent as? BxInputSelectorVariantsRow else
+            let variantsRow = currentRow.parent as? BxInputVariants else
         {
             return 0
         }
-        return variantsRow.items.count
+        return variantsRow.variants.count
     }
     
     open func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
         guard let currentRow = data as? BxInputChildSelectorVariantsRow,
-            let variantsRow = currentRow.parent as? BxInputSelectorVariantsRow
+            let variantsRow = currentRow.parent as? BxInputVariants
         else {
             return nil
         }
-        return variantsRow.items[row].name
+        return variantsRow.variants[row].stringValue
     }
     
     open func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         guard let currentRow = data as? BxInputChildSelectorVariantsRow,
-            let parentRow = currentRow.parent as? BxInputSelectorVariantsRow
+            let parentRow = currentRow.parent,
+            var variantsRow = parentRow as? BxInputVariants
         else {
             return
         }
-        let value = parentRow.items[row]
+        let value = variantsRow.variants[row]
         
-        parentRow.value = value
+        variantsRow.selectedVariant = value
         parent?.updateRow(parentRow)
         parent?.didChangedRow(parentRow)
         

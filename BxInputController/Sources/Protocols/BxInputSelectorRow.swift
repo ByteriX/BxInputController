@@ -15,6 +15,8 @@ public protocol BxInputSelectorRow : BxInputRow
     
     var children: [BxInputChildSelectorRow] {get}
     
+    var timeForAutoselection: TimeInterval {get}
+    
 }
 
 public protocol BxInputChildSelectorRow : BxInputRow
