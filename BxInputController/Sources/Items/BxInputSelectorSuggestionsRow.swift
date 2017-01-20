@@ -25,7 +25,7 @@ open class BxInputSelectorSuggestionsRow<T : BxInputChildSelectorRow> : BxInputS
     open var stringValue: String? {
         get {
             if let item = selectedChild {
-                if let item = selectedChild as? BxInputStringRow {
+                if let item = selectedChild as? BxInputString {
                     return item.stringValue
                 } else {
                     return item.title

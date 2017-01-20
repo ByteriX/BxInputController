@@ -8,9 +8,7 @@
 
 import Foundation
 
-public protocol BxInputStringRow : BxInputRow
+public protocol BxInputStringRow : BxInputRow, BxInputString
 {
-    
-    var stringValue : String? {get}
-    
+
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 
-open class BxInputActionCustomRow<T : BxInputActionItem>: BxInputActionRow
+open class BxInputActionCustomRow<T : BxInputString>: BxInputActionRow
 {
     open var resourceId = "BxInputStandartTextCell"
     open var stringValue : String? {
@@ -31,14 +31,6 @@ open class BxInputActionCustomRow<T : BxInputActionItem>: BxInputActionRow
         self.title = title
         self.placeholder = placeholder
         self.value = value
-    }
-}
-
-extension String : BxInputActionItem {
-    public var stringValue : String? {
-        get {
-            return self
-        }
     }
 }
 

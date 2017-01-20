@@ -14,8 +14,3 @@ public protocol BxInputActionRow: BxInputStringRow
     
     var isImmediatelyDeselect: Bool {get}
 }
-
-public protocol BxInputActionItem: Any
-{
-    var stringValue : String? {get}
-}

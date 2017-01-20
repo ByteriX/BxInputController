@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 0.9.19 (20.01.2017)
+##### Bug fixing
+* refactoring: extract protocol BxInputString for all
+
 ## 0.9.18 (19.01.2017)
 ##### Bug fixing
 * fixing with scroll insets for 9/10 iOS in different "input tables" screens

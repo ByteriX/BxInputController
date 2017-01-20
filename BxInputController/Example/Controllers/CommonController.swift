@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ActionItem: BxInputActionItem {
+class ActionItem: BxInputString {
     
     var name: String
     
