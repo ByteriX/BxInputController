@@ -81,6 +81,9 @@ open class BxInputSelectorSuggestionsItemRow: BxInputStringRow, BxInputChildSele
         get {
             return parent?.isEnabled ?? false
         }
+        set {
+            parent?.isEnabled = isEnabled
+        }
     }
     open var stringValue: String? {
         get {

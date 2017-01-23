@@ -57,6 +57,9 @@ open class BxInputChildSelectorDateRow: BxInputChildSelectorRow, BxInputStaticHe
         get {
             return parent?.isEnabled ?? false
         }
+        set {
+            parent?.isEnabled = isEnabled
+        }
     }
     
     weak open var parent: BxInputSelectorRow? = nil

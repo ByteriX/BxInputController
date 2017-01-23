@@ -15,7 +15,7 @@ public protocol BxInputRow : AnyObject{
     
     var placeholder : String? {get}
     
-    var isEnabled : Bool {get}
+    var isEnabled : Bool {get set}
     
     var resourceId : String {get}
     

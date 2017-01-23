@@ -426,4 +426,13 @@ open class BxInputController : UIViewController
         // you can override
     }
     
+    // recomended use it, because in row change value don't update table
+    open func setEnabledRow(_ row: BxInputRow, enabled: Bool)
+    {
+        if row.isEnabled != enabled {
+            row.isEnabled = enabled
+            reloadRow(row)
+        }
+    }
+    
 }

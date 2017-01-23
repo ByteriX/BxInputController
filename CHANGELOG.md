@@ -9,6 +9,7 @@ ByteriX, 2017. All right reserved.
 ## 0.9.20 (23.01.2017)
 ##### Improvements
 * added isEstimatedContent = false for supporting static sizes
+* added setEnabled method to BxInputController
 
 ## 0.9.19 (20.01.2017)
 ##### Bug fixing

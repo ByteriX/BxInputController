@@ -66,6 +66,9 @@ open class BxInputChildSelectorVariantsRow: BxInputChildSelectorRow, BxInputStat
         get {
             return parent?.isEnabled ?? false
         }
+        set {
+            parent?.isEnabled = isEnabled
+        }
     }
     
     weak open var parent: BxInputSelectorRow? = nil
