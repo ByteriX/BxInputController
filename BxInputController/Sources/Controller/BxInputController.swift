@@ -24,9 +24,7 @@ open class BxInputController : UIViewController
     // http://www.openradar.me/24022858
     public var isEstimatedContent: Bool = false
     {
-        didSet {
-            updateEstimatedContent()
-        }
+        didSet { updateEstimatedContent() }
     }
     // This changed automatical, when changed isEstimatedContent value.
     var tableDelegate: BaseTableDelegate? = nil
@@ -37,15 +35,31 @@ open class BxInputController : UIViewController
     private var addedResources = NSMutableSet()
     internal(set) public var contentRect: CGRect = CGRect()
     
-    internal(set) public var activeControl: UIControl? = nil
     internal(set) public var currentBundle: Bundle = Bundle(for: BxInputController.self)
+    
+    internal(set) public var activeControl: UIView? = nil
+    {
+        didSet {
+            if let activeControl = activeControl as? UITextField {
+                activeControl.inputAccessoryView = commonInputAccessoryView
+            } else if let activeControl = activeControl as? UITextView {
+                activeControl.inputAccessoryView = commonInputAccessoryView
+            }
+            updateCommonInputAccessory()
+        }
+    }
+    internal(set) public var activeRow: BxInputRow? = nil
     
     public var sections: [BxInputSection] = []
     {
-        didSet {
-            refresh()
-        }
+        didSet { refresh() }
     }
+    
+    open var isShowingInputAccessoryView: Bool = true
+    {
+        didSet { updateInputAccessory() }
+    }
+    open var commonInputAccessoryView: InputAccessoryView? = nil
     
     public static var emptyHeaderFooterId = "BxInputStandartEmptyHeaderFooter"
     open func smallView() -> UIView
@@ -68,6 +82,7 @@ open class BxInputController : UIViewController
         self.view.addSubview(tableView)
         
         updateEstimatedContent()
+        updateInputAccessory()
         
         contentRect = self.view.bounds
         updateInsets()
@@ -391,10 +406,10 @@ open class BxInputController : UIViewController
         //scrollRow(row, at: position, animated: animated)
         if let indexPath = getIndex(for: row) {
             tableView.selectRow(at: indexPath, animated: animated, scrollPosition: position)
-            if animated {
-                self.perform(#selector(select(indexPath:)), with: indexPath, afterDelay: 0.25)
-            } else {
+            if let _ = tableView.cellForRow(at: indexPath) {
                 select(indexPath: indexPath)
+            } else {
+                self.perform(#selector(select(indexPath:)), with: indexPath, afterDelay: 0.25)
             }
         }
     }
@@ -419,6 +434,9 @@ open class BxInputController : UIViewController
     open func dissmissAllRows(exclude excludeRow: BxInputRow? = nil) {
         dissmissSelectors(exclude: excludeRow)
         activeControl?.resignFirstResponder()
+        if !(activeRow === excludeRow) {
+            activeRow = nil
+        }
     }
     
     open func didChangedRow(_ row: BxInputRow)

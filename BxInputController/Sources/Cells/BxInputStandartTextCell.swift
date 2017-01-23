@@ -169,6 +169,7 @@ extension BxInputStandartTextCell: UITextFieldDelegate {
         if let parent = parent, parent.settings.isAutodissmissSelector {
             parent.dissmissSelectors()
         }
+        parent?.activeRow = data
         parent?.activeControl = textField
         return true
     }
@@ -181,6 +182,9 @@ extension BxInputStandartTextCell: UITextFieldDelegate {
         }
         if parent?.activeControl === textField {
             parent?.activeControl = nil
+        }
+        if parent?.activeRow === data {
+            parent?.activeRow = nil
         }
     }
 

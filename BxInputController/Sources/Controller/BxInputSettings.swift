@@ -38,4 +38,10 @@ open class BxInputSettings
     
     public var dateFormat: DateFormatter = DateFormatter(dateStyle: DateFormatter.Style.long, timeStyle: DateFormatter.Style.none)
     
+    
+    // Strings:
+    public var backButtonTitle = "Up"
+    public var nextButtonTitle = "Down"
+    public var doneButtonTitle = "Done"
+    
 }
