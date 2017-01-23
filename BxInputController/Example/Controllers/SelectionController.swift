@@ -58,6 +58,7 @@ class SelectionController : BxInputController {
         emptyVariants.items = variants
         filledVariants.items = variants
         filledVariants.value = variants.first
+        filledVariants.chield.height = 120
         autoselectedVariants.items = otherVariants
         autoselectedVariants.timeForAutoselection = 2
         

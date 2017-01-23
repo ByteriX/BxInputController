@@ -17,6 +17,20 @@ open class BxInputController : UIViewController
     public var tableView: UITableView = UITableView(frame: CGRect(), style: .grouped)
     public var clearsSelectionOnViewWillAppear: Bool = true
     
+    // in iOS less then 10.2 have bug with estimated rows ans section content
+    // it depends on change content size and reproduced from iOS 9x when inserted cells for situation when you scrolled to end
+    // for fixing this case I suggested use isEstimatedContent = false, and it is default value
+    // http://openradar.appspot.com/15729686
+    // http://www.openradar.me/24022858
+    public var isEstimatedContent: Bool = false
+    {
+        didSet {
+            updateEstimatedContent()
+        }
+    }
+    // This changed automatical, when changed isEstimatedContent value.
+    var tableDelegate: BaseTableDelegate? = nil
+    
     internal(set) public var datePicker: UIDatePicker = UIDatePicker()
     internal(set) public var variantsPicker: UIPickerView = UIPickerView()
     
@@ -52,12 +66,8 @@ open class BxInputController : UIViewController
         //tableView.tableHeaderView = smallView() it leads to insets
         //tableView.tableFooterView = smallView() it leads to insets
         self.view.addSubview(tableView)
-        tableView.dataSource = self
-        tableView.delegate = self
         
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.sectionHeaderHeight = UITableViewAutomaticDimension
-        tableView.sectionFooterHeight = UITableViewAutomaticDimension
+        updateEstimatedContent()
         
         contentRect = self.view.bounds
         updateInsets()
@@ -153,6 +163,26 @@ open class BxInputController : UIViewController
     open func refresh()
     {
         refreshResources()
+        tableView.reloadData()
+    }
+    
+    open func updateEstimatedContent()
+    {
+        tableView.dataSource = self
+        if isEstimatedContent {
+            tableDelegate = EstimatedSizeTableDelegate(parent: self)
+            
+            tableView.rowHeight = UITableViewAutomaticDimension
+            tableView.sectionHeaderHeight = UITableViewAutomaticDimension
+            tableView.sectionFooterHeight = UITableViewAutomaticDimension
+        } else {
+            tableDelegate = StaticSizeTableDelegate(parent: self)
+            
+            tableView.rowHeight = 60
+            tableView.sectionHeaderHeight = 20
+            tableView.sectionFooterHeight = 5
+        }
+        tableView.delegate = tableDelegate
         tableView.reloadData()
     }
     
@@ -353,7 +383,7 @@ open class BxInputController : UIViewController
     }
     
     @objc internal func select(indexPath: IndexPath) {
-        tableView(tableView, didSelectRowAt: indexPath)
+        tableView.delegate?.tableView!(tableView, didSelectRowAt: indexPath)
     }
     
     open func selectRow(_ row: BxInputRow, at position: UITableViewScrollPosition = .middle, animated: Bool = true)

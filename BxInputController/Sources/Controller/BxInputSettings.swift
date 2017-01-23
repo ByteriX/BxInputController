@@ -28,6 +28,8 @@ open class BxInputSettings
     public var titleFont: UIFont = UIFont.boldSystemFont(ofSize:  15)
     public var valueFont: UIFont = UIFont.systemFont(ofSize:  15)
     
+    public var globalCellHeight: CGFloat? = 46
+    
     // this not used
     var minValueWidth: CGFloat = 80
     var indentWidth: CGFloat = 10 // tagWidth / lineShift analog

@@ -44,13 +44,12 @@ open class BxInputSelectorVariantsRow<T: BxInputStringObject> : BxInputVariantsR
     
 }
 
-open class BxInputChildSelectorVariantsRow: BxInputChildSelectorRow
+open class BxInputChildSelectorVariantsRow: BxInputChildSelectorRow, BxInputStaticHeight
 {
-    open var resourceId : String {
-        get { return "BxInputSelectorVariantsCell" }
-    }
+    open var resourceId : String = "BxInputSelectorVariantsCell"
+    open var height : CGFloat = 216
     open var estimatedHeight : CGFloat {
-        get { return 216 }
+        get { return height }
     }
     
     open var title : String? {

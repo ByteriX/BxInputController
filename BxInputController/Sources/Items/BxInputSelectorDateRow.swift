@@ -35,13 +35,12 @@ open class BxInputSelectorDateRow : BxInputDateRow, BxInputSelectorRow
     
 }
 
-open class BxInputChildSelectorDateRow: BxInputChildSelectorRow
+open class BxInputChildSelectorDateRow: BxInputChildSelectorRow, BxInputStaticHeight
 {
-    open var resourceId : String {
-        get { return "BxInputSelectorDateCell" }
-    }
+    open var resourceId : String = "BxInputSelectorDateCell"
+    open var height : CGFloat = 216
     open var estimatedHeight : CGFloat {
-        get { return 216 }
+        get { return height }
     }
     
     open var title : String? {
