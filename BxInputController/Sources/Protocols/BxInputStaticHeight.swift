@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol BxInputStaticHeight {
+public protocol BxInputStaticHeight {
     
     var height : CGFloat {get}
     
