@@ -9,6 +9,8 @@ ByteriX, 2017. All right reserved.
 ## 0.9.21 (24.01.2017)
 ##### Bug fixing
 * public protocol BxInputStaticHeight
+* extract TableDelegate
+* fix bug with estimated sizes
 
 ## 0.9.20 (23.01.2017)
 ##### Improvements
