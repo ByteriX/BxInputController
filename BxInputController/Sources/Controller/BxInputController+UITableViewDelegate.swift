@@ -1,35 +1,24 @@
 //
-//  BxInputBaseTableDelegate.swift
+//  BxInputController+UITableViewDelegate.swift
 //  BxInputController
 //
-//  Created by Sergey Balalaev on 23/01/17.
+//  Created by Sergey Balalaev on 24/01/17.
 //  Copyright © 2017 Byterix. All rights reserved.
 //
 
 import UIKit
 
-open class BxInputBaseTableDelegate : NSObject, UITableViewDelegate
-{
-    public weak var parentController: BxInputController? = nil
-    
-    init(parent: BxInputController){
-        super.init()
-        self.parentController = parent
-    }
+extension BxInputController : UITableViewDelegate{
     
     open func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool
     {
-        guard let row = parentController?.getRow(for: indexPath) else {
-            return false
-        }
+        let row = getRow(for: indexPath)
         return row.isEnabled
     }
     
     open func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
     {
-        guard let row = parentController?.getRow(for: indexPath) else {
-            return nil
-        }
+        let row = getRow(for: indexPath)
         if row.isEnabled {
             return indexPath
         } else {
@@ -38,9 +27,7 @@ open class BxInputBaseTableDelegate : NSObject, UITableViewDelegate
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let row = parentController?.getRow(for: indexPath) else {
-            return
-        }
+        let row = getRow(for: indexPath)
         
         if !row.isEnabled {
             return
@@ -61,9 +48,7 @@ open class BxInputBaseTableDelegate : NSObject, UITableViewDelegate
     
     open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
     {
-        guard let sectionData = parentController?.sections[section] else {
-            return nil
-        }
+        let sectionData = sections[section]
         guard let headerData = sectionData.header else {
             let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: BxInputController.emptyHeaderFooterId) as! BxInputStandartEmptyHeaderFooter
             return view
@@ -74,7 +59,7 @@ open class BxInputBaseTableDelegate : NSObject, UITableViewDelegate
         } else if let headerData = headerData as? BxInputSectionNibContent {
             if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerData.resourceId) as? BxInputStandartHeaderFooter
             {
-                headerView.parent = parentController
+                headerView.parent = self
                 headerView.update(data: headerData)
                 return headerView
             }
@@ -85,9 +70,7 @@ open class BxInputBaseTableDelegate : NSObject, UITableViewDelegate
     
     open func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
     {
-        guard let sectionData = parentController?.sections[section] else {
-            return nil
-        }
+        let sectionData = sections[section]
         guard let footerData = sectionData.footer else {
             let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: BxInputController.emptyHeaderFooterId) as! BxInputStandartEmptyHeaderFooter
             return view
@@ -98,7 +81,7 @@ open class BxInputBaseTableDelegate : NSObject, UITableViewDelegate
         } else if let footerData = footerData as? BxInputSectionNibContent {
             if let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: footerData.resourceId) as? BxInputStandartHeaderFooter
             {
-                footerView.parent = parentController
+                footerView.parent = self
                 footerView.update(data: footerData)
                 return footerView
             }
@@ -107,5 +90,73 @@ open class BxInputBaseTableDelegate : NSObject, UITableViewDelegate
         return nil
     }
     
+    
+    open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        let row = getRow(for: indexPath)
+        
+        if let staticRow = row as? BxInputStaticHeight {
+            return staticRow.height
+        } else if isEstimatedContent {
+            return UITableViewAutomaticDimension
+        } else if let cellHeight = settings.globalCellHeight {
+            return cellHeight
+        } else {
+            return row.estimatedHeight
+        }
+    }
+    
+    open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
+    {
+        let sectionData = sections[section]
+        
+        guard let header = sectionData.header else {
+            return 1
+        }
+        if isEstimatedContent {
+            return UITableViewAutomaticDimension
+        }
+        return header.estimatedHeight
+    }
+    
+    open func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
+    {
+        let sectionData = sections[section]
+        
+        guard let footer = sectionData.footer else {
+            return 1
+        }
+        if isEstimatedContent {
+            return UITableViewAutomaticDimension
+        }
+        return footer.estimatedHeight
+    }
+    
+    open func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        let row = getRow(for: indexPath)
+        return row.estimatedHeight
+    }
+    
+    open func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat
+    {
+        let sectionData = sections[section]
+        
+        guard let header = sectionData.header else {
+            return 10
+        }
+        return header.estimatedHeight
+    }
+    
+    open func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat
+    {
+        let sectionData = sections[section]
+        
+        guard let footer = sectionData.footer else {
+            return 10
+        }
+        return footer.estimatedHeight
+    }
+    
+    
 }
-

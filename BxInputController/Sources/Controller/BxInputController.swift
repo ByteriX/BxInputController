@@ -26,8 +26,6 @@ open class BxInputController : UIViewController
     {
         didSet { updateEstimatedContent() }
     }
-    // This changed automatical, when changed isEstimatedContent value.
-    var tableDelegate: BxInputBaseTableDelegate? = nil
     
     internal(set) public var datePicker: UIDatePicker = UIDatePicker()
     internal(set) public var variantsPicker: UIPickerView = UIPickerView()
@@ -185,19 +183,15 @@ open class BxInputController : UIViewController
     {
         tableView.dataSource = self
         if isEstimatedContent {
-            tableDelegate = BxInputEstimatedSizeTableDelegate(parent: self)
-            
             tableView.rowHeight = UITableViewAutomaticDimension
             tableView.sectionHeaderHeight = UITableViewAutomaticDimension
             tableView.sectionFooterHeight = UITableViewAutomaticDimension
         } else {
-            tableDelegate = BxInputStaticSizeTableDelegate(parent: self)
-            
             tableView.rowHeight = 60
             tableView.sectionHeaderHeight = 20
             tableView.sectionFooterHeight = 5
         }
-        tableView.delegate = tableDelegate
+        tableView.delegate = self
         tableView.reloadData()
     }
     

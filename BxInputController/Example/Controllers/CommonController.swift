@@ -58,6 +58,8 @@ class CommonController: BxInputController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        isEstimatedContent = false
+        
         emptyVariants.items = variants
         filledVariants.items = variants
         filledVariants.value = variants.first

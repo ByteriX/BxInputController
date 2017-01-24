@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 0.9.22 (24.01.2017)
+##### Refactoring
+* remove tableDelegate with all subclasses
+
 ## 0.9.21 (24.01.2017)
 ##### Bug fixing
 * public protocol BxInputStaticHeight
