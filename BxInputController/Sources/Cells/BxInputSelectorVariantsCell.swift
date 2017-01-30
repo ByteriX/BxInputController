@@ -45,7 +45,9 @@ open class BxInputSelectorVariantsCell: BxInputStandartCell {
             variantsPicker.selectRow(index, inComponent: 0, animated: true)
             
             DispatchQueue.main.async { [weak self] () -> Void in
-                self?.pickerView(self?.variantsPicker, didSelectRow: index, inComponent: 0)
+                if let variantsPicker = self?.variantsPicker {
+                    self?.pickerView(variantsPicker, didSelectRow: index, inComponent: 0)
+                }
             }
         }
     }
