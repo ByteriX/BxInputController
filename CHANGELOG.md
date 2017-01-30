@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 0.9.23 (30.01.2017)
+##### Bug fixing
+* firstable selection of date or variants rows call didChange before showing child row
+
 ## 0.9.22 (24.01.2017)
 ##### Refactoring
 * remove tableDelegate with all subclasses

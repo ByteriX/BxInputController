@@ -33,7 +33,11 @@ open class BxInputSelectorDateCell: BxInputStandartCell {
                 datePicker.setDate(Date(), animated: false)
             }
         }
-        changeDate(datePicker)
+        DispatchQueue.main.async { [weak self] () -> Void in
+            if let datePicker = self?.datePicker {
+                self?.changeDate(datePicker)
+            }
+        }
     }
     
     @IBAction open func changeDate(_ sender: Any) {
