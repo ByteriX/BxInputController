@@ -9,7 +9,7 @@
 import UIKit
 
 
-class BxInputRateRow: BxInputRow
+open class BxInputRateRow: BxInputRow
 {
     
     open var resourceId : String {

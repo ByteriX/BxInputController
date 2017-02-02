@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BxInputSelectorTextCell: BxInputStandartCell {
+public class BxInputSelectorTextCell: BxInputStandartCell {
 
     @IBOutlet var textView: UITextView!
     
@@ -59,14 +59,14 @@ class BxInputSelectorTextCell: BxInputStandartCell {
         }
     }
     
-    func check()
+    open func check()
     {
         if checkContent() {
             checkScroll()
         }
     }
     
-    func checkScroll()
+    open func checkScroll()
     {
         if let position = textView.selectedTextRange?.start,
             let parent = parent
@@ -81,12 +81,11 @@ class BxInputSelectorTextCell: BxInputStandartCell {
         }
     }
     
-    func checkContent() -> Bool
+    open func checkContent() -> Bool
     {
         let shift = textView.contentSize.height - textView.frame.size.height
         if shift > 0 {
-            if let row = data as? BxInputChildSelectorTextRow,
-                let parentRow = row.parent
+            if let row = data as? BxInputChildSelectorTextRow
             {
                 row.height = row.height + shift + 1
                 parent?.reloadRow(row, with: .none)
@@ -102,17 +101,17 @@ class BxInputSelectorTextCell: BxInputStandartCell {
 extension BxInputSelectorTextCell : UITextViewDelegate
 {
     
-    func textViewDidBeginEditing(_ textView: UITextView)
+    open func textViewDidBeginEditing(_ textView: UITextView)
     {
         self.perform(#selector(check), with: nil, afterDelay: 0.1)
     }
     
-    func textViewShouldEndEditing(_ textView: UITextView) -> Bool
+    open func textViewShouldEndEditing(_ textView: UITextView) -> Bool
     {
         return true
     }
     
-    func textViewDidChange(_ textView: UITextView)
+    open func textViewDidChange(_ textView: UITextView)
     {
         if let row = data as? BxInputChildSelectorTextRow,
             let parentRow = row.parent as? BxInputSelectorTextRow

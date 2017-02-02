@@ -9,16 +9,11 @@
 import UIKit
 import BxObjC
 
-class BxInputRateCell: BxInputStandartCell, BxStandartRateViewDelegate {
+public class BxInputRateCell: BxInputStandartCell, BxStandartRateViewDelegate {
     
     @IBOutlet weak open var titleLabel: UILabel!
     @IBOutlet weak open var valueRateView: BxStandartRateView!
     @IBOutlet weak var rateWidthConstraint: NSLayoutConstraint!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
     
     override open func didSelected()
     {
