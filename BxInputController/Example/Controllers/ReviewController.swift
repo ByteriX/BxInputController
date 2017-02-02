@@ -16,6 +16,10 @@ class ReviewController: BxInputController
     private var customRateValue = BxInputRateRow(title: "Custom rate", maxValue: 7, activeColor: UIColor.blue)
     private var bigRateValue = BxInputRateRow(title: "Big rate", maxValue: 3, activeColor: UIColor.yellow)
     
+    
+    private var textValue = BxInputSelectorTextRow(title: "Comments", placeholder: "This is your comments")
+    private var selectedTextValue = BxInputSelectorTextRow(title: "Selected Text", value: "This is your comments")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,6 +31,7 @@ class ReviewController: BxInputController
         
         self.sections = [
             BxInputSection(headerText: "Rate", rows: [rateValue, disabledRateValue, customRateValue, bigRateValue]),
+            BxInputSection(headerText: "Text", rows: [textValue, selectedTextValue]),
         ]
     }
     

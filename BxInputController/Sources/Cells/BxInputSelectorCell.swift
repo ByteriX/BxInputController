@@ -38,7 +38,8 @@ open class BxInputSelectorCell: BxInputStandartCell {
             if data.children.count > 1 {
                 parent?.scrollRow(data, at: .top, animated: true)
             } else if let firstItem = data.children.first {
-                parent?.scrollRow(firstItem, at: .middle, animated: true)
+                parent?.selectRow(firstItem, at: .middle, animated: true)
+                //parent?.scrollRow(firstItem, at: .middle, animated: true)
             } else {
                 parent?.scrollRow(data, at: .middle, animated: true)
             }

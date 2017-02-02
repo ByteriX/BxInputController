@@ -10,6 +10,7 @@ ByteriX, 2017. All right reserved.
 ##### Improvements
 * change arrow icon for the selector types
 * added BxInputRateRow for puting a rating
+* added BxInputSelectorTextRow for puting a bigest text
 
 ## 0.9.23 (30.01.2017)
 ##### Bug fixing
