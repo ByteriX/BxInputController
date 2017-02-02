@@ -6,6 +6,11 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 0.9.24 (02.02.2017)
+##### Improvements
+* change arrow icon for the selector types
+* added BxInputRateRow for puting a rating
+
 ## 0.9.23 (30.01.2017)
 ##### Bug fixing
 * firstable selection of date or variants rows call didChange before showing child row
