@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 0.9.26 (03.02.2017)
+##### Bug fixing
+* sharing resources for Rate
+
 ## 0.9.25 (02.02.2017)
 ##### Bug fixing
 * fix accessing for new classes
