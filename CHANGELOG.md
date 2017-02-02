@@ -11,6 +11,8 @@ ByteriX, 2017. All right reserved.
 * change arrow icon for the selector types
 * added BxInputRateRow for puting a rating
 * added BxInputSelectorTextRow for puting a bigest text
+* fix visual showing of BxInputSelectorCell for supporting BxInputSelectorTextRow
+* add separatorInset to BxInputSettings
 
 ## 0.9.23 (30.01.2017)
 ##### Bug fixing

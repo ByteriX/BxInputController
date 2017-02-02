@@ -104,7 +104,7 @@ extension BxInputSelectorTextCell : UITextViewDelegate
     
     func textViewDidBeginEditing(_ textView: UITextView)
     {
-        self.perform(#selector(check), with: nil, afterDelay: 0.5)
+        self.perform(#selector(check), with: nil, afterDelay: 0.1)
     }
     
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool

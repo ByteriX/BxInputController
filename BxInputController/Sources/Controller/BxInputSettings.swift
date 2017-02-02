@@ -29,6 +29,7 @@ open class BxInputSettings
     public var valueFont: UIFont = UIFont.systemFont(ofSize:  15)
     
     public var globalCellHeight: CGFloat? = 46
+    public var separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
     
     // this not used
     var minValueWidth: CGFloat = 80

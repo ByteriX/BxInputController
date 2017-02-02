@@ -26,6 +26,7 @@ open class BxInputSelectorCell: BxInputStandartCell {
             return
         }
         data.isOpened = !data.isOpened
+        
         refreshOpened(animated: true)
         
         if data.isOpened {
@@ -58,23 +59,7 @@ open class BxInputSelectorCell: BxInputStandartCell {
         valueTextField.textColor = parent?.settings.valueColor
         //
         titleLabel.text = data.title
-        
-        if let dateRow = data as? BxInputSelectorDateRow {
-            if let date = dateRow.value {
-                valueTextField.text = parent?.settings.dateFormat.string(from: date)
-            } else {
-                valueTextField.text = ""
-            }
-        } else if let row = data as? BxInputStringRow {
-            valueTextField.text = row.stringValue
-        }
-        if let placeholder = data.placeholder,
-            let placeholderColor = parent?.settings.placeholderColor
-        {
-            valueTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSForegroundColorAttributeName : placeholderColor])
-        } else {
-            valueTextField.placeholder = data.placeholder
-        }
+
         refreshOpened(animated: false)
     }
     
@@ -99,8 +84,43 @@ open class BxInputSelectorCell: BxInputStandartCell {
         } else {
             arrowImage.transform = CGAffineTransform.identity
         }
+        checkValue()
         if animated {
             UIView.commitAnimations()
+        }
+    }
+    
+    open func checkValue() {
+        // changing for BxInputSelectorTextRow
+        var separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
+        if let settings = parent?.settings {
+            separatorInset = settings.separatorInset
+        }
+        if let row = data as? BxInputSelectorTextRow {
+            if row.isOpened {
+                separatorInset.left = self.frame.size.width
+                self.separatorInset = separatorInset
+                valueTextField.text = ""
+                return
+            }
+        }
+        self.separatorInset = separatorInset
+        // all other changing
+        if let dateRow = data as? BxInputSelectorDateRow {
+            if let date = dateRow.value {
+                valueTextField.text = parent?.settings.dateFormat.string(from: date)
+            } else {
+                valueTextField.text = ""
+            }
+        } else if let row = data as? BxInputStringRow {
+            valueTextField.text = row.stringValue
+        }
+        if let placeholder = data?.placeholder,
+            let placeholderColor = parent?.settings.placeholderColor
+        {
+            valueTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSForegroundColorAttributeName : placeholderColor])
+        } else {
+            valueTextField.placeholder = data?.placeholder
         }
     }
     

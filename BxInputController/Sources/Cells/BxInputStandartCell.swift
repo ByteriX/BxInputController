@@ -23,6 +23,9 @@ open class BxInputStandartCell: UITableViewCell {
     {
         self.data = data
         self.isEnabled = data.isEnabled
+        if let settings = parent?.settings {
+            separatorInset = settings.separatorInset
+        }
     }
     
     open func didSelected()
