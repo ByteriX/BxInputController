@@ -34,6 +34,9 @@ public class BxInputSelectorTextCell: BxInputStandartCell {
     {
         super.update(data: data)
         //
+        textView.font = parent?.settings.valueFont
+        textView.textColor = parent?.settings.valueColor
+        //
         if let row = data as? BxInputChildSelectorTextRow,
             let parentRow = row.parent as? BxInputSelectorTextRow
         {
