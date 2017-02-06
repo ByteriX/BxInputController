@@ -60,6 +60,14 @@ open class BxInputSelectorCell: BxInputStandartCell {
         valueTextField.textColor = parent?.settings.valueColor
         //
         titleLabel.text = data.title
+        
+        if let placeholder = data.placeholder,
+            let placeholderColor = parent?.settings.placeholderColor
+        {
+            valueTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSForegroundColorAttributeName : placeholderColor])
+        } else {
+            valueTextField.placeholder = data.placeholder
+        }
 
         refreshOpened(animated: false)
     }
@@ -97,32 +105,31 @@ open class BxInputSelectorCell: BxInputStandartCell {
         if let settings = parent?.settings {
             separatorInset = settings.separatorInset
         }
+        var isEmptyValue = false
         if let row = data as? BxInputSelectorTextRow {
             if row.isOpened {
                 separatorInset.left = self.frame.size.width
                 self.separatorInset = separatorInset
-                valueTextField.text = ""
-                return
+                isEmptyValue = true
             }
         }
         self.separatorInset = separatorInset
-        // all other changing
+        
+        // all other changing of value
         if let dateRow = data as? BxInputSelectorDateRow {
             if let date = dateRow.value {
                 valueTextField.text = parent?.settings.dateFormat.string(from: date)
             } else {
                 valueTextField.text = ""
             }
-        } else if let row = data as? BxInputStringRow {
-            valueTextField.text = row.stringValue
-        }
-        if let placeholder = data?.placeholder,
-            let placeholderColor = parent?.settings.placeholderColor
+        } else if let row = data as? BxInputStringRow,
+            isEmptyValue == false
         {
-            valueTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSForegroundColorAttributeName : placeholderColor])
+            valueTextField.text = row.stringValue
         } else {
-            valueTextField.placeholder = data?.placeholder
+            valueTextField.text = ""
         }
+        
     }
     
 }

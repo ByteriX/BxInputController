@@ -18,7 +18,7 @@ class ReviewController: BxInputController
     
     
     private var textValue = BxInputSelectorTextRow(title: "Comments", placeholder: "This is your comments")
-    private var selectedTextValue = BxInputSelectorTextRow(title: "Selected Text", value: "This is your comments")
+    private var selectedTextValue = BxInputSelectorTextRow(title: "Selected Text", value: "Put your comments Please")
     
     private var photosValue = BxInputSelectorPicturesRow(title: "Selected Photos")
     

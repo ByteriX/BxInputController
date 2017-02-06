@@ -14,6 +14,7 @@ ByteriX, 2017. All right reserved.
 * add maxSelectedCount param for 
 * showing count of pictures
 * refactoring
+* bug fixing for update placeholder & value of selector cell
 
 ## 0.9.26 (03.02.2017)
 ##### Bug fixing
