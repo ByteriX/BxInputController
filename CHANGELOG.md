@@ -8,8 +8,10 @@ ByteriX, 2017. All right reserved.
 
 ## 0.9.27 (06.02.2017)
 ##### Improvements
-* fix font for BxInputSelectorTextRow
 * add picture selector BxInputSelectorPicturesRow
+* fix font for BxInputSelectorTextRow
+* fix getting back & next row
+* add maxSelectedCount param for 
 
 ## 0.9.26 (03.02.2017)
 ##### Bug fixing

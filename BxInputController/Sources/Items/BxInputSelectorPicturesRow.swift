@@ -28,7 +28,7 @@ open class BxInputSelectorPicturesRow : BxInputRow, BxInputSelectorRow
     open var iconSize: CGSize = CGSize(width: 64, height: 64)
     open var iconMargin: CGFloat = 8
     open var countInRow: Int = 4
-    open var maxSelectedCount: Int = 8
+    open var maxSelectedCount: Int = 5
     
     
     

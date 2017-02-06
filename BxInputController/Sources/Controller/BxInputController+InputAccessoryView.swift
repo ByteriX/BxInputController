@@ -71,7 +71,11 @@ extension BxInputController
             row = getIncrementRow(from: activeRow)
         }
         if let row = row {
-            selectRow(row)
+            //
+            DispatchQueue.main.async {[weak self] () in
+                self?.selectRow(row)
+                self?.updateCommonInputAccessory()
+            }
         } else {
             activeControl?.resignFirstResponder()
         }
@@ -79,6 +83,13 @@ extension BxInputController
     
     open func doneButtonClick() {
         activeControl?.resignFirstResponder()
+    }
+    
+    open func checkedForGettingRow(_ row: BxInputRow) -> Bool{
+        if row is BxInputChildSelectorRow {
+            return false
+        }
+        return row.isEnabled
     }
     
     open func getIncrementRow(from row: BxInputRow) -> BxInputRow?
@@ -90,7 +101,7 @@ extension BxInputController
                 let rows = sections[sectionIndex].rows
                 while rowIndex < rows.count {
                     let result = rows[rowIndex]
-                    if result.isEnabled {
+                    if checkedForGettingRow(result) {
                         return result
                     }
                     rowIndex = rowIndex + 1
@@ -111,7 +122,7 @@ extension BxInputController
                 let rows = sections[sectionIndex].rows
                 while rowIndex > -1 {
                     let result = rows[rowIndex]
-                    if result.isEnabled {
+                    if checkedForGettingRow(result) {
                         return result
                     }
                     rowIndex = rowIndex - 1

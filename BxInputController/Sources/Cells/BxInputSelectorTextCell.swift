@@ -104,9 +104,14 @@ public class BxInputSelectorTextCell: BxInputStandartCell {
 extension BxInputSelectorTextCell : UITextViewDelegate
 {
     
-    open func textViewDidBeginEditing(_ textView: UITextView)
+    open func textViewShouldBeginEditing(_ textView: UITextView) -> Bool
     {
         parent?.activeControl = textView
+        return true
+    }
+    
+    open func textViewDidBeginEditing(_ textView: UITextView)
+    {
         self.perform(#selector(check), with: nil, afterDelay: 0.1)
     }
     

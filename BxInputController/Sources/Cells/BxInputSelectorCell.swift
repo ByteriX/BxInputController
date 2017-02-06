@@ -44,6 +44,7 @@ open class BxInputSelectorCell: BxInputStandartCell {
             } else {
                 parent?.scrollRow(data, at: .middle, animated: true)
             }
+            parent?.activeRow = data
         } else {
             parent?.deleteRows(data.children)
         }

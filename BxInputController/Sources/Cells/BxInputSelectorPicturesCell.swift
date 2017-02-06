@@ -53,9 +53,14 @@ public class BxInputSelectorPicturesCell: BxInputStandartCell {
             if let row = self?.data as? BxInputChildSelectorPicturesRow,
                 let parentRow = row.parent as? BxInputSelectorPicturesRow
             {
-                parentRow.pictures.append(picture)
+                if parentRow.maxSelectedCount > parentRow.pictures.count {
+                    parentRow.pictures.append(picture)
+                    self?.addPicture(picture)
+                } else {
+                    self?.selectedScrollView.shakeX(withOffset: 50, breakFactor: 0.65, duration: 0.75, maxShakes: 5)
+                }
             }
-            self?.addPicture(picture)
+            
         }
 
         // clear:
