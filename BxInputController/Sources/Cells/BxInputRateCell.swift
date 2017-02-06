@@ -29,6 +29,7 @@ public class BxInputRateCell: BxInputStandartCell, BxStandartRateViewDelegate {
         titleLabel.font = parent?.settings.titleFont
         titleLabel.textColor = parent?.settings.titleColor
         titleLabel.text = data.title
+        valueRateView.delegate = self
 
         self.selectionStyle = .none
 
