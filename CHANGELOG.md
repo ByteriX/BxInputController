@@ -6,9 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
-## 0.9.27 (03.02.2017)
+## 0.9.27 (06.02.2017)
 ##### Improvements
 * fix font for BxInputSelectorTextRow
+* add picture selector BxInputSelectorPicturesRow
 
 ## 0.9.26 (03.02.2017)
 ##### Bug fixing

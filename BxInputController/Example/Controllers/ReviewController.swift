@@ -20,6 +20,8 @@ class ReviewController: BxInputController
     private var textValue = BxInputSelectorTextRow(title: "Comments", placeholder: "This is your comments")
     private var selectedTextValue = BxInputSelectorTextRow(title: "Selected Text", value: "This is your comments")
     
+    private var photosValue = BxInputSelectorPicturesRow(title: "Selected Photos")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,6 +34,7 @@ class ReviewController: BxInputController
         self.sections = [
             BxInputSection(headerText: "Rate", rows: [rateValue, disabledRateValue, customRateValue, bigRateValue]),
             BxInputSection(headerText: "Text", rows: [textValue, selectedTextValue]),
+            BxInputSection(headerText: "Photos", rows: [photosValue]),
         ]
     }
     

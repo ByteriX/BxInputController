@@ -106,6 +106,7 @@ extension BxInputSelectorTextCell : UITextViewDelegate
     
     open func textViewDidBeginEditing(_ textView: UITextView)
     {
+        parent?.activeControl = textView
         self.perform(#selector(check), with: nil, afterDelay: 0.1)
     }
     
