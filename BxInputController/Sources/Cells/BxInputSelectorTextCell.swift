@@ -41,24 +41,6 @@ public class BxInputSelectorTextCell: BxInputStandartCell {
             let parentRow = row.parent as? BxInputSelectorTextRow
         {
             textView.text = parentRow.value
-            
-//            DispatchQueue.main.async { [weak self] () -> Void in
-//                if let variantsPicker = self?.variantsPicker {
-//                    self?.pickerView(variantsPicker, didSelectRow: index, inComponent: 0)
-//                }
-//            }
-        }
-    }
-    
-    open func autoselection() {
-        if let row = data as? BxInputChildSelectorTextRow,
-            let parentRow = row.parent
-        {
-            if parentRow.isOpened {
-                parentRow.isOpened = false
-                parent?.deleteRow(row)
-                parent?.updateRow(parentRow)
-            }
         }
     }
     
@@ -106,6 +88,11 @@ extension BxInputSelectorTextCell : UITextViewDelegate
     
     open func textViewShouldBeginEditing(_ textView: UITextView) -> Bool
     {
+        if let row = data as? BxInputChildSelectorTextRow,
+            let parentRow = row.parent as? BxInputSelectorTextRow
+        {
+            parent?.activeRow = parentRow
+        }
         parent?.activeControl = textView
         return true
     }

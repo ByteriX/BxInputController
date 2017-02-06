@@ -19,7 +19,16 @@ open class BxInputSelectorPicturesRow : BxInputRow, BxInputSelectorRow
     }
     
     open var title : String?
-    open var placeholder : String?
+    public var placeholderHint: String?
+    open var placeholder : String? {
+        get {
+            if let placeholderHint = placeholderHint {
+                return "\(placeholderHint) \(pictures.count)"
+            } else {
+                return "\(pictures.count)"
+            }
+        }
+    }
     open var isEnabled : Bool = true
     
     open var isOpened: Bool = false
@@ -41,7 +50,7 @@ open class BxInputSelectorPicturesRow : BxInputRow, BxInputSelectorRow
     
     public init(title: String? = nil, placeholder: String? = nil, pictures: [BxInputPicture] = []) {
         self.title = title
-        self.placeholder = placeholder
+        self.placeholderHint = placeholder
         self.pictures = pictures
         chield = BxInputChildSelectorPicturesRow()
         chield.parent = self

@@ -56,6 +56,7 @@ public class BxInputSelectorPicturesCell: BxInputStandartCell {
                 if parentRow.maxSelectedCount > parentRow.pictures.count {
                     parentRow.pictures.append(picture)
                     self?.addPicture(picture)
+                    self?.parent?.updateRow(parentRow)
                 } else {
                     self?.selectedScrollView.shakeX(withOffset: 50, breakFactor: 0.65, duration: 0.75, maxShakes: 5)
                 }
@@ -99,8 +100,9 @@ public class BxInputSelectorPicturesCell: BxInputStandartCell {
                     return currentPicture === pictureView.picture
                 }) {
                     parentRow.pictures.remove(at: index)
+                    self?.removePictureView(pictureView)
+                    self?.parent?.updateRow(parentRow)
                 }
-                self?.removePictureView(pictureView)
             }
             
         }
@@ -128,78 +130,21 @@ public class BxInputSelectorPicturesCell: BxInputStandartCell {
         selectedScrollView.contentSize = CGSize(width: x, height: self.contentView.frame.size.height)
     }
     
-    open func autoselection() {
-        if let row = data as? BxInputChildSelectorTextRow,
-            let parentRow = row.parent
-        {
-            if parentRow.isOpened {
-                parentRow.isOpened = false
-                parent?.deleteRow(row)
-                parent?.updateRow(parentRow)
-            }
-        }
-    }
-    
-    
-    
-    open func check()
-    {
-//        if checkContent() {
-//            checkScroll()
-//        }
-    }
-    
-//    open func checkScroll()
-//    {
-//        if let position = textView.selectedTextRange?.start,
-//            let parent = parent
-//        {
-//            let rect = textView.caretRect(for: position)
-//            let rectInTable = parent.tableView.convert(rect, from: textView)
-//            let shift =  8 + rectInTable.origin.y + rectInTable.size.height - ( parent.tableView.contentOffset.y + parent.tableView.frame.size.height - parent.tableView.contentInset.bottom)
-//            if shift > 0 {
-//                let point = CGPoint(x: parent.tableView.contentOffset.x, y: parent.tableView.contentOffset.y + shift + 4)
-//                parent.tableView.setContentOffset(point, animated: true)
-//            }
-//        }
-//    }
-//    
-//    open func checkContent() -> Bool
-//    {
-//        let shift = textView.contentSize.height - textView.frame.size.height
-//        if shift > 0 {
-//            if let row = data as? BxInputChildSelectorTextRow
-//            {
-//                row.height = row.height + shift + 1
-//                parent?.reloadRow(row, with: .none)
-//                parent?.selectRow(row, at: .none, animated: false)
-//                return false
-//            }
-//        }
-//        return true
-//    }
-    
+
 }
 
 extension BxInputSelectorPicturesCell : UITextFieldDelegate
 {
     
-    open func textFieldDidBeginEditing(_ textField: UITextField)
+    open func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool
     {
-        parent?.activeControl = valueTextField
-        self.perform(#selector(check), with: nil, afterDelay: 0.1)
-    }
-    
-    // Please change it
-    open func textViewDidChange(_ textView: UITextView)
-    {
-        if let row = data as? BxInputChildSelectorTextRow,
-            let parentRow = row.parent as? BxInputSelectorTextRow
+        if let row = data as? BxInputChildSelectorPicturesRow,
+            let parentRow = row.parent as? BxInputSelectorPicturesRow
         {
-            parentRow.value = textView.text
-            parent?.updateRow(parentRow)
-            check()
+            parent?.activeRow = parentRow
         }
+        parent?.activeControl = valueTextField
+        return true
     }
     
 }

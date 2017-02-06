@@ -10,8 +10,10 @@ ByteriX, 2017. All right reserved.
 ##### Improvements
 * add picture selector BxInputSelectorPicturesRow
 * fix font for BxInputSelectorTextRow
-* fix getting back & next row
+* fix getting back & next row for selector
 * add maxSelectedCount param for 
+* showing count of pictures
+* refactoring
 
 ## 0.9.26 (03.02.2017)
 ##### Bug fixing
