@@ -36,6 +36,7 @@ open class BxInputSelectorPicturesRow : BxInputRow, BxInputSelectorRow
     open var pictures: [BxInputPicture]
     open var iconSize: CGSize = CGSize(width: 64, height: 64)
     open var iconMargin: CGFloat = 8
+    open var iconMode: UIViewContentMode = .scaleAspectFill
     open var countInRow: Int = 4
     open var maxSelectedCount: Int = 5
     

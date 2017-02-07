@@ -20,8 +20,8 @@ open class BxInputSelectorPictureView : UIImageView {
         self.picture = picture
         super.init(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height))
         self.image = picture.icon
+        self.clipsToBounds = true
         self.contentMode = .scaleAspectFit
-        self.clipsToBounds = false
         self.isUserInteractionEnabled = true
         
         removeButton.addTarget(self, action: #selector(removeClick), for: .touchUpInside)

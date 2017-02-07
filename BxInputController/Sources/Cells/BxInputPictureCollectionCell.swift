@@ -16,6 +16,8 @@ open class BxInputPictureCollectionCell : UICollectionViewCell
     override public init(frame: CGRect) {
         super.init(frame: frame)
         pictureView = UIImageView(frame: self.contentView.bounds)
+        pictureView.contentMode = .scaleAspectFit
+        pictureView.clipsToBounds = true
         pictureView.autoresizingMask = [.flexibleBottomMargin, .flexibleHeight, .flexibleTopMargin,
                                         .flexibleRightMargin, .flexibleWidth, .flexibleLeftMargin]
         self.contentView.addSubview(pictureView)

@@ -16,7 +16,7 @@ public class BxInputSelectorPicturesCell: BxInputStandartCell {
     @IBOutlet weak open var valueTextField: UITextField!
     @IBOutlet weak var selectedScrollView: UIScrollView!
     
-    var rowData: BxInputSelectorPicturesRow!
+    weak var rowData: BxInputSelectorPicturesRow!
     var pictureViews: [BxInputSelectorPictureView] = []
     
     var size : CGSize = CGSize(width: 64, height: 64)
@@ -81,7 +81,7 @@ public class BxInputSelectorPicturesCell: BxInputStandartCell {
             //                    self?.pickerView(variantsPicker, didSelectRow: index, inComponent: 0)
             //                }
             //            }
-            
+            dataSource.rowData = parentRow
             dataSource.updateAssets(size: self.frame.size.width / CGFloat(parentRow.countInRow) - 2.0)
             for picture in parentRow.pictures {
                 self.addPicture(picture)
@@ -91,6 +91,11 @@ public class BxInputSelectorPicturesCell: BxInputStandartCell {
     
     func addPicture(_ picture: BxInputPicture) {
         let pictureView = BxInputSelectorPictureView(picture: picture, size: size)
+        if let row = data as? BxInputChildSelectorPicturesRow,
+            let parentRow = row.parent as? BxInputSelectorPicturesRow
+        {
+            pictureView.contentMode = parentRow.iconMode
+        }
         pictureView.removeHandler = {[weak self, weak pictureView] () -> Void in
             if let row = self?.data as? BxInputChildSelectorPicturesRow,
                 let parentRow = row.parent as? BxInputSelectorPicturesRow,
