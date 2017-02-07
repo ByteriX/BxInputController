@@ -9,6 +9,7 @@ ByteriX, 2017. All right reserved.
 ## 0.9.29 (07.02.2017)
 ##### Improvements
 * added iconMode to BxInputSelectorPicturesRow
+* animated adding pictures
 
 ## 0.9.28 (06.02.2017)
 ##### Bug fixing

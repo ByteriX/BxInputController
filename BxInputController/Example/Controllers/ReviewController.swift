@@ -31,6 +31,8 @@ class ReviewController: BxInputController
         bigRateValue.passiveColor = bigRateValue.activeColor.withAlphaComponent(0.2)
         bigRateValue.width = 200
         
+        photosValue.maxSelectedCount = 8
+        
         self.sections = [
             BxInputSection(headerText: "Rate", rows: [rateValue, disabledRateValue, customRateValue, bigRateValue]),
             BxInputSection(headerText: "Text", rows: [textValue, selectedTextValue]),

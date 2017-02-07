@@ -12,7 +12,7 @@ import Photos
 
 open class BxInputSelectorPicturesLibraryDataSource : NSObject {
     
-    var selectHandler: ((_ picture: BxInputPicture) -> Void)? = nil
+    var selectHandler: ((_ picture: BxInputPicture, _ cell: BxInputPictureCollectionCell) -> Void)? = nil
     weak var rowData: BxInputSelectorPicturesRow? = nil
     
     private static let assetLibrary = ALAssetsLibrary()
@@ -88,8 +88,10 @@ extension BxInputSelectorPicturesLibraryDataSource : UICollectionViewDelegate, U
     }
     
     open func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let selectHandler = selectHandler {
-            selectHandler(librairyPictures[indexPath.row])
+        if let selectHandler = selectHandler,
+            let cell = collectionView.cellForItem(at: indexPath) as? BxInputPictureCollectionCell
+        {
+            selectHandler(librairyPictures[indexPath.row], cell)
         }
     }
 
