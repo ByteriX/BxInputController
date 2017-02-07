@@ -46,7 +46,7 @@ open class BxInputSelectorPicturesLibraryDataSource : NSObject {
         
         librairyPictures = []
         let assetLibrary = type(of: self).assetLibrary
-        assetLibrary.enumerateGroupsWithTypes(ALAssetsGroupSavedPhotos, usingBlock: {[weak self] (group, stop) in
+        assetLibrary.enumerateGroupsWithTypes(ALAssetsGroupLibrary + ALAssetsGroupSavedPhotos + ALAssetsGroupPhotoStream, usingBlock: {[weak self] (group, stop) in
             group?.setAssetsFilter(ALAssetsFilter.allPhotos())
             group?.enumerateAssets(options: .reverse, using: {[weak self] (alAsset, index, innerStop) in
                 if let alAsset = alAsset {

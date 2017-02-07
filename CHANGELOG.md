@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 0.9.30 (08.02.2017)
+##### Improvements
+* use library + stream photos for BxInputSelectorPicturesRow
+
 ## 0.9.29 (07.02.2017)
 ##### Improvements
 * added iconMode to BxInputSelectorPicturesRow for the selection an icon showing
