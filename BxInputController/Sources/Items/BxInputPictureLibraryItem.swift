@@ -57,3 +57,13 @@ public class BxInputPictureLibraryItem : BxInputPicture
         return image
     }
 }
+
+func == (left: BxInputPictureLibraryItem, right: BxInputPictureLibraryItem) -> Bool {
+    let result = (left === right)
+    if !result {
+        let leftId = left.converterALAssetToPHAsset(left.asset).localIdentifier
+        let rightId = right.converterALAssetToPHAsset(right.asset).localIdentifier
+        return leftId == rightId
+    }
+    return result
+}

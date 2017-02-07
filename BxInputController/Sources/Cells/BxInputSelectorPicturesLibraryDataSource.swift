@@ -67,8 +67,14 @@ open class BxInputSelectorPicturesLibraryDataSource : NSObject {
         {
             return false
         }
-        if let _ = data.pictures.index(where: { (currentPicture) -> Bool in
-            return currentPicture === picture
+        if let picture = picture as? BxInputPictureLibraryItem,
+            let _ = data.pictures.index(where: { (currentPicture) -> Bool in
+            if let currentPicture = currentPicture as? BxInputPictureLibraryItem {
+                return picture == currentPicture
+            } else {
+                return false
+            }
+            
         }) {
             return true
         }
@@ -92,14 +98,15 @@ extension BxInputSelectorPicturesLibraryDataSource : UICollectionViewDelegate, U
         //
     }
     
-    open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
+    {
         let cell = picturesCollection.dequeueReusableCell(withReuseIdentifier: picturesCellId, for: indexPath) as! BxInputPictureCollectionCell
         let picture = librairyPictures[indexPath.row]
         cell.pictureView.image = picture.icon
         if let data = rowData {
             cell.pictureView.contentMode = data.iconMode
             if isUnSelectable(picture) {
-                cell.pictureView.alpha = 0.35
+                cell.pictureView.alpha = 0.25
             } else {
                 cell.pictureView.alpha = 1
             }

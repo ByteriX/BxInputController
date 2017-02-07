@@ -12,6 +12,7 @@ ByteriX, 2017. All right reserved.
 * added isUniqueue to BxInputSelectorPicturesRow for single choosing a picture
 * animated adding of a pictures
 * improvement adding animation
+* fix bug with identical photo in the library
 
 ## 0.9.28 (06.02.2017)
 ##### Bug fixing
