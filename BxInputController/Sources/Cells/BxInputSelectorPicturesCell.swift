@@ -21,10 +21,11 @@ public class BxInputSelectorPicturesCell: BxInputStandartCell {
     
     var size : CGSize = CGSize(width: 64, height: 64)
     var margin : CGFloat = 10
-    var insertRect: CGRect = CGRect()
     
     let dataSource = BxInputSelectorPicturesLibraryDataSource()
     let picturesPanel = UIView()
+    
+    private var animationComplited: Bool = true
     
     override open func awakeFromNib() {
         super.awakeFromNib()
@@ -99,27 +100,35 @@ public class BxInputSelectorPicturesCell: BxInputStandartCell {
                 pictureView.frame = picturesPanel.convert(cell.frame, from: dataSource.picturesCollection)
                 picturesPanel.superview?.bringSubview(toFront: picturesPanel)
                 picturesPanel.addSubview(pictureView)
-                UIView.animate(withDuration: 0.5, animations: {[weak self] () in
+                
+                UIView.animate(withDuration: 0.35, animations: {[weak self] () in
                     guard let this = self else {
                         return
                     }
-                    pictureView.frame = this.dataSource.picturesCollection.convert(this.insertRect, from: this.selectedScrollView)
+                    let x = this.getPictureFrame(from: parentRow.pictures.count).origin.x - this.selectedScrollView.frame.size.width
+                    if x > 0 && this.animationComplited {
+                        this.selectedScrollView.setContentOffset(CGPoint(x: x, y: 0), animated: false)
+                    }
+                    pictureView.frame = this.dataSource.picturesCollection.convert(this.getPictureFrame(from: parentRow.pictures.count - 1), from: this.selectedScrollView)
+                    this.animationComplited = false
                 }, completion: {[weak self] (finished) in
                     guard let this = self else {
                         return
                     }
                     this.addPictureView(pictureView)
-                    let x = this.insertRect.origin.x - this.selectedScrollView.frame.size.width
-                    if x > 0 {
-                        this.selectedScrollView.setContentOffset(CGPoint(x: x, y: 0), animated: true)
-                    }
                     this.parent?.updateRow(parentRow)
+                    this.animationComplited = true
                 })
                 
             } else {
                 selectedScrollView.shakeX(withOffset: 50, breakFactor: 0.65, duration: 0.75, maxShakes: 5)
             }
         }
+    }
+    
+    func getPictureFrame(from index: Int) -> CGRect {
+        let x = margin + (size.width + margin) * CGFloat(index)
+        return CGRect(x: x, y: margin, width: size.width, height: size.height)
     }
     
     func addPictureView(_ pictureView: BxInputSelectorPictureView) {
@@ -154,13 +163,12 @@ public class BxInputSelectorPicturesCell: BxInputStandartCell {
     }
     
     func updatePictures() {
-        var x : CGFloat = margin
+        var index = 0
         for view in pictureViews {
-            view.frame = CGRect(x: x, y: margin, width: size.width, height: size.height)
-            x = x + margin + size.width
+            view.frame = getPictureFrame(from: index)
+            index = index + 1
         }
-        selectedScrollView.contentSize = CGSize(width: x, height: self.contentView.frame.size.height)
-        insertRect = CGRect(x: x, y: margin, width: size.width, height: size.height)
+        selectedScrollView.contentSize = CGSize(width: getPictureFrame(from: index).origin.x, height: self.contentView.frame.size.height)
     }
     
 
