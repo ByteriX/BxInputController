@@ -60,6 +60,21 @@ open class BxInputSelectorPicturesLibraryDataSource : NSObject {
         }
     }
     
+    open func isUnSelectable(_ picture: BxInputPicture) -> Bool
+    {
+        guard let data = rowData,
+         data.isUniqueue == true else
+        {
+            return false
+        }
+        if let _ = data.pictures.index(where: { (currentPicture) -> Bool in
+            return currentPicture === picture
+        }) {
+            return true
+        }
+        return false
+    }
+    
 }
 
 extension BxInputSelectorPicturesLibraryDataSource : UICollectionViewDelegate, UICollectionViewDataSource
@@ -79,19 +94,30 @@ extension BxInputSelectorPicturesLibraryDataSource : UICollectionViewDelegate, U
     
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = picturesCollection.dequeueReusableCell(withReuseIdentifier: picturesCellId, for: indexPath) as! BxInputPictureCollectionCell
-        cell.pictureView.image = librairyPictures[indexPath.row].icon
+        let picture = librairyPictures[indexPath.row]
+        cell.pictureView.image = picture.icon
         if let data = rowData {
             cell.pictureView.contentMode = data.iconMode
+            if isUnSelectable(picture) {
+                cell.pictureView.alpha = 0.35
+            } else {
+                cell.pictureView.alpha = 1
+            }
         }
         cell.setNeedsDisplay()
         return cell
     }
     
     open func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let picture = librairyPictures[indexPath.row]
+        if isUnSelectable(picture) {
+            return
+        }
         if let selectHandler = selectHandler,
             let cell = collectionView.cellForItem(at: indexPath) as? BxInputPictureCollectionCell
         {
-            selectHandler(librairyPictures[indexPath.row], cell)
+            
+            selectHandler(picture, cell)
         }
     }
 

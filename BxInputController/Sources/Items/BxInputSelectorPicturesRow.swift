@@ -39,6 +39,7 @@ open class BxInputSelectorPicturesRow : BxInputRow, BxInputSelectorRow
     open var iconMode: UIViewContentMode = .scaleAspectFill
     open var countInRow: Int = 4
     open var maxSelectedCount: Int = 5
+    open var isUniqueue: Bool = true
     
     
     

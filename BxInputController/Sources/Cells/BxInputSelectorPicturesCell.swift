@@ -87,6 +87,7 @@ public class BxInputSelectorPicturesCell: BxInputStandartCell {
                 addPictureView(pictureView)
             }
             updatePictures()
+            dataSource.picturesCollection.reloadData()
         }
     }
     
@@ -100,6 +101,9 @@ public class BxInputSelectorPicturesCell: BxInputStandartCell {
                 pictureView.frame = picturesPanel.convert(cell.frame, from: dataSource.picturesCollection)
                 picturesPanel.superview?.bringSubview(toFront: picturesPanel)
                 picturesPanel.addSubview(pictureView)
+                if let indexPath = dataSource.picturesCollection.indexPath(for: cell) {
+                    dataSource.picturesCollection.reloadItems(at: [indexPath])
+                }
                 
                 UIView.animate(withDuration: 0.35, animations: {[weak self] () in
                     guard let this = self else {
@@ -109,7 +113,7 @@ public class BxInputSelectorPicturesCell: BxInputStandartCell {
                     if x > 0 && this.animationComplited {
                         this.selectedScrollView.setContentOffset(CGPoint(x: x, y: 0), animated: false)
                     }
-                    pictureView.frame = this.dataSource.picturesCollection.convert(this.getPictureFrame(from: parentRow.pictures.count - 1), from: this.selectedScrollView)
+                    pictureView.frame = this.picturesPanel.convert(this.getPictureFrame(from: parentRow.pictures.count - 1), from: this.selectedScrollView)
                     this.animationComplited = false
                 }, completion: {[weak self] (finished) in
                     guard let this = self else {
@@ -143,6 +147,7 @@ public class BxInputSelectorPicturesCell: BxInputStandartCell {
                     parentRow.pictures.remove(at: index)
                     self?.removePictureView(pictureView)
                     self?.parent?.updateRow(parentRow)
+                    self?.dataSource.picturesCollection.reloadData()
                 }
             }
             

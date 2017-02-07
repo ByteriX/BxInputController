@@ -8,7 +8,8 @@ ByteriX, 2017. All right reserved.
 
 ## 0.9.29 (07.02.2017)
 ##### Improvements
-* added iconMode to BxInputSelectorPicturesRow
+* added iconMode to BxInputSelectorPicturesRow for the selection an icon showing
+* added isUniqueue to BxInputSelectorPicturesRow for single choosing a picture
 * animated adding of a pictures
 * improvement adding animation
 
