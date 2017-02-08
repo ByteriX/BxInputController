@@ -13,38 +13,38 @@ import Photos
 
 public class BxInputPictureLibraryItem : BxInputPicture
 {
-    internal var asset: ALAsset
+    internal var asset: PHAsset
     
     public var iconSize: CGSize
     
     public var icon: UIImage {
-        get { return getImage(from: asset) }
+        get { return BxInputPictureLibraryItem.imageFromPHAsset(asset, size: iconSize)! }
     }
     
-    public init (asset: ALAsset, iconSize: CGSize){
+    public init (asset: PHAsset, iconSize: CGSize){
         self.asset = asset
         self.iconSize = iconSize
     }
     
-    public func getImage(from asset: ALAsset) -> UIImage
-    {
-        //        if let image = asset.thumbnail(){
-        //            return UIImage(cgImage: image as! CGImage)
-        //        }
-        return imageFromPHAsset(converterALAssetToPHAsset(asset))!
+    public init? (asset: ALAsset, iconSize: CGSize){
+        guard let phAsset = BxInputPictureLibraryItem.converterALAssetToPHAsset(asset) else {
+            return nil
+        }
+        self.asset = phAsset
+        self.iconSize = iconSize
     }
     
-    public func converterALAssetToPHAsset(_ alAsset: ALAsset) -> PHAsset
+    public static func converterALAssetToPHAsset(_ alAsset: ALAsset) -> PHAsset?
     {
         let fetchOptions = PHFetchOptions()
+        fetchOptions.includeHiddenAssets = true
         let url = alAsset.value(forProperty: ALAssetPropertyAssetURL) as! URL
         let result = PHAsset.fetchAssets(withALAssetURLs: [url], options: fetchOptions)
-        return result.firstObject!
+        return result.firstObject
     }
     
-    public func imageFromPHAsset(_ asset: PHAsset) -> UIImage? {
+    public static func imageFromPHAsset(_ asset: PHAsset, size: CGSize) -> UIImage? {
         var image: UIImage? = nil
-        let size = iconSize
         
         let options = PHImageRequestOptions()
         options.resizeMode = .exact
@@ -61,9 +61,15 @@ public class BxInputPictureLibraryItem : BxInputPicture
 func == (left: BxInputPictureLibraryItem, right: BxInputPictureLibraryItem) -> Bool {
     let result = (left === right)
     if !result {
-        let leftId = left.converterALAssetToPHAsset(left.asset).localIdentifier
-        let rightId = right.converterALAssetToPHAsset(right.asset).localIdentifier
-        return leftId == rightId
+        return left.asset.localIdentifier == right.asset.localIdentifier
+    }
+    return result
+}
+
+func == (left: BxInputPictureLibraryItem, right: PHAsset) -> Bool {
+    let result = (left.asset === right)
+    if !result {
+        return left.asset.localIdentifier == right.localIdentifier
     }
     return result
 }

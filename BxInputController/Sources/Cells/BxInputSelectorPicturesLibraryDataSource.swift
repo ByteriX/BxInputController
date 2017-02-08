@@ -23,7 +23,7 @@ open class BxInputSelectorPicturesLibraryDataSource : NSObject {
     
     internal let picturesCellId = "picturesCellId"
     
-    internal(set) public var librairyPictures: [BxInputPictureLibraryItem] = []
+    var librairyAssets: PHFetchResult<PHAsset> = PHFetchResult()
     
     override init() {
         super.init()
@@ -39,45 +39,50 @@ open class BxInputSelectorPicturesLibraryDataSource : NSObject {
         picturesCollection.dataSource = self
     }
     
+    internal lazy var fetchOptions: PHFetchOptions = {
+        let fetchOptions = PHFetchOptions()
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        return fetchOptions
+    }()
+    
+    internal func requestPhotoAccessIfNeeded(_ status: PHAuthorizationStatus) {
+        guard status == .notDetermined else { return }
+        PHPhotoLibrary.requestAuthorization { [weak self] (authorizationStatus) in
+            DispatchQueue.main.async { [weak self] in
+                self?.update()
+            }
+        }
+    }
+    
+    internal func update() {
+        librairyAssets = PHAsset.fetchAssets(with: fetchOptions)
+        self.picturesCollection.reloadData()
+    }
+    
     open func updateAssets(size: CGFloat)
     {
         self.size = size
         layoutCollection.itemSize = CGSize(width: size, height: size)
         
-        librairyPictures = []
-        let assetLibrary = type(of: self).assetLibrary
-        assetLibrary.enumerateGroupsWithTypes(ALAssetsGroupLibrary + ALAssetsGroupSavedPhotos + ALAssetsGroupPhotoStream, usingBlock: {[weak self] (group, stop) in
-            group?.setAssetsFilter(ALAssetsFilter.allPhotos())
-            group?.enumerateAssets(options: .reverse, using: {[weak self] (alAsset, index, innerStop) in
-                if let alAsset = alAsset {
-                    let picture = BxInputPictureLibraryItem(asset: alAsset, iconSize: CGSize(width: size, height: size))
-                    self?.librairyPictures.append(picture)
-                    self?.picturesCollection.reloadData()
-                }
-            })
-        }) { (error) in
-            //
-        }
+        requestPhotoAccessIfNeeded(PHPhotoLibrary.authorizationStatus())
+         update()
     }
     
-    open func isUnSelectable(_ picture: BxInputPicture) -> Bool
+    open func isUnSelectable(_ picture: PHAsset) -> Bool
     {
         guard let data = rowData,
          data.isUniqueue == true else
         {
             return false
         }
-        if let picture = picture as? BxInputPictureLibraryItem,
-            let _ = data.pictures.index(where: { (currentPicture) -> Bool in
+        let _ = data.pictures.index(where: { (currentPicture) -> Bool in
             if let currentPicture = currentPicture as? BxInputPictureLibraryItem {
-                return picture == currentPicture
+                return currentPicture == picture
             } else {
                 return false
             }
             
-        }) {
-            return true
-        }
+        })
         return false
     }
     
@@ -87,7 +92,7 @@ extension BxInputSelectorPicturesLibraryDataSource : UICollectionViewDelegate, U
 {
     
     open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return librairyPictures.count
+        return librairyAssets.count
     }
     
     open func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -101,11 +106,11 @@ extension BxInputSelectorPicturesLibraryDataSource : UICollectionViewDelegate, U
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
         let cell = picturesCollection.dequeueReusableCell(withReuseIdentifier: picturesCellId, for: indexPath) as! BxInputPictureCollectionCell
-        let picture = librairyPictures[indexPath.row]
-        cell.pictureView.image = picture.icon
+        let asset = librairyAssets[indexPath.row]
+        cell.pictureView.image = BxInputPictureLibraryItem.imageFromPHAsset(asset, size: CGSize(width: size, height: size))
         if let data = rowData {
             cell.pictureView.contentMode = data.iconMode
-            if isUnSelectable(picture) {
+            if isUnSelectable(asset) {
                 cell.pictureView.alpha = 0.25
             } else {
                 cell.pictureView.alpha = 1
@@ -116,14 +121,14 @@ extension BxInputSelectorPicturesLibraryDataSource : UICollectionViewDelegate, U
     }
     
     open func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let picture = librairyPictures[indexPath.row]
-        if isUnSelectable(picture) {
+        let asset = librairyAssets[indexPath.row]
+        if isUnSelectable(asset) {
             return
         }
         if let selectHandler = selectHandler,
             let cell = collectionView.cellForItem(at: indexPath) as? BxInputPictureCollectionCell
         {
-            
+            let picture = BxInputPictureLibraryItem(asset: asset, iconSize: CGSize(width: size, height: size))
             selectHandler(picture, cell)
         }
     }

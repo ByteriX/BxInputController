@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 0.9.31 (08.02.2017)
+##### Improvements
+* made loading of the photo library faster
+
 ## 0.9.30 (08.02.2017)
 ##### Improvements
 * use library + stream photos for BxInputSelectorPicturesRow
