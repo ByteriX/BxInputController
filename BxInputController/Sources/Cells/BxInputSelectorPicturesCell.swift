@@ -80,6 +80,7 @@ public class BxInputSelectorPicturesCell: BxInputStandartCell {
             //                }
             //            }
             dataSource.rowData = parentRow
+            dataSource.parent = parent
             dataSource.updateAssets(size: self.frame.size.width / CGFloat(parentRow.countInRow) - 2.0)
 
             for picture in parentRow.pictures {
@@ -190,6 +191,7 @@ extension BxInputSelectorPicturesCell : UITextFieldDelegate
             parent?.activeRow = parentRow
         }
         parent?.activeControl = valueTextField
+        dataSource.picturesCollection.reloadData()
         return true
     }
     
