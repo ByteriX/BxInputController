@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 0.9.32 (13.02.2017)
+##### Implementing
+* start testing documentation for example BxInputRow protocol
+
 ## 0.9.31 (09.02.2017)
 ##### Improvements
 * made loading of the photo library faster
