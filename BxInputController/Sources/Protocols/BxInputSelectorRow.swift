@@ -1,5 +1,5 @@
 /**
- *	@file BxInputVariants.swift
+ *	@file BxInputSelectorRow.swift
  *	@namespace BxInputController
  *
  *	@details Rows protocol for choosing items with special selector
@@ -28,7 +28,7 @@ public protocol BxInputSelectorRow : BxInputRow
     
 }
 
-/// Row protocol with item for choosing from parent selector row
+/// Row protocol with item for choosing from parent selector row. It shoulds be used only from parrent
 public protocol BxInputChildSelectorRow : BxInputRow
 {
     

@@ -1,15 +1,22 @@
-//
-//  BxInputSection.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 09/01/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputSection.swift
+ *	@namespace BxInputController
+ *
+ *	@details base Section class with all content data for BxInputController
+ *	@date 09.01.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 
+/// base Section class with all content data for BxInputController
 open class BxInputSection
 {
+    /// header content of the section, that showed above rows
     open var header: BxInputSectionContent? = nil
     {
         didSet {
@@ -17,15 +24,18 @@ open class BxInputSection
         }
     }
     
+    /// metadata of cells for this section
     open var rows: [BxInputRow] = []
     
+    /// footer content of the section, that showed below rows
     open var footer: BxInputSectionContent? = nil
-        {
+    {
         didSet {
             header?.parent = self
         }
     }
     
+    /// construction object with text header and/or fother, default headerText/footerText is nil and they won't show
     public init(headerText: String? = nil, rows: [BxInputRow], footerText: String? = nil) {
         self.rows = rows
         if let headerText = headerText {
