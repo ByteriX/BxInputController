@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 0.9.32.1 (13.02.2017)
+##### Implementing
+* try to fix documentation
+
 ## 0.9.32 (13.02.2017)
 ##### Implementing
 * start testing documentation for example BxInputRow protocol
