@@ -44,6 +44,42 @@ Then, run the following command:
 $ pod install
 ```
 
+
+### Swift Package Manager
+
+The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler. It is in early development, but BxInputController does support its use on supported platforms. 
+
+Once you have your Swift package set up, adding BxInputController as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`.
+
+```swift
+dependencies: [
+.Package(url: "https://github.com/ByteriX/BxInputController.git", majorVersion: 1)
+]
+```
+
+### Manually
+
+If you prefer not to use either of the aforementioned dependency managers, you can integrate 'BxInputController' into your project manually.
+
+#### Embedded Framework
+
+- Open up Terminal, `cd` into your top-level project directory, and run the following command "if" your project is not initialized as a git repository:
+
+```bash
+$ git init
+```
+
+- Add 'BxInputController' as a git [submodule](http://git-scm.com/docs/git-submodule) by running the following command:
+
+```bash
+$ git submodule add https://github.com/ByteriX/BxInputController.git
+```
+
+- Add all sources and resources from local copy of 'BxInputController' to the build phase of the project.
+
+- And that's it!
+
+
 ## Usage
 
 ### Showing simple input
