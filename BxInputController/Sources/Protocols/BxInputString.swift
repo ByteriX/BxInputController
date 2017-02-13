@@ -1,10 +1,15 @@
-///
-///  BxInputString.swift
-///  BxInputController
-///
-///  Created by Sergey Balalaev on 20/01/17.
-///  Copyright © 2017 Byterix. All rights reserved.
-///
+/**
+ *	@file BxInputString.swift
+ *	@namespace BxInputController
+ *
+ *	@details BxInputRow & BxInputItem protocols with String extension
+ *	@date 20.01.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import Foundation
 
@@ -22,6 +27,7 @@ public protocol BxInputString: Any
     var stringValue : String? {get}
 }
 
+/// BxInputString realization
 extension String : BxInputString {
     
     /// string value getter for returning this value
