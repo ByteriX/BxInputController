@@ -24,8 +24,8 @@ class BxInputUtils {
     static public func getNib(resourceId: String) -> UINib
     {
         var bundle = Bundle.main
-        if let _ = currentBundle.path(forResource: resourceId, ofType: "nib") {
-            //
+        if let _ = bundle.path(forResource: resourceId, ofType: "nib") {
+            // will be used global bundle
         } else if let _ = currentBundle.path(forResource: resourceId, ofType: "nib") {
             bundle = currentBundle
         }

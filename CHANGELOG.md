@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 0.9.35 (14.02.2017)
+##### Bug fixing
+* fix resource using
+
 ## 0.9.34 (14.02.2017)
 ##### Refactoring
 * extract BxInputUtils singleton for working with resources

@@ -26,6 +26,8 @@ open class BxInputSelectorCell: BxInputStandartCell {
     override open func didSelected()
     {
         super.didSelected()
+        arrowImage.image = BxInputUtils.getImage(resourceId: "bx_arrow_to_bottom")
+        
         guard let data = self.data as? BxInputSelectorRow else {
             return
         }
