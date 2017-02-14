@@ -6,6 +6,11 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 0.9.34 (14.02.2017)
+##### Refactoring
+* extract BxInputUtils singleton for working with resources
+* add documentation for settings & BxInputController
+
 ## 0.9.33 (14.02.2017)
 ##### Refactoring
 * move to the new directories

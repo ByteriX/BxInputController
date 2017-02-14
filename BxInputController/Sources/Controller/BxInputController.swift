@@ -5,46 +5,55 @@
 //  Created by Sergey Balalaev on 09/01/17.
 //  Copyright © 2017 Byterix. All rights reserved.
 //
+/**
+ *	@file BxInputController.swift
+ *	@namespace BxInputController
+ *
+ *	@details Controller for input values
+ *	@date 09.01.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 import Foundation
 import BxObjC
 
+/// Controller for input values
 open class BxInputController : UIViewController
 {
+    /// settings of visual showing
     open var settings: BxInputSettings = BxInputSettings.standart
     
+    /// current table, where showed all rows
     public var tableView: UITableView = UITableView(frame: CGRect(), style: .grouped)
+    /// if you disappear controller, where selected cell, then after will back the cell will be deselected
     public var clearsSelectionOnViewWillAppear: Bool = true
     
-    // in iOS less then 10.2 have bug with estimated rows ans section content
-    // it depends on change content size and reproduced from iOS 9x when inserted cells for situation when you scrolled to end
-    // for fixing this case I suggested use isEstimatedContent = false, and it is default value
-    // http://openradar.appspot.com/15729686
-    // http://www.openradar.me/24022858
+    /// in iOS less then 10.2 have bug with estimated rows with section content
+    /// it depends on change content size and reproduced from iOS 9x when inserted cells for situation when you scrolled to end
+    /// for fixing this case I suggested use isEstimatedContent = false, and it is default value
+    /// http://openradar.appspot.com/15729686
+    /// http://www.openradar.me/24022858
     public var isEstimatedContent: Bool = false
     {
         didSet { updateEstimatedContent() }
     }
     
+    /// this picker is used in a simple date row
     internal(set) public var datePicker: UIDatePicker = UIDatePicker()
+    /// this picker is used in a simple variants row
     internal(set) public var variantsPicker: UIPickerView = UIPickerView()
-    
-    private var addedResources = NSMutableSet()
+    /// frame of content for inputting, if keyboard is showed then it be less then tableView
     internal(set) public var contentRect: CGRect = CGRect()
     
-    internal(set) public var currentBundle: Bundle = Bundle(for: BxInputController.self)
     
     internal(set) public var activeControl: UIView? = nil
     {
-        didSet {
-            if let activeControl = activeControl as? UITextField {
-                activeControl.inputAccessoryView = commonInputAccessoryView
-            } else if let activeControl = activeControl as? UITextView {
-                activeControl.inputAccessoryView = commonInputAccessoryView
-            }
-            updateCommonInputAccessory()
-        }
+        didSet { updateInputAccessory(activeControl: activeControl) }
     }
     internal(set) public var activeRow: BxInputRow? = nil
     
@@ -60,6 +69,12 @@ open class BxInputController : UIViewController
     open var commonInputAccessoryView: InputAccessoryView? = nil
     
     public static var emptyHeaderFooterId = "BxInputStandartEmptyHeaderFooter"
+    
+    private var addedResources = NSMutableSet()
+    
+    
+    
+    
     open func smallView() -> UIView
     {
         return UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.size.width, height: CGFloat.leastNonzeroMagnitude))
@@ -121,20 +136,11 @@ open class BxInputController : UIViewController
         tableView.scrollIndicatorInsets = tableView.contentInset
     }
     
-    public func getNib(resourceId: String) -> UINib
-    {
-        var bundle: Bundle? = nil
-        if let _ = currentBundle.path(forResource: resourceId, ofType: "nib") {
-            bundle = currentBundle
-        }
-        return UINib(nibName: resourceId, bundle: bundle)
-    }
-    
     public func checkResources(row: BxInputRow)
     {
         if !addedResources.contains(row.resourceId) {
             addedResources.add(row.resourceId)
-            tableView.register(getNib(resourceId: row.resourceId),
+            tableView.register(BxInputUtils.getNib(resourceId: row.resourceId),
                                forCellReuseIdentifier: row.resourceId)
             
         }
@@ -144,7 +150,7 @@ open class BxInputController : UIViewController
     {
         if !addedResources.contains(sectionResourceId) {
             addedResources.add(sectionResourceId)
-            tableView.register(getNib(resourceId: sectionResourceId),
+            tableView.register(BxInputUtils.getNib(resourceId: sectionResourceId),
                                forHeaderFooterViewReuseIdentifier: sectionResourceId)
         }
     }

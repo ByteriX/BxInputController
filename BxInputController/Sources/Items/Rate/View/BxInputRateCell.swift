@@ -37,9 +37,7 @@ public class BxInputRateCell: BxInputStandartCell, BxStandartRateViewDelegate {
         {
             valueRateView.maxRating = Int32(rateRow.maxValue)
             rateWidthConstraint.constant = rateRow.width
-            let starImage = UIImage(named: "bx_rate_star",
-                                    in: parent?.currentBundle,
-                                    compatibleWith: nil)!
+            let starImage = BxInputUtils.getImage(resourceId: "bx_rate_star")
             if let passiveColor = rateRow.passiveColor {
                 valueRateView.notSelectedImage = starImage.maskedImage(by: passiveColor)
             } else {

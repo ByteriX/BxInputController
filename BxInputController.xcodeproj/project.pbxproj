@@ -84,6 +84,7 @@
 		F9E787381E52F6F800341996 /* BxInputStandartHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E786FA1E52F6F800341996 /* BxInputStandartHeader.swift */; };
 		F9E787391E52F6F800341996 /* BxInputStandartHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9E786FB1E52F6F800341996 /* BxInputStandartHeader.xib */; };
 		F9E7873A1E52F6F800341996 /* BxInputStandartHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E786FC1E52F6F800341996 /* BxInputStandartHeaderFooter.swift */; };
+		F9E7873C1E53340C00341996 /* BxInputUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E7873B1E53340C00341996 /* BxInputUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -167,6 +168,7 @@
 		F9E786FA1E52F6F800341996 /* BxInputStandartHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputStandartHeader.swift; sourceTree = "<group>"; };
 		F9E786FB1E52F6F800341996 /* BxInputStandartHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BxInputStandartHeader.xib; sourceTree = "<group>"; };
 		F9E786FC1E52F6F800341996 /* BxInputStandartHeaderFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputStandartHeaderFooter.swift; sourceTree = "<group>"; };
+		F9E7873B1E53340C00341996 /* BxInputUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +280,7 @@
 		F9E786A81E52F6F800341996 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F9E7873B1E53340C00341996 /* BxInputUtils.swift */,
 				F9E786A91E52F6F800341996 /* BxInputRow.swift */,
 				F9E786AA1E52F6F800341996 /* BxInputSelectorRow.swift */,
 				F9E786AB1E52F6F800341996 /* BxInputStaticHeight.swift */,
@@ -692,6 +695,7 @@
 				F9847E741E279815007C26EC /* SelectionController.swift in Sources */,
 				F9E787341E52F6F800341996 /* BxInputStandartEmptyHeaderFooter.swift in Sources */,
 				F9E7873A1E52F6F800341996 /* BxInputStandartHeaderFooter.swift in Sources */,
+				F9E7873C1E53340C00341996 /* BxInputUtils.swift in Sources */,
 				F9E787261E52F6F800341996 /* BxInputSelectorTextRow.swift in Sources */,
 				F92183DE1E23AB21002E1781 /* AppDelegate.swift in Sources */,
 				F9E787271E52F6F800341996 /* BxInputTextRow.swift in Sources */,

@@ -59,6 +59,16 @@ extension BxInputController
         commonInputAccessoryView.backNextControl.setEnabled(getIncrementRow(from: activeRow) != nil, forSegmentAt: 1)
     }
     
+    open func updateInputAccessory(activeControl: UIView?)
+    {
+        if let activeControl = activeControl as? UITextField {
+            activeControl.inputAccessoryView = commonInputAccessoryView
+        } else if let activeControl = activeControl as? UITextView {
+            activeControl.inputAccessoryView = commonInputAccessoryView
+        }
+        updateCommonInputAccessory()
+    }
+    
     open func backNextButtonClick(control: UISegmentedControl) {
         guard let activeRow = activeRow else {
             activeControl?.resignFirstResponder()

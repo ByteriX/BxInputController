@@ -25,9 +25,7 @@ open class BxInputSelectorPictureView : UIImageView {
         self.isUserInteractionEnabled = true
         
         removeButton.addTarget(self, action: #selector(removeClick), for: .touchUpInside)
-        let removeImage = UIImage(named: "bx_remove_icon",
-                                in: Bundle(for: BxInputSelectorPictureView.self),
-                                compatibleWith: nil)!
+        let removeImage = BxInputUtils.getImage(resourceId: "bx_remove_icon")
         removeButton.setImage(removeImage, for: .normal)
         removeButton.imageView?.contentMode = .center
         self.addSubview(removeButton)
