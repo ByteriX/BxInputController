@@ -1,23 +1,27 @@
-//
-//  BxInputSelectorCell.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 12/01/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputSelectorCell.swift
+ *	@namespace BxInputController
+ *
+ *	@details BxInputSelectorCell parent cell for rows with BxInputSelectorRow implemention
+ *	@date 12.01.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 
+/// BxInputSelectorCell parent cell for rows with BxInputSelectorRow implemention
 open class BxInputSelectorCell: BxInputStandartCell {
     
+    /// caption of the row
     @IBOutlet weak var titleLabel: UILabel!
+    /// value from selected field
     @IBOutlet weak var valueTextField: UITextField!
+    /// arrow that show state of row closed/opened
     @IBOutlet weak var arrowImage: UIImageView!
-
-    override open func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
     
     override open func didSelected()
     {
@@ -81,6 +85,7 @@ open class BxInputSelectorCell: BxInputStandartCell {
         arrowImage.alpha = value ? 1 : 0.5
     }
     
+    /// visual updating of state from opened/closed
     open func refreshOpened(animated: Bool) {
         guard let data = self.data as? BxInputSelectorRow else {
             return
@@ -99,6 +104,7 @@ open class BxInputSelectorCell: BxInputStandartCell {
         }
     }
     
+    /// visual updating of value && separator that depends on type of the row
     open func checkValue() {
         // changing for BxInputSelectorTextRow
         var separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
