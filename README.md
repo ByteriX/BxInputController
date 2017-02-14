@@ -53,7 +53,7 @@ Once you have your Swift package set up, adding BxInputController as a dependenc
 
 ```swift
 dependencies: [
-.Package(url: "https://github.com/ByteriX/BxInputController.git", majorVersion: 1)
+    .Package(url: "https://github.com/ByteriX/BxInputController.git", majorVersion: 1)
 ]
 ```
 
@@ -89,7 +89,8 @@ class InputController: BxInputController {
 
     private var email = BxInputTextRow(title: "email value", value: "")
     private var birthdayDate = BxInputDateRow(title: "birthday", placeholder: "YOUR BIRTHDAY")
-    private var selectedVariants = BxInputSelectorVariantsRow<BxInputVariantsItem>(title: "selected", placeholder: "SELECT")
+    private var selectedVariants = BxInputSelectorVariantsRow<BxInputVariantsItem>(title: "selected", 
+        placeholder: "SELECT")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,8 +98,7 @@ class InputController: BxInputController {
         selectedVariants.items = [
             BxInputVariantsItem(id: "1", name: "value1"),
             BxInputVariantsItem(id: "2", name: "value2"),
-            BxInputVariantsItem(id: "3", name: "value3"),
-            BxInputVariantsItem(id: "4", name: "value4"),
+            BxInputVariantsItem(id: "3", name: "value3")
         ]
 
         self.sections = [
