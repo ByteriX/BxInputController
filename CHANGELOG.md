@@ -6,6 +6,11 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 0.9.36 (15.02.2017)
+##### Bug fixing
+* add documentation for BxInputController extension
+* fix signature of deselectRow
+
 ## 0.9.35 (14.02.2017)
 ##### Bug fixing
 * fix resource using

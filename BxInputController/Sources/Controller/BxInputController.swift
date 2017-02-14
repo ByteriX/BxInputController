@@ -1,10 +1,3 @@
-//
-//  BxInputController.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 09/01/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
 /**
  *	@file BxInputController.swift
  *	@namespace BxInputController
@@ -25,9 +18,11 @@ import BxObjC
 /// Controller for input values
 open class BxInputController : UIViewController
 {
+    
+    // MARK: - Fields
+    
     /// settings of visual showing
     open var settings: BxInputSettings = BxInputSettings.standart
-    
     /// current table, where showed all rows
     public var tableView: UITableView = UITableView(frame: CGRect(), style: .grouped)
     /// if you disappear controller, where selected cell, then after will back the cell will be deselected
@@ -42,47 +37,51 @@ open class BxInputController : UIViewController
     {
         didSet { updateEstimatedContent() }
     }
-    
     /// this picker is used in a simple date row
     internal(set) public var datePicker: UIDatePicker = UIDatePicker()
     /// this picker is used in a simple variants row
     internal(set) public var variantsPicker: UIPickerView = UIPickerView()
     /// frame of content for inputting, if keyboard is showed then it be less then tableView
     internal(set) public var contentRect: CGRect = CGRect()
-    
-    
+    /// activate control for current time
     internal(set) public var activeControl: UIView? = nil
     {
         didSet { updateInputAccessory(activeControl: activeControl) }
     }
+    /// activate row for current time
     internal(set) public var activeRow: BxInputRow? = nil
-    
+    /// data models with rows for showing
     public var sections: [BxInputSection] = []
     {
         didSet { refresh() }
     }
-    
+    /// show the panel abouve keyboard for navigation by rows
     open var isShowingInputAccessoryView: Bool = true
     {
         didSet { updateInputAccessory() }
     }
+    /// The panel abouve keyboard, not nil if isShowingInputAccessoryView = true
     open var commonInputAccessoryView: InputAccessoryView? = nil
     
+    /// resourceId for the empty content od header/footer
     public static var emptyHeaderFooterId = "BxInputStandartEmptyHeaderFooter"
+    /// buffer with resourceId values for registred header/foother/row
+    internal var addedResources = NSMutableSet()
     
-    private var addedResources = NSMutableSet()
+    // MARK: - Methods
     
-    
-    
-    
+    /// return emptyHeaderFooter. Depricated, please use emptyHeaderFooterId.
     open func smallView() -> UIView
     {
         return UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.size.width, height: CGFloat.leastNonzeroMagnitude))
     }
     
+    // MARK: - View Controller cycle
+    
     override open func viewDidLoad() {
         super.viewDidLoad()
         
+        // for manual managment of scroll
         automaticallyAdjustsScrollViewInsets = false
         
         checkResources(sectionResourceId: type(of: self).emptyHeaderFooterId)
@@ -99,7 +98,8 @@ open class BxInputController : UIViewController
         
         contentRect = self.view.bounds
         updateInsets()
-        tableView.setContentOffset( CGPoint(x: 0, y: -1 * tableView.contentInset.top), animated: false)
+        let offset = CGPoint(x: 0, y: -1 * tableView.contentInset.top)
+        tableView.setContentOffset(offset, animated: false)
     }
     
     override open func viewWillAppear(_ animated: Bool) {
@@ -124,6 +124,9 @@ open class BxInputController : UIViewController
         updateInsets()
     }
     
+    // MARK: - updating methods
+    
+    /// change insets for tableView
     open func updateInsets() {
         var bottom = bottomLayoutGuide.length
         let height = self.view.frame.size.height - contentRect.size.height
@@ -136,6 +139,7 @@ open class BxInputController : UIViewController
         tableView.scrollIndicatorInsets = tableView.contentInset
     }
     
+    /// check buffer for register resources, which needed for showing content of row
     public func checkResources(row: BxInputRow)
     {
         if !addedResources.contains(row.resourceId) {
@@ -146,6 +150,7 @@ open class BxInputController : UIViewController
         }
     }
     
+    /// check buffer for register resources, which needed for showing content of section by sectionResourceId
     public func checkResources(sectionResourceId: String)
     {
         if !addedResources.contains(sectionResourceId) {
@@ -155,6 +160,7 @@ open class BxInputController : UIViewController
         }
     }
     
+    /// check buffer for register resources, which needed for showing content of section by BxInputSectionContent value
     public func checkResources(sectionContent: BxInputSectionContent?)
     {
         guard let content = sectionContent as? BxInputSectionNibContent else {
@@ -163,6 +169,7 @@ open class BxInputController : UIViewController
         checkResources(sectionResourceId: content.resourceId)
     }
     
+    /// check all content of controller for register resources
     public func refreshResources()
     {
         for section in sections {
@@ -170,6 +177,7 @@ open class BxInputController : UIViewController
         }
     }
     
+    /// check the section for register resources
     public func refreshResources(section: BxInputSection)
     {
         for row in section.rows {
@@ -179,12 +187,14 @@ open class BxInputController : UIViewController
         checkResources(sectionContent: section.footer)
     }
     
+    /// refresh all content of tableView
     open func refresh()
     {
         refreshResources()
         tableView.reloadData()
     }
     
+    /// check size type of content for tableView
     open func updateEstimatedContent()
     {
         tableView.dataSource = self
@@ -201,11 +211,15 @@ open class BxInputController : UIViewController
         tableView.reloadData()
     }
     
-    open func getRow(for indexPath: IndexPath) -> BxInputRow{
+    // MARK: - getting methods
+    
+    /// return row for indexPath of cell
+    open func getRow(for indexPath: IndexPath) -> BxInputRow {
         return sections[indexPath.section].rows[indexPath.row]
     }
     
-    open func getIndex(for currentRow: BxInputRow) -> IndexPath?{
+    /// return indexPath of cell for row, if row added to content (added to any sections)
+    open func getIndex(for currentRow: BxInputRow) -> IndexPath? {
         var sectionIndex = 0
         for section in sections {
             var rowIndex = 0
@@ -220,7 +234,8 @@ open class BxInputController : UIViewController
         return nil
     }
     
-    open func getIndex(for currentSection: BxInputSection) -> Int?{
+    /// return index of section if it found out
+    open func getIndex(for currentSection: BxInputSection) -> Int? {
         var sectionIndex = 0
         for section in sections {
             if section === currentSection{
@@ -231,6 +246,7 @@ open class BxInputController : UIViewController
         return nil
     }
     
+    /// return index of section by its content if it found out
     open func getIndex(for currentSectionContent: BxInputSectionContent) -> Int?{
         if let currentSection = currentSectionContent.parent {
             return getIndex(for: currentSection)
@@ -238,6 +254,7 @@ open class BxInputController : UIViewController
         return nil
     }
     
+    /// return cell for row if it is shown
     open func getCell(for currentRow: BxInputRow) -> UITableViewCell?
     {
         if let indexPath = getIndex(for: currentRow) {
@@ -246,12 +263,16 @@ open class BxInputController : UIViewController
         return nil
     }
     
-    open func deselectRow(row: BxInputRow, animated: Bool = true) {
+    // MARK: - managment of content methods
+    
+    /// deselect cell for row
+    open func deselectRow(_ row: BxInputRow, animated: Bool = true) {
         if let indexPath = getIndex(for: row) {
             tableView.deselectRow(at: indexPath, animated: animated)
         }
     }
     
+    /// full reload row
     open func reloadRow(_ row: BxInputRow, with animation: UITableViewRowAnimation = .fade) {
         if let indexPath = getIndex(for: row) {
             tableView.reloadRows(at: [indexPath], with: animation)
@@ -260,6 +281,7 @@ open class BxInputController : UIViewController
         }
     }
     
+    /// delete row from controller
     open func deleteRow(_ row: BxInputRow, with animation: UITableViewRowAnimation = .fade) {
         if let indexPath = getIndex(for: row) {
             tableView.beginUpdates()
@@ -269,6 +291,7 @@ open class BxInputController : UIViewController
         }
     }
     
+    /// delete rows from controller
     open func deleteRows(_ rows: [BxInputRow], with animation: UITableViewRowAnimation = .fade)
     {
         var indexes: [IndexPath] = []
@@ -291,6 +314,7 @@ open class BxInputController : UIViewController
         tableView.endUpdates()
     }
     
+    /// add row after other row to controller
     open func addRow(_ row: BxInputRow, after currentRow: BxInputRow, with animation: UITableViewRowAnimation = .fade) {
         if let indexPath = getIndex(for: currentRow) {
             tableView.beginUpdates()
@@ -301,6 +325,7 @@ open class BxInputController : UIViewController
         }
     }
     
+    /// add rows after other row to controller
     open func addRows(_ rows: [BxInputRow], after currentRow: BxInputRow, with animation: UITableViewRowAnimation = .fade) {
         if let currentIndexPath = getIndex(for: currentRow) {
             tableView.beginUpdates()
@@ -317,7 +342,8 @@ open class BxInputController : UIViewController
         }
     }
     
-    // if after is nil then section will be inserted to end of the table
+    /// add section to controller after index
+    /// if index is nil then section will be inserted to end of the table
     open func addSection(_ section: BxInputSection, after index: Int? = nil, with animation: UITableViewRowAnimation = .bottom) {
         var insertIndex = sections.count
         if let index = index {
@@ -337,6 +363,7 @@ open class BxInputController : UIViewController
         tableView.endUpdates()
     }
     
+    /// delete section from controller
     open func deleteSection(_ section: BxInputSection, with animation: UITableViewRowAnimation = .top) {
         guard let index = getIndex(for: section) else {
             return
@@ -347,6 +374,7 @@ open class BxInputController : UIViewController
         tableView.endUpdates()
     }
     
+    /// update content of section without full refreshing tableView
     open func updateSection(_ section: BxInputSection, with animation: UITableViewRowAnimation = .top) {
         guard let index = getIndex(for: section) else {
             return
@@ -373,6 +401,7 @@ open class BxInputController : UIViewController
         }
     }
     
+    /// full reload content of section
     open func reloadSection(_ section: BxInputSection, with animation: UITableViewRowAnimation = .top) {
         guard let index = getIndex(for: section) else {
             return
@@ -383,6 +412,7 @@ open class BxInputController : UIViewController
         tableView.endUpdates()
     }
     
+    /// update only content of row, if cell is shown on the tableView
     open func updateRow(_ row: BxInputRow, with animation: UITableViewRowAnimation = .fade) {
         if let indexPath = getIndex(for: row),
             let cell = tableView.cellForRow(at: indexPath) as? BxInputStandartCell
@@ -391,16 +421,31 @@ open class BxInputController : UIViewController
         }
     }
     
+    /// set enabled/disabled status for row
+    /// recomended use it, because in row change value don't update table
+    open func setEnabledRow(_ row: BxInputRow, enabled: Bool)
+    {
+        if row.isEnabled != enabled {
+            row.isEnabled = enabled
+            reloadRow(row)
+        }
+    }
+    
+    // MARK: - Handling methods
+    
+    /// scroll to row at position
     open func scrollRow(_ row: BxInputRow, at position: UITableViewScrollPosition = .middle, animated: Bool = true) {
         if let indexPath = getIndex(for: row) {
             tableView.scrollToRow(at: indexPath, at: position, animated: animated)
         }
     }
     
-    @objc internal func select(indexPath: IndexPath) {
+    @objc
+    private func select(indexPath: IndexPath) {
         tableView.delegate?.tableView!(tableView, didSelectRowAt: indexPath)
     }
     
+    /// select row with scroll at position
     open func selectRow(_ row: BxInputRow, at position: UITableViewScrollPosition = .middle, animated: Bool = true)
     {
         //scrollRow(row, at: position, animated: animated)
@@ -414,6 +459,8 @@ open class BxInputController : UIViewController
         }
     }
     
+    /// to close all rows with selector type
+    /// - parameter exclude: if it not nil, then this row won't closed
     open func dissmissSelectors(exclude excludeRow: BxInputRow? = nil) {
         for section in sections {
             for row in section.rows {
@@ -431,6 +478,8 @@ open class BxInputController : UIViewController
         }
     }
     
+    /// to close or resign all rows with any type
+    /// - parameter exclude: if it not nil, then this row won't be closed or resigned
     open func dissmissAllRows(exclude excludeRow: BxInputRow? = nil) {
         dissmissSelectors(exclude: excludeRow)
         activeControl?.resignFirstResponder()
@@ -439,18 +488,12 @@ open class BxInputController : UIViewController
         }
     }
     
+    // MARK: - Event methods
+    
+    /// event when row was changed
     open func didChangedRow(_ row: BxInputRow)
     {
         // you can override
-    }
-    
-    // recomended use it, because in row change value don't update table
-    open func setEnabledRow(_ row: BxInputRow, enabled: Bool)
-    {
-        if row.isEnabled != enabled {
-            row.isEnabled = enabled
-            reloadRow(row)
-        }
     }
     
 }

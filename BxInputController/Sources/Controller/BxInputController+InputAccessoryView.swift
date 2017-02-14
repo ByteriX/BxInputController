@@ -1,15 +1,22 @@
-//
-//  BxInputController+InputAccessoryView.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 23/01/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputController+InputAccessoryView.swift
+ *	@namespace BxInputController
+ *
+ *	@details Working with panel abouve keyboard in BxInputController
+ *	@date 23.01.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 
+/// Working with panel abouve keyboard in BxInputController
 extension BxInputController
 {
+    /// Class of panel abouve keyboard
     open class InputAccessoryView : UIToolbar
     {
         internal(set) public var backNextControl: UISegmentedControl
@@ -38,6 +45,7 @@ extension BxInputController
         }
     }
     
+    /// refresh commonInputAccessoryView for using this as panel as abouve keyboard
     open func updateInputAccessory()
     {
         if isShowingInputAccessoryView {
@@ -48,6 +56,7 @@ extension BxInputController
         }
     }
     
+    /// update content of panel as abouve keyboard
     open func updateCommonInputAccessory()
     {
         guard let commonInputAccessoryView = commonInputAccessoryView,
@@ -59,6 +68,7 @@ extension BxInputController
         commonInputAccessoryView.backNextControl.setEnabled(getIncrementRow(from: activeRow) != nil, forSegmentAt: 1)
     }
     
+    /// set and update panel abouve keyboard for activeControl
     open func updateInputAccessory(activeControl: UIView?)
     {
         if let activeControl = activeControl as? UITextField {
@@ -69,6 +79,7 @@ extension BxInputController
         updateCommonInputAccessory()
     }
     
+    /// event when user click back or next row
     open func backNextButtonClick(control: UISegmentedControl) {
         guard let activeRow = activeRow else {
             activeControl?.resignFirstResponder()
@@ -91,10 +102,12 @@ extension BxInputController
         }
     }
     
+    /// event when user click done
     open func doneButtonClick() {
         activeControl?.resignFirstResponder()
     }
     
+    /// return true if row can get focus
     open func checkedForGettingRow(_ row: BxInputRow) -> Bool{
         if row is BxInputChildSelectorRow {
             return false
@@ -102,6 +115,7 @@ extension BxInputController
         return row.isEnabled
     }
     
+    /// return a row after current row. If not found then return nil
     open func getIncrementRow(from row: BxInputRow) -> BxInputRow?
     {
         if let indexPath = getIndex(for: row) {
@@ -123,6 +137,7 @@ extension BxInputController
         return nil
     }
     
+    /// return a row before current row. If not found then return nil
     open func getDecrementRow(from row: BxInputRow) -> BxInputRow?
     {
         if let indexPath = getIndex(for: row) {

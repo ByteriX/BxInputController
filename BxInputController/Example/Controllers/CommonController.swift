@@ -76,7 +76,7 @@ class CommonController: BxInputController {
             let alert = UIAlertController(title: "Action", message: "successful Selected", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {[weak this] (action) in
                 alert.dismiss(animated: true, completion: nil)
-                this?.deselectRow(row: actionRow)
+                this?.deselectRow(actionRow)
                 this?.updateRow(actionRow)
             }))
             this.present(alert, animated: true, completion: nil)
