@@ -54,6 +54,8 @@
 		F96D1F981E5463AC00BDB2CE /* BxInputSelectorVariantsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F761E5463AC00BDB2CE /* BxInputSelectorVariantsCell.swift */; };
 		F96D1F991E5463AC00BDB2CE /* BxInputSelectorVariantsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F96D1F771E5463AC00BDB2CE /* BxInputSelectorVariantsCell.xib */; };
 		F96D1F9B1E54753C00BDB2CE /* SimpleAllRowsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F9A1E54753C00BDB2CE /* SimpleAllRowsController.swift */; };
+		F96D1F9E1E54859300BDB2CE /* BxInputSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F9C1E54859300BDB2CE /* BxInputSwitchCell.swift */; };
+		F96D1F9F1E54859300BDB2CE /* BxInputSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F96D1F9D1E54859300BDB2CE /* BxInputSwitchCell.xib */; };
 		F9847E741E279815007C26EC /* SelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9847E731E279815007C26EC /* SelectionController.swift */; };
 		F9847E781E279B60007C26EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9847E771E279B60007C26EC /* Assets.xcassets */; };
 		F993083C1E430C9A00EDA3BD /* ReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F993083B1E430C9A00EDA3BD /* ReviewController.swift */; };
@@ -141,6 +143,8 @@
 		F96D1F761E5463AC00BDB2CE /* BxInputSelectorVariantsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSelectorVariantsCell.swift; sourceTree = "<group>"; };
 		F96D1F771E5463AC00BDB2CE /* BxInputSelectorVariantsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BxInputSelectorVariantsCell.xib; sourceTree = "<group>"; };
 		F96D1F9A1E54753C00BDB2CE /* SimpleAllRowsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleAllRowsController.swift; sourceTree = "<group>"; };
+		F96D1F9C1E54859300BDB2CE /* BxInputSwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSwitchCell.swift; sourceTree = "<group>"; };
+		F96D1F9D1E54859300BDB2CE /* BxInputSwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BxInputSwitchCell.xib; sourceTree = "<group>"; };
 		F9847E731E279815007C26EC /* SelectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionController.swift; sourceTree = "<group>"; };
 		F9847E771E279B60007C26EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F993083B1E430C9A00EDA3BD /* ReviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewController.swift; sourceTree = "<group>"; };
@@ -329,6 +333,8 @@
 		F96D1F4C1E5463AC00BDB2CE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F96D1F9C1E54859300BDB2CE /* BxInputSwitchCell.swift */,
+				F96D1F9D1E54859300BDB2CE /* BxInputSwitchCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -613,6 +619,7 @@
 				F9E787031E52F6F800341996 /* BxInputSelectorCell.xib in Resources */,
 				F9E787391E52F6F800341996 /* BxInputTextHeaderView.xib in Resources */,
 				F9E787061E52F6F800341996 /* BxInputStandartTextCell.xib in Resources */,
+				F96D1F9F1E54859300BDB2CE /* BxInputSwitchCell.xib in Resources */,
 				F9847E781E279B60007C26EC /* Assets.xcassets in Resources */,
 				F96D1F8B1E5463AC00BDB2CE /* BxInputRateCell.xib in Resources */,
 				F9E787351E52F6F800341996 /* BxInputEmptyHeaderFooterView.xib in Resources */,
@@ -676,6 +683,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F96D1F9E1E54859300BDB2CE /* BxInputSwitchCell.swift in Sources */,
 				F9E787321E52F6F800341996 /* BxInputSectionStringHeader.swift in Sources */,
 				F96D1F831E5463AC00BDB2CE /* BxInputPictureLibraryItem.swift in Sources */,
 				F96D1F801E5463AC00BDB2CE /* BxInputSelectorPicturesRow.swift in Sources */,

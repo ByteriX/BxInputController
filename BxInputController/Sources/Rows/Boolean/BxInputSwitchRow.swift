@@ -16,7 +16,7 @@ import UIKit
 /// this is not implemented
 open class BxInputSwitchRow: BxInputRow
 {
-    open var resourceId = ""
+    open var resourceId = "BxInputSwitchCell"
     open var estimatedHeight : CGFloat {
         get { return 60 }
     }
@@ -27,9 +27,8 @@ open class BxInputSwitchRow: BxInputRow
     
     open var value: Bool
     
-    public init(title: String? = nil, placeholder: String? = nil, value: Bool = false) {
+    public init(title: String? = nil, value: Bool = false) {
         self.title = title
-        self.placeholder = placeholder
         self.value = value
     }
     

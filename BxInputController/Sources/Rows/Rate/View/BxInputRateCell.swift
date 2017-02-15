@@ -81,6 +81,7 @@ extension BxInputRateCell : BxStandartRateViewDelegate {
         if let rateRow = data as? BxInputRateRow
         {
             rateRow.value = rating
+            parent?.didChangedRow(rateRow)
         }
     }
     

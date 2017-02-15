@@ -15,6 +15,8 @@ class SimpleAllRowsController: BxInputController {
     // Action
     private let stringActionRow = BxInputActionStringRow(title: "string action")
     private let customActionRow = BxInputActionCustomRow<BxInputActionStringRow>(title: "custom action")
+    // Boolean
+    private let switchRow = BxInputSwitchRow(title: "boolean switch", value: true)
     // Date
     private let dateRow = BxInputDateRow(title: "date", value: Date().addingTimeInterval(900000))
     private let selectorDateRow = BxInputSelectorDateRow(title: "selector date")
@@ -73,6 +75,7 @@ class SimpleAllRowsController: BxInputController {
 
         self.sections = [
             BxInputSection(headerText: "Action", rows: [stringActionRow, customActionRow]),
+            BxInputSection(headerText: "Boolean", rows: [switchRow]),
             BxInputSection(headerText: "Date", rows: [dateRow, selectorDateRow]),
             BxInputSection(headerText: "Pictures", rows: [selectorPicturesRow]),
             BxInputSection(headerText: "Rate", rows: [rateRow]),
