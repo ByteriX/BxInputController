@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 0.9.38 (15.02.2017)
+##### Improvements
+* documentation for action, date, pictures row.
+
 ## 0.9.37 (15.02.2017)
 ##### Improvements
 * add documentation for section

@@ -16,7 +16,7 @@ import AssetsLibrary
 import Photos
 
 /// Implementation picture item as PHAsset owner. It may be image from Library
-public class BxInputPictureLibraryItem : BxInputPicture
+public class BxInputPictureLibraryItem : BxInputPictureItem
 {
     internal var asset: PHAsset
     

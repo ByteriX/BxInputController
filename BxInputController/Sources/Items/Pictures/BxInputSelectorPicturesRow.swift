@@ -38,7 +38,7 @@ open class BxInputSelectorPicturesRow : BxInputRow, BxInputSelectorRow
     
     open var isOpened: Bool = false
     open var timeForAutoselection: TimeInterval = 0.0 // if < 0.5 then autoselection turned off
-    open var pictures: [BxInputPicture]
+    open var pictures: [BxInputPictureItem]
     open var iconSize: CGSize = CGSize(width: 64, height: 64)
     open var iconMargin: CGFloat = 8
     open var iconMode: UIViewContentMode = .scaleAspectFill
@@ -55,7 +55,7 @@ open class BxInputSelectorPicturesRow : BxInputRow, BxInputSelectorRow
         }
     }
     
-    public init(title: String? = nil, placeholder: String? = nil, pictures: [BxInputPicture] = []) {
+    public init(title: String? = nil, placeholder: String? = nil, pictures: [BxInputPictureItem] = []) {
         self.title = title
         self.placeholderHint = placeholder
         self.pictures = pictures

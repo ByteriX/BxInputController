@@ -1,5 +1,5 @@
 /**
- *	@file BxInputPicture.swift
+ *	@file BxInputPictureItem.swift
  *	@namespace BxInputController
  *
  *	@details Protocol allows shows items with picture
@@ -14,7 +14,7 @@
 import UIKit
 
 /// Protocol allows shows items with picture
-public protocol BxInputPicture: AnyObject
+public protocol BxInputPictureItem: AnyObject
 {
     
     /// image for showing in a row

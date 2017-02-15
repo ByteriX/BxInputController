@@ -19,7 +19,7 @@ import Photos
 open class BxInputSelectorPicturesLibraryDataSource : NSObject {
     
     public weak var parent: BxInputController? = nil
-    var selectHandler: ((_ picture: BxInputPicture, _ cell: BxInputPictureCollectionCell) -> Void)? = nil
+    var selectHandler: ((_ picture: BxInputPictureItem, _ cell: BxInputPictureCollectionCell) -> Void)? = nil
     weak var rowData: BxInputSelectorPicturesRow? = nil
     
     internal(set) public var size: CGFloat = 100

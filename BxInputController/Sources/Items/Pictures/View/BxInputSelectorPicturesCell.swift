@@ -98,7 +98,7 @@ public class BxInputSelectorPicturesCell: BxInputBaseCell {
         }
     }
     
-    func selectPicture(_ picture: BxInputPicture, cell: BxInputPictureCollectionCell) {
+    func selectPicture(_ picture: BxInputPictureItem, cell: BxInputPictureCollectionCell) {
         if let row = data as? BxInputChildSelectorPicturesRow,
             let parentRow = row.parent as? BxInputSelectorPicturesRow
         {

@@ -18,11 +18,11 @@ open class BxInputSelectorPictureView : UIImageView {
     
     var removeHandler: (() -> Void)? = nil
     
-    internal(set) public var picture: BxInputPicture
+    internal(set) public var picture: BxInputPictureItem
     
     internal(set) public var removeButton: UIButton = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
     
-    public required init(picture: BxInputPicture, size: CGSize, mode: UIViewContentMode) {
+    public required init(picture: BxInputPictureItem, size: CGSize, mode: UIViewContentMode) {
         self.picture = picture
         super.init(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height))
         self.image = picture.icon

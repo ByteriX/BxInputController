@@ -14,7 +14,7 @@
 import UIKit
 
 /// Implementation picture item as UIImage owner. For example it may be photo from camera
-public class BxInputPictureImageItem : BxInputPicture
+public class BxInputPictureImageItem : BxInputPictureItem
 {
     internal var image: UIImage
     
