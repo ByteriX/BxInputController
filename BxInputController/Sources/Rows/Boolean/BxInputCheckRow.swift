@@ -13,10 +13,12 @@
 
 import UIKit
 
-/// this is not implemented
+/// Boolean row with single checkbox
 open class BxInputCheckRow: BxInputRow
 {
-    open var resourceId = ""
+    /// Use for initializing from a xib and register for the table, this have to be uniqueue value
+    open var resourceId = "BxInputStandartTextCell"
+    /// estimated height for the cell (got from resourceId) in the table
     open var estimatedHeight : CGFloat {
         get { return 60 }
     }
@@ -25,6 +27,7 @@ open class BxInputCheckRow: BxInputRow
     open var placeholder : String?
     open var isEnabled : Bool = true
     
+    /// result of user choosing
     open var value: Bool
     
     public init(title: String? = nil, placeholder: String? = nil, value: Bool = false) {

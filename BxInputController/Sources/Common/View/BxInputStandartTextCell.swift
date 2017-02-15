@@ -33,6 +33,10 @@ open class BxInputStandartTextCell: BxInputBaseCell {
             if let handler = actionRow.handler {
                 handler(actionRow)
             }
+        } else if let checkRow = data as? BxInputCheckRow {
+            parent?.dissmissAllRows()
+            checkRow.value = !checkRow.value
+            update(data: checkRow)
         } else {
             valueTextField.becomeFirstResponder()
         }
@@ -54,6 +58,11 @@ open class BxInputStandartTextCell: BxInputBaseCell {
             valueTextField.isEnabled = false
             valueTextField.text = actionRow.stringValue // may be all values rewrite to stringValue
             self.accessoryType = .disclosureIndicator
+            self.selectionStyle = .default
+        } else if let checkRow = data as? BxInputCheckRow {
+            valueTextField.isEnabled = false
+            valueTextField.text = ""
+            self.accessoryType = checkRow.value ? .checkmark : .none
             self.selectionStyle = .default
         } else {
             valueTextField.isEnabled = true

@@ -1,16 +1,24 @@
-//
-//  BxInputSwitchCell.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 15/02/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputSwitchCell.swift
+ *	@namespace BxInputController
+ *
+ *	@details Cell with switch button for boolean row
+ *	@date 15.02.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 
+/// Cell with switch button for boolean row
 open class BxInputSwitchCell: BxInputBaseCell {
 
+    /// caption of row
     @IBOutlet weak open var titleLabel: UILabel!
+    /// switch button for changing value
     @IBOutlet weak open var valueSwitch: UISwitch!
     
     override open func didSelected()
@@ -45,6 +53,7 @@ open class BxInputSwitchCell: BxInputBaseCell {
         titleLabel.alpha = value ? 1 : 0.5
     }
     
+    /// event change value from switch button
     open func valueDidChanged()
     {
         if let rateRow = data as? BxInputSwitchRow

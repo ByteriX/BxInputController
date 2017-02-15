@@ -9,7 +9,8 @@ ByteriX, 2017. All right reserved.
 ## 0.9.39 (15.02.2017)
 ##### Bug fixing
 * fix bug with accessories for rate row (dissmiss keyboard)
-* added Switch row with boalean value
+* added Switch row with boolean value
+* added Check row with boolean value
 
 ## 0.9.38 (15.02.2017)
 ##### Improvements
