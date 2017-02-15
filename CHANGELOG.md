@@ -11,6 +11,7 @@ ByteriX, 2017. All right reserved.
 * documentation for action, date, pictures, rate, suggestions, variants, text row.
 * move & rename all picture items
 * extract item classes from suggestion & variants rows
+* rename folder items to rows
 
 ## 0.9.37 (15.02.2017)
 ##### Improvements
