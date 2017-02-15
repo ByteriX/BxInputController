@@ -10,6 +10,8 @@ This framework will help iOS developers for simplify development general inputin
 - [x] Easy to use current solution and make a custom
 - [x] SOLID decision
 
+![Demo Gif](Screenshots/simple_demo.gif)
+
 ## Requirements
 
 - iOS 8.0+
