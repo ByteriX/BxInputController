@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 1.0.1 (15.02.2017)
+##### Improvements
+* update readme
+
 ## 1.0.0 (15.02.2017)
 ##### Bug fixing
 * fix bug with accessories for rate row (dissmiss keyboard)
