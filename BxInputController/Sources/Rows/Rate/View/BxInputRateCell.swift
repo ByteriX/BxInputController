@@ -25,7 +25,7 @@ public class BxInputRateCell: BxInputBaseCell {
     {
         super.didSelected()
         
-        //
+        parent?.dissmissAllRows()
     }
     
     override open func update(data: BxInputRow)
