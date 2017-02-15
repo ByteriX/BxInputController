@@ -2,7 +2,7 @@
  *	@file BxInputSelectorDateCell.swift
  *	@namespace BxInputController
  *
- *	@details Cell with date selector. Use as chield for BxInputSelectorDateRow
+ *	@details Cell with date selector. Use as child for BxInputSelectorDateRow
  *	@date 12.01.2017
  *	@author Sergey Balalaev
  *
@@ -13,7 +13,7 @@
 
 import UIKit
 
-/// Cell with date selector. Use as chield for BxInputSelectorDateRow
+/// Cell with date selector. Use as child for BxInputSelectorDateRow
 open class BxInputSelectorDateCell: BxInputBaseCell {
 
     @IBOutlet weak open var datePicker: UIDatePicker!

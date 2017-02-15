@@ -1,14 +1,20 @@
-//
-//  BxInputSelectorSuggestionsRow.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 12/01/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputSelectorSuggestionsRow.swift
+ *	@namespace BxInputController
+ *
+ *	@details Selector row for choosing single item from suggestion. Selector is shown below this row
+ *	@date 12.01.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 
-
+/// Selector row for choosing single item from suggestion. Selector is shown below this row
+/// - parameter: T - is associated data model for suggestion rows, should be inherited from BxInputChildSelectorRow
 open class BxInputSelectorSuggestionsRow<T : BxInputChildSelectorRow> : BxInputStringRow, BxInputParentSelectorSuggestionsRow
 {
     open var resourceId : String {
@@ -47,8 +53,8 @@ open class BxInputSelectorSuggestionsRow<T : BxInputChildSelectorRow> : BxInputS
     internal(set) public var children: [BxInputChildSelectorRow]
     {
         didSet {
-            for chield in children {
-                chield.parent = self
+            for child in children {
+                child.parent = self
             }
         }
     }
@@ -65,6 +71,7 @@ open class BxInputSelectorSuggestionsRow<T : BxInputChildSelectorRow> : BxInputS
     
 }
 
+/// Child row for showing suggestion from BxInputSelectorSuggestionsRow
 open class BxInputSelectorSuggestionsItemRow: BxInputStringRow, BxInputChildSelectorRow
 {
     

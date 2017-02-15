@@ -1,15 +1,21 @@
-//
-//  BxInputRateCell.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 02/02/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputRateCell.swift
+ *	@namespace BxInputController
+ *
+ *	@details Cell for select rating
+ *	@date 02.02.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 import BxObjC
 
-public class BxInputRateCell: BxInputBaseCell, BxStandartRateViewDelegate {
+/// Cell for select rating
+public class BxInputRateCell: BxInputBaseCell {
     
     @IBOutlet weak open var titleLabel: UILabel!
     @IBOutlet weak open var valueRateView: BxStandartRateView!
@@ -63,8 +69,13 @@ public class BxInputRateCell: BxInputBaseCell, BxStandartRateViewDelegate {
         valueRateView.alpha = value ? 1 : 0.5
         titleLabel.alpha = value ? 1 : 0.5
     }
-
     
+}
+
+/// Implementation BxStandartRateViewDelegate for BxInputRateCell
+extension BxInputRateCell : BxStandartRateViewDelegate {
+    
+    /// change rating value
     open func standartRateView(_ rateView: BxStandartRateView!, ratingDidChange rating: Float)
     {
         if let rateRow = data as? BxInputRateRow

@@ -2,7 +2,7 @@
  *	@file BxInputSelectorPicturesCell.swift
  *	@namespace BxInputController
  *
- *	@details Cell for selector a picture. This chield cell places below parent cell
+ *	@details Cell for selector a picture. This child cell places below parent cell
  *	@date 03.02.2017
  *	@author Sergey Balalaev
  *
@@ -15,7 +15,7 @@ import UIKit
 import AssetsLibrary
 import Photos
 
-/// Cell for selector a picture. This chield cell places below parent cell
+/// Cell for selector a picture. This child cell places below parent cell
 public class BxInputSelectorPicturesCell: BxInputBaseCell {
     
 

@@ -1,13 +1,19 @@
-//
-//  BxInputSelectorTextCell.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 02/02/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputSelectorTextCell.swift
+ *	@namespace BxInputController
+ *
+ *	@details Cell for selector Row with longest text string
+ *	@date 02.02.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 
+/// Cell for selector Row with longest text string
 public class BxInputSelectorTextCell: BxInputBaseCell {
 
     @IBOutlet var textView: UITextView!
@@ -83,6 +89,7 @@ public class BxInputSelectorTextCell: BxInputBaseCell {
     
 }
 
+/// Implementation UITextViewDelegate for BxInputSelectorTextCell
 extension BxInputSelectorTextCell : UITextViewDelegate
 {
     

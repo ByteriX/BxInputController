@@ -1,14 +1,19 @@
-//
-//  BxInputSelectorTextRow.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 02/02/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputSelectorTextRow.swift
+ *	@namespace BxInputController
+ *
+ *	@details Selector Row with child row for putting longest text string
+ *	@date 02.02.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 
-
+/// Selector Row with child row for putting longest text string
 open class BxInputSelectorTextRow : BxInputTextRow, BxInputSelectorRow
 {
     override open var resourceId : String {
@@ -21,21 +26,22 @@ open class BxInputSelectorTextRow : BxInputTextRow, BxInputSelectorRow
     open var isOpened: Bool = false
     open var timeForAutoselection: TimeInterval = 0.0 // if < 0.5 then autoselection turned off
     
-    public var chield : BxInputChildSelectorTextRow
+    public var child : BxInputChildSelectorTextRow
     public var children: [BxInputChildSelectorRow] {
         get {
-            return [chield]
+            return [child]
         }
     }
     
     override public init(title: String? = nil, placeholder: String? = nil, value: String? = nil) {
-        chield = BxInputChildSelectorTextRow()
+        child = BxInputChildSelectorTextRow()
         super.init(title: title, placeholder: placeholder, value: value)
-        chield.parent = self
+        child.parent = self
     }
     
 }
 
+/// Child row for BxInputSelectorTextRow with text input field
 open class BxInputChildSelectorTextRow: BxInputChildSelectorRow, BxInputStaticHeight
 {
     open var resourceId : String = "BxInputSelectorTextCell"

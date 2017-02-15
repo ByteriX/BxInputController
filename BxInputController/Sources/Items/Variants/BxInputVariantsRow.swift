@@ -1,14 +1,20 @@
-//
-//  BxInputVariantsRow.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 10/01/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputVariantsRow.swift
+ *	@namespace BxInputController
+ *
+ *	@details Row for choosing one item from variants from selector with keyboard frame
+ *	@date 10.01.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 
-
+/// Row for choosing one item from variants from selector with keyboard frame
+/// - parameter: T - is associated data model for variants rows, should be inherited from BxInputStringObject
 open class BxInputVariantsRow<T : BxInputStringObject> : BxInputRow, BxInputVariants
 {
     
@@ -48,6 +54,7 @@ open class BxInputVariantsRow<T : BxInputStringObject> : BxInputRow, BxInputVari
     
 }
 
+/// Simple item class for showing variant in BxInputVariantsRow
 open class BxInputVariantsItem: BxInputStringObject
 {
     public var id: String

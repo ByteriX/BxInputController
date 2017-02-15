@@ -48,10 +48,10 @@ open class BxInputSelectorPicturesRow : BxInputRow, BxInputSelectorRow
     
     
     
-    public var chield : BxInputChildSelectorPicturesRow
+    public var child : BxInputChildSelectorPicturesRow
     public var children: [BxInputChildSelectorRow] {
         get {
-            return [chield]
+            return [child]
         }
     }
     
@@ -59,13 +59,13 @@ open class BxInputSelectorPicturesRow : BxInputRow, BxInputSelectorRow
         self.title = title
         self.placeholderHint = placeholder
         self.pictures = pictures
-        chield = BxInputChildSelectorPicturesRow()
-        chield.parent = self
+        child = BxInputChildSelectorPicturesRow()
+        child.parent = self
     }
     
 }
 
-/// Chield row for BxInputSelectorPicturesRow with picture items
+/// Child row for BxInputSelectorPicturesRow with picture items
 open class BxInputChildSelectorPicturesRow: BxInputChildSelectorRow, BxInputStaticHeight
 {
     open var resourceId : String = "BxInputSelectorPicturesCell"

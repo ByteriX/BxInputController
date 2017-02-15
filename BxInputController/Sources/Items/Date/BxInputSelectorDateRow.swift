@@ -2,7 +2,7 @@
  *	@file BxInputSelectorDateRow.swift
  *	@namespace BxInputController
  *
- *	@details Row for choosing date from selector below this row
+ *	@details Selector row for choosing date from selector below this row
  *	@date 12.01.2017
  *	@author Sergey Balalaev
  *
@@ -26,22 +26,22 @@ open class BxInputSelectorDateRow : BxInputDateRow, BxInputSelectorRow
     open var isOpened: Bool = false
     open var timeForAutoselection: TimeInterval = 0.0 // if < 0.5 then autoselection turned off
     
-    public var chield : BxInputChildSelectorDateRow
+    public var child : BxInputChildSelectorDateRow
     public var children: [BxInputChildSelectorRow] {
         get {
-            return [chield]
+            return [child]
         }
     }
     
     override public init(title: String? = nil, placeholder: String? = nil, value: Date? = nil) {
-        chield = BxInputChildSelectorDateRow()
+        child = BxInputChildSelectorDateRow()
         super.init(title: title, placeholder: placeholder, value: value)
-        chield.parent = self
+        child.parent = self
     }
     
 }
 
-/// Row for selector date. Is single chield of BxInputSelectorDateRow
+/// Row for selector date. Is single child of BxInputSelectorDateRow
 open class BxInputChildSelectorDateRow: BxInputChildSelectorRow, BxInputStaticHeight
 {
     open var resourceId : String = "BxInputSelectorDateCell"

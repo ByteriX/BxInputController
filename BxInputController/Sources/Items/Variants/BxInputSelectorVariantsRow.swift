@@ -1,14 +1,20 @@
-//
-//  BxInputSelectorVariantsRow.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 13/01/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputSelectorVariantsRow.swift
+ *	@namespace BxInputController
+ *
+ *	@details Selector Row for choosing one item from variants
+ *	@date 13.01.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 
-
+/// Selector Row for choosing one item from variants in selector below this row
+/// - parameter: T - is associated data model for variants rows, should be inherited from BxInputStringObject
 open class BxInputSelectorVariantsRow<T: BxInputStringObject> : BxInputVariantsRow<T>, BxInputSelectorRow, BxInputStringRow
 {
     override open var resourceId : String {
@@ -21,10 +27,10 @@ open class BxInputSelectorVariantsRow<T: BxInputStringObject> : BxInputVariantsR
     open var isOpened: Bool = false
     open var timeForAutoselection: TimeInterval = 0.0 // if < 0.5 then autoselection turned off
     
-    public var chield : BxInputChildSelectorVariantsRow
+    public var child : BxInputChildSelectorVariantsRow
     public var children: [BxInputChildSelectorRow] {
         get {
-            return [chield]
+            return [child]
         }
     }
     open var stringValue: String? {
@@ -37,13 +43,14 @@ open class BxInputSelectorVariantsRow<T: BxInputStringObject> : BxInputVariantsR
     }
     
     override public init(title: String? = nil, placeholder: String? = nil, value: T? = nil) {
-        chield = BxInputChildSelectorVariantsRow()
+        child = BxInputChildSelectorVariantsRow()
         super.init(title: title, placeholder: placeholder, value: value)
-        chield.parent = self
+        child.parent = self
     }
     
 }
 
+/// Child Row which show variants selector below parent row
 open class BxInputChildSelectorVariantsRow: BxInputChildSelectorRow, BxInputStaticHeight
 {
     open var resourceId : String = "BxInputSelectorVariantsCell"
