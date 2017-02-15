@@ -17,7 +17,7 @@ import UIKit
 open class BxInputSectionStringFooter: BxInputSectionStringContent
 {
     /// xib name, see 'BxInputUtils'
-    open var resourceId = "BxInputStandartFooter"
+    open var resourceId = "BxInputTextFooterView"
     /// You may override this for custom size
     open var estimatedHeight : CGFloat = 36
     /// owner

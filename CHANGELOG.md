@@ -6,6 +6,12 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 0.9.37 (15.02.2017)
+##### Improvements
+* add documentation for section
+* rename all section's classes
+* rename base cell
+
 ## 0.9.36 (15.02.2017)
 ##### Bug fixing
 * add documentation for BxInputController extension

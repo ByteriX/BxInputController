@@ -1,8 +1,8 @@
 /**
- *	@file BxInputStandartFooter.swift
+ *	@file BxInputTextHeaderView.swift
  *	@namespace BxInputController
  *
- *	@details View for showing text content of footer for a section
+ *	@details View for showing text content of header for a section
  *	@date 13.01.2017
  *	@author Sergey Balalaev
  *
@@ -13,23 +13,23 @@
 
 import UIKit
 
-/// View for showing text content of footer for a section
-open class BxInputStandartFooter: BxInputBaseHeaderFooter {
-
+/// View for showing text content of header for a section
+open class BxInputTextHeaderView: BxInputBaseHeaderFooterView {
+    
     /// text content label
     @IBOutlet weak open var contentLabel: UILabel!
-    
+
     override open func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-    
+
     override open func update(data: BxInputSectionContent)
     {
         super.update(data: data)
         
-        contentLabel.font = parent?.settings.footerFont
-        contentLabel.textColor = parent?.settings.footerColor
+        contentLabel.font = parent?.settings.headerFont
+        contentLabel.textColor = parent?.settings.headerColor
         
         if let textData = data as? BxInputSectionStringContent {
             contentLabel.text = textData.contentText

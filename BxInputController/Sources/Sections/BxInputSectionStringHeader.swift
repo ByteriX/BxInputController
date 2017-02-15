@@ -17,7 +17,7 @@ import UIKit
 open class BxInputSectionStringHeader: BxInputSectionStringContent
 {
     /// xib name, see 'BxInputUtils'
-    open var resourceId = "BxInputStandartHeader"
+    open var resourceId = "BxInputTextHeaderView"
     /// You may override this for custom size
     open var estimatedHeight : CGFloat = 36
     /// owner

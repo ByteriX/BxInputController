@@ -64,7 +64,7 @@ open class BxInputController : UIViewController
     open var commonInputAccessoryView: InputAccessoryView? = nil
     
     /// resourceId for the empty content od header/footer
-    public static var emptyHeaderFooterId = "BxInputStandartEmptyHeaderFooter"
+    public static var emptyHeaderFooterId = "BxInputEmptyHeaderFooterView"
     /// buffer with resourceId values for registred header/foother/row
     internal var addedResources = NSMutableSet()
     
@@ -380,7 +380,7 @@ open class BxInputController : UIViewController
             return
         }
         var isNeedReloadSection = !(sections[index] === section)
-        if let header = tableView.headerView(forSection: index) as? BxInputBaseHeaderFooter
+        if let header = tableView.headerView(forSection: index) as? BxInputBaseHeaderFooterView
         {
             if let headerData = section.header {
                 header.update(data: headerData)
@@ -388,7 +388,7 @@ open class BxInputController : UIViewController
                 isNeedReloadSection = true
             }
         }
-        if let footer = tableView.footerView(forSection: index) as? BxInputBaseHeaderFooter
+        if let footer = tableView.footerView(forSection: index) as? BxInputBaseHeaderFooterView
         {
             if let footerData = section.footer {
                 footer.update(data: footerData)

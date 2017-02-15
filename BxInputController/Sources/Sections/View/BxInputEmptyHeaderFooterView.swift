@@ -1,5 +1,5 @@
 /**
- *	@file BxInputStandartEmptyHeaderFooter.swift
+ *	@file BxInputEmptyHeaderFooterView.swift
  *	@namespace BxInputController
  *
  *	@details View for showing nothing if header or footer should be empty
@@ -14,7 +14,7 @@
 import UIKit
 
 /// View for showing nothing if header or footer should be empty
-class BxInputStandartEmptyHeaderFooter: BxInputBaseHeaderFooter {
+class BxInputEmptyHeaderFooterView: BxInputBaseHeaderFooterView {
 
     /// height for change if need
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!

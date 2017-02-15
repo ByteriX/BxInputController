@@ -56,14 +56,14 @@ extension BxInputController : UITableViewDelegate{
     {
         let sectionData = sections[section]
         guard let headerData = sectionData.header else {
-            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: BxInputController.emptyHeaderFooterId) as! BxInputStandartEmptyHeaderFooter
+            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: BxInputController.emptyHeaderFooterId) as! BxInputEmptyHeaderFooterView
             return view
         }
         
         if let headerData = headerData as? BxInputSectionViewContent {
             return headerData.contentView
         } else if let headerData = headerData as? BxInputSectionNibContent {
-            if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerData.resourceId) as? BxInputBaseHeaderFooter
+            if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerData.resourceId) as? BxInputBaseHeaderFooterView
             {
                 headerView.parent = self
                 headerView.update(data: headerData)
@@ -78,14 +78,14 @@ extension BxInputController : UITableViewDelegate{
     {
         let sectionData = sections[section]
         guard let footerData = sectionData.footer else {
-            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: BxInputController.emptyHeaderFooterId) as! BxInputStandartEmptyHeaderFooter
+            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: BxInputController.emptyHeaderFooterId) as! BxInputEmptyHeaderFooterView
             return view
         }
         
         if let footerData = footerData as? BxInputSectionViewContent {
             return footerData.contentView
         } else if let footerData = footerData as? BxInputSectionNibContent {
-            if let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: footerData.resourceId) as? BxInputBaseHeaderFooter
+            if let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: footerData.resourceId) as? BxInputBaseHeaderFooterView
             {
                 footerView.parent = self
                 footerView.update(data: footerData)

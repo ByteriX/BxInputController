@@ -1,5 +1,5 @@
 /**
- *	@file BxInputBaseHeaderFooter.swift
+ *	@file BxInputBaseHeaderFooterView.swift
  *	@namespace BxInputController
  *
  *	@details Base view content class of header or footer for a section
@@ -14,7 +14,7 @@
 import UIKit
 
 /// Base view content class of header or footer for a section
-open class BxInputBaseHeaderFooter : UITableViewHeaderFooterView
+open class BxInputBaseHeaderFooterView : UITableViewHeaderFooterView
 {
     /// owner
     weak open var parent: BxInputController? = nil
