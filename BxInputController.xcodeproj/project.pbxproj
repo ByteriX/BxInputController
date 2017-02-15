@@ -53,6 +53,7 @@
 		F96D1F971E5463AC00BDB2CE /* BxInputVariantsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F741E5463AC00BDB2CE /* BxInputVariantsRow.swift */; };
 		F96D1F981E5463AC00BDB2CE /* BxInputSelectorVariantsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F761E5463AC00BDB2CE /* BxInputSelectorVariantsCell.swift */; };
 		F96D1F991E5463AC00BDB2CE /* BxInputSelectorVariantsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F96D1F771E5463AC00BDB2CE /* BxInputSelectorVariantsCell.xib */; };
+		F96D1F9B1E54753C00BDB2CE /* SimpleAllRowsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F9A1E54753C00BDB2CE /* SimpleAllRowsController.swift */; };
 		F9847E741E279815007C26EC /* SelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9847E731E279815007C26EC /* SelectionController.swift */; };
 		F9847E781E279B60007C26EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9847E771E279B60007C26EC /* Assets.xcassets */; };
 		F993083C1E430C9A00EDA3BD /* ReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F993083B1E430C9A00EDA3BD /* ReviewController.swift */; };
@@ -139,6 +140,7 @@
 		F96D1F741E5463AC00BDB2CE /* BxInputVariantsRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputVariantsRow.swift; sourceTree = "<group>"; };
 		F96D1F761E5463AC00BDB2CE /* BxInputSelectorVariantsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSelectorVariantsCell.swift; sourceTree = "<group>"; };
 		F96D1F771E5463AC00BDB2CE /* BxInputSelectorVariantsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BxInputSelectorVariantsCell.xib; sourceTree = "<group>"; };
+		F96D1F9A1E54753C00BDB2CE /* SimpleAllRowsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleAllRowsController.swift; sourceTree = "<group>"; };
 		F9847E731E279815007C26EC /* SelectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionController.swift; sourceTree = "<group>"; };
 		F9847E771E279B60007C26EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F993083B1E430C9A00EDA3BD /* ReviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewController.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				F92183D61E23AB21002E1781 /* CommonController.swift */,
 				F9847E731E279815007C26EC /* SelectionController.swift */,
 				F993083B1E430C9A00EDA3BD /* ReviewController.swift */,
+				F96D1F9A1E54753C00BDB2CE /* SimpleAllRowsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -712,6 +715,7 @@
 				F9E7873A1E52F6F800341996 /* BxInputBaseHeaderFooterView.swift in Sources */,
 				F9E7873C1E53340C00341996 /* BxInputUtils.swift in Sources */,
 				F96D1F781E5463AC00BDB2CE /* BxInputActionCustomRow.swift in Sources */,
+				F96D1F9B1E54753C00BDB2CE /* SimpleAllRowsController.swift in Sources */,
 				F96D1F7A1E5463AC00BDB2CE /* BxInputCheckRow.swift in Sources */,
 				F92183DE1E23AB21002E1781 /* AppDelegate.swift in Sources */,
 				F96D1F7E1E5463AC00BDB2CE /* BxInputSelectorDateCell.swift in Sources */,
