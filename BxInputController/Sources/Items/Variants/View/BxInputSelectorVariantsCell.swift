@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BxInputSelectorVariantsCell: BxInputStandartCell {
+open class BxInputSelectorVariantsCell: BxInputBaseCell {
 
     @IBOutlet weak open var variantsPicker: UIPickerView!
     

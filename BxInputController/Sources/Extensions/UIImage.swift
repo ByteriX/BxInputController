@@ -1,17 +1,23 @@
-//
-//  UIImage.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 02/02/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file UIImage.swift
+ *	@namespace BxInputController
+ *
+ *	@details Get different images from the original
+ *	@date 02.02.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 
+/// creating different images from the original
 extension UIImage
 {
     
-    static func multiplyImage(_ image: UIImage, by color: UIColor) -> UIImage {
+    static private func multiplyImage(_ image: UIImage, by color: UIColor) -> UIImage {
         let backgroundSize = image.size
         UIGraphicsBeginImageContext(backgroundSize)
         
@@ -52,11 +58,13 @@ extension UIImage
         return newImage!
     }
     
-    func multiplyImage(by color:UIColor) -> UIImage {
+    /// return same image with background filled by color
+    open func multiplyImage(by color:UIColor) -> UIImage {
         return type(of: self).multiplyImage(self, by: color)
     }
     
-    func maskedImage(by color: UIColor) -> UIImage {
+    /// return painted current image to color
+    open func maskedImage(by color: UIColor) -> UIImage {
         let image = self
         UIGraphicsBeginImageContextWithOptions(image.size, false, image.scale)
         let context = UIGraphicsGetCurrentContext()!
@@ -74,7 +82,8 @@ extension UIImage
         return result!
     }
     
-    func halfMaskedImage(by color: UIColor) -> UIImage {
+    /// return painted current image to color but only half part
+    open func halfMaskedImage(by color: UIColor) -> UIImage {
         let image = self
         UIGraphicsBeginImageContextWithOptions(image.size, false, image.scale)
         let context = UIGraphicsGetCurrentContext()!

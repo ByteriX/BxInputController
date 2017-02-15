@@ -1,5 +1,5 @@
 /**
- *	@file BxInputStandartCell.swift
+ *	@file BxInputBaseCell.swift
  *	@namespace BxInputController
  *
  *	@details Base cell for all rows
@@ -14,7 +14,7 @@
 import UIKit
 
 /// Base cell for all rows
-open class BxInputStandartCell: UITableViewCell {
+open class BxInputBaseCell: UITableViewCell {
     
     /// reference to owner
     public weak var parent: BxInputController? = nil

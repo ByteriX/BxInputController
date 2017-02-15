@@ -9,7 +9,7 @@
 import UIKit
 import BxObjC
 
-public class BxInputRateCell: BxInputStandartCell, BxStandartRateViewDelegate {
+public class BxInputRateCell: BxInputBaseCell, BxStandartRateViewDelegate {
     
     @IBOutlet weak open var titleLabel: UILabel!
     @IBOutlet weak open var valueRateView: BxStandartRateView!

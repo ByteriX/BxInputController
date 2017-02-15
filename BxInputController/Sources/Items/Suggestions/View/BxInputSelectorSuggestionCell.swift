@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BxInputSelectorSuggestionCell: BxInputStandartCell {
+open class BxInputSelectorSuggestionCell: BxInputBaseCell {
     
     @IBOutlet weak open var titleLabel: UILabel!
 

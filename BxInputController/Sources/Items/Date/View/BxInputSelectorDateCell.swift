@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BxInputSelectorDateCell: BxInputStandartCell {
+open class BxInputSelectorDateCell: BxInputBaseCell {
 
     @IBOutlet weak open var datePicker: UIDatePicker!
     

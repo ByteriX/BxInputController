@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class BxInputSelectorTextCell: BxInputStandartCell {
+public class BxInputSelectorTextCell: BxInputBaseCell {
 
     @IBOutlet var textView: UITextView!
     

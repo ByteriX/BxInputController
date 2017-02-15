@@ -380,7 +380,7 @@ open class BxInputController : UIViewController
             return
         }
         var isNeedReloadSection = !(sections[index] === section)
-        if let header = tableView.headerView(forSection: index) as? BxInputStandartHeaderFooter
+        if let header = tableView.headerView(forSection: index) as? BxInputBaseHeaderFooter
         {
             if let headerData = section.header {
                 header.update(data: headerData)
@@ -388,7 +388,7 @@ open class BxInputController : UIViewController
                 isNeedReloadSection = true
             }
         }
-        if let footer = tableView.footerView(forSection: index) as? BxInputStandartHeaderFooter
+        if let footer = tableView.footerView(forSection: index) as? BxInputBaseHeaderFooter
         {
             if let footerData = section.footer {
                 footer.update(data: footerData)
@@ -415,7 +415,7 @@ open class BxInputController : UIViewController
     /// update only content of row, if cell is shown on the tableView
     open func updateRow(_ row: BxInputRow, with animation: UITableViewRowAnimation = .fade) {
         if let indexPath = getIndex(for: row),
-            let cell = tableView.cellForRow(at: indexPath) as? BxInputStandartCell
+            let cell = tableView.cellForRow(at: indexPath) as? BxInputBaseCell
         {
             cell.update(data: row)
         }

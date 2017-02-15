@@ -10,7 +10,7 @@ import UIKit
 import AssetsLibrary
 import Photos
 
-public class BxInputSelectorPicturesCell: BxInputStandartCell {
+public class BxInputSelectorPicturesCell: BxInputBaseCell {
     
 
     @IBOutlet weak open var valueTextField: UITextField!

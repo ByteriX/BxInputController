@@ -14,7 +14,7 @@
 import UIKit
 
 /// Common cell for textual rows which have title & value
-open class BxInputStandartTextCell: BxInputStandartCell {
+open class BxInputStandartTextCell: BxInputBaseCell {
     
     /// caption of the row
     @IBOutlet weak open var titleLabel: UILabel!

@@ -47,7 +47,7 @@ extension BxInputController : UITableViewDelegate{
             tableView.deselectRow(at: indexPath, animated: true)
         }
         
-        if let cell = tableView.cellForRow(at: indexPath) as? BxInputStandartCell {
+        if let cell = tableView.cellForRow(at: indexPath) as? BxInputBaseCell {
             cell.didSelected()
         }
     }
@@ -63,7 +63,7 @@ extension BxInputController : UITableViewDelegate{
         if let headerData = headerData as? BxInputSectionViewContent {
             return headerData.contentView
         } else if let headerData = headerData as? BxInputSectionNibContent {
-            if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerData.resourceId) as? BxInputStandartHeaderFooter
+            if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerData.resourceId) as? BxInputBaseHeaderFooter
             {
                 headerView.parent = self
                 headerView.update(data: headerData)
@@ -85,7 +85,7 @@ extension BxInputController : UITableViewDelegate{
         if let footerData = footerData as? BxInputSectionViewContent {
             return footerData.contentView
         } else if let footerData = footerData as? BxInputSectionNibContent {
-            if let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: footerData.resourceId) as? BxInputStandartHeaderFooter
+            if let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: footerData.resourceId) as? BxInputBaseHeaderFooter
             {
                 footerView.parent = self
                 footerView.update(data: footerData)

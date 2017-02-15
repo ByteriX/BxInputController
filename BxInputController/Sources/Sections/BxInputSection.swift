@@ -2,7 +2,7 @@
  *	@file BxInputSection.swift
  *	@namespace BxInputController
  *
- *	@details base Section class with all content data for BxInputController
+ *	@details Section class with all content data for BxInputController
  *	@date 09.01.2017
  *	@author Sergey Balalaev
  *
@@ -13,7 +13,7 @@
 
 import UIKit
 
-/// base Section class with all content data for BxInputController
+/// Section class with all content data for BxInputController
 open class BxInputSection
 {
     /// header content of the section, that showed above rows
