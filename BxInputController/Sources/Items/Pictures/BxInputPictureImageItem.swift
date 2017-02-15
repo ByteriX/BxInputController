@@ -1,13 +1,19 @@
-//
-//  BxInputPictureImageItem.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 08/02/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputPictureImageItem.swift
+ *	@namespace BxInputController
+ *
+ *	@details Implementation picture item as UIImage owner. For example it may be photo from camera
+ *	@date 08.02.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 
+/// Implementation picture item as UIImage owner. For example it may be photo from camera
 public class BxInputPictureImageItem : BxInputPicture
 {
     internal var image: UIImage

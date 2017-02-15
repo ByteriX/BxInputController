@@ -1,15 +1,21 @@
-//
-//  BxInputSelectorPicturesLibraryDataSource.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 03/02/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputSelectorPicturesLibraryDataSource.swift
+ *	@namespace BxInputController
+ *
+ *	@details Data source for showing pictures in the selection panel (with keyboard frame)
+ *	@date 03.02.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 import AssetsLibrary
 import Photos
 
+/// Data source for showing pictures in the selection panel (with keyboard frame)
 open class BxInputSelectorPicturesLibraryDataSource : NSObject {
     
     public weak var parent: BxInputController? = nil
@@ -163,6 +169,7 @@ open class BxInputSelectorPicturesLibraryDataSource : NSObject {
     
 }
 
+/// Implementation UICollectionViewDelegate, UICollectionViewDataSource for BxInputSelectorPicturesLibraryDataSource this need for showing cells and handling user actions
 extension BxInputSelectorPicturesLibraryDataSource : UICollectionViewDelegate, UICollectionViewDataSource
 {
     
@@ -224,6 +231,7 @@ extension BxInputSelectorPicturesLibraryDataSource : UICollectionViewDelegate, U
     
 }
 
+/// Implementation AVCaptureVideoDataOutputSampleBufferDelegate for BxInputSelectorPicturesLibraryDataSource. This need for showing picture from camera
 extension BxInputSelectorPicturesLibraryDataSource : AVCaptureVideoDataOutputSampleBufferDelegate
 {
     
@@ -267,6 +275,7 @@ extension BxInputSelectorPicturesLibraryDataSource : AVCaptureVideoDataOutputSam
     
 }
 
+/// Implementation UIImagePickerControllerDelegate, UINavigationControllerDelegate for BxInputSelectorPicturesLibraryDataSource. This need for showing image picker with camera
 extension BxInputSelectorPicturesLibraryDataSource : UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
     

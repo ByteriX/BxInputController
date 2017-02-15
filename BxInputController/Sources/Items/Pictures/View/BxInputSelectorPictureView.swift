@@ -1,13 +1,19 @@
-//
-//  BxInputSelectorPictureView.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 06/02/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputSelectorPictureView.swift
+ *	@namespace BxInputController
+ *
+ *	@details View for showing on selector. It is chosen by user and has button for canceling
+ *	@date 06.02.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 
+/// View for showing on selector. It is chosen by user and has button for canceling
 open class BxInputSelectorPictureView : UIImageView {
     
     var removeHandler: (() -> Void)? = nil

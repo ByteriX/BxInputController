@@ -3,7 +3,7 @@
  *	@namespace BxInputController
  *
  *	@details Protocol is used for provide user action with a row
- *	@date 16.01.2017
+ *	@date 11.01.2017
  *	@author Sergey Balalaev
  *
  *	@version last in https://github.com/ByteriX/BxInputController.git

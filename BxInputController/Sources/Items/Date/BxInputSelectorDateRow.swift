@@ -1,13 +1,19 @@
-//
-//  BxInputSelectorDateRow.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 12/01/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputSelectorDateRow.swift
+ *	@namespace BxInputController
+ *
+ *	@details Row for choosing date from selector below this row
+ *	@date 12.01.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 
+/// Row for choosing date from selector below this row
 open class BxInputSelectorDateRow : BxInputDateRow, BxInputSelectorRow
 {
     override open var resourceId : String {
@@ -35,6 +41,7 @@ open class BxInputSelectorDateRow : BxInputDateRow, BxInputSelectorRow
     
 }
 
+/// Row for selector date. Is single chield of BxInputSelectorDateRow
 open class BxInputChildSelectorDateRow: BxInputChildSelectorRow, BxInputStaticHeight
 {
     open var resourceId : String = "BxInputSelectorDateCell"

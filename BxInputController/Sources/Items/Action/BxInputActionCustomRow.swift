@@ -1,14 +1,19 @@
-//
-//  BxInputActionCustomRow.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 11/01/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputActionCustomRow.swift
+ *	@namespace BxInputController
+ *
+ *	@details Custom action row implementation with association generic class
+ *	@date 11.01.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 
-
+/// Custom action row implementation with association generic class
 open class BxInputActionCustomRow<T : BxInputString>: BxInputActionRow
 {
     open var resourceId = "BxInputStandartTextCell"
@@ -34,4 +39,5 @@ open class BxInputActionCustomRow<T : BxInputString>: BxInputActionRow
     }
 }
 
+/// Action row implementation with association with String
 typealias BxInputActionStringRow = BxInputActionCustomRow<String>

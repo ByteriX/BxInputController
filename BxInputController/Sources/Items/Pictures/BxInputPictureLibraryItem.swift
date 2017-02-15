@@ -1,16 +1,21 @@
-//
-//  BxInputPictureLibraryItem.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 06/02/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputPictureLibraryItem.swift
+ *	@namespace BxInputController
+ *
+ *	@details Implementation picture item as PHAsset owner. It may be image from Library
+ *	@date 06.02.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 import AssetsLibrary
 import Photos
 
-
+/// Implementation picture item as PHAsset owner. It may be image from Library
 public class BxInputPictureLibraryItem : BxInputPicture
 {
     internal var asset: PHAsset
@@ -58,6 +63,7 @@ public class BxInputPictureLibraryItem : BxInputPicture
     }
 }
 
+/// operator return is equal two BxInputPictureLibraryItem
 func == (left: BxInputPictureLibraryItem, right: BxInputPictureLibraryItem) -> Bool {
     let result = (left === right)
     if !result {
@@ -66,6 +72,7 @@ func == (left: BxInputPictureLibraryItem, right: BxInputPictureLibraryItem) -> B
     return result
 }
 
+/// operator return is equal BxInputPictureLibraryItem and PHAsset
 func == (left: BxInputPictureLibraryItem, right: PHAsset) -> Bool {
     let result = (left.asset === right)
     if !result {

@@ -1,14 +1,19 @@
-//
-//  BxInputSelectorPicturesRow.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 03/02/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputSelectorPicturesRow.swift
+ *	@namespace BxInputController
+ *
+ *	@details Implementation row with photos and camera selector. Selector is showed with keyboard frame
+ *	@date 03.02.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 
-
+/// Implementation row with photos and camera selector. Selector is showed with keyboard frame
 open class BxInputSelectorPicturesRow : BxInputRow, BxInputSelectorRow
 {
     open var resourceId : String {
@@ -60,6 +65,7 @@ open class BxInputSelectorPicturesRow : BxInputRow, BxInputSelectorRow
     
 }
 
+/// Chield row for BxInputSelectorPicturesRow with picture items
 open class BxInputChildSelectorPicturesRow: BxInputChildSelectorRow, BxInputStaticHeight
 {
     open var resourceId : String = "BxInputSelectorPicturesCell"

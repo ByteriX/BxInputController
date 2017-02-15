@@ -1,13 +1,19 @@
-//
-//  BxInputPictureCollectionCell.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 03/02/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputPictureCollectionCell.swift
+ *	@namespace BxInputController
+ *
+ *	@details Cell for collection of Photos. Used for picture selector
+ *	@date 03.02.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 
+/// Cell for collection of Photos. Used for picture selector. See BxInputSelectorPicturesLibraryDataSource
 open class BxInputPictureCollectionCell : UICollectionViewCell
 {
 
