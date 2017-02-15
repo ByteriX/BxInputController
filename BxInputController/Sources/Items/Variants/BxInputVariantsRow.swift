@@ -54,19 +54,3 @@ open class BxInputVariantsRow<T : BxInputStringObject> : BxInputRow, BxInputVari
     
 }
 
-/// Simple item class for showing variant in BxInputVariantsRow
-open class BxInputVariantsItem: BxInputStringObject
-{
-    public var id: String
-    public var name: String
-    
-    open var stringValue: String? {
-        get { return name }
-    }
-    
-    public init(id: String, name: String)
-    {
-        self.id = id
-        self.name = name
-    }
-}

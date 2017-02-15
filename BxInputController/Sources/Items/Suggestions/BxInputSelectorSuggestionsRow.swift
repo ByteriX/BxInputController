@@ -71,37 +71,3 @@ open class BxInputSelectorSuggestionsRow<T : BxInputChildSelectorRow> : BxInputS
     
 }
 
-/// Child row for showing suggestion from BxInputSelectorSuggestionsRow
-open class BxInputSelectorSuggestionsItemRow: BxInputStringRow, BxInputChildSelectorRow
-{
-    
-    open var resourceId : String {
-        get { return "BxInputSelectorSuggestionCell" }
-    }
-    open var estimatedHeight : CGFloat {
-        get { return 60 }
-    }
-    
-    open var title : String?
-    open var placeholder : String?
-    open var isEnabled : Bool {
-        get {
-            return parent?.isEnabled ?? false
-        }
-        set {
-            parent?.isEnabled = isEnabled
-        }
-    }
-    open var stringValue: String? {
-        get {
-            return title
-        }
-    }
-    
-    weak open var parent: BxInputSelectorRow? = nil
-    
-    public init(title: String? = nil, placeholder: String? = nil) {
-        self.title = title
-        self.placeholder = placeholder
-    }
-}
