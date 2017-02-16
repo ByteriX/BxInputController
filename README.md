@@ -14,6 +14,7 @@ This framework will help iOS developers for simplify development general inputin
 - [x] Two style inputting: from keyboard or from selector
 - [x] Easy to use current solution and make a custom
 - [x] SOLID decision: easy binding View with data models
+- [x] UI creating from Interface Builder. Supporting xib and storyboards.
 
 
 ## Requirements
@@ -170,8 +171,46 @@ class SimpleAllRowsController: BxInputController {
 
 ```
 
+### Settings of BxInputController
+
+You can use global settings, rewrited `BxInputSettings.standart` values, also you can make your instanse `BxInputSettings` and assigne its to `BxInputController` instanse by `settings` property.
+
+#### Example for global changing
+
+```swift
+
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+	var window: UIWindow?
+
+	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
+	{
+		BxInputSettings.standart.valueFont = UIFont.boldSystemFont(ofSize: 17)
+        BxInputSettings.standart.titleFont = UIFont.systemFont(ofSize: 17)
+        
+        BxInputSettings.standart.titleColor = UIColor.brown
+        BxInputSettings.standart.valueColor = UIColor.black
+        BxInputSettings.standart.placeholderColor = UIColor.red
+        
+        BxInputSettings.standart.footerFont = UIFont.boldSystemFont(ofSize: 18)
+        BxInputSettings.standart.footerColor = UIColor.gray
+        BxInputSettings.standart.headerFont = UIFont.boldSystemFont(ofSize: 18)
+        BxInputSettings.standart.headerColor = UIColor.gray
+        
+        BxInputSettings.standart.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+
+		return true
+	}
+
+
+```
+
 
 ### Get values from inputed
+
+All Rows classes (which implement protocol `BxInputRow`)  should encapsulate value for inputting, so it makes easy accessing possible. See for example.
+
+#### Value access example
 
 ```swift
 class InputController: BxInputController {

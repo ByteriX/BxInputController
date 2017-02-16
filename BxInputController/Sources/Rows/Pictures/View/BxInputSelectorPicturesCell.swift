@@ -23,7 +23,7 @@ public class BxInputSelectorPicturesCell: BxInputBaseCell {
     @IBOutlet weak var selectedScrollView: UIScrollView!
     
     weak var rowData: BxInputSelectorPicturesRow!
-    var pictureViews: [BxInputSelectorPictureView] = []
+    var selectedPictureViews: [BxInputSelectorPictureView] = []
     
     var size : CGSize = CGSize(width: 64, height: 64)
     var margin : CGFloat = 10
@@ -32,18 +32,6 @@ public class BxInputSelectorPicturesCell: BxInputBaseCell {
     let picturesPanel = UIView()
     
     private var animationComplited: Bool = true
-    
-    override open func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-        
-    }
-    
-    override open func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
     
     override open func didSelected()
     {
@@ -69,10 +57,10 @@ public class BxInputSelectorPicturesCell: BxInputBaseCell {
         }
 
         // clear:
-        for view in pictureViews {
+        for view in selectedPictureViews {
             view.removeFromSuperview()
         }
-        pictureViews = []
+        selectedPictureViews = []
         
         if let row = data as? BxInputChildSelectorPicturesRow,
             let parentRow = row.parent as? BxInputSelectorPicturesRow
@@ -95,6 +83,17 @@ public class BxInputSelectorPicturesCell: BxInputBaseCell {
             }
             updatePictures()
             dataSource.picturesCollection.reloadData()
+        }
+    }
+    
+    override open func didSetEnabled(_ value: Bool)
+    {
+        super.didSetEnabled(value)
+        if !value {
+            valueTextField.resignFirstResponder()
+        }
+        for pictureView in selectedPictureViews {
+            pictureView.isEnabled = value
         }
     }
     
@@ -159,14 +158,15 @@ public class BxInputSelectorPicturesCell: BxInputBaseCell {
             }
             
         }
-        pictureViews.append(pictureView)
+        pictureView.isEnabled = data?.isEnabled ?? false
+        selectedPictureViews.append(pictureView)
         updatePictures()
         self.selectedScrollView.addSubview(pictureView)
     }
     
     func removePictureView(_ pictureView: BxInputSelectorPictureView) {
-        if let index = pictureViews.index(of: pictureView) {
-            pictureViews.remove(at: index)
+        if let index = selectedPictureViews.index(of: pictureView) {
+            selectedPictureViews.remove(at: index)
         }
         UIView.animate(withDuration: 0.25) {[weak self] () in
             self?.updatePictures()
@@ -176,7 +176,7 @@ public class BxInputSelectorPicturesCell: BxInputBaseCell {
     
     func updatePictures() {
         var index = 0
-        for view in pictureViews {
+        for view in selectedPictureViews {
             view.frame = getPictureFrame(from: index)
             index = index + 1
         }

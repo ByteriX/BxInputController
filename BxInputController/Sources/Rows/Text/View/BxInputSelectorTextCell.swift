@@ -50,6 +50,16 @@ public class BxInputSelectorTextCell: BxInputBaseCell {
         }
     }
     
+    override open func didSetEnabled(_ value: Bool)
+    {
+        super.didSetEnabled(value)
+        if !value {
+            textView.resignFirstResponder()
+        }
+        textView.isUserInteractionEnabled = value
+        textView.alpha = value ? 1 : 0.5
+    }
+    
     open func check()
     {
         if checkContent() {

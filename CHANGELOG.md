@@ -6,6 +6,12 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 1.0.3 (16.02.2017)
+##### Improvements
+* update readme
+* fix showing enabled/disabled for all selector rows
+* add to example enabled/disabled texting
+
 ## 1.0.2 (16.02.2017)
 ##### Improvements
 * update descriptions

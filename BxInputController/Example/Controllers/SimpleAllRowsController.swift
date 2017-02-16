@@ -13,26 +13,26 @@ class SimpleAllRowsController: BxInputController {
     
     
     // Action
-    private let stringActionRow = BxInputActionStringRow(title: "string action")
-    private let customActionRow = BxInputActionCustomRow<BxInputActionStringRow>(title: "custom action")
+    internal let stringActionRow = BxInputActionStringRow(title: "string action")
+    internal let customActionRow = BxInputActionCustomRow<BxInputActionStringRow>(title: "custom action")
     // Boolean
-    private let switchRow = BxInputSwitchRow(title: "boolean switch", value: true)
-    private let checkRow = BxInputCheckRow(title: "boolean check", placeholder: "selected value")
+    internal let switchRow = BxInputSwitchRow(title: "boolean switch", value: true)
+    internal let checkRow = BxInputCheckRow(title: "boolean check", placeholder: "selected value")
     // Date
-    private let dateRow = BxInputDateRow(title: "date", value: Date().addingTimeInterval(900000))
-    private let selectorDateRow = BxInputSelectorDateRow(title: "selector date")
+    internal let dateRow = BxInputDateRow(title: "date", value: Date().addingTimeInterval(900000))
+    internal let selectorDateRow = BxInputSelectorDateRow(title: "selector date")
     // Pictures
-    private let selectorPicturesRow = BxInputSelectorPicturesRow(title: "selector pictures")
+    internal let selectorPicturesRow = BxInputSelectorPicturesRow(title: "selector pictures")
     // Rate
-    private let rateRow = BxInputRateRow(title: "rate", maxValue: 10)
+    internal let rateRow = BxInputRateRow(title: "rate", maxValue: 10)
     // Suggestions
-    private let selectorSuggestionsRow = BxInputSelectorSuggestionsRow<BxInputSelectorSuggestionsItemRow>(title: "selector suggestions")
+    internal let selectorSuggestionsRow = BxInputSelectorSuggestionsRow<BxInputSelectorSuggestionsItemRow>(title: "selector suggestions")
     // Text
-    private let shortTextRow = BxInputTextRow(title: "text value", placeholder: "short text")
-    private let selectorTextRow = BxInputSelectorTextRow(title: "text with selector", placeholder: "longest text")
+    internal let shortTextRow = BxInputTextRow(title: "text value", placeholder: "short text")
+    internal let selectorTextRow = BxInputSelectorTextRow(title: "text with selector", placeholder: "longest text")
     // Variants
-    private let variantsRow = BxInputVariantsRow<BxInputVariantsItem>(title: "variants")
-    private let selectorVariantsRow = BxInputSelectorVariantsRow<BxInputVariantsItem>(title: "selector variants")
+    internal let variantsRow = BxInputVariantsRow<BxInputVariantsItem>(title: "variants")
+    internal let selectorVariantsRow = BxInputSelectorVariantsRow<BxInputVariantsItem>(title: "selector variants")
 
 
     private let variantsItems : [BxInputVariantsItem] = [

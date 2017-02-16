@@ -428,6 +428,11 @@ open class BxInputController : UIViewController
         if row.isEnabled != enabled {
             row.isEnabled = enabled
             reloadRow(row)
+            if let row = row as? BxInputSelectorRow {
+                for childRow in row.children {
+                    reloadRow(childRow)
+                }
+            }
         }
     }
     

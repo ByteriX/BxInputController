@@ -16,7 +16,15 @@ import UIKit
 /// View for showing on selector. It is chosen by user and has button for canceling
 open class BxInputSelectorPictureView : UIImageView {
     
-    var removeHandler: (() -> Void)? = nil
+    public var removeHandler: (() -> Void)? = nil
+    
+    public var isEnabled: Bool = true {
+        didSet {
+            //removeButton.isEnabled = isEnabled
+            //self.alpha = isEnabled ? 1.0 : 0.5
+            removeButton.isHidden = !isEnabled
+        }
+    }
     
     internal(set) public var picture: BxInputPictureItem
     

@@ -54,4 +54,10 @@ open class BxInputSelectorSuggestionCell: BxInputBaseCell {
         titleLabel.text = data.title
     }
     
+    override open func didSetEnabled(_ value: Bool)
+    {
+        super.didSetEnabled(value)
+        titleLabel.alpha = value ? 1.0 : 0.5
+    }
+    
 }

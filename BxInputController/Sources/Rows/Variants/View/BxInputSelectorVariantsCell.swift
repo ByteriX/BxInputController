@@ -58,6 +58,13 @@ open class BxInputSelectorVariantsCell: BxInputBaseCell {
         }
     }
     
+    override open func didSetEnabled(_ value: Bool)
+    {
+        super.didSetEnabled(value)
+        variantsPicker.isUserInteractionEnabled = value
+        variantsPicker.alpha = value ? 1.0 : 0.5
+    }
+    
     open func autoselection() {
         if let row = data as? BxInputChildSelectorVariantsRow,
             let parentRow = row.parent

@@ -46,6 +46,14 @@ open class BxInputSelectorDateCell: BxInputBaseCell {
         }
     }
     
+    override open func didSetEnabled(_ value: Bool)
+    {
+        super.didSetEnabled(value)
+        datePicker.isEnabled = value
+        datePicker.isUserInteractionEnabled = value
+        datePicker.alpha = value ? 1.0 : 0.5
+    }
+    
     @IBAction open func changeDate(_ sender: Any) {
         if let dateRow = data as? BxInputChildSelectorDateRow,
             let parentRow = dateRow.parent as? BxInputSelectorDateRow
