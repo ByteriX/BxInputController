@@ -1,6 +1,6 @@
 # BxInputController
 
-This framework will help iOS developers for simplify development general inputing controllers
+This framework will help iOS developers for simplify development general inputing controllers. Holds a ready-made solutions, such as standard solutions in Apple applications also have custom design such as a photo library, a choice of variants or suggestion. If you need custom inputting view (for example calendar for date putting) then you may add new rows or edit or inherited current rows. The component is limited only to the implementation of the paradigm, it essentially involves the use of SOLID approach. An important limitation is the compulsory use of Interface Builder to implement UI (xib or storyboard, but not from code).
 
 ## Gif demo
 
@@ -8,11 +8,12 @@ This framework will help iOS developers for simplify development general inputin
 
 ## Features
 
-- [x] Encapsulation UITableView DataSource/Delegate 
-- [x] Automatical to register cells/headers/footer for tableView
-- [x] Library general types for inputting: string, date, value objects, pictures, rating, boolean
+- [x] Encapsulation UITableView DataSource/Delegate/Scrolling and other
+- [x] Automatical to register resources (xib, pdf, etc) for cells/headers/footer
+- [x] Library general types for inputting: string, date, value objects (variants), pictures, rating, boolean
+- [x] Two style inputting: from keyboard or from selector
 - [x] Easy to use current solution and make a custom
-- [x] SOLID decision
+- [x] SOLID decision: easy binding View with data models
 
 
 ## Requirements
