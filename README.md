@@ -267,6 +267,7 @@ class InputController: BxInputController {
 		setEnabledRow(emailRow, enabled: !emailRow.isEnabled)
 	}
 }
+```
 
 ### Change rows and sections
 
@@ -301,6 +302,7 @@ class EnabledAllRowsController: SimpleAllRowsController {
         }
     }
 }
+```
 
 ### Other table transformation
 
