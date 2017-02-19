@@ -15,6 +15,7 @@ This framework will help iOS developers for simplify development general inputin
 - [x] Easy to use current solution and make a custom
 - [x] SOLID decision: easy binding View with data models
 - [x] UI creating from Interface Builder. Supporting xib and storyboards.
+- [x] Has settings for local of global change design and logic.
 
 
 ## Requirements
@@ -242,6 +243,71 @@ class InputController: BxInputController {
 }
 
 ```
+
+
+### Access rows
+
+You can manage access with the help of property `isEnabled` from rows object, but it is not good idea, better use `BxInputController` method `setEnabledRow` for that, because this method encapsulate updating cells of row and its children.
+
+#### Example using setEnabledRow
+
+```swift
+class InputController: BxInputController {
+
+	private var emailRow = BxInputTextRow(title: "email value", value: "")
+
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		self.sections = [
+			BxInputSection(rows: [emailRow])
+		]
+	}
+
+	func changeAccess() {
+		setEnabledRow(emailRow, enabled: !emailRow.isEnabled)
+	}
+}
+
+### Change rows and sections
+
+Also you can add, remove, reload or just updating rows or sections. There operation have posibility execution with animation or without that.
+
+#### Example using deleteRow/addRow
+
+```swift
+class EnabledAllRowsController: SimpleAllRowsController {
+    
+    private var choosePhoneRow = BxInputCheckRow(title: "use phone without email")
+    private var emailRow = BxInputTextRow(title: "email", value: "")
+    private var phoneRow = BxInputTextRow(title: "phone", value: "")
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.sections = [
+            BxInputSection(rows: [choosePhoneRow, emailRow])
+        ]
+    }
+    
+    override func didChangedRow(_ row: BxInputRow)
+    {
+        if row === choosePhoneRow {
+            if choosePhoneRow.value {
+                deleteRow(emailRow)
+                addRow(phoneRow, after: choosePhoneRow, with: .top)
+            } else {
+                deleteRow(phoneRow, with: .bottom)
+                addRow(emailRow, after: choosePhoneRow)
+            }
+        }
+    }
+}
+
+### Other table transformation
+
+You can scroll to needed row with method `scrollRow`. 
+If you need select (or activate) row, you may call `selectRow`. 
+For closing all selectors or/and keyboard you may call `dissmissSelectors`  or `dissmissAllRows`.
+table has Event of change value in overrided method `didChangedRow` in your custom class inherited from `BxInputController` (see last example).
 
 ## License
 
