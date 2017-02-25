@@ -315,11 +315,11 @@ table has Event of change value in overrided method `didChangedRow` in your cust
 
 ### Common
 
-![Common paradigm](UML-base.png)
+![Common paradigm](Screenshots/UML-base.png)
 
 ### Simple & Selector
 
-![Common paradigm](UML-text.png)
+![Common paradigm](Screenshots/UML-text.png)
 
 ## License
 
