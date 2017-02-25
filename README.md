@@ -311,6 +311,16 @@ If you need select (or activate) row, you may call `selectRow`.
 For closing all selectors or/and keyboard you may call `dissmissSelectors`  or `dissmissAllRows`.
 table has Event of change value in overrided method `didChangedRow` in your custom class inherited from `BxInputController` (see last example).
 
+## Paradigm
+
+### Common
+
+![Common paradigm](UML-base.png)
+
+### Simple & Selector
+
+![Common paradigm](UML-text.png)
+
 ## License
 
 BxInputController is released under the MIT license. See LICENSE for details.
