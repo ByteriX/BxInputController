@@ -15,7 +15,7 @@ This framework will help iOS developers for simplify development general inputin
 - [x] Easy to use current solution and make a custom
 - [x] SOLID decision: easy binding View with data models
 - [x] UI creating from Interface Builder. Supporting xib and storyboards.
-- [x] Has settings for local of global change design and logic.
+- [x] Has settings for local or global change design and logic.
 
 
 ## Requirements
@@ -315,9 +315,24 @@ table has Event of change value in overrided method `didChangedRow` in your cust
 
 ### Common
 
+I was thinking use any of a lot of programming paradigms for iOS: MVVM, MVP, VIPER, Reactive. But noone don't ignore standard MVC because it is needed for compatibility. The main problem is a hard link controller-View anyway. So I have solved create myself solution, abstracting from the conventional concepts, because I have highly specialized task. I think now it is complex solution, please see UML class diagrams below.
+
 ![Common paradigm](Screenshots/UML-base.png)
 
+### Description with exising paradigmes
+
+`BxInputController` is a UIViewController with the Facade functions, so it may has "presenter" name in VIPER. It manages all ViewModels objects that inherited from `BxInputBaseCell`, `BxInputBaseHeaderFootherView` classes. ViewModels have back-reference with `BxInputController`, because they have the single field of a responsibility drawing UI and may has "interactor" name in VIPER.
+
+Passive Model is objects inherited from `BxInputSection` with `BxInputSectionContent` and `BxInputRow`. It has any information about style of UI and passive data ("Entity" in VIPER). You can use prepared solutions or create yourself implementation, that have to make flexible behavior for this component. `BxInputSection` encapsulated all `BxInputSectionContent` and `BxInputRow` is a source of material for building UI and getting of inputed data. It are a protocol oriented thin objects.
+
+Relationships BxInputRow with `BxInputBaseCell` and `BxInputSection` with `BxInputBaseHeaderFooterView` in a concrete implementation may be shown as Model-ViewModel binding as in MVVM.
+
+`BxInputSettings` implements appearance pattern. All easy.
+
+
 ### Simple & Selector
+
+Let's see at different implementations of `BxInputRow`, for represent of simple and selector row types. We will see only text rows for example. In yellow area are shown the selector type classes, the classes as `BxInputTextRow` and `BxInputStandartTextCell` is concrete implementation of simple type of putting text (please see UML class diagrams below). With simple type is all clear, let's see `BxInputSelectorRow` and `BxInputChildSelectorRow`, that is protocols of rows with selector. They have relationship one-to-many. Actually ViewModel for `BxInputSelectorRow` (for this example it is `BxInputSelectorCell`) has responsibility of managing of itself `children' rows. When you select this cell, it should add new row `BxInputChildSelectorTextRow` with help `parent` (this is protocol of `BxInputController`), which presents all cells from rows. If you select again then cell should be closed, and `children` rows should be removed from `BxInputController`. In general `children` is many of objects, but for our example it is single object of the class `BxInputChildSelectorTextRow`. That class does not necessarily have to be public, because it is fully encapsulated in the parent class `BxInputSelectorTextRow`.
 
 ![Common paradigm](Screenshots/UML-text.png)
 
