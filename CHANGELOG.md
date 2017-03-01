@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 1.0.7 (01.03.2017)
+##### Improvements
+* Paradigm update
+
 ## 1.0.6 (27.02.2017)
 ##### Improvements
 * finished description of paradigm in the readme
