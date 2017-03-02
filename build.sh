@@ -1,5 +1,11 @@
 
-
+#
+#  build.sh
+#  version 1.0
+#
+#  Created by Sergey Balalaev on 02.03.17.
+#  Copyright (c) 2017 ByteriX. All rights reserved.
+#
 
 APP_CONFIG_PATH="./build.config"
 TEMPLATE_SPEC_PATH="BxInputController.Template.podspec"

@@ -13,12 +13,7 @@
 		F92183EC1E23AFB9002E1781 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92183E61E23AFB9002E1781 /* Assets.xcassets */; };
 		F92183ED1E23AFB9002E1781 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F92183E71E23AFB9002E1781 /* LaunchScreen.storyboard */; };
 		F92183EE1E23AFB9002E1781 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F92183E91E23AFB9002E1781 /* Main.storyboard */; };
-		F92183EF1E23AFB9002E1781 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F92183EB1E23AFB9002E1781 /* Info.plist */; };
-		F92861651E2A9D4A00B50369 /* build.sh in Resources */ = {isa = PBXBuildFile; fileRef = F92861611E2A9D4A00B50369 /* build.sh */; };
-		F92861661E2A9D4A00B50369 /* BxInputController.Template.podspec in Resources */ = {isa = PBXBuildFile; fileRef = F92861621E2A9D4A00B50369 /* BxInputController.Template.podspec */; };
-		F92861671E2A9D4A00B50369 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = F92861631E2A9D4A00B50369 /* LICENSE */; };
-		F92861681E2A9D4A00B50369 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = F92861641E2A9D4A00B50369 /* README.md */; };
-		F928616A1E2A9D8E00B50369 /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = F92861691E2A9D8E00B50369 /* CHANGELOG.md */; };
+		F9337C431E6811D5002134C2 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = F92861631E2A9D4A00B50369 /* LICENSE */; };
 		F96D1F781E5463AC00BDB2CE /* BxInputActionCustomRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F461E5463AC00BDB2CE /* BxInputActionCustomRow.swift */; };
 		F96D1F791E5463AC00BDB2CE /* BxInputActionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F471E5463AC00BDB2CE /* BxInputActionRow.swift */; };
 		F96D1F7A1E5463AC00BDB2CE /* BxInputCheckRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F4A1E5463AC00BDB2CE /* BxInputCheckRow.swift */; };
@@ -608,14 +603,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F92183EF1E23AFB9002E1781 /* Info.plist in Resources */,
 				F92183EE1E23AFB9002E1781 /* Main.storyboard in Resources */,
 				F92183ED1E23AFB9002E1781 /* LaunchScreen.storyboard in Resources */,
+				F9337C431E6811D5002134C2 /* LICENSE in Resources */,
 				F96D1F861E5463AC00BDB2CE /* BxInputSelectorPicturesCell.xib in Resources */,
 				F96D1F931E5463AC00BDB2CE /* BxInputSelectorTextCell.xib in Resources */,
 				F96D1F991E5463AC00BDB2CE /* BxInputSelectorVariantsCell.xib in Resources */,
 				F92183EC1E23AFB9002E1781 /* Assets.xcassets in Resources */,
-				F92861671E2A9D4A00B50369 /* LICENSE in Resources */,
 				F96D1F8F1E5463AC00BDB2CE /* BxInputSelectorSuggestionCell.xib in Resources */,
 				F9E787371E52F6F800341996 /* BxInputTextFooterView.xib in Resources */,
 				F96D1F7F1E5463AC00BDB2CE /* BxInputSelectorDateCell.xib in Resources */,
@@ -626,8 +620,6 @@
 				F9847E781E279B60007C26EC /* Assets.xcassets in Resources */,
 				F96D1F8B1E5463AC00BDB2CE /* BxInputRateCell.xib in Resources */,
 				F9E787351E52F6F800341996 /* BxInputEmptyHeaderFooterView.xib in Resources */,
-				F92861661E2A9D4A00B50369 /* BxInputController.Template.podspec in Resources */,
-				F92861651E2A9D4A00B50369 /* build.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -717,7 +709,6 @@
 				F9E787011E52F6F800341996 /* BxInputStringRow.swift in Sources */,
 				F9E787051E52F6F800341996 /* BxInputStandartTextCell.swift in Sources */,
 				F96D1F7D1E5463AC00BDB2CE /* BxInputSelectorDateRow.swift in Sources */,
-				F92861681E2A9D4A00B50369 /* README.md in Sources */,
 				F96D1F821E5463AC00BDB2CE /* BxInputPictureItem.swift in Sources */,
 				F96D1F8E1E5463AC00BDB2CE /* BxInputSelectorSuggestionCell.swift in Sources */,
 				F9E787001E52F6F800341996 /* BxInputString.swift in Sources */,
@@ -736,7 +727,6 @@
 				F9E787081E52F6F800341996 /* BxInputController+Keyboard.swift in Sources */,
 				F96D1F881E5463AC00BDB2CE /* BxInputSelectorPictureView.swift in Sources */,
 				F9E787311E52F6F800341996 /* BxInputSectionStringFooter.swift in Sources */,
-				F928616A1E2A9D8E00B50369 /* CHANGELOG.md in Sources */,
 				F9E7870C1E52F6F800341996 /* BxInputSettings.swift in Sources */,
 				F9E7872F1E52F6F800341996 /* BxInputSection.swift in Sources */,
 				F9E787361E52F6F800341996 /* BxInputTextFooterView.swift in Sources */,

@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 1.0.9 (03.03.2017)
+##### Improvements
+* clear warnings
+
 ## 1.0.8 (02.03.2017)
 ##### Improvements
 * update description
