@@ -328,7 +328,7 @@ Passive Model is objects inherited from `BxInputSection` with `BxInputSectionCon
 Relationships `BxInputRow` with `BxInputBaseCell` and `BxInputSection` with `BxInputBaseHeaderFooterView` in a concrete implementation may be shown as Model-ViewModel binding as in MVVM.
 
 `BxInputSettings` implements appearance pattern. All easy.
-So actually it looks like MVVM paradigm, if we ignore relations with a dotted line (see scheme below).
+So actually it looks like MVVM paradigm, if we ignore relations with a dotted line (see scheme below). And cells, header, footer are ViewModel and View together (because is better there aren't separating).
 
 ![Common paradigm](Screenshots/Paradigm.png)
 

@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 1.0.8 (02.03.2017)
+##### Improvements
+* update description
+
 ## 1.0.7 (01.03.2017)
 ##### Improvements
 * Paradigm update
