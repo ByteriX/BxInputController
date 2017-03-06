@@ -17,6 +17,10 @@ import UIKit
 /// - parameter: T - is associated data model for variants rows, should be inherited from BxInputStringObject
 open class BxInputSelectorVariantsRow<T: BxInputStringObject> : BxInputVariantsRow<T>, BxInputSelectorRow, BxInputStringRow
 {
+    /// Make and return Binder for binding row with cell.
+    override open var binder : BxInputRowBinder {
+        return BxInputSelectorRowBinder<BxInputSelectorVariantsRow<T>, BxInputSelectorCell>(row: self)
+    }
     override open var resourceId : String {
         get { return "BxInputSelectorCell" }
     }
@@ -53,6 +57,10 @@ open class BxInputSelectorVariantsRow<T: BxInputStringObject> : BxInputVariantsR
 /// Child Row which show variants selector below parent row
 open class BxInputChildSelectorVariantsRow: BxInputChildSelectorRow, BxInputStaticHeight
 {
+    /// Make and return Binder for binding row with cell.
+    open var binder : BxInputRowBinder {
+        return BxInputSelectorVariantsRowBinder<BxInputChildSelectorVariantsRow, BxInputSelectorVariantsCell>(row: self)
+    }
     open var resourceId : String = "BxInputSelectorVariantsCell"
     open var height : CGFloat = 216
     open var estimatedHeight : CGFloat {

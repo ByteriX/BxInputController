@@ -1,0 +1,209 @@
+//
+//  BxInputSelectorPicturesRowBinder.swift
+//  BxInputController
+//
+//  Created by Sergey Balalaev on 06/03/17.
+//  Copyright © 2017 Byterix. All rights reserved.
+//
+
+import UIKit
+
+open class BxInputSelectorPicturesRowBinder<Row: BxInputChildSelectorPicturesRow, Cell: BxInputSelectorPicturesCell> : BxInputBaseRowBinder<Row, Cell>, UITextFieldDelegate, UIScrollViewDelegate
+{
+
+    
+    
+    private var animationComplited: Bool = true
+    
+    override open func didSelected()
+    {
+        super.didSelected()
+        
+        guard let cell = cell else {
+            return
+        }
+        
+        cell.picturesPanel.frame = cell.dataSource.picturesCollection.bounds
+        cell.dataSource.picturesCollection.autoresizingMask = [.flexibleLeftMargin, .flexibleWidth, .flexibleRightMargin, .flexibleTopMargin, .flexibleHeight, .flexibleBottomMargin]
+        cell.picturesPanel.addSubview(cell.dataSource.picturesCollection)
+        cell.picturesPanel.clipsToBounds = false
+        
+        cell.valueTextField.inputView = cell.picturesPanel
+        
+        cell.dataSource.picturesCollection.reloadData()
+        cell.valueTextField.becomeFirstResponder()
+    }
+    
+    override open func update()
+    {
+        super.update()
+        //
+        guard let cell = cell else {
+            return
+        }
+        //
+        cell.dataSource.selectHandler = { [weak self] (picture, cell) -> Void in
+            self?.selectPicture(picture, collectionCell: cell)
+        }
+
+        // clear:
+        for view in cell.selectedPictureViews {
+            view.removeFromSuperview()
+        }
+        cell.selectedPictureViews = []
+        
+        if let parentRow = data.parent as? BxInputSelectorPicturesRow
+        {
+            cell.rowData = parentRow
+            cell.size = parentRow.iconSize
+            
+            //            DispatchQueue.main.async { [weak self] () -> Void in
+            //                if let variantsPicker = self?.variantsPicker {
+            //                    self?.pickerView(variantsPicker, didSelectRow: index, inComponent: 0)
+            //                }
+            //            }
+            cell.dataSource.rowData = parentRow
+            cell.dataSource.parent = parent
+            cell.dataSource.updateAssets(size: cell.frame.size.width / CGFloat(parentRow.countInRow) - 2.0)
+
+            for picture in parentRow.pictures {
+                let pictureView = BxInputSelectorPictureView(picture: picture, size: cell.size, mode: parentRow.iconMode)
+                addPictureView(pictureView)
+            }
+            updatePictures()
+            cell.dataSource.picturesCollection.reloadData()
+        }
+    }
+    
+    override open func didSetEnabled(_ value: Bool)
+    {
+        super.didSetEnabled(value)
+        guard let cell = cell else {
+            return
+        }
+        if !value {
+            cell.valueTextField.resignFirstResponder()
+        }
+        for pictureView in cell.selectedPictureViews {
+            pictureView.isEnabled = value
+        }
+    }
+    
+    func selectPicture(_ picture: BxInputPictureItem, collectionCell: BxInputPictureCollectionCell) {
+        guard let cell = cell else {
+            return
+        }
+        if let parentRow = data.parent as? BxInputSelectorPicturesRow
+        {
+            if parentRow.maxSelectedCount > parentRow.pictures.count {
+                parentRow.pictures.append(picture)
+                let pictureView = BxInputSelectorPictureView(picture: picture, size: cell.size, mode: parentRow.iconMode)
+                pictureView.frame = cell.picturesPanel.convert(collectionCell.frame, from: cell.dataSource.picturesCollection)
+                cell.picturesPanel.superview?.bringSubview(toFront: cell.picturesPanel)
+                cell.picturesPanel.addSubview(pictureView)
+                if let indexPath = cell.dataSource.picturesCollection.indexPath(for: collectionCell) {
+                    cell.dataSource.picturesCollection.reloadItems(at: [indexPath])
+                }
+                
+                UIView.animate(withDuration: 0.35, animations: {[weak self, weak cell] () in
+                    guard let this = self else {
+                        return
+                    }
+                    guard let cell = cell else {
+                        return
+                    }
+                    let x = this.getPictureFrame(from: parentRow.pictures.count).origin.x - cell.selectedScrollView.frame.size.width
+                    if x > 0 && this.animationComplited {
+                        cell.selectedScrollView.setContentOffset(CGPoint(x: x, y: 0), animated: false)
+                    }
+                    pictureView.frame = cell.picturesPanel.convert(this.getPictureFrame(from: parentRow.pictures.count - 1), from: cell.selectedScrollView)
+                    this.animationComplited = false
+                    }, completion: {[weak self] (finished) in
+                        guard let this = self else {
+                            return
+                        }
+                        this.addPictureView(pictureView)
+                        this.parent?.updateRow(parentRow)
+                        this.animationComplited = true
+                })
+                
+            } else {
+                cell.selectedScrollView.shakeX(withOffset: 50, breakFactor: 0.65, duration: 0.75, maxShakes: 5)
+            }
+        }
+
+    }
+    
+    func getPictureFrame(from index: Int) -> CGRect {
+        guard let cell = cell else {
+            return CGRect()
+        }
+        let x = cell.margin + (cell.size.width + cell.margin) * CGFloat(index)
+        return CGRect(x: x, y: cell.margin, width: cell.size.width, height: cell.size.height)
+    }
+    
+    func addPictureView(_ pictureView: BxInputSelectorPictureView) {
+        pictureView.removeHandler = {[weak cell, weak self, weak pictureView] () -> Void in
+            if let row = self?.data as? BxInputChildSelectorPicturesRow,
+                let parentRow = row.parent as? BxInputSelectorPicturesRow,
+                let pictureView = pictureView
+            {
+                if let index = parentRow.pictures.index(where: { (currentPicture) -> Bool in
+                    return currentPicture === pictureView.picture
+                }) {
+                    parentRow.pictures.remove(at: index)
+                    self?.removePictureView(pictureView)
+                    self?.parent?.updateRow(parentRow)
+                    cell?.dataSource.picturesCollection.reloadData()
+                }
+            }
+            
+        }
+        pictureView.isEnabled = data.isEnabled
+        cell?.selectedPictureViews.append(pictureView)
+        updatePictures()
+        cell?.selectedScrollView.addSubview(pictureView)
+    }
+    
+    func removePictureView(_ pictureView: BxInputSelectorPictureView) {
+        if let index = cell?.selectedPictureViews.index(of: pictureView) {
+            cell?.selectedPictureViews.remove(at: index)
+        }
+        UIView.animate(withDuration: 0.25) {[weak self] () in
+            self?.updatePictures()
+        }
+        pictureView.removeFromSuperview()
+    }
+    
+    func updatePictures() {
+        guard let cell = cell else {
+            return
+        }
+        var index = 0
+        for view in cell.selectedPictureViews {
+            view.frame = getPictureFrame(from: index)
+            index = index + 1
+        }
+        cell.selectedScrollView.contentSize = CGSize(width: getPictureFrame(from: index).origin.x, height: cell.contentView.frame.size.height)
+    }
+    
+    // MARK - UITextFieldDelegate
+    
+    open func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool
+    {
+        guard let cell = cell else {
+            return true
+        }
+        if let parentRow = data.parent as? BxInputSelectorPicturesRow
+        {
+            parent?.activeRow = parentRow
+        }
+        parent?.activeControl = cell.valueTextField
+        cell.dataSource.picturesCollection.reloadData()
+        return true
+    }
+    
+    
+    
+
+}

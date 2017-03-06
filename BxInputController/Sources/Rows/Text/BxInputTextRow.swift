@@ -16,6 +16,10 @@ import UIKit
 /// Row for putting short text string
 open class BxInputTextRow: BxInputStringRow
 {
+    open var binder : BxInputRowBinder {
+        return BxInputStandartTextRowBinder<BxInputTextRow, BxInputStandartTextCell>(row: self)
+    }
+    
     open var resourceId : String {
         get { return "BxInputStandartTextCell" }
     }

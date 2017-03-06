@@ -29,6 +29,9 @@ public protocol BxInputRow : AnyObject{
     /// Use for initializing from a xib and register for the table, this have to be uniqueue value
     var resourceId : String {get}
     
+    /// Make and return Binder for binding row with cell.
+    var binder : BxInputRowBinder {get}
+    
     /// estimated height for the cell (got from resourceId) in the table
     var estimatedHeight : CGFloat {get}
     

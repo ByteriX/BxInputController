@@ -25,7 +25,7 @@ open class BxInputSection
     }
     
     /// metadata of cells for this section
-    open var rows: [BxInputRow] = []
+    open var rowBinders: [BxInputRowBinder] = []
     
     /// footer content of the section, that showed below rows
     open var footer: BxInputSectionContent? = nil
@@ -37,7 +37,10 @@ open class BxInputSection
     
     /// construction object with text header and/or fother, default headerText/footerText is nil and they won't show
     public init(headerText: String? = nil, rows: [BxInputRow], footerText: String? = nil) {
-        self.rows = rows
+        for row in rows
+        {
+            rowBinders.append(row.binder)
+        }
         if let headerText = headerText {
             header = BxInputSectionStringHeader(headerText)
         }

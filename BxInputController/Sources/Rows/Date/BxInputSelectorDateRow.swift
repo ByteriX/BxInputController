@@ -16,6 +16,10 @@ import UIKit
 /// Row for choosing date from selector below this row
 open class BxInputSelectorDateRow : BxInputDateRow, BxInputSelectorRow
 {
+    /// Make and return Binder for binding row with cell.
+    override open var binder : BxInputRowBinder {
+        return BxInputSelectorRowBinder<BxInputSelectorDateRow, BxInputSelectorCell>(row: self)
+    }
     override open var resourceId : String {
         get { return "BxInputSelectorCell" }
     }
@@ -44,6 +48,10 @@ open class BxInputSelectorDateRow : BxInputDateRow, BxInputSelectorRow
 /// Row for selector date. Is single child of BxInputSelectorDateRow
 open class BxInputChildSelectorDateRow: BxInputChildSelectorRow, BxInputStaticHeight
 {
+    /// Make and return Binder for binding row with cell.
+    open var binder : BxInputRowBinder {
+        return BxInputSelectorDateRowBinder<BxInputChildSelectorDateRow, BxInputSelectorDateCell>(row: self)
+    }
     open var resourceId : String = "BxInputSelectorDateCell"
     open var height : CGFloat = 216
     open var estimatedHeight : CGFloat {

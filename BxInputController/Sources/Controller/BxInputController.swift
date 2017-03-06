@@ -180,8 +180,8 @@ open class BxInputController : UIViewController
     /// check the section for register resources
     public func refreshResources(section: BxInputSection)
     {
-        for row in section.rows {
-            checkResources(row: row)
+        for rowBinder in section.rowBinders {
+            checkResources(row: rowBinder.row)
         }
         checkResources(sectionContent: section.header)
         checkResources(sectionContent: section.footer)
@@ -215,7 +215,7 @@ open class BxInputController : UIViewController
     
     /// return row for indexPath of cell
     open func getRow(for indexPath: IndexPath) -> BxInputRow {
-        return sections[indexPath.section].rows[indexPath.row]
+        return sections[indexPath.section].rowBinders[indexPath.row].row
     }
     
     /// return indexPath of cell for row, if row added to content (added to any sections)
@@ -223,8 +223,8 @@ open class BxInputController : UIViewController
         var sectionIndex = 0
         for section in sections {
             var rowIndex = 0
-            for row in section.rows {
-                if row === currentRow{
+            for rowBinder in section.rowBinders {
+                if rowBinder.row === currentRow{
                     return IndexPath(row: rowIndex, section: sectionIndex)
                 }
                 rowIndex = rowIndex + 1
@@ -285,7 +285,7 @@ open class BxInputController : UIViewController
     open func deleteRow(_ row: BxInputRow, with animation: UITableViewRowAnimation = .fade) {
         if let indexPath = getIndex(for: row) {
             tableView.beginUpdates()
-            sections[indexPath.section].rows.remove(at: indexPath.row)
+            sections[indexPath.section].rowBinders.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: animation)
             tableView.endUpdates()
         }
@@ -308,7 +308,7 @@ open class BxInputController : UIViewController
         }
         tableView.beginUpdates()
         for indexPath in indexes {
-            sections[indexPath.section].rows.remove(at: indexPath.row)
+            sections[indexPath.section].rowBinders.remove(at: indexPath.row)
         }
         tableView.deleteRows(at: indexes, with: animation)
         tableView.endUpdates()
@@ -318,7 +318,7 @@ open class BxInputController : UIViewController
     open func addRow(_ row: BxInputRow, after currentRow: BxInputRow, with animation: UITableViewRowAnimation = .fade) {
         if let indexPath = getIndex(for: currentRow) {
             tableView.beginUpdates()
-            sections[indexPath.section].rows.insert(row, at: indexPath.row + 1)
+            sections[indexPath.section].rowBinders.insert(row.binder, at: indexPath.row + 1)
             checkResources(row: row)
             tableView.insertRows(at: [IndexPath(row: indexPath.row + 1, section: indexPath.section)], with: animation)
             tableView.endUpdates()
@@ -333,7 +333,7 @@ open class BxInputController : UIViewController
             var index = 1
             for row in rows {
                 checkResources(row: row)
-                sections[currentIndexPath.section].rows.insert(row, at: currentIndexPath.row + index)
+                sections[currentIndexPath.section].rowBinders.insert(row.binder, at: currentIndexPath.row + index)
                 indexes.append(IndexPath(row: currentIndexPath.row + index, section: currentIndexPath.section))
                 index = index + 1
             }
@@ -468,8 +468,8 @@ open class BxInputController : UIViewController
     /// - parameter exclude: if it not nil, then this row won't closed
     open func dissmissSelectors(exclude excludeRow: BxInputRow? = nil) {
         for section in sections {
-            for row in section.rows {
-                if let selectorData = row as? BxInputSelectorRow,
+            for rowBinder in section.rowBinders {
+                if let selectorData = rowBinder.row as? BxInputSelectorRow,
                     selectorData.isOpened
                 {
                     if selectorData === excludeRow {

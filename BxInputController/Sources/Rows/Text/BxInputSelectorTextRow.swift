@@ -16,6 +16,10 @@ import UIKit
 /// Selector Row with child row for putting longest text string
 open class BxInputSelectorTextRow : BxInputTextRow, BxInputSelectorRow
 {
+    /// Make and return Binder for binding row with cell.
+    override open var binder : BxInputRowBinder {
+        return BxInputSelectorRowBinder<BxInputSelectorTextRow, BxInputSelectorCell>(row: self)
+    }
     override open var resourceId : String {
         get { return "BxInputSelectorCell" }
     }
@@ -44,6 +48,10 @@ open class BxInputSelectorTextRow : BxInputTextRow, BxInputSelectorRow
 /// Child row for BxInputSelectorTextRow with text input field
 open class BxInputChildSelectorTextRow: BxInputChildSelectorRow, BxInputStaticHeight
 {
+    /// Make and return Binder for binding row with cell.
+    open var binder : BxInputRowBinder {
+        return BxInputSelectorTextRowBinder<BxInputChildSelectorTextRow, BxInputSelectorTextCell>(row: self)
+    }
     open var resourceId : String = "BxInputSelectorTextCell"
     open var height : CGFloat = 120
     open var estimatedHeight : CGFloat {

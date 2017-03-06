@@ -18,6 +18,11 @@ import UIKit
 open class BxInputVariantsRow<T : BxInputStringObject> : BxInputRow, BxInputVariants
 {
     
+    /// Make and return Binder for binding row with cell.
+    open var binder : BxInputRowBinder {
+        return BxInputStandartTextRowBinder<BxInputVariantsRow<T>, BxInputStandartTextCell>(row: self)
+    }
+    
     open var resourceId : String {
         get { return "BxInputStandartTextCell" }
     }

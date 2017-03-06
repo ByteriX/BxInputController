@@ -16,6 +16,10 @@ import UIKit
 /// Implementation row with photos and camera selector. Selector is showed with keyboard frame
 open class BxInputSelectorPicturesRow : BxInputRow, BxInputSelectorRow
 {
+    /// Make and return Binder for binding row with cell.
+    open var binder : BxInputRowBinder {
+        return BxInputSelectorRowBinder<BxInputSelectorPicturesRow, BxInputSelectorCell>(row: self)
+    }
     open var resourceId : String {
         get { return "BxInputSelectorCell" }
     }
@@ -68,6 +72,10 @@ open class BxInputSelectorPicturesRow : BxInputRow, BxInputSelectorRow
 /// Child row for BxInputSelectorPicturesRow with picture items
 open class BxInputChildSelectorPicturesRow: BxInputChildSelectorRow, BxInputStaticHeight
 {
+    /// Make and return Binder for binding row with cell.
+    open var binder : BxInputRowBinder {
+        return BxInputSelectorPicturesRowBinder<BxInputChildSelectorPicturesRow, BxInputSelectorPicturesCell>(row: self)
+    }
     open var resourceId : String = "BxInputSelectorPicturesCell"
     open var height : CGFloat {
         get {

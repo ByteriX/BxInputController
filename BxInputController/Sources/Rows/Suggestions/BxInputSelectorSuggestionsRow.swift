@@ -17,6 +17,10 @@ import UIKit
 /// - parameter: T - is associated data model for suggestion rows, should be inherited from BxInputChildSelectorRow
 open class BxInputSelectorSuggestionsRow<T : BxInputChildSelectorRow> : BxInputStringRow, BxInputParentSelectorSuggestionsRow
 {
+    /// Make and return Binder for binding row with cell.
+    open var binder : BxInputRowBinder {
+        return BxInputSelectorRowBinder<BxInputSelectorSuggestionsRow, BxInputSelectorCell>(row: self)
+    }
     open var resourceId : String {
         get { return "BxInputSelectorCell" }
     }

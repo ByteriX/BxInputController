@@ -16,7 +16,10 @@ import UIKit
 /// Child row for showing suggestion from BxInputSelectorSuggestionsRow
 open class BxInputSelectorSuggestionsItemRow: BxInputStringRow, BxInputChildSelectorRow
 {
-    
+    /// Make and return Binder for binding row with cell.
+    open var binder : BxInputRowBinder {
+        return BxInputSelectorSuggestionRowBinder<BxInputSelectorSuggestionsItemRow, BxInputSelectorSuggestionCell>(row: self)
+    }
     open var resourceId : String {
         get { return "BxInputSelectorSuggestionCell" }
     }

@@ -16,6 +16,9 @@ import UIKit
 /// Boolean row with switch button
 open class BxInputSwitchRow: BxInputRow
 {
+    open var binder : BxInputRowBinder {
+        return BxInputSwitchRowBinder<BxInputSwitchRow, BxInputSwitchCell>(row: self)
+    }
     /// Use for initializing from a xib and register for the table, this have to be uniqueue value
     open var resourceId = "BxInputSwitchCell"
     /// estimated height for the cell (got from resourceId) in the table

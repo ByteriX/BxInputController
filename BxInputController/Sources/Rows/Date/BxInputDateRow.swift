@@ -16,6 +16,11 @@ import UIKit
 /// Row for choosing date from selector with keyboard frame
 open class BxInputDateRow : BxInputRow
 {
+    /// Make and return Binder for binding row with cell.
+    open var binder : BxInputRowBinder {
+        return BxInputStandartTextRowBinder<BxInputDateRow, BxInputStandartTextCell>(row: self)
+    }
+
     
     open var resourceId : String {
         get { return "BxInputStandartTextCell" }

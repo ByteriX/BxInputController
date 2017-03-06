@@ -16,6 +16,9 @@ import UIKit
 /// Custom action row implementation with association generic class
 open class BxInputActionCustomRow<T : BxInputString>: BxInputActionRow
 {
+    open var binder : BxInputRowBinder {
+        return BxInputStandartTextRowBinder<BxInputActionCustomRow<T>, BxInputStandartTextCell>(row: self)
+    }
     open var resourceId = "BxInputStandartTextCell"
     open var stringValue : String? {
         get { return value?.stringValue }

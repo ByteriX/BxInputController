@@ -122,9 +122,9 @@ extension BxInputController
             var sectionIndex = indexPath.section
             var rowIndex = indexPath.row + 1
             while sectionIndex < sections.count {
-                let rows = sections[sectionIndex].rows
-                while rowIndex < rows.count {
-                    let result = rows[rowIndex]
+                let rowBinders = sections[sectionIndex].rowBinders
+                while rowIndex < rowBinders.count {
+                    let result = rowBinders[rowIndex].row
                     if checkedForGettingRow(result) {
                         return result
                     }
@@ -144,9 +144,9 @@ extension BxInputController
             var sectionIndex = indexPath.section
             var rowIndex = indexPath.row - 1
             while sectionIndex > -1 {
-                let rows = sections[sectionIndex].rows
+                let rowBinders = sections[sectionIndex].rowBinders
                 while rowIndex > -1 {
-                    let result = rows[rowIndex]
+                    let result = rowBinders[rowIndex].row
                     if checkedForGettingRow(result) {
                         return result
                     }
@@ -154,7 +154,7 @@ extension BxInputController
                 }
                 sectionIndex = sectionIndex - 1
                 if sectionIndex > -1 {
-                    rowIndex = sections[sectionIndex].rows.count - 1
+                    rowIndex = sections[sectionIndex].rowBinders.count - 1
                 }
             }
         }

@@ -14,53 +14,10 @@
 import UIKit
 
 /// Cell with switch button for boolean row
-open class BxInputSwitchCell: BxInputBaseCell {
+open class BxInputSwitchCell: UITableViewCell {
 
     /// caption of row
     @IBOutlet weak open var titleLabel: UILabel!
     /// switch button for changing value
     @IBOutlet weak open var valueSwitch: UISwitch!
-    
-    override open func didSelected()
-    {
-        super.didSelected()
-        
-        parent?.dissmissAllRows()
-    }
-    
-    override open func update(data: BxInputRow)
-    {
-        super.update(data: data)
-        //
-        titleLabel.font = parent?.settings.titleFont
-        titleLabel.textColor = parent?.settings.titleColor
-        titleLabel.text = data.title
-        valueSwitch.addTarget(self, action: #selector(valueDidChanged), for: .valueChanged)
-        
-        self.selectionStyle = .none
-        
-        if let rateRow = data as? BxInputSwitchRow
-        {
-            valueSwitch.setOn(rateRow.value, animated: false)
-        }
-    }
-    
-    override open func didSetEnabled(_ value: Bool)
-    {
-        super.didSetEnabled(value)
-        valueSwitch.isEnabled = value
-        //valueSwitch.alpha = value ? 1 : 0.5
-        titleLabel.alpha = value ? 1 : 0.5
-    }
-    
-    /// event change value from switch button
-    open func valueDidChanged()
-    {
-        if let rateRow = data as? BxInputSwitchRow
-        {
-            rateRow.value = valueSwitch.isOn
-            parent?.didChangedRow(rateRow)
-        }
-    }
-    
 }

@@ -16,6 +16,9 @@ import UIKit
 /// Boolean row with single checkbox
 open class BxInputCheckRow: BxInputRow
 {
+    open var binder : BxInputRowBinder {
+        return BxInputStandartTextRowBinder<BxInputCheckRow, BxInputStandartTextCell>(row: self)
+    }
     /// Use for initializing from a xib and register for the table, this have to be uniqueue value
     open var resourceId = "BxInputStandartTextCell"
     /// estimated height for the cell (got from resourceId) in the table

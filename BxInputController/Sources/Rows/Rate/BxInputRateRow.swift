@@ -16,7 +16,10 @@ import UIKit
 /// Row for select rating
 open class BxInputRateRow: BxInputRow
 {
-    
+    /// Make and return Binder for binding row with cell.
+    open var binder : BxInputRowBinder {
+        return BxInputRateRowBinder<BxInputRateRow, BxInputRateCell>(row: self)
+    }
     open var resourceId : String {
         get { return "BxInputRateCell" }
     }

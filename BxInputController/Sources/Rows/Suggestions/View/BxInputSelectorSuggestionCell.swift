@@ -30,34 +30,6 @@ open class BxInputSelectorSuggestionCell: BxInputBaseCell {
     }
     
     
-    override open func didSelected()
-    {
-        super.didSelected()
-        if let row = data as? BxInputChildSelectorRow,
-            let parentRow = row.parent as? BxInputParentSelectorSuggestionsRow
-        {
-            parentRow.selectedChild = row
-            parentRow.isOpened = false
-            parent?.deleteRows(parentRow.children)
-            parent?.updateRow(parentRow)
-            parent?.didChangedRow(parentRow)
-        }
-    }
     
-    override open func update(data: BxInputRow)
-    {
-        super.update(data: data)
-        //
-        titleLabel.font = parent?.settings.titleFont
-        titleLabel.textColor = parent?.settings.titleColor
-        //
-        titleLabel.text = data.title
-    }
-    
-    override open func didSetEnabled(_ value: Bool)
-    {
-        super.didSetEnabled(value)
-        titleLabel.alpha = value ? 1.0 : 0.5
-    }
     
 }

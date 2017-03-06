@@ -24,7 +24,7 @@ extension BxInputController : UITableViewDataSource
     
     open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return sections[section].rows.count
+        return sections[section].rowBinders.count
     }
     
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
