@@ -17,6 +17,10 @@ public protocol BxInputRowBinder : AnyObject {
     /// view
     var view: UITableViewCell? {get set}
     
+    func update()
+    
+    func didSelected()
+    
 }
 
 open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObject, BxInputRowBinder
@@ -25,14 +29,14 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
     public var view: UITableViewCell?
     {
         get { return cell }
-        set { cell = view as? Cell }
+        set { cell = newValue as? Cell }
     }
 
     /// reference to model data
     public var row: BxInputRow
     {
         get { return data }
-        set { data = row as! Row }
+        set { data = newValue as! Row }
     }
 
     /// reference to owner

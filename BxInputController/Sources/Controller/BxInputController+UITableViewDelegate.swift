@@ -16,6 +16,12 @@ import UIKit
 /// UITableViewDelegate implementation for BxInputController
 extension BxInputController : UITableViewDelegate{
     
+    open func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath)
+    {
+        let rowBinder = getRowBinder(for: indexPath)
+        rowBinder.view = nil
+    }
+    
     open func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool
     {
         let row = getRow(for: indexPath)
@@ -33,23 +39,21 @@ extension BxInputController : UITableViewDelegate{
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let row = getRow(for: indexPath)
+        let rowBinder = getRowBinder(for: indexPath)
         
-        if !row.isEnabled {
+        if !rowBinder.row.isEnabled {
             return
         }
         
         var isDeselect = true
-        if let actionRow = row as? BxInputActionRow {
+        if let actionRow = rowBinder.row as? BxInputActionRow {
             isDeselect = actionRow.isImmediatelyDeselect
         }
         if isDeselect {
             tableView.deselectRow(at: indexPath, animated: true)
         }
         
-        if let cell = tableView.cellForRow(at: indexPath) as? BxInputBaseCell {
-            cell.didSelected()
-        }
+        rowBinder.didSelected()
     }
     
     open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?

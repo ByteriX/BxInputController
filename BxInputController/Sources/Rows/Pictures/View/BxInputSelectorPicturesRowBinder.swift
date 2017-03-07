@@ -11,8 +11,6 @@ import UIKit
 open class BxInputSelectorPicturesRowBinder<Row: BxInputChildSelectorPicturesRow, Cell: BxInputSelectorPicturesCell> : BxInputBaseRowBinder<Row, Cell>, UITextFieldDelegate, UIScrollViewDelegate
 {
 
-    
-    
     private var animationComplited: Bool = true
     
     override open func didSelected()
@@ -202,8 +200,4 @@ open class BxInputSelectorPicturesRowBinder<Row: BxInputChildSelectorPicturesRow
         cell.dataSource.picturesCollection.reloadData()
         return true
     }
-    
-    
-    
-
 }

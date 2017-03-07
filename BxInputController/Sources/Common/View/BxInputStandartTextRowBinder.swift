@@ -163,7 +163,7 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
                 }
             }
             variantsPicker.selectRow(index, inComponent: 0, animated: true)
-            cell?.pickerView(variantsPicker, didSelectRow: index, inComponent: 0)
+            self.pickerView(variantsPicker, didSelectRow: index, inComponent: 0)
             cell?.valueTextField.inputView = variantsPicker
         }
         if let parent = parent, parent.settings.isAutodissmissSelector {

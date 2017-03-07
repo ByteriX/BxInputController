@@ -215,7 +215,12 @@ open class BxInputController : UIViewController
     
     /// return row for indexPath of cell
     open func getRow(for indexPath: IndexPath) -> BxInputRow {
-        return sections[indexPath.section].rowBinders[indexPath.row].row
+        return getRowBinder(for: indexPath).row
+    }
+    
+    /// return row for indexPath of cell
+    open func getRowBinder(for indexPath: IndexPath) -> BxInputRowBinder {
+        return sections[indexPath.section].rowBinders[indexPath.row]
     }
     
     /// return indexPath of cell for row, if row added to content (added to any sections)
@@ -414,10 +419,11 @@ open class BxInputController : UIViewController
     
     /// update only content of row, if cell is shown on the tableView
     open func updateRow(_ row: BxInputRow, with animation: UITableViewRowAnimation = .fade) {
-        if let indexPath = getIndex(for: row),
-            let cell = tableView.cellForRow(at: indexPath) as? BxInputBaseCell
+        if let indexPath = getIndex(for: row)
+            //let cell = tableView.cellForRow(at: indexPath) as? BxInputBaseCell
         {
-            cell.update(data: row)
+            let rowBinder = getRowBinder(for: indexPath)
+            rowBinder.update()
         }
     }
     

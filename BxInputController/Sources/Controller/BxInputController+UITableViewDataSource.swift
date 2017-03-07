@@ -29,10 +29,11 @@ extension BxInputController : UITableViewDataSource
     
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let row = getRow(for: indexPath)
-        let cell = tableView.dequeueReusableCell(withIdentifier: row.resourceId, for: indexPath) as! BxInputBaseCell
-        cell.parent = self
-        cell.update(data: row)
+        let rowBinder = getRowBinder(for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: rowBinder.row.resourceId, for: indexPath) as! BxInputBaseCell
+        rowBinder.view = cell
+        rowBinder.parent = self
+        rowBinder.update()
         return cell
     }
 
