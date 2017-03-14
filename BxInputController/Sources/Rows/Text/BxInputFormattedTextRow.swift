@@ -50,7 +50,7 @@ open class BxInputFormattedTextRow: BxInputTextRow
         formattingReplacementChar = char
         formattingEnteredCharacters = "0123456789"
         patternTextFont = BxInputSettings.standart.valueFont
-        keyboardType = .decimalPad
+        keyboardType = .numberPad
     }
     
     /// Constructor for url putting
