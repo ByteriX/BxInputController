@@ -9,9 +9,6 @@ ByteriX, 2017. All right reserved.
 ## 1.1.0 (14.03.2017)
 ##### Features
 * added BxInputFormattedTextRow with url & phone formatting
-
-## 1.0.9 (03.03.2017)
-##### Improvements
 * clear warnings
 
 ## 1.0.8 (02.03.2017)
