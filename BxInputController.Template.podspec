@@ -69,6 +69,7 @@ Pod::Spec.new do |s|
     s.source_files  = "BxInputController/Sources/**/*.{swift}"
 
     s.dependency 'BxObjC/Vcl'
+    s.dependency 'BxTextField'
 
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

@@ -29,6 +29,8 @@ class SimpleAllRowsController: BxInputController {
     internal let selectorSuggestionsRow = BxInputSelectorSuggestionsRow<BxInputSelectorSuggestionsItemRow>(title: "selector suggestions")
     // Text
     internal let shortTextRow = BxInputTextRow(title: "text value", placeholder: "short text")
+    internal let phoneTextRow = BxInputFormattedTextRow(title: "phone value", placeholder: "(___)-___-__-__", prefix: "+7", format: "(###)-###-##-##")
+    internal let urlRow = BxInputFormattedTextRow(title: "url value", placeholder: "example", prefix: "http://", sufix: ".byterix.com")
     internal let selectorTextRow = BxInputSelectorTextRow(title: "text with selector", placeholder: "longest text")
     // Variants
     internal let variantsRow = BxInputVariantsRow<BxInputVariantsItem>(title: "variants")
@@ -73,6 +75,9 @@ class SimpleAllRowsController: BxInputController {
         selectorSuggestionsRow.children = suggestionItems
         variantsRow.items = variantsItems
         selectorVariantsRow.items = variantsItems
+        
+        urlRow.patternTextColor = UIColor.gray
+        urlRow.enteredTextFont = UIFont.systemFont(ofSize: 14)
 
         self.sections = [
             BxInputSection(headerText: "Action", rows: [stringActionRow, customActionRow]),
@@ -81,7 +86,7 @@ class SimpleAllRowsController: BxInputController {
             BxInputSection(headerText: "Pictures", rows: [selectorPicturesRow]),
             BxInputSection(headerText: "Rate", rows: [rateRow]),
             BxInputSection(headerText: "Suggestions", rows: [selectorSuggestionsRow]),
-            BxInputSection(headerText: "Text", rows: [shortTextRow, selectorTextRow]),
+            BxInputSection(headerText: "Text", rows: [shortTextRow, phoneTextRow, urlRow, selectorTextRow]),
             BxInputSection(headerText: "Variants", rows: [variantsRow, selectorVariantsRow])
         ]
     }
