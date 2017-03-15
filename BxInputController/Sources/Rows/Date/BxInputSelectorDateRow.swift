@@ -50,7 +50,7 @@ open class BxInputChildSelectorDateRow: BxInputChildSelectorRow, BxInputStaticHe
 {
     /// Make and return Binder for binding row with cell.
     open var binder : BxInputRowBinder {
-        return BxInputSelectorDateRowBinder<BxInputChildSelectorDateRow, BxInputSelectorDateCell>(row: self)
+        return BxInputSelectorDateRowBinder<BxInputChildSelectorDateRow, BxInputSelectorDateCell, BxInputSelectorDateRow>(row: self)
     }
     open var resourceId : String = "BxInputSelectorDateCell"
     open var height : CGFloat = 216

@@ -31,7 +31,7 @@ open class BxInputSelectorVariantsRow<T: BxInputStringObject> : BxInputVariantsR
     open var isOpened: Bool = false
     open var timeForAutoselection: TimeInterval = 0.0 // if < 0.5 then autoselection turned off
     
-    public var child : BxInputChildSelectorVariantsRow
+    public var child : BxInputChildSelectorVariantsRow<T>
     public var children: [BxInputChildSelectorRow] {
         get {
             return [child]
@@ -47,7 +47,7 @@ open class BxInputSelectorVariantsRow<T: BxInputStringObject> : BxInputVariantsR
     }
     
     override public init(title: String? = nil, placeholder: String? = nil, value: T? = nil) {
-        child = BxInputChildSelectorVariantsRow()
+        child = BxInputChildSelectorVariantsRow<T>()
         super.init(title: title, placeholder: placeholder, value: value)
         child.parent = self
     }
@@ -55,11 +55,11 @@ open class BxInputSelectorVariantsRow<T: BxInputStringObject> : BxInputVariantsR
 }
 
 /// Child Row which show variants selector below parent row
-open class BxInputChildSelectorVariantsRow: BxInputChildSelectorRow, BxInputStaticHeight
+open class BxInputChildSelectorVariantsRow<T: BxInputStringObject>: BxInputChildSelectorRow, BxInputStaticHeight
 {
     /// Make and return Binder for binding row with cell.
     open var binder : BxInputRowBinder {
-        return BxInputSelectorVariantsRowBinder<BxInputChildSelectorVariantsRow, BxInputSelectorVariantsCell>(row: self)
+        return BxInputSelectorVariantsRowBinder<T>(row: self)
     }
     open var resourceId : String = "BxInputSelectorVariantsCell"
     open var height : CGFloat = 216

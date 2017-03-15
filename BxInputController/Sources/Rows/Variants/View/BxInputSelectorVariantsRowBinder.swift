@@ -8,19 +8,17 @@
 
 import UIKit
 
-open class BxInputSelectorVariantsRowBinder<Row: BxInputChildSelectorVariantsRow, Cell: BxInputSelectorVariantsCell> : BxInputBaseRowBinder<Row, Cell>, BxInputSelectorVariantsDelegate, UIPickerViewDelegate, UIPickerViewDataSource
+open class BxInputSelectorVariantsRowBinder<T: BxInputStringObject> : BxInputChildSelectorRowBinder<BxInputChildSelectorVariantsRow<T>, BxInputSelectorVariantsCell, BxInputSelectorVariantsRow<T>>, BxInputSelectorVariantsDelegate, UIPickerViewDelegate, UIPickerViewDataSource
 {
     
     override open func update()
     {
         super.update()
         cell?.delegate = self
-        if let parentRow = data.parent as? BxInputVariants
-        {
             cell?.variantsPicker.reloadAllComponents()
             var index = 0
-            if let value = parentRow.selectedVariant {
-                if let foundIndex = parentRow.variants.index(where: { (item) -> Bool in
+            if let value = parentData.selectedVariant {
+                if let foundIndex = parentData.variants.index(where: { (item) -> Bool in
                     return item === value
                 }) {
                     index = foundIndex
@@ -33,7 +31,6 @@ open class BxInputSelectorVariantsRowBinder<Row: BxInputChildSelectorVariantsRow
                     self?.pickerView(variantsPicker, didSelectRow: index, inComponent: 0)
                 }
             }
-        }
     }
     
     override open func didSetEnabled(_ value: Bool)
@@ -41,17 +38,6 @@ open class BxInputSelectorVariantsRowBinder<Row: BxInputChildSelectorVariantsRow
         super.didSetEnabled(value)
         cell?.variantsPicker.isUserInteractionEnabled = value
         cell?.variantsPicker.alpha = value ? 1.0 : 0.5
-    }
-    
-    open func autoselection() {
-        if let parentRow = data.parent
-        {
-            if parentRow.isOpened {
-                parentRow.isOpened = false
-                parent?.deleteRow(row)
-                parent?.updateRow(parentRow)
-            }
-        }
     }
     
     // MARK - UIPickerViewDelegate, UIPickerViewDataSource
@@ -82,21 +68,13 @@ open class BxInputSelectorVariantsRowBinder<Row: BxInputChildSelectorVariantsRow
     
     open func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
-        guard let parentRow = data.parent,
-            var variantsRow = parentRow as? BxInputVariants
-        else {
-            return
-        }
-        let value = variantsRow.variants[row]
+        let value = parentData.variants[row]
         
-        variantsRow.selectedVariant = value
-        parent?.updateRow(parentRow)
-        parent?.didChangedRow(parentRow)
+        parentData.selectedVariant = value
+        parent?.updateRow(parentData)
+        parent?.didChangedRow(parentData)
         
-        if parentRow.timeForAutoselection > 0.499 {
-            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(autoselection), object: nil)
-            self.perform(#selector(autoselection), with: nil, afterDelay: parentRow.timeForAutoselection)
-        }
+        tryToClose()
     }
     
 }
