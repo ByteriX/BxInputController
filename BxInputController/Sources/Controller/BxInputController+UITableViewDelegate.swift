@@ -41,12 +41,12 @@ extension BxInputController : UITableViewDelegate{
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let rowBinder = getRowBinder(for: indexPath)
         
-        if !rowBinder.row.isEnabled {
+        if !rowBinder.rowData.isEnabled {
             return
         }
         
         var isDeselect = true
-        if let actionRow = rowBinder.row as? BxInputActionRow {
+        if let actionRow = rowBinder.rowData as? BxInputActionRow {
             isDeselect = actionRow.isImmediatelyDeselect
         }
         if isDeselect {

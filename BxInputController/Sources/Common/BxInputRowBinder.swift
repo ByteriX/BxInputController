@@ -11,11 +11,11 @@ import UIKit
 public protocol BxInputRowBinder : AnyObject {
     
     /// reference to owner
-    weak var parent: BxInputController? {get set}
+    weak var owner: BxInputController? {get set}
     /// reference to model data
-    var row: BxInputRow {get set}
+    var rowData: BxInputRow {get set}
     /// view
-    var view: UITableViewCell? {get set}
+    var viewCell: UITableViewCell? {get set}
     
     func update()
     
@@ -26,29 +26,29 @@ public protocol BxInputRowBinder : AnyObject {
 open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObject, BxInputRowBinder
 {
     /// view
-    public var view: UITableViewCell?
+    public var viewCell: UITableViewCell?
     {
         get { return cell }
         set { cell = newValue as? Cell }
     }
 
     /// reference to model data
-    public var row: BxInputRow
+    public var rowData: BxInputRow
     {
-        get { return data }
-        set { data = newValue as! Row }
+        get { return row }
+        set { row = newValue as! Row }
     }
 
     /// reference to owner
-    public weak var parent: BxInputController? = nil
+    public weak var owner: BxInputController? = nil
     /// reference to model data
-    public var data: Row
+    public var row: Row
     /// view
-    public var cell: Cell? = nil
+    public weak var cell: Cell? = nil
     
     init(row: Row)
     {
-        data = row
+        self.row = row
     }
     
     
@@ -62,8 +62,8 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
     /// update cell from model data, in inherited cell need call super!
     open func update()
     {
-        self.isEnabled = data.isEnabled
-        if let settings = parent?.settings {
+        self.isEnabled = row.isEnabled
+        if let settings = owner?.settings {
             cell?.separatorInset = settings.separatorInset
         }
     }

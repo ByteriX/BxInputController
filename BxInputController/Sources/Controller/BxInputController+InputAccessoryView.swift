@@ -124,7 +124,7 @@ extension BxInputController
             while sectionIndex < sections.count {
                 let rowBinders = sections[sectionIndex].rowBinders
                 while rowIndex < rowBinders.count {
-                    let result = rowBinders[rowIndex].row
+                    let result = rowBinders[rowIndex].rowData
                     if checkedForGettingRow(result) {
                         return result
                     }
@@ -146,7 +146,7 @@ extension BxInputController
             while sectionIndex > -1 {
                 let rowBinders = sections[sectionIndex].rowBinders
                 while rowIndex > -1 {
-                    let result = rowBinders[rowIndex].row
+                    let result = rowBinders[rowIndex].rowData
                     if checkedForGettingRow(result) {
                         return result
                     }

@@ -14,7 +14,7 @@ class BxInputSwitchRowBinder<Row: BxInputSwitchRow, Cell: BxInputSwitchCell> : B
     {
         super.didSelected()
         
-        parent?.dissmissAllRows()
+        owner?.dissmissAllRows()
     }
     
     override open func update()
@@ -23,13 +23,13 @@ class BxInputSwitchRowBinder<Row: BxInputSwitchRow, Cell: BxInputSwitchCell> : B
         //
         cell?.delegate = self
         //
-        cell?.titleLabel.font = parent?.settings.titleFont
-        cell?.titleLabel.textColor = parent?.settings.titleColor
-        cell?.titleLabel.text = data.title
+        cell?.titleLabel.font = owner?.settings.titleFont
+        cell?.titleLabel.textColor = owner?.settings.titleColor
+        cell?.titleLabel.text = row.title
         
         cell?.selectionStyle = .none
         
-        cell?.valueSwitch.setOn(data.value, animated: false)
+        cell?.valueSwitch.setOn(row.value, animated: false)
     }
     
     override open func didSetEnabled(_ value: Bool)
@@ -43,7 +43,7 @@ class BxInputSwitchRowBinder<Row: BxInputSwitchRow, Cell: BxInputSwitchCell> : B
     /// event change value from switch button
     open func valueDidChanged(valueSwitch: UISwitch)
     {
-        data.value = valueSwitch.isOn
-        parent?.didChangedRow(data)
+        row.value = valueSwitch.isOn
+        owner?.didChangedRow(row)
     }
 }

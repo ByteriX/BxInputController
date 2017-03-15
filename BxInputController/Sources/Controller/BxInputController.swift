@@ -181,7 +181,7 @@ open class BxInputController : UIViewController
     public func refreshResources(section: BxInputSection)
     {
         for rowBinder in section.rowBinders {
-            checkResources(row: rowBinder.row)
+            checkResources(row: rowBinder.rowData)
         }
         checkResources(sectionContent: section.header)
         checkResources(sectionContent: section.footer)
@@ -215,7 +215,7 @@ open class BxInputController : UIViewController
     
     /// return row for indexPath of cell
     open func getRow(for indexPath: IndexPath) -> BxInputRow {
-        return getRowBinder(for: indexPath).row
+        return getRowBinder(for: indexPath).rowData
     }
     
     /// return row for indexPath of cell
@@ -229,7 +229,7 @@ open class BxInputController : UIViewController
         for section in sections {
             var rowIndex = 0
             for rowBinder in section.rowBinders {
-                if rowBinder.row === currentRow{
+                if rowBinder.rowData === currentRow{
                     return IndexPath(row: rowIndex, section: sectionIndex)
                 }
                 rowIndex = rowIndex + 1
@@ -475,7 +475,7 @@ open class BxInputController : UIViewController
     open func dissmissSelectors(exclude excludeRow: BxInputRow? = nil) {
         for section in sections {
             for rowBinder in section.rowBinders {
-                if let selectorData = rowBinder.row as? BxInputSelectorRow,
+                if let selectorData = rowBinder.rowData as? BxInputSelectorRow,
                     selectorData.isOpened
                 {
                     if selectorData === excludeRow {

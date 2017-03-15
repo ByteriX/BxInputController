@@ -18,7 +18,7 @@ import Photos
 /// Data source for showing pictures in the selection panel (with keyboard frame)
 open class BxInputSelectorPicturesLibraryDataSource : NSObject {
     
-    public weak var parent: BxInputController? = nil
+    public weak var owner: BxInputController? = nil
     var selectHandler: ((_ picture: BxInputPictureItem, _ cell: BxInputPictureCollectionCell) -> Void)? = nil
     weak var rowData: BxInputSelectorPicturesRow? = nil
     
@@ -162,7 +162,7 @@ open class BxInputSelectorPicturesLibraryDataSource : NSObject {
         picker.delegate = self
         picker.allowsEditing = false
         picker.sourceType = .camera
-        parent?.present(picker, animated: true, completion: nil)
+        owner?.present(picker, animated: true, completion: nil)
     }
     
     
@@ -289,14 +289,14 @@ extension BxInputSelectorPicturesLibraryDataSource : UIImagePickerControllerDele
             selectHandler(picture, cell)
         }
         picker.dismiss(animated: true) { [weak self] in
-            self?.parent?.activeControl?.becomeFirstResponder()
+            self?.owner?.activeControl?.becomeFirstResponder()
         }
     }
     
     open func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
     {
         picker.dismiss(animated: true) { [weak self] in
-            self?.parent?.activeControl?.becomeFirstResponder()
+            self?.owner?.activeControl?.becomeFirstResponder()
         }
     }
     

@@ -15,16 +15,16 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
     {
         super.didSelected()
         
-        if let actionRow = data as? BxInputActionRow
+        if let actionRow = row as? BxInputActionRow
         {
-            if let parent = parent, parent.settings.isAutodissmissSelector {
+            if let parent = owner, parent.settings.isAutodissmissSelector {
                 parent.dissmissAllRows()
             }
             if let handler = actionRow.handler {
                 handler(actionRow)
             }
-        } else if let checkRow = data as? BxInputCheckRow {
-            parent?.dissmissAllRows()
+        } else if let checkRow = row as? BxInputCheckRow {
+            owner?.dissmissAllRows()
             checkRow.value = !checkRow.value
             update()
         } else {
@@ -38,19 +38,19 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
         super.update()
         cell?.delegate = self
         //
-        cell?.titleLabel.font = parent?.settings.titleFont
-        cell?.titleLabel.textColor = parent?.settings.titleColor
-        cell?.valueTextField.font = parent?.settings.valueFont
-        cell?.valueTextField.textColor = parent?.settings.valueColor
+        cell?.titleLabel.font = owner?.settings.titleFont
+        cell?.titleLabel.textColor = owner?.settings.titleColor
+        cell?.valueTextField.font = owner?.settings.valueFont
+        cell?.valueTextField.textColor = owner?.settings.valueColor
         //
-        cell?.titleLabel.text = data.title
+        cell?.titleLabel.text = row.title
         
-        if let actionRow = data as? BxInputActionRow {
+        if let actionRow = row as? BxInputActionRow {
             cell?.valueTextField.isEnabled = false
             cell?.valueTextField.text = actionRow.stringValue // may be all values rewrite to stringValue
             cell?.accessoryType = .disclosureIndicator
             cell?.selectionStyle = .default
-        } else if let checkRow = data as? BxInputCheckRow {
+        } else if let checkRow = row as? BxInputCheckRow {
             cell?.valueTextField.isEnabled = false
             cell?.valueTextField.text = ""
             cell?.accessoryType = checkRow.value ? .checkmark : .none
@@ -60,32 +60,32 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
             cell?.accessoryType = .none
             cell?.selectionStyle = .none
         }
-        if let textRow = data as? BxInputTextRow {
+        if let textRow = row as? BxInputTextRow {
             cell?.valueTextField.inputView = nil
             cell?.valueTextField.text = textRow.value
             cell?.valueTextField.update(from: textRow)
         } else {
             cell?.valueTextField.isSecureTextEntry = false
         }
-        if let dateRow = data as? BxInputDateRow {
+        if let dateRow = row as? BxInputDateRow {
             if let date = dateRow.value {
-                cell?.valueTextField.text = parent?.settings.dateFormat.string(from: date)
+                cell?.valueTextField.text = owner?.settings.dateFormat.string(from: date)
             } else {
                 cell?.valueTextField.text = ""
             }
-        } else if let variantsRow = data as? BxInputVariants {
+        } else if let variantsRow = row as? BxInputVariants {
             if let value = variantsRow.selectedVariant {
                 cell?.valueTextField.text = value.stringValue
             } else {
                 cell?.valueTextField.text = ""
             }
         }
-        if let placeholder = data.placeholder,
-            let placeholderColor = parent?.settings.placeholderColor
+        if let placeholder = row.placeholder,
+            let placeholderColor = owner?.settings.placeholderColor
         {
             cell?.valueTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSForegroundColorAttributeName : placeholderColor])
         } else {
-            cell?.valueTextField.placeholder = data.placeholder
+            cell?.valueTextField.placeholder = row.placeholder
         }
         
     }
@@ -105,24 +105,24 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
     
     /// event when value is changed
     open func valueChanged(valueTextField: UITextField) {
-        if let textRow = data as? BxInputTextRow {
+        if let textRow = row as? BxInputTextRow {
             textRow.value = cell?.valueTextField.text
-            parent?.didChangedRow(textRow)
-        } else if let _ = data as? BxInputDateRow {
+            owner?.didChangedRow(textRow)
+        } else if let _ = row as? BxInputDateRow {
             // date value changed from 'changeDate()' method
         }
     }
     
     /// event when value is changed if value have date type
     func changeDate() {
-        guard let date = parent?.datePicker.date else {
+        guard let date = owner?.datePicker.date else {
             return
         }
-        cell?.valueTextField.text = parent?.settings.dateFormat.string(from: date)
-        if let dateRow = data as? BxInputDateRow
+        cell?.valueTextField.text = owner?.settings.dateFormat.string(from: date)
+        if let dateRow = row as? BxInputDateRow
         {
             dateRow.value = date
-            parent?.didChangedRow(dateRow)
+            owner?.didChangedRow(dateRow)
         }
     }
     
@@ -135,8 +135,8 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
         if !isEnabled {
             return false
         }
-        if let dateRow = data as? BxInputDateRow,
-            let datePicker = parent?.datePicker
+        if let dateRow = row as? BxInputDateRow,
+            let datePicker = owner?.datePicker
         {
             datePicker.addTarget(self, action: #selector(changeDate), for: [.valueChanged, .touchUpInside])
             cell?.valueTextField.inputView = datePicker
@@ -148,8 +148,8 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
                 datePicker.date = Date()
             }
             changeDate()
-        } else if let variantsRow = data as? BxInputVariants,
-            let variantsPicker = parent?.variantsPicker
+        } else if let variantsRow = row as? BxInputVariants,
+            let variantsPicker = owner?.variantsPicker
         {
             variantsPicker.dataSource = self
             variantsPicker.delegate = self
@@ -166,26 +166,26 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
             self.pickerView(variantsPicker, didSelectRow: index, inComponent: 0)
             cell?.valueTextField.inputView = variantsPicker
         }
-        if let parent = parent, parent.settings.isAutodissmissSelector {
-            parent.dissmissSelectors()
+        if let owner = owner, owner.settings.isAutodissmissSelector {
+            owner.dissmissSelectors()
         }
-        parent?.activeRow = data
-        parent?.activeControl = textField
+        owner?.activeRow = row
+        owner?.activeControl = textField
         return true
     }
     
     /// end editing
     open func textFieldDidEndEditing(_ textField: UITextField)
     {
-        if let datePicker = parent?.datePicker
+        if let datePicker = owner?.datePicker
         {
             datePicker.removeTarget(self, action: #selector(changeDate), for: [.valueChanged, .touchUpInside])
         }
-        if parent?.activeControl === textField {
-            parent?.activeControl = nil
+        if owner?.activeControl === textField {
+            owner?.activeControl = nil
         }
-        if parent?.activeRow === data {
-            parent?.activeRow = nil
+        if owner?.activeRow === row {
+            owner?.activeRow = nil
         }
     }
     
@@ -198,7 +198,7 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
             textField.text = text + "\u{00a0}"
             return false
         }
-        if let _ = data as? BxInputTextRow { // counting
+        if let _ = row as? BxInputTextRow { // counting
             // not yet implemented
         }
         return true
@@ -230,7 +230,7 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
     /// variants count
     open func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
     {
-        guard let variantsRow = data as? BxInputVariants else {
+        guard let variantsRow = row as? BxInputVariants else {
             return 0
         }
         return variantsRow.variants.count
@@ -239,7 +239,7 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
     /// variant title
     open func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
-        guard let variantsRow = data as? BxInputVariants else {
+        guard let variantsRow = self.row as? BxInputVariants else {
             return nil
         }
         return variantsRow.variants[row].stringValue
@@ -248,14 +248,14 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
     /// event when user choose variant
     open func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
-        guard var variantsRow = data as? BxInputVariants
+        guard var variantsRow = self.row as? BxInputVariants
             else {
                 return
         }
         let value = variantsRow.variants[row]
         variantsRow.selectedVariant = value
         cell?.valueTextField.text = value.stringValue
-        parent?.didChangedRow(data)
+        owner?.didChangedRow(self.row)
     }
     
     

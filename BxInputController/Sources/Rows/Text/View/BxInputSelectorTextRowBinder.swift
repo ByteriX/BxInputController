@@ -23,10 +23,10 @@ open class BxInputSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, Cell: 
         super.update()
         cell?.delegate = self
         //
-        cell?.textView.font = parent?.settings.valueFont
-        cell?.textView.textColor = parent?.settings.valueColor
+        cell?.textView.font = owner?.settings.valueFont
+        cell?.textView.textColor = owner?.settings.valueColor
         //
-        if let parentRow = data.parent as? BxInputSelectorTextRow
+        if let parentRow = row.parent as? BxInputSelectorTextRow
         {
             cell?.textView.text = parentRow.value
         }
@@ -55,14 +55,14 @@ open class BxInputSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, Cell: 
             return
         }
         if let position = cell.textView.selectedTextRange?.start,
-            let parent = parent
+            let owner = owner
         {
             let rect = cell.textView.caretRect(for: position)
-            let rectInTable = parent.tableView.convert(rect, from: cell.textView)
-            let shift =  8 + rectInTable.origin.y + rectInTable.size.height - ( parent.tableView.contentOffset.y + parent.tableView.frame.size.height - parent.tableView.contentInset.bottom)
+            let rectInTable = owner.tableView.convert(rect, from: cell.textView)
+            let shift =  8 + rectInTable.origin.y + rectInTable.size.height - ( owner.tableView.contentOffset.y + owner.tableView.frame.size.height - owner.tableView.contentInset.bottom)
             if shift > 0 {
-                let point = CGPoint(x: parent.tableView.contentOffset.x, y: parent.tableView.contentOffset.y + shift + 4)
-                parent.tableView.setContentOffset(point, animated: true)
+                let point = CGPoint(x: owner.tableView.contentOffset.x, y: owner.tableView.contentOffset.y + shift + 4)
+                owner.tableView.setContentOffset(point, animated: true)
             }
         }
     }
@@ -74,9 +74,9 @@ open class BxInputSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, Cell: 
         }
         let shift = cell.textView.contentSize.height - cell.textView.frame.size.height
         if shift > 0 {
-            data.height = data.height + shift + 1
-            parent?.reloadRow(data, with: .none)
-            parent?.selectRow(data, at: .none, animated: false)
+            row.height = row.height + shift + 1
+            owner?.reloadRow(row, with: .none)
+            owner?.selectRow(row, at: .none, animated: false)
             return false
         }
         return true
@@ -86,11 +86,11 @@ open class BxInputSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, Cell: 
     
     open func textViewShouldBeginEditing(_ textView: UITextView) -> Bool
     {
-        if let parentRow = data.parent as? BxInputSelectorTextRow
+        if let parentRow = row.parent as? BxInputSelectorTextRow
         {
-            parent?.activeRow = parentRow
+            owner?.activeRow = parentRow
         }
-        parent?.activeControl = textView
+        owner?.activeControl = textView
         return true
     }
     
@@ -106,10 +106,10 @@ open class BxInputSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, Cell: 
     
     open func textViewDidChange(_ textView: UITextView)
     {
-        if let parentRow = data.parent as? BxInputSelectorTextRow
+        if let parentRow = row.parent as? BxInputSelectorTextRow
         {
             parentRow.value = textView.text
-            parent?.updateRow(parentRow)
+            owner?.updateRow(parentRow)
             check()
         }
     }

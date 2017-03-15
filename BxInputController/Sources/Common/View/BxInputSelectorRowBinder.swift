@@ -15,28 +15,28 @@ open class BxInputSelectorRowBinder<Row: BxInputSelectorRow, Cell: BxInputSelect
     {
         super.didSelected()
         
-        data.isOpened = !data.isOpened
+        row.isOpened = !row.isOpened
         
         refreshOpened(animated: true)
         
-        if data.isOpened {
-            parent?.addRows(data.children, after: data)
+        if row.isOpened {
+            owner?.addRows(row.children, after: row)
             
-            if let parent = parent, parent.settings.isAutodissmissSelector {
-                parent.dissmissAllRows(exclude: data)
+            if let owner = owner, owner.settings.isAutodissmissSelector {
+                owner.dissmissAllRows(exclude: row)
             }
             
-            if data.children.count > 1 {
-                parent?.scrollRow(data, at: .top, animated: true)
-            } else if let firstItem = data.children.first {
-                parent?.selectRow(firstItem, at: .middle, animated: true)
+            if row.children.count > 1 {
+                owner?.scrollRow(row, at: .top, animated: true)
+            } else if let firstItem = row.children.first {
+                owner?.selectRow(firstItem, at: .middle, animated: true)
                 //parent?.scrollRow(firstItem, at: .middle, animated: true)
             } else {
-                parent?.scrollRow(data, at: .middle, animated: true)
+                owner?.scrollRow(row, at: .middle, animated: true)
             }
-            parent?.activeRow = data
+            owner?.activeRow = row
         } else {
-            parent?.deleteRows(data.children)
+            owner?.deleteRows(row.children)
         }
     }
     
@@ -46,19 +46,19 @@ open class BxInputSelectorRowBinder<Row: BxInputSelectorRow, Cell: BxInputSelect
         //
         cell?.arrowImage.image = BxInputUtils.getImage(resourceId: "bx_arrow_to_bottom")
         //
-        cell?.titleLabel.font = parent?.settings.titleFont
-        cell?.titleLabel.textColor = parent?.settings.titleColor
-        cell?.valueTextField.font = parent?.settings.valueFont
-        cell?.valueTextField.textColor = parent?.settings.valueColor
+        cell?.titleLabel.font = owner?.settings.titleFont
+        cell?.titleLabel.textColor = owner?.settings.titleColor
+        cell?.valueTextField.font = owner?.settings.valueFont
+        cell?.valueTextField.textColor = owner?.settings.valueColor
         //
-        cell?.titleLabel.text = data.title
+        cell?.titleLabel.text = row.title
         
-        if let placeholder = data.placeholder,
-            let placeholderColor = parent?.settings.placeholderColor
+        if let placeholder = row.placeholder,
+            let placeholderColor = owner?.settings.placeholderColor
         {
             cell?.valueTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSForegroundColorAttributeName : placeholderColor])
         } else {
-            cell?.valueTextField.placeholder = data.placeholder
+            cell?.valueTextField.placeholder = row.placeholder
         }
         
         refreshOpened(animated: false)
@@ -75,7 +75,7 @@ open class BxInputSelectorRowBinder<Row: BxInputSelectorRow, Cell: BxInputSelect
     
     /// visual updating of state from opened/closed
     open func refreshOpened(animated: Bool) {
-        guard let data = self.data as? BxInputSelectorRow else {
+        guard let data = self.row as? BxInputSelectorRow else {
             return
         }
         if animated {
@@ -96,11 +96,11 @@ open class BxInputSelectorRowBinder<Row: BxInputSelectorRow, Cell: BxInputSelect
     open func checkValue() {
         // changing for BxInputSelectorTextRow
         var separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
-        if let settings = parent?.settings {
+        if let settings = owner?.settings {
             separatorInset = settings.separatorInset
         }
         var isEmptyValue = false
-        if let row = data as? BxInputSelectorTextRow {
+        if let row = row as? BxInputSelectorTextRow {
             if row.isOpened {
                 separatorInset.left = cell?.frame.size.width ?? 16
                 cell?.separatorInset = separatorInset
@@ -110,13 +110,13 @@ open class BxInputSelectorRowBinder<Row: BxInputSelectorRow, Cell: BxInputSelect
         cell?.separatorInset = separatorInset
         
         // all other changing of value
-        if let dateRow = data as? BxInputSelectorDateRow {
+        if let dateRow = row as? BxInputSelectorDateRow {
             if let date = dateRow.value {
-                cell?.valueTextField.text = parent?.settings.dateFormat.string(from: date)
+                cell?.valueTextField.text = owner?.settings.dateFormat.string(from: date)
             } else {
                 cell?.valueTextField.text = ""
             }
-        } else if let row = data as? BxInputStringRow,
+        } else if let row = row as? BxInputStringRow,
             isEmptyValue == false
         {
             cell?.valueTextField.text = row.stringValue

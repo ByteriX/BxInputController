@@ -15,13 +15,13 @@ open class BxInputSelectorSuggestionRowBinder<Row: BxInputSelectorSuggestionsIte
     override open func didSelected()
     {
         super.didSelected()
-        if let parentRow = data.parent as? BxInputParentSelectorSuggestionsRow
+        if let parentRow = row.parent as? BxInputParentSelectorSuggestionsRow
         {
-            parentRow.selectedChild = data
+            parentRow.selectedChild = row
             parentRow.isOpened = false
-            parent?.deleteRows(parentRow.children)
-            parent?.updateRow(parentRow)
-            parent?.didChangedRow(parentRow)
+            owner?.deleteRows(parentRow.children)
+            owner?.updateRow(parentRow)
+            owner?.didChangedRow(parentRow)
         }
     }
     
@@ -29,10 +29,10 @@ open class BxInputSelectorSuggestionRowBinder<Row: BxInputSelectorSuggestionsIte
     {
         super.update()
         //
-        cell?.titleLabel.font = parent?.settings.titleFont
-        cell?.titleLabel.textColor = parent?.settings.titleColor
+        cell?.titleLabel.font = owner?.settings.titleFont
+        cell?.titleLabel.textColor = owner?.settings.titleColor
         //
-        cell?.titleLabel.text = data.title
+        cell?.titleLabel.text = row.title
     }
     
     override open func didSetEnabled(_ value: Bool)

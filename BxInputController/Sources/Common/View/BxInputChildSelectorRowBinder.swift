@@ -29,8 +29,8 @@ open class BxInputChildSelectorRowBinder<Row: BxInputChildSelectorRow, Cell: UIT
     open func autoclose() {
         if parentData.isOpened {
             parentData.isOpened = false
-            parent?.deleteRow(data)
-            parent?.updateRow(parentData)
+            owner?.deleteRow(row)
+            owner?.updateRow(parentData)
         }
     }
 }

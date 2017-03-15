@@ -16,7 +16,7 @@ public class BxInputRateRowBinder<Row: BxInputRateRow, Cell: BxInputRateCell> : 
     {
         super.didSelected()
         
-        parent?.dissmissAllRows()
+        owner?.dissmissAllRows()
     }
     
     override open func update()
@@ -25,25 +25,24 @@ public class BxInputRateRowBinder<Row: BxInputRateRow, Cell: BxInputRateCell> : 
         //
         cell?.valueRateView.delegate = self
         //
-        cell?.titleLabel.font = parent?.settings.titleFont
-        cell?.titleLabel.textColor = parent?.settings.titleColor
-        cell?.titleLabel.text = data.title
+        cell?.titleLabel.font = owner?.settings.titleFont
+        cell?.titleLabel.textColor = owner?.settings.titleColor
+        cell?.titleLabel.text = row.title
         
         cell?.selectionStyle = .none
         
-        let rateRow = data
-        cell?.valueRateView.maxRating = Int32(rateRow.maxValue)
-        cell?.rateWidthConstraint.constant = rateRow.width
+        cell?.valueRateView.maxRating = Int32(row.maxValue)
+        cell?.rateWidthConstraint.constant = row.width
         let starImage = BxInputUtils.getImage(resourceId: "bx_rate_star")
-        if let passiveColor = rateRow.passiveColor {
+        if let passiveColor = row.passiveColor {
             cell?.valueRateView.notSelectedImage = starImage.maskedImage(by: passiveColor)
         } else {
             cell?.valueRateView.notSelectedImage = starImage
         }
-        cell?.valueRateView.selectedImage = starImage.maskedImage(by: rateRow.activeColor)
-        cell?.valueRateView.halfSelectedImage = starImage.halfMaskedImage(by: rateRow.activeColor)
+        cell?.valueRateView.selectedImage = starImage.maskedImage(by: row.activeColor)
+        cell?.valueRateView.halfSelectedImage = starImage.halfMaskedImage(by: row.activeColor)
         
-        if let rate = rateRow.value {
+        if let rate = row.value {
             cell?.valueRateView.rating = rate
         } else {
             cell?.valueRateView.rating = 0
@@ -63,8 +62,8 @@ public class BxInputRateRowBinder<Row: BxInputRateRow, Cell: BxInputRateCell> : 
     /// change rating value
     open func standartRateView(_ rateView: BxStandartRateView!, ratingDidChange rating: Float)
     {
-        data.value = rating
-        parent?.didChangedRow(data)
+        row.value = rating
+        owner?.didChangedRow(row)
     }
     
 }

@@ -50,7 +50,7 @@ open class BxInputSelectorVariantsRowBinder<T: BxInputStringObject> : BxInputChi
     
     open func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
     {
-        guard let variantsRow = data.parent as? BxInputVariants else
+        guard let variantsRow = row.parent as? BxInputVariants else
         {
             return 0
         }
@@ -59,7 +59,7 @@ open class BxInputSelectorVariantsRowBinder<T: BxInputStringObject> : BxInputChi
     
     open func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
-        guard let variantsRow = data.parent as? BxInputVariants
+        guard let variantsRow = self.row.parent as? BxInputVariants
             else {
                 return nil
         }
@@ -71,8 +71,8 @@ open class BxInputSelectorVariantsRowBinder<T: BxInputStringObject> : BxInputChi
         let value = parentData.variants[row]
         
         parentData.selectedVariant = value
-        parent?.updateRow(parentData)
-        parent?.didChangedRow(parentData)
+        owner?.updateRow(parentData)
+        owner?.didChangedRow(parentData)
         
         tryToClose()
     }

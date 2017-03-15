@@ -50,7 +50,7 @@ open class BxInputSelectorPicturesRowBinder<Row: BxInputChildSelectorPicturesRow
         }
         cell.selectedPictureViews = []
         
-        if let parentRow = data.parent as? BxInputSelectorPicturesRow
+        if let parentRow = row.parent as? BxInputSelectorPicturesRow
         {
             cell.rowData = parentRow
             cell.size = parentRow.iconSize
@@ -61,7 +61,7 @@ open class BxInputSelectorPicturesRowBinder<Row: BxInputChildSelectorPicturesRow
             //                }
             //            }
             cell.dataSource.rowData = parentRow
-            cell.dataSource.parent = parent
+            cell.dataSource.owner = owner
             cell.dataSource.updateAssets(size: cell.frame.size.width / CGFloat(parentRow.countInRow) - 2.0)
 
             for picture in parentRow.pictures {
@@ -91,7 +91,7 @@ open class BxInputSelectorPicturesRowBinder<Row: BxInputChildSelectorPicturesRow
         guard let cell = cell else {
             return
         }
-        if let parentRow = data.parent as? BxInputSelectorPicturesRow
+        if let parentRow = row.parent as? BxInputSelectorPicturesRow
         {
             if parentRow.maxSelectedCount > parentRow.pictures.count {
                 parentRow.pictures.append(picture)
@@ -121,7 +121,7 @@ open class BxInputSelectorPicturesRowBinder<Row: BxInputChildSelectorPicturesRow
                             return
                         }
                         this.addPictureView(pictureView)
-                        this.parent?.updateRow(parentRow)
+                        this.owner?.updateRow(parentRow)
                         this.animationComplited = true
                 })
                 
@@ -142,7 +142,7 @@ open class BxInputSelectorPicturesRowBinder<Row: BxInputChildSelectorPicturesRow
     
     func addPictureView(_ pictureView: BxInputSelectorPictureView) {
         pictureView.removeHandler = {[weak cell, weak self, weak pictureView] () -> Void in
-            if let row = self?.data as? BxInputChildSelectorPicturesRow,
+            if let row = self?.row as? BxInputChildSelectorPicturesRow,
                 let parentRow = row.parent as? BxInputSelectorPicturesRow,
                 let pictureView = pictureView
             {
@@ -151,13 +151,13 @@ open class BxInputSelectorPicturesRowBinder<Row: BxInputChildSelectorPicturesRow
                 }) {
                     parentRow.pictures.remove(at: index)
                     self?.removePictureView(pictureView)
-                    self?.parent?.updateRow(parentRow)
+                    self?.owner?.updateRow(parentRow)
                     cell?.dataSource.picturesCollection.reloadData()
                 }
             }
             
         }
-        pictureView.isEnabled = data.isEnabled
+        pictureView.isEnabled = row.isEnabled
         cell?.selectedPictureViews.append(pictureView)
         updatePictures()
         cell?.selectedScrollView.addSubview(pictureView)
@@ -192,11 +192,11 @@ open class BxInputSelectorPicturesRowBinder<Row: BxInputChildSelectorPicturesRow
         guard let cell = cell else {
             return true
         }
-        if let parentRow = data.parent as? BxInputSelectorPicturesRow
+        if let parentRow = row.parent as? BxInputSelectorPicturesRow
         {
-            parent?.activeRow = parentRow
+            owner?.activeRow = parentRow
         }
-        parent?.activeControl = cell.valueTextField
+        owner?.activeControl = cell.valueTextField
         cell.dataSource.picturesCollection.reloadData()
         return true
     }

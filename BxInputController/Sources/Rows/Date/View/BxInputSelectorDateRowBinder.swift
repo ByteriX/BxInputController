@@ -44,8 +44,8 @@ open class BxInputSelectorDateRowBinder<Row: BxInputChildSelectorDateRow, Cell: 
     
     open func changeDate(datePicker: UIDatePicker) {
         parentData.value = cell?.datePicker.date
-        parent?.updateRow(parentData)
-        parent?.didChangedRow(parentData)
+        owner?.updateRow(parentData)
+        owner?.didChangedRow(parentData)
         
         tryToClose()
     }
