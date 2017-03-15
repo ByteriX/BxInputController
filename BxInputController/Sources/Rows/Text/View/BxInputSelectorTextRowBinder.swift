@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BxInputSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, Cell: BxInputSelectorTextCell> : BxInputBaseRowBinder<Row, Cell>, UITextViewDelegate
+open class BxInputSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, Cell: BxInputSelectorTextCell> : BxInputBaseRowBinder<Row, Cell>, BxInputSelectorTextDelegate, UITextViewDelegate
 {
     
     override open func didSelected()
@@ -21,6 +21,7 @@ open class BxInputSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, Cell: 
     override open func update()
     {
         super.update()
+        cell?.delegate = self
         //
         cell?.textView.font = parent?.settings.valueFont
         cell?.textView.textColor = parent?.settings.valueColor

@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTextCell> : BxInputBaseRowBinder<Row, Cell>, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource
+open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTextCell> : BxInputBaseRowBinder<Row, Cell>, BxInputStandartTextDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource
 {
     
     override open func didSelected()
@@ -36,7 +36,7 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
     override open func update()
     {
         super.update()
-        cell?.valueTextField.delegate = self
+        cell?.delegate = self
         //
         cell?.titleLabel.font = parent?.settings.titleFont
         cell?.titleLabel.textColor = parent?.settings.titleColor
@@ -104,7 +104,7 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
     }
     
     /// event when value is changed
-    @IBAction func valueTextFieldEditingChanged(_ sender: Any) {
+    open func valueChanged(valueTextField: UITextField) {
         if let textRow = data as? BxInputTextRow {
             textRow.value = cell?.valueTextField.text
             parent?.didChangedRow(textRow)

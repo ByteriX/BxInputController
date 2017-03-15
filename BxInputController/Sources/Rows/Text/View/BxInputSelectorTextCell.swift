@@ -13,8 +13,20 @@
 
 import UIKit
 
+public protocol BxInputSelectorTextDelegate : UITextViewDelegate
+{
+    
+}
+
 /// Cell for selector Row with longest text string
-public class BxInputSelectorTextCell: BxInputBaseCell {
+public class BxInputSelectorTextCell: UITableViewCell {
+    
+    public weak var delegate: BxInputSelectorTextDelegate? = nil
+    {
+        didSet {
+            textView.delegate = delegate
+        }
+    }
 
     @IBOutlet var textView: UITextView!
     

@@ -23,10 +23,11 @@ public class BxInputRateRowBinder<Row: BxInputRateRow, Cell: BxInputRateCell> : 
     {
         super.update()
         //
+        cell?.valueRateView.delegate = self
+        //
         cell?.titleLabel.font = parent?.settings.titleFont
         cell?.titleLabel.textColor = parent?.settings.titleColor
         cell?.titleLabel.text = data.title
-        cell?.valueRateView.delegate = self
         
         cell?.selectionStyle = .none
         

@@ -13,8 +13,16 @@
 
 import UIKit
 
+public protocol BxInputSelectorDateDelegate: AnyObject {
+    
+    func changeDate(datePicker: UIDatePicker)
+    
+}
+
 /// Cell with date selector. Use as child for BxInputSelectorDateRow
 open class BxInputSelectorDateCell: BxInputBaseCell {
+    
+    public weak var delegate: BxInputSelectorDateDelegate? = nil
 
     @IBOutlet weak open var datePicker: UIDatePicker!
     
@@ -24,5 +32,10 @@ open class BxInputSelectorDateCell: BxInputBaseCell {
         // Initialization code
     }
     
+    @IBAction open func changeDate(_ sender: Any) {
+        if let datePicker = datePicker {
+            delegate?.changeDate(datePicker: datePicker)
+        }
+    }
     
 }

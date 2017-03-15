@@ -16,11 +16,11 @@ import UIKit
 /// UITableViewDelegate implementation for BxInputController
 extension BxInputController : UITableViewDelegate{
     
-    open func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath)
-    {
-        let rowBinder = getRowBinder(for: indexPath)
-        rowBinder.view = nil
-    }
+//    open func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath)
+//    {
+//        let rowBinder = getRowBinder(for: indexPath)
+//        rowBinder.view = nil
+//    }
     
     open func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool
     {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BxInputSelectorDateRowBinder<Row: BxInputChildSelectorDateRow, Cell: BxInputSelectorDateCell> : BxInputBaseRowBinder<Row, Cell>
+open class BxInputSelectorDateRowBinder<Row: BxInputChildSelectorDateRow, Cell: BxInputSelectorDateCell> : BxInputBaseRowBinder<Row, Cell>, BxInputSelectorDateDelegate
 {
     
     override open func update()
@@ -17,6 +17,7 @@ open class BxInputSelectorDateRowBinder<Row: BxInputChildSelectorDateRow, Cell: 
         guard let cell = cell else {
             return
         }
+        cell.delegate = self
         if let parentRow = data.parent as? BxInputSelectorDateRow
         {
             cell.datePicker.minimumDate = parentRow.minimumDate
@@ -29,7 +30,7 @@ open class BxInputSelectorDateRowBinder<Row: BxInputChildSelectorDateRow, Cell: 
         }
         DispatchQueue.main.async { [weak self, weak cell] () -> Void in
             if let datePicker = cell?.datePicker {
-                self?.changeDate(datePicker)
+                self?.changeDate(datePicker: datePicker)
             }
         }
     }
@@ -42,7 +43,7 @@ open class BxInputSelectorDateRowBinder<Row: BxInputChildSelectorDateRow, Cell: 
         cell?.datePicker.alpha = value ? 1.0 : 0.5
     }
     
-    @IBAction open func changeDate(_ sender: Any) {
+    open func changeDate(datePicker: UIDatePicker) {
         if let parentRow = data.parent as? BxInputSelectorDateRow
         {
             parentRow.value = cell?.datePicker.date

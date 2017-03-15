@@ -8,14 +8,13 @@
 
 import UIKit
 
-open class BxInputSelectorVariantsRowBinder<Row: BxInputChildSelectorVariantsRow, Cell: BxInputSelectorVariantsCell> : BxInputBaseRowBinder<Row, Cell>, UIPickerViewDelegate, UIPickerViewDataSource
+open class BxInputSelectorVariantsRowBinder<Row: BxInputChildSelectorVariantsRow, Cell: BxInputSelectorVariantsCell> : BxInputBaseRowBinder<Row, Cell>, BxInputSelectorVariantsDelegate, UIPickerViewDelegate, UIPickerViewDataSource
 {
     
     override open func update()
     {
         super.update()
-        cell?.variantsPicker.dataSource = self
-        cell?.variantsPicker.delegate = self
+        cell?.delegate = self
         if let parentRow = data.parent as? BxInputVariants
         {
             cell?.variantsPicker.reloadAllComponents()

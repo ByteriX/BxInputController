@@ -23,9 +23,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                        <connections>
-                            <outlet property="delegate" destination="KGk-i7-Jjw" id="gfm-d3-Loy"/>
-                        </connections>
                     </textView>
                 </subviews>
                 <constraints>

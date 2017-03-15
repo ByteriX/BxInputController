@@ -13,21 +13,23 @@
 
 import UIKit
 
+public protocol BxInputSelectorVariantsDelegate : UIPickerViewDelegate, UIPickerViewDataSource
+{
+    //
+}
+
 /// Cell for showing variant selector as data picker
-open class BxInputSelectorVariantsCell: BxInputBaseCell {
+open class BxInputSelectorVariantsCell: UITableViewCell {
 
     @IBOutlet weak open var variantsPicker: UIPickerView!
     
-    
-    override open func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    public weak var delegate: BxInputSelectorVariantsDelegate? = nil
+    {
+        didSet {
+            variantsPicker.delegate = delegate
+            variantsPicker.dataSource = delegate
+        }
     }
     
-    override open func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
     
 }

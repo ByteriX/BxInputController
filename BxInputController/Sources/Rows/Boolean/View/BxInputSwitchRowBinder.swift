@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BxInputSwitchRowBinder<Row: BxInputSwitchRow, Cell: BxInputSwitchCell> : BxInputBaseRowBinder<Row, Cell>
+class BxInputSwitchRowBinder<Row: BxInputSwitchRow, Cell: BxInputSwitchCell> : BxInputBaseRowBinder<Row, Cell>, BxInputSwitchDelegate
 {
     override open func didSelected()
     {
@@ -21,10 +21,11 @@ class BxInputSwitchRowBinder<Row: BxInputSwitchRow, Cell: BxInputSwitchCell> : B
     {
         super.update()
         //
+        cell?.delegate = self
+        //
         cell?.titleLabel.font = parent?.settings.titleFont
         cell?.titleLabel.textColor = parent?.settings.titleColor
         cell?.titleLabel.text = data.title
-        cell?.valueSwitch.addTarget(self, action: #selector(valueDidChanged), for: .valueChanged)
         
         cell?.selectionStyle = .none
         
@@ -40,11 +41,9 @@ class BxInputSwitchRowBinder<Row: BxInputSwitchRow, Cell: BxInputSwitchCell> : B
     }
     
     /// event change value from switch button
-    open func valueDidChanged()
+    open func valueDidChanged(valueSwitch: UISwitch)
     {
-        if let isOn = cell?.valueSwitch.isOn {
-            data.value = isOn
-        }
+        data.value = valueSwitch.isOn
         parent?.didChangedRow(data)
     }
 }

@@ -1,9 +1,9 @@
 PODS:
-  - BxObjC/Common (1.1.17)
-  - BxObjC/Data (1.1.17):
+  - BxObjC/Common (1.1.19)
+  - BxObjC/Data (1.1.19):
     - BxObjC/Common
     - XMLDictionary (= 1.4)
-  - BxObjC/Vcl (1.1.17):
+  - BxObjC/Vcl (1.1.19):
     - BxObjC/Common
     - BxObjC/Data
   - XMLDictionary (1.4)
@@ -12,9 +12,9 @@ DEPENDENCIES:
   - BxObjC/Vcl
 
 SPEC CHECKSUMS:
-  BxObjC: e37cf98af1af37ee0e996eff9384a09f1e009b7b
+  BxObjC: 07e11658faf742c6d982a9117e003f776af27d95
   XMLDictionary: f9f51601ba76678b594ab485f2b00ec1fed23724
 
 PODFILE CHECKSUM: 1a6e5b44f29b42d14e55918a9e4a3917161a942e
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0
