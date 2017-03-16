@@ -15,22 +15,22 @@ open class BxInputSelectorVariantsRowBinder<T: BxInputStringObject> : BxInputChi
     {
         super.update()
         cell?.delegate = self
-            cell?.variantsPicker.reloadAllComponents()
-            var index = 0
-            if let value = parentRow.selectedVariant {
-                if let foundIndex = parentRow.variants.index(where: { (item) -> Bool in
-                    return item === value
-                }) {
-                    index = foundIndex
-                }
+        cell?.variantsPicker.reloadAllComponents()
+        var index = 0
+        if let value = parentRow.selectedVariant {
+            if let foundIndex = parentRow.variants.index(where: { (item) -> Bool in
+                return item === value
+            }) {
+                index = foundIndex
             }
-            cell?.variantsPicker.selectRow(index, inComponent: 0, animated: true)
-            
-            DispatchQueue.main.async { [weak cell, weak self] () -> Void in
-                if let variantsPicker = cell?.variantsPicker {
-                    self?.pickerView(variantsPicker, didSelectRow: index, inComponent: 0)
-                }
+        }
+        cell?.variantsPicker.selectRow(index, inComponent: 0, animated: true)
+        
+        DispatchQueue.main.async { [weak cell, weak self] () -> Void in
+            if let variantsPicker = cell?.variantsPicker {
+                self?.pickerView(variantsPicker, didSelectRow: index, inComponent: 0)
             }
+        }
     }
     
     override open func didSetEnabled(_ value: Bool)
