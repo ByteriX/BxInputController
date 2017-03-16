@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BxInputSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, Cell: BxInputSelectorTextCell> : BxInputBaseRowBinder<Row, Cell>, BxInputSelectorTextDelegate, UITextViewDelegate
+open class BxInputSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, Cell: BxInputSelectorTextCell, ParentRow: BxInputSelectorTextRow> : BxInputChildSelectorRowBinder<Row, Cell, ParentRow>, BxInputSelectorTextDelegate, UITextViewDelegate
 {
     
     override open func didSelected()
@@ -25,11 +25,7 @@ open class BxInputSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, Cell: 
         //
         cell?.textView.font = owner?.settings.valueFont
         cell?.textView.textColor = owner?.settings.valueColor
-        //
-        if let parentRow = row.parent as? BxInputSelectorTextRow
-        {
-            cell?.textView.text = parentRow.value
-        }
+        cell?.textView.text = parentRow.value
     }
     
     override open func didSetEnabled(_ value: Bool)
@@ -86,10 +82,7 @@ open class BxInputSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, Cell: 
     
     open func textViewShouldBeginEditing(_ textView: UITextView) -> Bool
     {
-        if let parentRow = row.parent as? BxInputSelectorTextRow
-        {
-            owner?.activeRow = parentRow
-        }
+        owner?.activeRow = parentRow
         owner?.activeControl = textView
         return true
     }
@@ -106,12 +99,9 @@ open class BxInputSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, Cell: 
     
     open func textViewDidChange(_ textView: UITextView)
     {
-        if let parentRow = row.parent as? BxInputSelectorTextRow
-        {
-            parentRow.value = textView.text
-            owner?.updateRow(parentRow)
-            check()
-        }
+        parentRow.value = textView.text
+        owner?.updateRow(parentRow)
+        check()
     }
     
 }

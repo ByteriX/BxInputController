@@ -50,7 +50,7 @@ open class BxInputChildSelectorTextRow: BxInputChildSelectorRow, BxInputStaticHe
 {
     /// Make and return Binder for binding row with cell.
     open var binder : BxInputRowBinder {
-        return BxInputSelectorTextRowBinder<BxInputChildSelectorTextRow, BxInputSelectorTextCell>(row: self)
+        return BxInputSelectorTextRowBinder<BxInputChildSelectorTextRow, BxInputSelectorTextCell, BxInputSelectorTextRow>(row: self)
     }
     open var resourceId : String = "BxInputSelectorTextCell"
     open var height : CGFloat = 120

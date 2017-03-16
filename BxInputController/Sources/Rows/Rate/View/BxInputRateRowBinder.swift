@@ -23,29 +23,33 @@ public class BxInputRateRowBinder<Row: BxInputRateRow, Cell: BxInputRateCell> : 
     {
         super.update()
         //
-        cell?.valueRateView.delegate = self
+        guard let cell = cell else {
+            return
+        }
         //
-        cell?.titleLabel.font = owner?.settings.titleFont
-        cell?.titleLabel.textColor = owner?.settings.titleColor
-        cell?.titleLabel.text = row.title
+        cell.valueRateView.delegate = self
+        //
+        cell.titleLabel.font = owner?.settings.titleFont
+        cell.titleLabel.textColor = owner?.settings.titleColor
+        cell.titleLabel.text = row.title
         
-        cell?.selectionStyle = .none
+        cell.selectionStyle = .none
         
-        cell?.valueRateView.maxRating = Int32(row.maxValue)
-        cell?.rateWidthConstraint.constant = row.width
+        cell.valueRateView.maxRating = Int32(row.maxValue)
+        cell.rateWidthConstraint.constant = row.width
         let starImage = BxInputUtils.getImage(resourceId: "bx_rate_star")
         if let passiveColor = row.passiveColor {
-            cell?.valueRateView.notSelectedImage = starImage.maskedImage(by: passiveColor)
+            cell.valueRateView.notSelectedImage = starImage.maskedImage(by: passiveColor)
         } else {
-            cell?.valueRateView.notSelectedImage = starImage
+            cell.valueRateView.notSelectedImage = starImage
         }
-        cell?.valueRateView.selectedImage = starImage.maskedImage(by: row.activeColor)
-        cell?.valueRateView.halfSelectedImage = starImage.halfMaskedImage(by: row.activeColor)
+        cell.valueRateView.selectedImage = starImage.maskedImage(by: row.activeColor)
+        cell.valueRateView.halfSelectedImage = starImage.halfMaskedImage(by: row.activeColor)
         
         if let rate = row.value {
-            cell?.valueRateView.rating = rate
+            cell.valueRateView.rating = rate
         } else {
-            cell?.valueRateView.rating = 0
+            cell.valueRateView.rating = 0
         }
     }
     

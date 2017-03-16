@@ -17,8 +17,8 @@ open class BxInputSelectorVariantsRowBinder<T: BxInputStringObject> : BxInputChi
         cell?.delegate = self
             cell?.variantsPicker.reloadAllComponents()
             var index = 0
-            if let value = parentData.selectedVariant {
-                if let foundIndex = parentData.variants.index(where: { (item) -> Bool in
+            if let value = parentRow.selectedVariant {
+                if let foundIndex = parentRow.variants.index(where: { (item) -> Bool in
                     return item === value
                 }) {
                     index = foundIndex
@@ -68,11 +68,11 @@ open class BxInputSelectorVariantsRowBinder<T: BxInputStringObject> : BxInputChi
     
     open func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
-        let value = parentData.variants[row]
+        let value = parentRow.variants[row]
         
-        parentData.selectedVariant = value
-        owner?.updateRow(parentData)
-        owner?.didChangedRow(parentData)
+        parentRow.selectedVariant = value
+        owner?.updateRow(parentRow)
+        owner?.didChangedRow(parentRow)
         
         tryToClose()
     }

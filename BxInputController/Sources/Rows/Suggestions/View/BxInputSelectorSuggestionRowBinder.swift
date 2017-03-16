@@ -6,23 +6,21 @@
 //  Copyright © 2017 Byterix. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 
-open class BxInputSelectorSuggestionRowBinder<Row: BxInputSelectorSuggestionsItemRow, Cell: BxInputSelectorSuggestionCell> : BxInputBaseRowBinder<Row, Cell>
+open class BxInputSelectorSuggestionRowBinder<Row : BxInputChildSelectorRow, Cell: BxInputSelectorSuggestionCell> : BxInputChildSelectorRowBinder<Row, Cell, BxInputSelectorSuggestionsRow<Row>>
 {
     
     override open func didSelected()
     {
         super.didSelected()
-        if let parentRow = row.parent as? BxInputParentSelectorSuggestionsRow
-        {
-            parentRow.selectedChild = row
-            parentRow.isOpened = false
-            owner?.deleteRows(parentRow.children)
-            owner?.updateRow(parentRow)
-            owner?.didChangedRow(parentRow)
-        }
+
+        parentRow.selectedChild = row
+        parentRow.isOpened = false
+        owner?.deleteRows(parentRow.children)
+        owner?.updateRow(parentRow)
+        owner?.didChangedRow(parentRow)
     }
     
     override open func update()

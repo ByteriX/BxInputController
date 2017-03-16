@@ -19,16 +19,16 @@ open class BxInputSelectorDateRowBinder<Row: BxInputChildSelectorDateRow, Cell: 
         }
         cell.delegate = self
 
-            cell.datePicker.minimumDate = parentData.minimumDate
-            cell.datePicker.maximumDate = parentData.maximumDate
-            if let date = parentData.value {
-                cell.datePicker.setDate(date, animated: false)
-            } else {
-                cell.datePicker.setDate(Date(), animated: false)
-            }
+        cell.datePicker.minimumDate = parentRow.minimumDate
+        cell.datePicker.maximumDate = parentRow.maximumDate
+        if let date = parentRow.value {
+            cell.datePicker.setDate(date, animated: false)
+        } else {
+            cell.datePicker.setDate(Date(), animated: false)
+        }
 
-        DispatchQueue.main.async { [weak self, weak cell] () -> Void in
-            if let datePicker = cell?.datePicker {
+        DispatchQueue.main.async { [weak self] () -> Void in
+            if let datePicker = self?.cell?.datePicker {
                 self?.changeDate(datePicker: datePicker)
             }
         }
@@ -43,9 +43,9 @@ open class BxInputSelectorDateRowBinder<Row: BxInputChildSelectorDateRow, Cell: 
     }
     
     open func changeDate(datePicker: UIDatePicker) {
-        parentData.value = cell?.datePicker.date
-        owner?.updateRow(parentData)
-        owner?.didChangedRow(parentData)
+        parentRow.value = cell?.datePicker.date
+        owner?.updateRow(parentRow)
+        owner?.didChangedRow(parentRow)
         
         tryToClose()
     }
