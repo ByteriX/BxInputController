@@ -15,7 +15,7 @@ import UIKit
 import BxObjC
 
 /// Cell for select rating
-public class BxInputRateCell: BxInputBaseCell {
+public class BxInputRateCell: UITableViewCell {
     
     @IBOutlet weak open var titleLabel: UILabel!
     @IBOutlet weak open var valueRateView: BxStandartRateView!

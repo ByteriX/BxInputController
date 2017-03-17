@@ -14,7 +14,7 @@
 import UIKit
 
 /// BxInputSelectorCell parent cell for rows with BxInputSelectorRow implemention
-open class BxInputSelectorCell: BxInputBaseCell {
+open class BxInputSelectorCell: UITableViewCell {
     
     /// caption of the row
     @IBOutlet weak var titleLabel: UILabel!

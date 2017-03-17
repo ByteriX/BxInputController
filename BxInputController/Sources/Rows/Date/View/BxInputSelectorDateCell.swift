@@ -20,7 +20,7 @@ public protocol BxInputSelectorDateDelegate: AnyObject {
 }
 
 /// Cell with date selector. Use as child for BxInputSelectorDateRow
-open class BxInputSelectorDateCell: BxInputBaseCell {
+open class BxInputSelectorDateCell: UITableViewCell {
     
     public weak var delegate: BxInputSelectorDateDelegate? = nil
 
