@@ -17,7 +17,7 @@ import UIKit
 open class BxInputActionCustomRow<T : BxInputString>: BxInputActionRow
 {
     open var binder : BxInputRowBinder {
-        return BxInputStandartTextRowBinder<BxInputActionCustomRow<T>, BxInputStandartTextCell>(row: self)
+        return BxInputActionCustomRowBinder<T, BxInputStandartTextCell>(row: self)
     }
     open var resourceId = "BxInputStandartTextCell"
     open var stringValue : String? {

@@ -15,15 +15,7 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
     {
         super.didSelected()
         
-        if let actionRow = row as? BxInputActionRow
-        {
-            if let parent = owner, parent.settings.isAutodissmissSelector {
-                parent.dissmissAllRows()
-            }
-            if let handler = actionRow.handler {
-                handler(actionRow)
-            }
-        } else if let checkRow = row as? BxInputCheckRow {
+        if let checkRow = row as? BxInputCheckRow {
             owner?.dissmissAllRows()
             checkRow.value = !checkRow.value
             update()
@@ -31,6 +23,12 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
             cell?.valueTextField.becomeFirstResponder()
         }
         
+    }
+    
+    open func updateCell() {
+        cell?.valueTextField.isEnabled = true
+        cell?.accessoryType = .none
+        cell?.selectionStyle = .none
     }
     
     override open func update()
@@ -45,27 +43,32 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
         //
         cell?.titleLabel.text = row.title
         
-        if let actionRow = row as? BxInputActionRow {
-            cell?.valueTextField.isEnabled = false
-            cell?.valueTextField.text = actionRow.stringValue // may be all values rewrite to stringValue
-            cell?.accessoryType = .disclosureIndicator
-            cell?.selectionStyle = .default
-        } else if let checkRow = row as? BxInputCheckRow {
+        // reset cell for reuse subclass
+        cell?.valueTextField.isSecureTextEntry = false
+        
+        if let placeholder = row.placeholder,
+            let placeholderColor = owner?.settings.placeholderColor
+        {
+            cell?.valueTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSForegroundColorAttributeName : placeholderColor])
+        } else {
+            cell?.valueTextField.placeholder = row.placeholder
+        }
+        
+        updateCell()
+        
+        
+        if let checkRow = row as? BxInputCheckRow {
             cell?.valueTextField.isEnabled = false
             cell?.valueTextField.text = ""
             cell?.accessoryType = checkRow.value ? .checkmark : .none
             cell?.selectionStyle = .default
         } else {
-            cell?.valueTextField.isEnabled = true
-            cell?.accessoryType = .none
-            cell?.selectionStyle = .none
+            
         }
         if let textRow = row as? BxInputTextRow {
             cell?.valueTextField.inputView = nil
             cell?.valueTextField.text = textRow.value
             cell?.valueTextField.update(from: textRow)
-        } else {
-            cell?.valueTextField.isSecureTextEntry = false
         }
         if let dateRow = row as? BxInputDateRow {
             if let date = dateRow.value {
@@ -80,14 +83,6 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
                 cell?.valueTextField.text = ""
             }
         }
-        if let placeholder = row.placeholder,
-            let placeholderColor = owner?.settings.placeholderColor
-        {
-            cell?.valueTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSForegroundColorAttributeName : placeholderColor])
-        } else {
-            cell?.valueTextField.placeholder = row.placeholder
-        }
-        
     }
     
     override open func didSetEnabled(_ value: Bool)

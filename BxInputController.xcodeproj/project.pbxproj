@@ -19,6 +19,7 @@
 		F92183ED1E23AFB9002E1781 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F92183E71E23AFB9002E1781 /* LaunchScreen.storyboard */; };
 		F92183EE1E23AFB9002E1781 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F92183E91E23AFB9002E1781 /* Main.storyboard */; };
 		F9337C431E6811D5002134C2 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = F92861631E2A9D4A00B50369 /* LICENSE */; };
+		F933F5A41E7BB77A00FB1E22 /* BxInputActionCustomRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F933F5A31E7BB77A00FB1E22 /* BxInputActionCustomRowBinder.swift */; };
 		F96D1F781E5463AC00BDB2CE /* BxInputActionCustomRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F461E5463AC00BDB2CE /* BxInputActionCustomRow.swift */; };
 		F96D1F791E5463AC00BDB2CE /* BxInputActionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F471E5463AC00BDB2CE /* BxInputActionRow.swift */; };
 		F96D1F7A1E5463AC00BDB2CE /* BxInputCheckRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F4A1E5463AC00BDB2CE /* BxInputCheckRow.swift */; };
@@ -120,6 +121,7 @@
 		F92861631E2A9D4A00B50369 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		F92861641E2A9D4A00B50369 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F92861691E2A9D8E00B50369 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		F933F5A31E7BB77A00FB1E22 /* BxInputActionCustomRowBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputActionCustomRowBinder.swift; sourceTree = "<group>"; };
 		F96D1F461E5463AC00BDB2CE /* BxInputActionCustomRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputActionCustomRow.swift; sourceTree = "<group>"; };
 		F96D1F471E5463AC00BDB2CE /* BxInputActionRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputActionRow.swift; sourceTree = "<group>"; };
 		F96D1F4A1E5463AC00BDB2CE /* BxInputCheckRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputCheckRow.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 		F96D1F481E5463AC00BDB2CE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F933F5A31E7BB77A00FB1E22 /* BxInputActionCustomRowBinder.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -770,6 +773,7 @@
 				F9E7872F1E52F6F800341996 /* BxInputSection.swift in Sources */,
 				F9B2CD4D1E79BD9F00FA0542 /* BxInputChildSelectorRowBinder.swift in Sources */,
 				F9DBE9AB1E6D752F001FFD27 /* BxInputRowBinder.swift in Sources */,
+				F933F5A41E7BB77A00FB1E22 /* BxInputActionCustomRowBinder.swift in Sources */,
 				F9E787361E52F6F800341996 /* BxInputTextFooterView.swift in Sources */,
 				F96D1F7C1E5463AC00BDB2CE /* BxInputDateRow.swift in Sources */,
 				F993083C1E430C9A00EDA3BD /* ReviewController.swift in Sources */,
