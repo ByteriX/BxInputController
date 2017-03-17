@@ -91,29 +91,12 @@ open class BxInputSelectorRowBinder<Row: BxInputSelectorRow, Cell: BxInputSelect
     
     /// visual updating of value && separator that depends on type of the row
     open func checkValue() {
-        // changing for BxInputSelectorTextRow
-        var separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
-        if let settings = owner?.settings {
-            separatorInset = settings.separatorInset
-        }
-        var isEmptyValue = false
-        if let row = row as? BxInputSelectorTextRow {
-            if row.isOpened {
-                separatorInset.left = cell?.frame.size.width ?? 16
-                cell?.separatorInset = separatorInset
-                isEmptyValue = true
-            }
-        }
-        cell?.separatorInset = separatorInset
-        cell?.valueTextField.text = ""
-        
-        // all other changing of value
-        if let row = row as? BxInputStringRow,
-            isEmptyValue == false
-        {
+        // all string changing of value
+        if let row = row as? BxInputStringRow{
             cell?.valueTextField.text = row.stringValue
+        } else {
+            cell?.valueTextField.text = ""
         }
-        
     }
 
 }

@@ -18,7 +18,7 @@ open class BxInputSelectorTextRow : BxInputTextRow, BxInputSelectorRow
 {
     /// Make and return Binder for binding row with cell.
     override open var binder : BxInputRowBinder {
-        return BxInputSelectorRowBinder<BxInputSelectorTextRow, BxInputSelectorCell>(row: self)
+        return BxInputSelectorTextRowBinder<BxInputSelectorTextRow, BxInputSelectorCell>(row: self)
     }
     override open var resourceId : String {
         get { return "BxInputSelectorCell" }
