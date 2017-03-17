@@ -40,6 +40,7 @@ open class BxInputSelectorPicturesRowBinder<Row: BxInputChildSelectorPicturesRow
             return
         }
         //
+        cell.valueTextField.delegate = self
         cell.dataSource.selectHandler = { [weak self] (picture, cell) -> Void in
             self?.selectPicture(picture, collectionCell: cell)
         }
