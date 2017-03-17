@@ -1,5 +1,5 @@
 /**
- *	@file BxInputSelectorDateCell.swift
+ *	@file BxInputChildSelectorDateCell.swift
  *	@namespace BxInputController
  *
  *	@details Cell with date selector. Use as child for BxInputSelectorDateRow
@@ -13,16 +13,16 @@
 
 import UIKit
 
-public protocol BxInputSelectorDateDelegate: AnyObject {
+public protocol BxInputChildSelectorDateDelegate: AnyObject {
     
     func changeDate(datePicker: UIDatePicker)
     
 }
 
 /// Cell with date selector. Use as child for BxInputSelectorDateRow
-open class BxInputSelectorDateCell: UITableViewCell {
+open class BxInputChildSelectorDateCell: UITableViewCell {
     
-    public weak var delegate: BxInputSelectorDateDelegate? = nil
+    public weak var delegate: BxInputChildSelectorDateDelegate? = nil
 
     @IBOutlet weak open var datePicker: UIDatePicker!
     

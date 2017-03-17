@@ -75,13 +75,10 @@ open class BxInputSelectorRowBinder<Row: BxInputSelectorRow, Cell: BxInputSelect
     
     /// visual updating of state from opened/closed
     open func refreshOpened(animated: Bool) {
-        guard let data = self.row as? BxInputSelectorRow else {
-            return
-        }
         if animated {
             UIView.beginAnimations(nil, context: nil)
         }
-        if data.isOpened {
+        if row.isOpened {
             cell?.arrowImage.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI))
         } else {
             cell?.arrowImage.transform = CGAffineTransform.identity

@@ -10,7 +10,7 @@
 		0B0240F32D7035DFA339DE59 /* Pods_BxInputController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDE3CA360A31AF4DA9BAFDDB /* Pods_BxInputController.framework */; };
 		F90EE7A11E6DCCC3006A506C /* BxInputSwitchRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EE7A01E6DCCC3006A506C /* BxInputSwitchRowBinder.swift */; };
 		F90EE7A71E6DD752006A506C /* BxInputRateRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EE7A61E6DD752006A506C /* BxInputRateRowBinder.swift */; };
-		F90EE7A91E6DD8C5006A506C /* BxInputSelectorDateRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EE7A81E6DD8C5006A506C /* BxInputSelectorDateRowBinder.swift */; };
+		F90EE7A91E6DD8C5006A506C /* BxInputChildSelectorDateRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EE7A81E6DD8C5006A506C /* BxInputChildSelectorDateRowBinder.swift */; };
 		F92183DE1E23AB21002E1781 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92183D41E23AB21002E1781 /* AppDelegate.swift */; };
 		F92183DF1E23AB21002E1781 /* CommonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92183D61E23AB21002E1781 /* CommonController.swift */; };
 		F92183EC1E23AFB9002E1781 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92183E61E23AFB9002E1781 /* Assets.xcassets */; };
@@ -35,8 +35,8 @@
 		F96D1F7B1E5463AC00BDB2CE /* BxInputSwitchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F4B1E5463AC00BDB2CE /* BxInputSwitchRow.swift */; };
 		F96D1F7C1E5463AC00BDB2CE /* BxInputDateRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F4E1E5463AC00BDB2CE /* BxInputDateRow.swift */; };
 		F96D1F7D1E5463AC00BDB2CE /* BxInputSelectorDateRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F4F1E5463AC00BDB2CE /* BxInputSelectorDateRow.swift */; };
-		F96D1F7E1E5463AC00BDB2CE /* BxInputSelectorDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F511E5463AC00BDB2CE /* BxInputSelectorDateCell.swift */; };
-		F96D1F7F1E5463AC00BDB2CE /* BxInputSelectorDateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F96D1F521E5463AC00BDB2CE /* BxInputSelectorDateCell.xib */; };
+		F96D1F7E1E5463AC00BDB2CE /* BxInputChildSelectorDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F511E5463AC00BDB2CE /* BxInputChildSelectorDateCell.swift */; };
+		F96D1F7F1E5463AC00BDB2CE /* BxInputChildSelectorDateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F96D1F521E5463AC00BDB2CE /* BxInputChildSelectorDateCell.xib */; };
 		F96D1F801E5463AC00BDB2CE /* BxInputSelectorPicturesRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F541E5463AC00BDB2CE /* BxInputSelectorPicturesRow.swift */; };
 		F96D1F811E5463AC00BDB2CE /* BxInputPictureImageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F561E5463AC00BDB2CE /* BxInputPictureImageItem.swift */; };
 		F96D1F821E5463AC00BDB2CE /* BxInputPictureItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F571E5463AC00BDB2CE /* BxInputPictureItem.swift */; };
@@ -109,7 +109,7 @@
 		EDE3CA360A31AF4DA9BAFDDB /* Pods_BxInputController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BxInputController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F90EE7A01E6DCCC3006A506C /* BxInputSwitchRowBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSwitchRowBinder.swift; sourceTree = "<group>"; };
 		F90EE7A61E6DD752006A506C /* BxInputRateRowBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputRateRowBinder.swift; sourceTree = "<group>"; };
-		F90EE7A81E6DD8C5006A506C /* BxInputSelectorDateRowBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSelectorDateRowBinder.swift; sourceTree = "<group>"; };
+		F90EE7A81E6DD8C5006A506C /* BxInputChildSelectorDateRowBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputChildSelectorDateRowBinder.swift; sourceTree = "<group>"; };
 		F92183BE1E23AA2D002E1781 /* BxInputController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BxInputController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F92183D41E23AB21002E1781 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F92183D61E23AB21002E1781 /* CommonController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonController.swift; sourceTree = "<group>"; };
@@ -140,8 +140,8 @@
 		F96D1F4B1E5463AC00BDB2CE /* BxInputSwitchRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSwitchRow.swift; sourceTree = "<group>"; };
 		F96D1F4E1E5463AC00BDB2CE /* BxInputDateRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputDateRow.swift; sourceTree = "<group>"; };
 		F96D1F4F1E5463AC00BDB2CE /* BxInputSelectorDateRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSelectorDateRow.swift; sourceTree = "<group>"; };
-		F96D1F511E5463AC00BDB2CE /* BxInputSelectorDateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSelectorDateCell.swift; sourceTree = "<group>"; };
-		F96D1F521E5463AC00BDB2CE /* BxInputSelectorDateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BxInputSelectorDateCell.xib; sourceTree = "<group>"; };
+		F96D1F511E5463AC00BDB2CE /* BxInputChildSelectorDateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputChildSelectorDateCell.swift; sourceTree = "<group>"; };
+		F96D1F521E5463AC00BDB2CE /* BxInputChildSelectorDateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BxInputChildSelectorDateCell.xib; sourceTree = "<group>"; };
 		F96D1F541E5463AC00BDB2CE /* BxInputSelectorPicturesRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSelectorPicturesRow.swift; sourceTree = "<group>"; };
 		F96D1F561E5463AC00BDB2CE /* BxInputPictureImageItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputPictureImageItem.swift; sourceTree = "<group>"; };
 		F96D1F571E5463AC00BDB2CE /* BxInputPictureItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputPictureItem.swift; sourceTree = "<group>"; };
@@ -405,9 +405,9 @@
 			isa = PBXGroup;
 			children = (
 				F933F5A71E7BC1E000FB1E22 /* BxInputDateRowBinder.swift */,
-				F90EE7A81E6DD8C5006A506C /* BxInputSelectorDateRowBinder.swift */,
-				F96D1F511E5463AC00BDB2CE /* BxInputSelectorDateCell.swift */,
-				F96D1F521E5463AC00BDB2CE /* BxInputSelectorDateCell.xib */,
+				F90EE7A81E6DD8C5006A506C /* BxInputChildSelectorDateRowBinder.swift */,
+				F96D1F511E5463AC00BDB2CE /* BxInputChildSelectorDateCell.swift */,
+				F96D1F521E5463AC00BDB2CE /* BxInputChildSelectorDateCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -674,7 +674,7 @@
 				F92183EC1E23AFB9002E1781 /* Assets.xcassets in Resources */,
 				F96D1F8F1E5463AC00BDB2CE /* BxInputSelectorSuggestionCell.xib in Resources */,
 				F9E787371E52F6F800341996 /* BxInputTextFooterView.xib in Resources */,
-				F96D1F7F1E5463AC00BDB2CE /* BxInputSelectorDateCell.xib in Resources */,
+				F96D1F7F1E5463AC00BDB2CE /* BxInputChildSelectorDateCell.xib in Resources */,
 				F933F5BB1E7BD01200FB1E22 /* BxInputStandartTextCell.xib in Resources */,
 				F9E787391E52F6F800341996 /* BxInputTextHeaderView.xib in Resources */,
 				F96D1F9F1E54859300BDB2CE /* BxInputSwitchCell.xib in Resources */,
@@ -775,7 +775,7 @@
 				F96D1F7D1E5463AC00BDB2CE /* BxInputSelectorDateRow.swift in Sources */,
 				F96D1F821E5463AC00BDB2CE /* BxInputPictureItem.swift in Sources */,
 				F933F5B61E7BD01200FB1E22 /* BxInputChildSelectorRowBinder.swift in Sources */,
-				F90EE7A91E6DD8C5006A506C /* BxInputSelectorDateRowBinder.swift in Sources */,
+				F90EE7A91E6DD8C5006A506C /* BxInputChildSelectorDateRowBinder.swift in Sources */,
 				F96D1F8E1E5463AC00BDB2CE /* BxInputSelectorSuggestionCell.swift in Sources */,
 				F933F5AA1E7BC81300FB1E22 /* BxInputTextRowBinder.swift in Sources */,
 				F9E787001E52F6F800341996 /* BxInputString.swift in Sources */,
@@ -792,7 +792,7 @@
 				F96D1F7A1E5463AC00BDB2CE /* BxInputCheckRow.swift in Sources */,
 				F92183DE1E23AB21002E1781 /* AppDelegate.swift in Sources */,
 				F933F5AC1E7BCB3000FB1E22 /* BxInputVariantsRowBinder.swift in Sources */,
-				F96D1F7E1E5463AC00BDB2CE /* BxInputSelectorDateCell.swift in Sources */,
+				F96D1F7E1E5463AC00BDB2CE /* BxInputChildSelectorDateCell.swift in Sources */,
 				F96D1F8A1E5463AC00BDB2CE /* BxInputRateCell.swift in Sources */,
 				F9E787331E52F6F800341996 /* BxInputSectionView.swift in Sources */,
 				F9E787081E52F6F800341996 /* BxInputController+Keyboard.swift in Sources */,

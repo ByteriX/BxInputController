@@ -50,9 +50,9 @@ open class BxInputChildSelectorDateRow: BxInputChildSelectorRow, BxInputStaticHe
 {
     /// Make and return Binder for binding row with cell.
     open var binder : BxInputRowBinder {
-        return BxInputSelectorDateRowBinder<BxInputChildSelectorDateRow, BxInputSelectorDateCell, BxInputSelectorDateRow>(row: self)
+        return BxInputChildSelectorDateRowBinder<BxInputChildSelectorDateRow, BxInputChildSelectorDateCell, BxInputSelectorDateRow>(row: self)
     }
-    open var resourceId : String = "BxInputSelectorDateCell"
+    open var resourceId : String = "BxInputChildSelectorDateCell"
     open var height : CGFloat = 216
     open var estimatedHeight : CGFloat {
         get { return height }

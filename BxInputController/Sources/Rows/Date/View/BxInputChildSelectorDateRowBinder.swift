@@ -1,5 +1,5 @@
 //
-//  BxInputSelectorDateRowBinder.swift
+//  BxInputChildSelectorDateRowBinder.swift
 //  BxInputController
 //
 //  Created by Sergey Balalaev on 06/03/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BxInputSelectorDateRowBinder<Row: BxInputChildSelectorDateRow, Cell: BxInputSelectorDateCell, ParentRow: BxInputSelectorDateRow> : BxInputChildSelectorRowBinder<Row, Cell, ParentRow>, BxInputSelectorDateDelegate
+open class BxInputChildSelectorDateRowBinder<Row: BxInputChildSelectorDateRow, Cell: BxInputChildSelectorDateCell, ParentRow: BxInputSelectorDateRow> : BxInputChildSelectorRowBinder<Row, Cell, ParentRow>, BxInputChildSelectorDateDelegate
 {
     
     override open func update()
