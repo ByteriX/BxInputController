@@ -1,5 +1,5 @@
 /**
- *	@file BxInputSelectorSuggestionsItemRow.swift
+ *	@file BxInputChildSelectorSuggestionsRow.swift
  *	@namespace BxInputController
  *
  *	@details Child row for showing suggestion from BxInputSelectorSuggestionsRow
@@ -14,14 +14,14 @@
 import UIKit
 
 /// Child row for showing suggestion from BxInputSelectorSuggestionsRow
-open class BxInputSelectorSuggestionsItemRow: BxInputStringRow, BxInputChildSelectorRow
+open class BxInputChildSelectorSuggestionsRow: BxInputStringRow, BxInputChildSelectorRow
 {
     /// Make and return Binder for binding row with cell.
     open var binder : BxInputRowBinder {
-        return BxInputSelectorSuggestionRowBinder<BxInputSelectorSuggestionsItemRow, BxInputSelectorSuggestionCell>(row: self)
+        return BxInputChildSelectorSuggestionRowBinder<BxInputChildSelectorSuggestionsRow, BxInputChildSelectorSuggestionCell>(row: self)
     }
     open var resourceId : String {
-        get { return "BxInputSelectorSuggestionCell" }
+        get { return "BxInputChildSelectorSuggestionCell" }
     }
     open var estimatedHeight : CGFloat {
         get { return 60 }

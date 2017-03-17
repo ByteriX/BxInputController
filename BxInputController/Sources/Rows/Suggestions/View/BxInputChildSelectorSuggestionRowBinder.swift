@@ -1,5 +1,5 @@
 //
-//  BxInputSelectorSuggestionRowBinder.swift
+//  BxInputChildSelectorSuggestionRowBinder.swift
 //  BxInputController
 //
 //  Created by Sergey Balalaev on 06/03/17.
@@ -9,7 +9,7 @@
 import UIKit
 
 
-open class BxInputSelectorSuggestionRowBinder<Row : BxInputChildSelectorRow, Cell: BxInputSelectorSuggestionCell> : BxInputChildSelectorRowBinder<Row, Cell, BxInputSelectorSuggestionsRow<Row>>
+open class BxInputChildSelectorSuggestionRowBinder<Row : BxInputChildSelectorRow, Cell: BxInputChildSelectorSuggestionCell> : BxInputChildSelectorRowBinder<Row, Cell, BxInputSelectorSuggestionsRow<Row>>
 {
     
     override open func didSelected()

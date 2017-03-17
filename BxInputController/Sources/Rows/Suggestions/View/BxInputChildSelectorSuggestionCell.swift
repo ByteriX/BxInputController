@@ -1,5 +1,5 @@
 /**
- *	@file BxInputSelectorSuggestionCell.swift
+ *	@file BxInputChildSelectorSuggestionCell.swift
  *	@namespace BxInputController
  *
  *	@details Cell for suggestion rows which used in BxInputSelectorSuggestionsRow. Usaully this class overrided in Projects
@@ -14,7 +14,7 @@
 import UIKit
 
 /// Cell for suggestion rows which used in BxInputSelectorSuggestionsRow. Usaully this class overrided in Projects
-open class BxInputSelectorSuggestionCell: UITableViewCell {
+open class BxInputChildSelectorSuggestionCell: UITableViewCell {
     
     @IBOutlet weak open var titleLabel: UILabel!
 

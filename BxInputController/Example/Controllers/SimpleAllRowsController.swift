@@ -26,7 +26,7 @@ class SimpleAllRowsController: BxInputController {
     // Rate
     internal let rateRow = BxInputRateRow(title: "rate", maxValue: 10)
     // Suggestions
-    internal let selectorSuggestionsRow = BxInputSelectorSuggestionsRow<BxInputSelectorSuggestionsItemRow>(title: "selector suggestions")
+    internal let selectorSuggestionsRow = BxInputSelectorSuggestionsRow<BxInputChildSelectorSuggestionsRow>(title: "selector suggestions")
     // Text
     internal let shortTextRow = BxInputTextRow(title: "text value", placeholder: "short text")
     internal let selectorTextRow = BxInputSelectorTextRow(title: "text with selector", placeholder: "longest text")
@@ -42,11 +42,11 @@ class SimpleAllRowsController: BxInputController {
         BxInputVariantsItem(id: "4", name: "value4"),
         ]
     private let suggestionItems = [
-        BxInputSelectorSuggestionsItemRow(title: "value 1"),
-        BxInputSelectorSuggestionsItemRow(title: "value 2"),
-        BxInputSelectorSuggestionsItemRow(title: "value 3"),
-        BxInputSelectorSuggestionsItemRow(title: "value 4"),
-        BxInputSelectorSuggestionsItemRow(title: "value 5")
+        BxInputChildSelectorSuggestionsRow(title: "value 1"),
+        BxInputChildSelectorSuggestionsRow(title: "value 2"),
+        BxInputChildSelectorSuggestionsRow(title: "value 3"),
+        BxInputChildSelectorSuggestionsRow(title: "value 4"),
+        BxInputChildSelectorSuggestionsRow(title: "value 5")
     ]
 
     

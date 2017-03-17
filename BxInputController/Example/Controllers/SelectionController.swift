@@ -17,7 +17,7 @@ class SelectionController : BxInputController {
     private var autoselectedDateValue = BxInputSelectorDateRow(title: "autoselected", placeholder: "SELECT")
     private var fromCurrentValue = BxInputSelectorDateRow(title: "from current", value: Date())
     
-    private var standartSuggestionsValue = BxInputSelectorSuggestionsRow<BxInputSelectorSuggestionsItemRow>(title: "standart", placeholder: "SELECT")
+    private var standartSuggestionsValue = BxInputSelectorSuggestionsRow<BxInputChildSelectorSuggestionsRow>(title: "standart", placeholder: "SELECT")
     private var justValue = BxInputTextRow(title: "just", placeholder: "for keyboard opening")
     
     private var filledVariants = BxInputSelectorVariantsRow<BxInputVariantsItem>(title: "variants")
@@ -44,15 +44,15 @@ class SelectionController : BxInputController {
         fromCurrentValue.minimumDate = Date()
         
         standartSuggestionsValue.children = [
-            BxInputSelectorSuggestionsItemRow(title: "value 1"),
-            BxInputSelectorSuggestionsItemRow(title: "value 2"),
-            BxInputSelectorSuggestionsItemRow(title: "value 3"),
-            BxInputSelectorSuggestionsItemRow(title: "value 4"),
-            BxInputSelectorSuggestionsItemRow(title: "value 5"),
-            BxInputSelectorSuggestionsItemRow(title: "value 6"),
-            BxInputSelectorSuggestionsItemRow(title: "value 7"),
-            BxInputSelectorSuggestionsItemRow(title: "value 8"),
-            BxInputSelectorSuggestionsItemRow(title: "value 9")
+            BxInputChildSelectorSuggestionsRow(title: "value 1"),
+            BxInputChildSelectorSuggestionsRow(title: "value 2"),
+            BxInputChildSelectorSuggestionsRow(title: "value 3"),
+            BxInputChildSelectorSuggestionsRow(title: "value 4"),
+            BxInputChildSelectorSuggestionsRow(title: "value 5"),
+            BxInputChildSelectorSuggestionsRow(title: "value 6"),
+            BxInputChildSelectorSuggestionsRow(title: "value 7"),
+            BxInputChildSelectorSuggestionsRow(title: "value 8"),
+            BxInputChildSelectorSuggestionsRow(title: "value 9")
         ]
         
         emptyVariants.items = variants
