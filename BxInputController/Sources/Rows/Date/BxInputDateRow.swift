@@ -18,7 +18,7 @@ open class BxInputDateRow : BxInputRow
 {
     /// Make and return Binder for binding row with cell.
     open var binder : BxInputRowBinder {
-        return BxInputStandartTextRowBinder<BxInputDateRow, BxInputStandartTextCell>(row: self)
+        return BxInputDateRowBinder<BxInputDateRow, BxInputStandartTextCell>(row: self)
     }
 
     

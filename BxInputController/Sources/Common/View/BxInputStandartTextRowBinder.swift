@@ -55,13 +55,7 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
             cell?.valueTextField.text = textRow.value
             cell?.valueTextField.update(from: textRow)
         }
-        if let dateRow = row as? BxInputDateRow {
-            if let date = dateRow.value {
-                cell?.valueTextField.text = owner?.settings.dateFormat.string(from: date)
-            } else {
-                cell?.valueTextField.text = ""
-            }
-        } else if let variantsRow = row as? BxInputVariants {
+        if let variantsRow = row as? BxInputVariants {
             if let value = variantsRow.selectedVariant {
                 cell?.valueTextField.text = value.stringValue
             } else {
@@ -93,18 +87,7 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
         }
     }
     
-    /// event when value is changed if value have date type
-    func changeDate() {
-        guard let date = owner?.datePicker.date else {
-            return
-        }
-        cell?.valueTextField.text = owner?.settings.dateFormat.string(from: date)
-        if let dateRow = row as? BxInputDateRow
-        {
-            dateRow.value = date
-            owner?.didChangedRow(dateRow)
-        }
-    }
+    
     
     // MARK - UITextFieldDelegate delegates
     
@@ -115,20 +98,7 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
         if !isEnabled {
             return false
         }
-        if let dateRow = row as? BxInputDateRow,
-            let datePicker = owner?.datePicker
-        {
-            datePicker.addTarget(self, action: #selector(changeDate), for: [.valueChanged, .touchUpInside])
-            cell?.valueTextField.inputView = datePicker
-            datePicker.minimumDate = dateRow.minimumDate
-            datePicker.maximumDate = dateRow.maximumDate
-            if let date = dateRow.value {
-                datePicker.date = date
-            } else {
-                datePicker.date = Date()
-            }
-            changeDate()
-        } else if let variantsRow = row as? BxInputVariants,
+        if let variantsRow = row as? BxInputVariants,
             let variantsPicker = owner?.variantsPicker
         {
             variantsPicker.dataSource = self
@@ -157,10 +127,6 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
     /// end editing
     open func textFieldDidEndEditing(_ textField: UITextField)
     {
-        if let datePicker = owner?.datePicker
-        {
-            datePicker.removeTarget(self, action: #selector(changeDate), for: [.valueChanged, .touchUpInside])
-        }
         if owner?.activeControl === textField {
             owner?.activeControl = nil
         }
