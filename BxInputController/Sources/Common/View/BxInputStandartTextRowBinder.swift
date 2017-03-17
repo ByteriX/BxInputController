@@ -15,14 +15,7 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
     {
         super.didSelected()
         
-        if let checkRow = row as? BxInputCheckRow {
-            owner?.dissmissAllRows()
-            checkRow.value = !checkRow.value
-            update()
-        } else {
-            cell?.valueTextField.becomeFirstResponder()
-        }
-        
+        cell?.valueTextField.becomeFirstResponder()        
     }
     
     open func updateCell() {
@@ -56,15 +49,7 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
         
         updateCell()
         
-        
-        if let checkRow = row as? BxInputCheckRow {
-            cell?.valueTextField.isEnabled = false
-            cell?.valueTextField.text = ""
-            cell?.accessoryType = checkRow.value ? .checkmark : .none
-            cell?.selectionStyle = .default
-        } else {
-            
-        }
+
         if let textRow = row as? BxInputTextRow {
             cell?.valueTextField.inputView = nil
             cell?.valueTextField.text = textRow.value

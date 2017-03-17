@@ -17,7 +17,7 @@ import UIKit
 open class BxInputCheckRow: BxInputRow
 {
     open var binder : BxInputRowBinder {
-        return BxInputStandartTextRowBinder<BxInputCheckRow, BxInputStandartTextCell>(row: self)
+        return BxInputCheckRowBinder<BxInputCheckRow, BxInputStandartTextCell>(row: self)
     }
     /// Use for initializing from a xib and register for the table, this have to be uniqueue value
     open var resourceId = "BxInputStandartTextCell"
