@@ -20,7 +20,7 @@ open class BxInputVariantsRow<T : BxInputStringObject> : BxInputRow, BxInputVari
     
     /// Make and return Binder for binding row with cell.
     open var binder : BxInputRowBinder {
-        return BxInputStandartTextRowBinder<BxInputVariantsRow<T>, BxInputStandartTextCell>(row: self)
+        return BxInputVariantsRowBinder<T, BxInputStandartTextCell>(row: self)
     }
     
     open var resourceId : String {

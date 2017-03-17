@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTextCell> : BxInputBaseRowBinder<Row, Cell>, BxInputStandartTextDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource
+open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTextCell> : BxInputBaseRowBinder<Row, Cell>, BxInputStandartTextDelegate, UITextFieldDelegate
 {
     
     override open func didSelected()
@@ -48,14 +48,6 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
         }
         
         updateCell()
-        
-        if let variantsRow = row as? BxInputVariants {
-            if let value = variantsRow.selectedVariant {
-                cell?.valueTextField.text = value.stringValue
-            } else {
-                cell?.valueTextField.text = ""
-            }
-        }
     }
     
     override open func didSetEnabled(_ value: Bool)
@@ -85,24 +77,6 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
     {
         if !isEnabled {
             return false
-        }
-        if let variantsRow = row as? BxInputVariants,
-            let variantsPicker = owner?.variantsPicker
-        {
-            variantsPicker.dataSource = self
-            variantsPicker.delegate = self
-            variantsPicker.reloadAllComponents()
-            var index = 0
-            if let value = variantsRow.selectedVariant {
-                if let foundIndex = variantsRow.variants.index(where: { (item) -> Bool in
-                    return item === value
-                }) {
-                    index = foundIndex
-                }
-            }
-            variantsPicker.selectRow(index, inComponent: 0, animated: true)
-            self.pickerView(variantsPicker, didSelectRow: index, inComponent: 0)
-            cell?.valueTextField.inputView = variantsPicker
         }
         if let owner = owner, owner.settings.isAutodissmissSelector {
             owner.dissmissSelectors()
@@ -149,45 +123,5 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
         return true
     }
     
-    
-    // MARK - UIPickerViewDelegate, UIPickerViewDataSource delegates
-    
-    /// only single
-    open func numberOfComponents(in pickerView: UIPickerView) -> Int
-    {
-        return 1
-    }
-    
-    /// variants count
-    open func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
-    {
-        guard let variantsRow = row as? BxInputVariants else {
-            return 0
-        }
-        return variantsRow.variants.count
-    }
-    
-    /// variant title
-    open func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
-    {
-        guard let variantsRow = self.row as? BxInputVariants else {
-            return nil
-        }
-        return variantsRow.variants[row].stringValue
-    }
-    
-    /// event when user choose variant
-    open func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
-    {
-        guard var variantsRow = self.row as? BxInputVariants
-            else {
-                return
-        }
-        let value = variantsRow.variants[row]
-        variantsRow.selectedVariant = value
-        cell?.valueTextField.text = value.stringValue
-        owner?.didChangedRow(self.row)
-    }
-    
-    
+
 }
