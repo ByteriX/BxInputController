@@ -1,5 +1,5 @@
 //
-//  BxInputSelectorVariantsRowBinder.swift
+//  BxInputChildSelectorVariantsRowBinder.swift
 //  BxInputController
 //
 //  Created by Sergey Balalaev on 06/03/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BxInputSelectorVariantsRowBinder<T: BxInputStringObject> : BxInputChildSelectorRowBinder<BxInputChildSelectorVariantsRow<T>, BxInputSelectorVariantsCell, BxInputSelectorVariantsRow<T>>, BxInputSelectorVariantsDelegate, UIPickerViewDelegate, UIPickerViewDataSource
+open class BxInputChildSelectorVariantsRowBinder<T: BxInputStringObject> : BxInputChildSelectorRowBinder<BxInputChildSelectorVariantsRow<T>, BxInputChildSelectorVariantsCell, BxInputSelectorVariantsRow<T>>, BxInputChildSelectorVariantsDelegate, UIPickerViewDelegate, UIPickerViewDataSource
 {
     
     override open func update()

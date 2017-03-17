@@ -59,9 +59,9 @@ open class BxInputChildSelectorVariantsRow<T: BxInputStringObject>: BxInputChild
 {
     /// Make and return Binder for binding row with cell.
     open var binder : BxInputRowBinder {
-        return BxInputSelectorVariantsRowBinder<T>(row: self)
+        return BxInputChildSelectorVariantsRowBinder<T>(row: self)
     }
-    open var resourceId : String = "BxInputSelectorVariantsCell"
+    open var resourceId : String = "BxInputChildSelectorVariantsCell"
     open var height : CGFloat = 216
     open var estimatedHeight : CGFloat {
         get { return height }
