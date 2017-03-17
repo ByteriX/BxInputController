@@ -31,7 +31,7 @@ open class BxInputSection
     open var footer: BxInputSectionContent? = nil
     {
         didSet {
-            header?.parent = self
+            footer?.parent = self
         }
     }
     
