@@ -74,9 +74,9 @@ open class BxInputChildSelectorPicturesRow: BxInputChildSelectorRow, BxInputStat
 {
     /// Make and return Binder for binding row with cell.
     open var binder : BxInputRowBinder {
-        return BxInputSelectorPicturesRowBinder<BxInputChildSelectorPicturesRow, BxInputSelectorPicturesCell, BxInputSelectorPicturesRow>(row: self)
+        return BxInputChildSelectorPicturesRowBinder<BxInputChildSelectorPicturesRow, BxInputChildSelectorPicturesCell, BxInputSelectorPicturesRow>(row: self)
     }
-    open var resourceId : String = "BxInputSelectorPicturesCell"
+    open var resourceId : String = "BxInputChildSelectorPicturesCell"
     open var height : CGFloat {
         get {
             if let parent = parent as? BxInputSelectorPicturesRow {

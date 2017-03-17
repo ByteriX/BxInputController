@@ -1,5 +1,5 @@
 /**
- *	@file BxInputSelectorPicturesCell.swift
+ *	@file BxInputChildSelectorPicturesCell.swift
  *	@namespace BxInputController
  *
  *	@details Cell for selector a picture. This child cell places below parent cell
@@ -16,7 +16,7 @@ import AssetsLibrary
 import Photos
 
 /// Cell for selector a picture. This child cell places below parent cell
-public class BxInputSelectorPicturesCell: UITableViewCell {
+public class BxInputChildSelectorPicturesCell: UITableViewCell {
     
 
     @IBOutlet weak open var valueTextField: UITextField!

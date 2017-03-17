@@ -1,5 +1,5 @@
 //
-//  BxInputSelectorPicturesRowBinder.swift
+//  BxInputChildSelectorPicturesRowBinder.swift
 //  BxInputController
 //
 //  Created by Sergey Balalaev on 06/03/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BxInputSelectorPicturesRowBinder<Row: BxInputChildSelectorPicturesRow, Cell: BxInputSelectorPicturesCell, ParentRow: BxInputSelectorPicturesRow> : BxInputChildSelectorRowBinder<Row, Cell, ParentRow>, UITextFieldDelegate, UIScrollViewDelegate
+open class BxInputChildSelectorPicturesRowBinder<Row: BxInputChildSelectorPicturesRow, Cell: BxInputChildSelectorPicturesCell, ParentRow: BxInputSelectorPicturesRow> : BxInputChildSelectorRowBinder<Row, Cell, ParentRow>, UITextFieldDelegate, UIScrollViewDelegate
 {
 
     private var animationComplited: Bool = true
