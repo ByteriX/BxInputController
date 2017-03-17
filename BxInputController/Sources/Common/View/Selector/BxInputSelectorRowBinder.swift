@@ -105,20 +105,13 @@ open class BxInputSelectorRowBinder<Row: BxInputSelectorRow, Cell: BxInputSelect
             }
         }
         cell?.separatorInset = separatorInset
+        cell?.valueTextField.text = ""
         
         // all other changing of value
-        if let dateRow = row as? BxInputSelectorDateRow {
-            if let date = dateRow.value {
-                cell?.valueTextField.text = owner?.settings.dateFormat.string(from: date)
-            } else {
-                cell?.valueTextField.text = ""
-            }
-        } else if let row = row as? BxInputStringRow,
+        if let row = row as? BxInputStringRow,
             isEmptyValue == false
         {
             cell?.valueTextField.text = row.stringValue
-        } else {
-            cell?.valueTextField.text = ""
         }
         
     }
