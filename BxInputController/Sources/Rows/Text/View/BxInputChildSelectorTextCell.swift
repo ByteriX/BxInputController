@@ -1,5 +1,5 @@
 /**
- *	@file BxInputSelectorTextCell.swift
+ *	@file BxInputChildSelectorTextCell.swift
  *	@namespace BxInputController
  *
  *	@details Cell for selector Row with longest text string
@@ -13,15 +13,15 @@
 
 import UIKit
 
-public protocol BxInputSelectorTextDelegate : UITextViewDelegate
+public protocol BxInputChildSelectorTextDelegate : UITextViewDelegate
 {
     
 }
 
 /// Cell for selector Row with longest text string
-public class BxInputSelectorTextCell: UITableViewCell {
+public class BxInputChildSelectorTextCell: UITableViewCell {
     
-    public weak var delegate: BxInputSelectorTextDelegate? = nil
+    public weak var delegate: BxInputChildSelectorTextDelegate? = nil
     {
         didSet {
             textView.delegate = delegate

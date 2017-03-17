@@ -1,5 +1,5 @@
 //
-//  BxInputSelectorTextRowBinder.swift
+//  BxInputChildSelectorTextRowBinder.swift
 //  BxInputController
 //
 //  Created by Sergey Balalaev on 06/03/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BxInputSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, Cell: BxInputSelectorTextCell, ParentRow: BxInputSelectorTextRow> : BxInputChildSelectorRowBinder<Row, Cell, ParentRow>, BxInputSelectorTextDelegate, UITextViewDelegate
+open class BxInputChildSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, Cell: BxInputChildSelectorTextCell, ParentRow: BxInputSelectorTextRow> : BxInputChildSelectorRowBinder<Row, Cell, ParentRow>, BxInputChildSelectorTextDelegate, UITextViewDelegate
 {
     
     override open func didSelected()
