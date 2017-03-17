@@ -49,12 +49,6 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
         
         updateCell()
         
-
-        if let textRow = row as? BxInputTextRow {
-            cell?.valueTextField.inputView = nil
-            cell?.valueTextField.text = textRow.value
-            cell?.valueTextField.update(from: textRow)
-        }
         if let variantsRow = row as? BxInputVariants {
             if let value = variantsRow.selectedVariant {
                 cell?.valueTextField.text = value.stringValue
@@ -79,14 +73,8 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
     
     /// event when value is changed
     open func valueChanged(valueTextField: UITextField) {
-        if let textRow = row as? BxInputTextRow {
-            textRow.value = cell?.valueTextField.text
-            owner?.didChangedRow(textRow)
-        } else if let _ = row as? BxInputDateRow {
-            // date value changed from 'changeDate()' method
-        }
+        //
     }
-    
     
     
     // MARK - UITextFieldDelegate delegates
@@ -143,9 +131,6 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
         {
             textField.text = text + "\u{00a0}"
             return false
-        }
-        if let _ = row as? BxInputTextRow { // counting
-            // not yet implemented
         }
         return true
     }

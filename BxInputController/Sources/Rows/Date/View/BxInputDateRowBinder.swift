@@ -21,6 +21,11 @@ class BxInputDateRowBinder<Row : BxInputDateRow, Cell : BxInputStandartTextCell>
         }
     }
     
+    /// event when value is changed
+    override open func valueChanged(valueTextField: UITextField) {
+        // date value changed from 'changeDate()' method
+    }
+    
     /// event when value is changed if value have date type
     func changeDate() {
         guard let date = owner?.datePicker.date else {

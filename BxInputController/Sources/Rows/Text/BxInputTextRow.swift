@@ -17,7 +17,7 @@ import UIKit
 open class BxInputTextRow: BxInputStringRow
 {
     open var binder : BxInputRowBinder {
-        return BxInputStandartTextRowBinder<BxInputTextRow, BxInputStandartTextCell>(row: self)
+        return BxInputTextRowBinder<BxInputTextRow, BxInputStandartTextCell>(row: self)
     }
     
     open var resourceId : String {
