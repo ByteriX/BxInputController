@@ -1,16 +1,23 @@
-//
-//  BxInputStandartTextRowBinder.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 06/03/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputStandartTextRowBinder.swift
+ *	@namespace BxInputController
+ *
+ *	@details Binder for a standart text row
+ *	@date 06.03.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 
+/// Binder for a standart text row
 open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTextCell> : BxInputBaseRowBinder<Row, Cell>, BxInputStandartTextDelegate, UITextFieldDelegate
 {
     
+    /// call when user selected this cell
     override open func didSelected()
     {
         super.didSelected()
@@ -18,12 +25,14 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
         cell?.valueTextField.becomeFirstResponder()        
     }
     
+    /// this call after common update for text attributes updating
     open func updateCell() {
         cell?.valueTextField.isEnabled = true
         cell?.accessoryType = .none
         cell?.selectionStyle = .none
     }
     
+    /// update cell from model data
     override open func update()
     {
         super.update()
@@ -50,6 +59,7 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
         updateCell()
     }
     
+    /// event of change isEnabled
     override open func didSetEnabled(_ value: Bool)
     {
         super.didSetEnabled(value)
@@ -58,14 +68,15 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
         cell?.titleLabel.alpha = value ? 1 : 0.5
     }
     
+    /// resign value editing
     @discardableResult
     override open func resignFirstResponder() -> Bool {
         return cell?.valueTextField.resignFirstResponder() ?? false
     }
     
-    /// event when value is changed
+    /// event when value is changed. Need reload this in inherited classes
     open func valueChanged(valueTextField: UITextField) {
-        //
+        // empty
     }
     
     

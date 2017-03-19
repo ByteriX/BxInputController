@@ -1,16 +1,22 @@
-//
-//  BxInputSelectorRowBinder.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 06/03/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputSelectorRowBinder.swift
+ *	@namespace BxInputController
+ *
+ *	@details Binder for a selector row
+ *	@date 06.03.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 
+/// Binder for a selector row
 open class BxInputSelectorRowBinder<Row: BxInputSelectorRow, Cell: BxInputSelectorCell>: BxInputBaseRowBinder<Row, Cell>
 {
-    
+    /// call when user selected this cell
     override open func didSelected()
     {
         super.didSelected()
@@ -40,6 +46,7 @@ open class BxInputSelectorRowBinder<Row: BxInputSelectorRow, Cell: BxInputSelect
         }
     }
     
+    /// update cell from model data
     override open func update()
     {
         super.update()
@@ -64,6 +71,7 @@ open class BxInputSelectorRowBinder<Row: BxInputSelectorRow, Cell: BxInputSelect
         refreshOpened(animated: false)
     }
     
+    /// event of change isEnabled
     override open func didSetEnabled(_ value: Bool)
     {
         super.didSetEnabled(value)

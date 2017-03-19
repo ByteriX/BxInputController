@@ -1,13 +1,19 @@
-//
-//  BxInputRowBinder.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 06/03/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputRowBinder.swift
+ *	@namespace BxInputController
+ *
+ *	@details Protocol and base class for binding row data model with cell
+ *	@date 06.03.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 
+/// Protocol for binding row data model with cell
 public protocol BxInputRowBinder : AnyObject {
     
     /// reference to owner
@@ -23,6 +29,7 @@ public protocol BxInputRowBinder : AnyObject {
     
 }
 
+/// Base class for binding row data model with cell
 open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObject, BxInputRowBinder
 {
     /// view
@@ -46,6 +53,7 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
     /// view
     public weak var cell: Cell? = nil
     
+    /// new value should map with data model
     init(row: Row)
     {
         self.row = row

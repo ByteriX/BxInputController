@@ -338,9 +338,9 @@
 		F933F5B21E7BD01200FB1E22 /* StandartText */ = {
 			isa = PBXGroup;
 			children = (
+				F933F5B51E7BD01200FB1E22 /* BxInputStandartTextRowBinder.swift */,
 				F933F5B31E7BD01200FB1E22 /* BxInputStandartTextCell.swift */,
 				F933F5B41E7BD01200FB1E22 /* BxInputStandartTextCell.xib */,
-				F933F5B51E7BD01200FB1E22 /* BxInputStandartTextRowBinder.swift */,
 			);
 			path = StandartText;
 			sourceTree = "<group>";

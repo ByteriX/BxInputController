@@ -1,16 +1,23 @@
-//
-//  BxInputActionRowBinder.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 17/03/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputActionCustomRowBinder.swift
+ *	@namespace BxInputController
+ *
+ *	@details Binder for custom action row
+ *	@date 17.03.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 
+/// Binder for custom action row
 class BxInputActionCustomRowBinder<T : BxInputString, Cell : BxInputStandartTextCell>: BxInputStandartTextRowBinder<BxInputActionCustomRow<T>, Cell>
 {
     
+    /// call when user selected this cell
     override open func didSelected()
     {
         super.didSelected()

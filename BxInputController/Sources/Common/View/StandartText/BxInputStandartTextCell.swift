@@ -13,6 +13,7 @@
 
 import UIKit
 
+/// Delegate of BxInputStandartTextCell
 public protocol BxInputStandartTextDelegate : UITextFieldDelegate
 {
     func valueChanged(valueTextField: UITextField)
@@ -21,7 +22,7 @@ public protocol BxInputStandartTextDelegate : UITextFieldDelegate
 /// Common cell for textual rows which have title & value
 open class BxInputStandartTextCell: UITableViewCell {
     
-    /// delegate
+    /// delegate for transport events
     public weak var delegate: BxInputStandartTextDelegate? = nil
     {
         didSet {
@@ -34,6 +35,7 @@ open class BxInputStandartTextCell: UITableViewCell {
     /// value for the row or a putting example
     @IBOutlet weak open var valueTextField: UITextField!
     
+    /// value editing event
     @IBAction func valueTextFieldEditingChanged(_ sender: Any) {
         delegate?.valueChanged(valueTextField: valueTextField)
     }

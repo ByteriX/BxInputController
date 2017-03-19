@@ -50,7 +50,7 @@ open class BxInputBaseSectionContentBinder<Content: BxInputSectionContent, View 
     /// view of section content
     public weak var view: View? = nil
     
-    /// new value should map data model
+    /// new value should map with data model
     init(content: Content)
     {
         self.content = content
