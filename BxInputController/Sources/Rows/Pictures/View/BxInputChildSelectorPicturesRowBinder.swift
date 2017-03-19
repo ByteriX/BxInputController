@@ -24,20 +24,9 @@ open class BxInputChildSelectorPicturesRowBinder<Row: BxInputChildSelectorPictur
     override open func didSelected()
     {
         super.didSelected()
-        
-        guard let cell = cell else {
-            return
-        }
-        
-        cell.picturesPanel.frame = cell.dataSource.picturesCollection.bounds
-        cell.dataSource.picturesCollection.autoresizingMask = [.flexibleLeftMargin, .flexibleWidth, .flexibleRightMargin, .flexibleTopMargin, .flexibleHeight, .flexibleBottomMargin]
-        cell.picturesPanel.addSubview(cell.dataSource.picturesCollection)
-        cell.picturesPanel.clipsToBounds = false
-        
-        cell.valueTextField.inputView = cell.picturesPanel
-        
-        cell.dataSource.picturesCollection.reloadData()
-        cell.valueTextField.becomeFirstResponder()
+
+        cell?.dataSource.picturesCollection.reloadData()
+        cell?.valueTextField.becomeFirstResponder()
     }
     
     /// update cell from model data
@@ -60,10 +49,6 @@ open class BxInputChildSelectorPicturesRowBinder<Row: BxInputChildSelectorPictur
         }
         cell.selectedPictureViews = []
         
-
-        cell.rowData = parentRow
-        cell.size = parentRow.iconSize
-        
         //            DispatchQueue.main.async { [weak self] () -> Void in
         //                if let variantsPicker = self?.variantsPicker {
         //                    self?.pickerView(variantsPicker, didSelectRow: index, inComponent: 0)
@@ -74,7 +59,7 @@ open class BxInputChildSelectorPicturesRowBinder<Row: BxInputChildSelectorPictur
         cell.dataSource.updateAssets(size: cell.frame.size.width / CGFloat(parentRow.countInRow) - 2.0)
         
         for picture in parentRow.pictures {
-            let pictureView = BxInputSelectorPictureView(picture: picture, size: cell.size, mode: parentRow.iconMode)
+            let pictureView = BxInputSelectorPictureView(picture: picture, size: parentRow.iconSize, mode: parentRow.iconMode)
             addPictureView(pictureView)
         }
         updatePictures()
@@ -104,7 +89,7 @@ open class BxInputChildSelectorPicturesRowBinder<Row: BxInputChildSelectorPictur
 
         if parentRow.maxSelectedCount > parentRow.pictures.count {
             parentRow.pictures.append(picture)
-            let pictureView = BxInputSelectorPictureView(picture: picture, size: cell.size, mode: parentRow.iconMode)
+            let pictureView = BxInputSelectorPictureView(picture: picture, size: parentRow.iconSize, mode: parentRow.iconMode)
             pictureView.frame = cell.picturesPanel.convert(collectionCell.frame, from: cell.dataSource.picturesCollection)
             cell.picturesPanel.superview?.bringSubview(toFront: cell.picturesPanel)
             cell.picturesPanel.addSubview(pictureView)
@@ -141,11 +126,10 @@ open class BxInputChildSelectorPicturesRowBinder<Row: BxInputChildSelectorPictur
     }
     
     func getPictureFrame(from index: Int) -> CGRect {
-        guard let cell = cell else {
-            return CGRect()
-        }
-        let x = cell.margin + (cell.size.width + cell.margin) * CGFloat(index)
-        return CGRect(x: x, y: cell.margin, width: cell.size.width, height: cell.size.height)
+        let size = parentRow.iconSize
+        let margin = parentRow.iconMargin
+        let x = margin + (size.width + margin) * CGFloat(index)
+        return CGRect(x: x, y: margin, width: size.width, height: size.height)
     }
     
     func addPictureView(_ pictureView: BxInputSelectorPictureView) {

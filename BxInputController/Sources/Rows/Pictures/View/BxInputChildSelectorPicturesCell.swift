@@ -22,14 +22,19 @@ public class BxInputChildSelectorPicturesCell: UITableViewCell {
     @IBOutlet weak open var valueTextField: UITextField!
     @IBOutlet weak open var selectedScrollView: UIScrollView!
     
-    
-    weak var rowData: BxInputSelectorPicturesRow!
     var selectedPictureViews: [BxInputSelectorPictureView] = []
-    
-    var size : CGSize = CGSize(width: 64, height: 64)
-    var margin : CGFloat = 10
-    
     let dataSource = BxInputSelectorPicturesLibraryDataSource()
     let picturesPanel = UIView()
+    
+    open override func awakeFromNib() {
+        super.awakeFromNib()
+        //
+        picturesPanel.frame = dataSource.picturesCollection.bounds
+        dataSource.picturesCollection.autoresizingMask = [.flexibleLeftMargin, .flexibleWidth, .flexibleRightMargin, .flexibleTopMargin, .flexibleHeight, .flexibleBottomMargin]
+        picturesPanel.addSubview(dataSource.picturesCollection)
+        picturesPanel.clipsToBounds = false
+        
+        valueTextField.inputView = picturesPanel
+    }
 
 }
