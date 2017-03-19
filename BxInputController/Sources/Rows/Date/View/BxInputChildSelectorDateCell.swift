@@ -13,8 +13,9 @@
 
 import UIKit
 
+/// delegate for BxInputChildSelectorDateCell
 public protocol BxInputChildSelectorDateDelegate: AnyObject {
-    
+    /// call when date did changed
     func changeDate(datePicker: UIDatePicker)
     
 }
@@ -22,16 +23,13 @@ public protocol BxInputChildSelectorDateDelegate: AnyObject {
 /// Cell with date selector. Use as child for BxInputSelectorDateRow
 open class BxInputChildSelectorDateCell: UITableViewCell {
     
+    /// delegate
     public weak var delegate: BxInputChildSelectorDateDelegate? = nil
 
+    /// choosing Date
     @IBOutlet weak open var datePicker: UIDatePicker!
     
-    
-    override open func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
+    /// editing Date
     @IBAction open func changeDate(_ sender: Any) {
         if let datePicker = datePicker {
             delegate?.changeDate(datePicker: datePicker)

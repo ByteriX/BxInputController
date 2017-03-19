@@ -1,18 +1,26 @@
-//
-//  BxInputChildSelectorPicturesRowBinder.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 06/03/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputChildSelectorPicturesRowBinder.swift
+ *	@namespace BxInputController
+ *
+ *	@details Binder for BxInputChildSelectorPicturesRow subclasses
+ *	@date 06.03.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 
+/// Binder for BxInputChildSelectorPicturesRow subclasses
 open class BxInputChildSelectorPicturesRowBinder<Row: BxInputChildSelectorPicturesRow, Cell: BxInputChildSelectorPicturesCell, ParentRow: BxInputSelectorPicturesRow> : BxInputChildSelectorRowBinder<Row, Cell, ParentRow>, UITextFieldDelegate, UIScrollViewDelegate
 {
 
+    /// property when animation of moving is complited. Started with true value.
     private var animationComplited: Bool = true
     
+    /// call when user selected this cell
     override open func didSelected()
     {
         super.didSelected()
@@ -32,6 +40,7 @@ open class BxInputChildSelectorPicturesRowBinder<Row: BxInputChildSelectorPictur
         cell.valueTextField.becomeFirstResponder()
     }
     
+    /// update cell from model data
     override open func update()
     {
         super.update()
@@ -73,6 +82,7 @@ open class BxInputChildSelectorPicturesRowBinder<Row: BxInputChildSelectorPictur
 
     }
     
+    /// event of change isEnabled
     override open func didSetEnabled(_ value: Bool)
     {
         super.didSetEnabled(value)
@@ -183,6 +193,7 @@ open class BxInputChildSelectorPicturesRowBinder<Row: BxInputChildSelectorPictur
     
     // MARK - UITextFieldDelegate
     
+    /// start editing
     open func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool
     {
         guard let cell = cell else {

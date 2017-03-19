@@ -1,24 +1,30 @@
-//
-//  BxInputRateRowBinder.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 06/03/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputRateRowBinder.swift
+ *	@namespace BxInputController
+ *
+ *	@details Binder for BxInputRateRow subclasses
+ *	@date 06.03.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 import BxObjC
 
+/// Binder for BxInputRateRow subclasses
 public class BxInputRateRowBinder<Row: BxInputRateRow, Cell: BxInputRateCell> : BxInputBaseRowBinder<Row, Cell>, BxStandartRateViewDelegate
 {
-    
+    /// call when user selected this cell
     override open func didSelected()
     {
         super.didSelected()
         
         owner?.dissmissAllRows()
     }
-    
+    /// update cell from model data
     override open func update()
     {
         super.update()
@@ -26,7 +32,7 @@ public class BxInputRateRowBinder<Row: BxInputRateRow, Cell: BxInputRateCell> : 
         guard let cell = cell else {
             return
         }
-        //
+        // backward call delegate
         cell.valueRateView.delegate = self
         //
         cell.titleLabel.font = owner?.settings.titleFont
@@ -52,7 +58,7 @@ public class BxInputRateRowBinder<Row: BxInputRateRow, Cell: BxInputRateCell> : 
             cell.valueRateView.rating = 0
         }
     }
-    
+    /// event of change isEnabled
     override open func didSetEnabled(_ value: Bool)
     {
         super.didSetEnabled(value)

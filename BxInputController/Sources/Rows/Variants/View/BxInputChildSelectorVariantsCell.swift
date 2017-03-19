@@ -13,6 +13,7 @@
 
 import UIKit
 
+/// Delegate for BxInputChildSelectorVariantsCell
 public protocol BxInputChildSelectorVariantsDelegate : UIPickerViewDelegate, UIPickerViewDataSource
 {
     //
@@ -21,8 +22,7 @@ public protocol BxInputChildSelectorVariantsDelegate : UIPickerViewDelegate, UIP
 /// Cell for showing variant selector as data picker
 open class BxInputChildSelectorVariantsCell: UITableViewCell {
 
-    @IBOutlet weak open var variantsPicker: UIPickerView!
-    
+    /// delegate with backward call UIPickerViewDelegate, UIPickerViewDataSource
     public weak var delegate: BxInputChildSelectorVariantsDelegate? = nil
     {
         didSet {
@@ -30,6 +30,9 @@ open class BxInputChildSelectorVariantsCell: UITableViewCell {
             variantsPicker.dataSource = delegate
         }
     }
+    
+    /// control for choosing variants
+    @IBOutlet weak open var variantsPicker: UIPickerView!
     
     
 }

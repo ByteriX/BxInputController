@@ -13,6 +13,7 @@
 
 import UIKit
 
+/// Delegate for BxInputChildSelectorTextCell
 public protocol BxInputChildSelectorTextDelegate : UITextViewDelegate
 {
     
@@ -21,6 +22,7 @@ public protocol BxInputChildSelectorTextDelegate : UITextViewDelegate
 /// Cell for selector Row with longest text string
 public class BxInputChildSelectorTextCell: UITableViewCell {
     
+    /// delegate has backword call UITextViewDelegate
     public weak var delegate: BxInputChildSelectorTextDelegate? = nil
     {
         didSet {
@@ -28,19 +30,8 @@ public class BxInputChildSelectorTextCell: UITableViewCell {
         }
     }
 
+    /// value editor control
     @IBOutlet var textView: UITextView!
-    
-    override open func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
-    override open func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
-    
     
     
 }

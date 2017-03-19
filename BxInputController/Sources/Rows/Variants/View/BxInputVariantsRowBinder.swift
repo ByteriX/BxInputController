@@ -1,16 +1,22 @@
-//
-//  BxInputVariantsRowBinder.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 17/03/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputVariantsRowBinder.swift
+ *	@namespace BxInputController
+ *
+ *	@details Binder for BxInputVariantsRow
+ *	@date 17.03.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 
+/// Binder for BxInputVariantsRow
 class BxInputVariantsRowBinder<T : BxInputStringObject, Cell : BxInputStandartTextCell>: BxInputStandartTextRowBinder<BxInputVariantsRow<T>, Cell>, UIPickerViewDelegate, UIPickerViewDataSource
 {
-    
+    /// call after common update for text attributes updating
     override open func updateCell()
     {
         super.updateCell()

@@ -18,10 +18,11 @@ import Photos
 /// Implementation picture item as PHAsset owner. It may be image from Library
 public class BxInputPictureLibraryItem : BxInputPictureItem
 {
+    /// storge of icon
     internal var asset: PHAsset
-    
+    /// From BxInputPictureItem icon size
     public var iconSize: CGSize
-    
+    /// From BxInputPictureItem icon data
     public var icon: UIImage {
         get { return BxInputPictureLibraryItem.imageFromPHAsset(asset, size: iconSize)! }
     }

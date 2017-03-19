@@ -16,10 +16,11 @@ import UIKit
 /// Implementation picture item as UIImage owner. For example it may be photo from camera
 public class BxInputPictureImageItem : BxInputPictureItem
 {
+    /// this for storge icon
     internal var image: UIImage
-    
+    /// From BxInputPictureItem size of icon
     public var iconSize: CGSize
-    
+    /// From BxInputPictureItem icon
     public var icon: UIImage {
         get { return image }
     }

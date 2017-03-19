@@ -30,6 +30,7 @@ class BxInputActionCustomRowBinder<T : BxInputString, Cell : BxInputStandartText
         }
     }
     
+    /// call after common update for text attributes updating
     override open func updateCell()
     {
         cell?.valueTextField.isEnabled = false

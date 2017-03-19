@@ -1,17 +1,23 @@
-//
-//  BxInputChildSelectorSuggestionRowBinder.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 06/03/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputChildSelectorSuggestionRowBinder.swift
+ *	@namespace BxInputController
+ *
+ *	@details Binder for suggestion selector Row subclasses
+ *	@date 06.03.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 
-
+/// Binder for child suggestion selector Row subclasses
 open class BxInputChildSelectorSuggestionRowBinder<Row : BxInputChildSelectorRow, Cell: BxInputChildSelectorSuggestionCell> : BxInputChildSelectorRowBinder<Row, Cell, BxInputSelectorSuggestionsRow<Row>>
 {
     
+    /// call when user selected this cell
     override open func didSelected()
     {
         super.didSelected()
@@ -23,6 +29,7 @@ open class BxInputChildSelectorSuggestionRowBinder<Row : BxInputChildSelectorRow
         owner?.didChangedRow(parentRow)
     }
     
+    /// update cell from model data
     override open func update()
     {
         super.update()
@@ -33,6 +40,7 @@ open class BxInputChildSelectorSuggestionRowBinder<Row : BxInputChildSelectorRow
         cell?.titleLabel.text = row.title
     }
     
+    /// event of change isEnabled
     override open func didSetEnabled(_ value: Bool)
     {
         super.didSetEnabled(value)

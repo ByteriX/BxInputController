@@ -16,20 +16,7 @@ import UIKit
 /// Cell for suggestion rows which used in BxInputSelectorSuggestionsRow. Usaully this class overrided in Projects
 open class BxInputChildSelectorSuggestionCell: UITableViewCell {
     
+    // title of item
     @IBOutlet weak open var titleLabel: UILabel!
-
-    override open func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override open func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
-    
-    
     
 }

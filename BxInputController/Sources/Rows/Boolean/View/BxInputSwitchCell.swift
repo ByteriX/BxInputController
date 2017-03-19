@@ -13,21 +13,23 @@
 
 import UIKit
 
+/// delegate for BxInputSwitchCell
 public protocol BxInputSwitchDelegate: AnyObject
 {
+    /// change value of Switch
     func valueDidChanged(valueSwitch: UISwitch)
 }
 
 /// Cell with switch button for boolean row
 open class BxInputSwitchCell: UITableViewCell {
-    
+    /// delegate
     public weak var delegate: BxInputSwitchDelegate? = nil
 
     /// caption of row
     @IBOutlet weak open var titleLabel: UILabel!
     /// switch button for changing value
     @IBOutlet weak open var valueSwitch: UISwitch!
-    
+    /// action from UISwitch
     @IBAction func valueDidChanged()
     {
         if let valueSwitch = valueSwitch {

@@ -1,16 +1,22 @@
-//
-//  BxInputChildSelectorDateRowBinder.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 06/03/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputChildSelectorDateRowBinder.swift
+ *	@namespace BxInputController
+ *
+ *	@details Binder for BxInputChildSelectorDateRow subclasses
+ *	@date 06.03.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 
+/// Binder for BxInputChildSelectorDateRow subclasses
 open class BxInputChildSelectorDateRowBinder<Row: BxInputChildSelectorDateRow, Cell: BxInputChildSelectorDateCell, ParentRow: BxInputSelectorDateRow> : BxInputChildSelectorRowBinder<Row, Cell, ParentRow>, BxInputChildSelectorDateDelegate
 {
-    
+    /// update cell from model data, in inherited cell need call super!
     override open func update()
     {
         super.update()
@@ -33,7 +39,7 @@ open class BxInputChildSelectorDateRowBinder<Row: BxInputChildSelectorDateRow, C
             }
         }
     }
-    
+    /// event of change isEnabled
     override open func didSetEnabled(_ value: Bool)
     {
         super.didSetEnabled(value)
@@ -42,6 +48,9 @@ open class BxInputChildSelectorDateRowBinder<Row: BxInputChildSelectorDateRow, C
         cell?.datePicker.alpha = value ? 1.0 : 0.5
     }
     
+    // MARK - BxInputChildSelectorDateDelegate
+    
+    /// editing date from Picker
     open func changeDate(datePicker: UIDatePicker) {
         parentRow.value = cell?.datePicker.date
         owner?.updateRow(parentRow)

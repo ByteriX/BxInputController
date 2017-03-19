@@ -1,16 +1,22 @@
-//
-//  BxInputCheckRowBinder.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 17/03/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputCheckRowBinder.swift
+ *	@namespace BxInputController
+ *
+ *	@details Binder for check box row subclasses
+ *	@date 17.03.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 
-class BxInputCheckRowBinder<Row : BxInputCheckRow, Cell : BxInputStandartTextCell>: BxInputStandartTextRowBinder<Row, Cell>
+/// Binder for check box Row subclasses
+open class BxInputCheckRowBinder<Row : BxInputCheckRow, Cell : BxInputStandartTextCell>: BxInputStandartTextRowBinder<Row, Cell>
 {
-    
+    /// call when user selected this cell
     override open func didSelected()
     {
         super.didSelected()
@@ -20,6 +26,7 @@ class BxInputCheckRowBinder<Row : BxInputCheckRow, Cell : BxInputStandartTextCel
         update()
     }
     
+    /// call after common update for text attributes updating
     override open func updateCell()
     {
         cell?.valueTextField.isEnabled = false

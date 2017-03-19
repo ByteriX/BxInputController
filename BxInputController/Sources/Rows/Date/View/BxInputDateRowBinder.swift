@@ -1,16 +1,22 @@
-//
-//  BxInputDateRowBinder.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 17/03/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputDateRowBinder.swift
+ *	@namespace BxInputController
+ *
+ *	@details Binder for BxInputDateRow subclasses
+ *	@date 17.03.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 
+/// Binder for BxInputDateRow subclasses
 class BxInputDateRowBinder<Row : BxInputDateRow, Cell : BxInputStandartTextCell>: BxInputStandartTextRowBinder<Row, Cell>
 {
-    
+    /// call after common update for text attributes updating
     override open func updateCell()
     {
         super.updateCell()
@@ -68,6 +74,5 @@ class BxInputDateRowBinder<Row : BxInputDateRow, Cell : BxInputStandartTextCell>
             datePicker.removeTarget(self, action: #selector(changeDate), for: [.valueChanged, .touchUpInside])
         }
     }
-    
     
 }

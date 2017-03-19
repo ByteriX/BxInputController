@@ -1,23 +1,29 @@
-//
-//  BxInputChildSelectorTextRowBinder.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 06/03/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputChildSelectorTextRowBinder.swift
+ *	@namespace BxInputController
+ *
+ *	@details Binder for BxInputChildSelectorTextRow subclasses
+ *	@date 06.03.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 
+/// Binder for internal BxInputChildSelectorTextRow subclasses
 open class BxInputChildSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, Cell: BxInputChildSelectorTextCell, ParentRow: BxInputSelectorTextRow> : BxInputChildSelectorRowBinder<Row, Cell, ParentRow>, BxInputChildSelectorTextDelegate, UITextViewDelegate
 {
-    
+    /// call when user selected this cell
     override open func didSelected()
     {
         super.didSelected()
         
         cell?.textView.becomeFirstResponder()
     }
-    
+    /// update cell from model data
     override open func update()
     {
         super.update()
@@ -27,7 +33,7 @@ open class BxInputChildSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, C
         cell?.textView.textColor = owner?.settings.valueColor
         cell?.textView.text = parentRow.value
     }
-    
+    /// event of change isEnabled
     override open func didSetEnabled(_ value: Bool)
     {
         super.didSetEnabled(value)
@@ -38,13 +44,15 @@ open class BxInputChildSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, C
         cell?.textView.alpha = value ? 1 : 0.5
     }
     
+    /// check state of putting value
     open func check()
     {
-        if checkContent() {
+        if checkSize() {
             checkScroll()
         }
     }
     
+    /// check and change only scroll if need
     open func checkScroll()
     {
         guard let cell = cell else {
@@ -62,8 +70,8 @@ open class BxInputChildSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, C
             }
         }
     }
-    
-    open func checkContent() -> Bool
+    /// check and change only size if need
+    open func checkSize() -> Bool
     {
         guard let cell = cell else {
             return false
@@ -80,6 +88,7 @@ open class BxInputChildSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, C
     
     // MARK - UITextViewDelegate
     
+    /// start editing
     open func textViewShouldBeginEditing(_ textView: UITextView) -> Bool
     {
         owner?.activeRow = parentRow
@@ -87,16 +96,19 @@ open class BxInputChildSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, C
         return true
     }
     
+    /// editing is started
     open func textViewDidBeginEditing(_ textView: UITextView)
     {
         self.perform(#selector(check), with: nil, afterDelay: 0.1)
     }
     
+    /// end editing
     open func textViewShouldEndEditing(_ textView: UITextView) -> Bool
     {
         return true
     }
     
+    /// change value
     open func textViewDidChange(_ textView: UITextView)
     {
         parentRow.value = textView.text
