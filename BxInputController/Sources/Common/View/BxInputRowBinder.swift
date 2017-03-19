@@ -16,9 +16,9 @@ public protocol BxInputRowBinder : AnyObject {
     var rowData: BxInputRow {get set}
     /// view
     var viewCell: UITableViewCell? {get set}
-    
+    /// call before showing view when need update content
     func update()
-    
+    /// call when user selected this cell
     func didSelected()
     
 }

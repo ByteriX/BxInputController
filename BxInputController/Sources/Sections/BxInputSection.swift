@@ -16,24 +16,38 @@ import UIKit
 /// Section class with all content data for BxInputController
 open class BxInputSection
 {
+
+    /// metadata of cells for this section
+    open var rowBinders: [BxInputRowBinder] = []
+    
     /// header content of the section, that showed above rows
     open var header: BxInputSectionContent? = nil
     {
         didSet {
-            header?.parent = self
+            if let header = header {
+                header.parent = self
+                headerBinder = header.binder
+            } else {
+                headerBinder = nil
+            }
         }
     }
-    
-    /// metadata of cells for this section
-    open var rowBinders: [BxInputRowBinder] = []
     
     /// footer content of the section, that showed below rows
     open var footer: BxInputSectionContent? = nil
     {
         didSet {
-            footer?.parent = self
+            if let footer = footer {
+                footer.parent = self
+                footerBinder = footer.binder
+            } else {
+                footerBinder = nil
+            }
         }
     }
+
+    internal(set) public var headerBinder: BxInputSectionContentBinder? = nil
+    internal(set) public var footerBinder: BxInputSectionContentBinder? = nil
     
     /// construction object with text header and/or fother, default headerText/footerText is nil and they won't show
     public init(headerText: String? = nil, rows: [BxInputRow], footerText: String? = nil) {
@@ -41,11 +55,13 @@ open class BxInputSection
         {
             rowBinders.append(row.binder)
         }
-        if let headerText = headerText {
-            header = BxInputSectionStringHeader(headerText)
-        }
-        if let footerText = footerText {
-            footer = BxInputSectionStringFooter(footerText)
+        defer {
+            if let headerText = headerText {
+                header = BxInputSectionStringHeader(headerText)
+            }
+            if let footerText = footerText {
+                footer = BxInputSectionStringFooter(footerText)
+            }
         }
     }
 }

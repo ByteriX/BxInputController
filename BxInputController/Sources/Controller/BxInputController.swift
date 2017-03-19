@@ -385,18 +385,20 @@ open class BxInputController : UIViewController
             return
         }
         var isNeedReloadSection = !(sections[index] === section)
-        if let header = tableView.headerView(forSection: index) as? BxInputBaseHeaderFooterView
+        if let headerView = tableView.headerView(forSection: index)
         {
-            if let headerData = section.header {
-                header.update(data: headerData)
+            if let headerBinder = section.headerBinder {
+                headerBinder.contentView = headerView
+                headerBinder.update()
             } else {
                 isNeedReloadSection = true
             }
         }
-        if let footer = tableView.footerView(forSection: index) as? BxInputBaseHeaderFooterView
+        if let footerView = tableView.footerView(forSection: index)
         {
-            if let footerData = section.footer {
-                footer.update(data: footerData)
+            if let footerBinder = section.footerBinder {
+                footerBinder.contentView = footerView
+                footerBinder.update()
             } else {
                 isNeedReloadSection = true
             }

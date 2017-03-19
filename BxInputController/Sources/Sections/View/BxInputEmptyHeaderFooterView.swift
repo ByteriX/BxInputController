@@ -14,7 +14,7 @@
 import UIKit
 
 /// View for showing nothing if header or footer should be empty
-class BxInputEmptyHeaderFooterView: BxInputBaseHeaderFooterView {
+class BxInputEmptyHeaderFooterView: UITableViewHeaderFooterView {
 
     /// height for change if need
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!

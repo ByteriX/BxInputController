@@ -16,6 +16,10 @@ import UIKit
 /// Class for implementation text content for footer of a section
 open class BxInputSectionStringFooter: BxInputSectionStringContent
 {
+    /// Make and return Binder for binding section content data with view.
+    public var binder: BxInputSectionContentBinder {
+        return BxInputStringFooterSectionContentBinder<BxInputSectionStringFooter>(content: self)
+    }
     /// xib name, see 'BxInputUtils'
     open var resourceId = "BxInputTextFooterView"
     /// You may override this for custom size
@@ -24,10 +28,10 @@ open class BxInputSectionStringFooter: BxInputSectionStringContent
     public var parent: BxInputSection? = nil
     
     /// shown text for footer
-    open var contentText : String
+    open var text : String
     
     /// text will shown in the footer of a section
     public init(_ text: String) {
-        contentText = text
+        self.text = text
     }
 }

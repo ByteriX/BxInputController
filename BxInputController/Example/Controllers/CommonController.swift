@@ -119,7 +119,7 @@ class CommonController: BxInputController {
         self.sections = [
             BxInputSection(rows: [nameValue, emailValue, passwordValue, disabledValue]),
             BxInputSection(headerText: "", rows: [filledDate, emptyDate, lastDate]),
-            BxInputSection(rows: [emptyVariants, filledVariants, otherVariantsRow]),
+            BxInputSection(headerText: "Section", rows: [emptyVariants, filledVariants, otherVariantsRow], footerText: "Footer"),
             BxInputSection(rows: [deselectedActionAlert, actionAlert, pushAlert, disabledAction, insertSectionAction, selectSectionAction])
         ]
     }

@@ -21,13 +21,16 @@ public protocol BxInputSectionContent : AnyObject {
     
     /// estimated height of content for dynamical size
     var estimatedHeight : CGFloat {get}
+    
+    /// Make and return Binder for binding section content data with view.
+    var binder : BxInputSectionContentBinder {get}
 }
 
 /// Protocol for the BxInputSection header/footer with UIView content
 public protocol BxInputSectionViewContent : BxInputSectionContent {
     
     /// content of the section item
-    var contentView: UIView {get}
+    var view: UIView {get}
     
 }
 
@@ -36,13 +39,13 @@ public protocol BxInputSectionNibContent : BxInputSectionContent {
     
     /// resourceId need for getting view content from xib with the same name, also this id using for register header/foother in the table
     var resourceId : String {get}
-    
+
 }
 
 /// Protocol for the BxInputSection header/footer with only text content
 public protocol BxInputSectionStringContent : BxInputSectionNibContent {
     
     /// content of the section item
-    var contentText : String {get}
+    var text : String {get}
     
 }

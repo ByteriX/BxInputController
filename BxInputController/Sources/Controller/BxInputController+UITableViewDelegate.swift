@@ -56,48 +56,42 @@ extension BxInputController : UITableViewDelegate{
         rowBinder.didSelected()
     }
     
-    open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+    open func getFooterHeader(from contentBinder: BxInputSectionContentBinder?) -> UIView?
     {
-        let sectionData = sections[section]
-        guard let headerData = sectionData.header else {
-            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: BxInputController.emptyHeaderFooterId) as! BxInputEmptyHeaderFooterView
+        guard let contentBinder = contentBinder else {
+            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: BxInputController.emptyHeaderFooterId)
             return view
         }
         
-        if let headerData = headerData as? BxInputSectionViewContent {
-            return headerData.contentView
-        } else if let headerData = headerData as? BxInputSectionNibContent {
-            if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerData.resourceId) as? BxInputBaseHeaderFooterView
+        var result: UIView? = nil
+        
+        if let headerData = contentBinder.contentData as? BxInputSectionViewContent {
+            result = headerData.view
+            
+        } else if let headerData = contentBinder.contentData as? BxInputSectionNibContent {
+            if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerData.resourceId)
             {
-                headerView.parent = self
-                headerView.update(data: headerData)
-                return headerView
+                result = headerView
             }
         }
-        
-        return nil
+        contentBinder.contentView = result
+        contentBinder.owner = self
+        if result != nil {
+            contentBinder.update()
+        }
+        return result
+    }
+    
+    open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+    {
+        let sectionData = sections[section]
+        return getFooterHeader(from: sectionData.headerBinder)
     }
     
     open func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
     {
         let sectionData = sections[section]
-        guard let footerData = sectionData.footer else {
-            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: BxInputController.emptyHeaderFooterId) as! BxInputEmptyHeaderFooterView
-            return view
-        }
-        
-        if let footerData = footerData as? BxInputSectionViewContent {
-            return footerData.contentView
-        } else if let footerData = footerData as? BxInputSectionNibContent {
-            if let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: footerData.resourceId) as? BxInputBaseHeaderFooterView
-            {
-                footerView.parent = self
-                footerView.update(data: footerData)
-                return footerView
-            }
-        }
-        
-        return nil
+        return getFooterHeader(from: sectionData.footerBinder)
     }
     
     
@@ -116,30 +110,27 @@ extension BxInputController : UITableViewDelegate{
         }
     }
     
-    open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
+    open func getFooterHeaderHeight(from content: BxInputSectionContent?) -> CGFloat
     {
-        let sectionData = sections[section]
-        
-        guard let header = sectionData.header else {
+        guard let content = content else {
             return 1
         }
         if isEstimatedContent {
             return UITableViewAutomaticDimension
         }
-        return header.estimatedHeight
+        return content.estimatedHeight
+    }
+    
+    open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
+    {
+        let sectionData = sections[section]
+        return getFooterHeaderHeight(from: sectionData.header)
     }
     
     open func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
     {
         let sectionData = sections[section]
-        
-        guard let footer = sectionData.footer else {
-            return 1
-        }
-        if isEstimatedContent {
-            return UITableViewAutomaticDimension
-        }
-        return footer.estimatedHeight
+        return getFooterHeaderHeight(from: sectionData.footer)
     }
     
     open func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat
@@ -148,24 +139,24 @@ extension BxInputController : UITableViewDelegate{
         return row.estimatedHeight
     }
     
+    open func getFooterHeaderEstimatedHeight(from content: BxInputSectionContent?) -> CGFloat
+    {
+        guard let content = content else {
+            return 10
+        }
+        return content.estimatedHeight
+    }
+    
     open func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat
     {
         let sectionData = sections[section]
-        
-        guard let header = sectionData.header else {
-            return 10
-        }
-        return header.estimatedHeight
+        return getFooterHeaderEstimatedHeight(from: sectionData.header)
     }
     
     open func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat
     {
         let sectionData = sections[section]
-        
-        guard let footer = sectionData.footer else {
-            return 10
-        }
-        return footer.estimatedHeight
+        return getFooterHeaderEstimatedHeight(from: sectionData.footer)
     }
     
     

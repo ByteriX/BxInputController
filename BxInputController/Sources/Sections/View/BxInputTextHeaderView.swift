@@ -14,26 +14,11 @@
 import UIKit
 
 /// View for showing text content of header for a section
-open class BxInputTextHeaderView: BxInputBaseHeaderFooterView {
-    
-    /// text content label
-    @IBOutlet weak open var contentLabel: UILabel!
+open class BxInputTextHeaderView: BxInputStringSectionContentView {
 
     override open func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
-
-    override open func update(data: BxInputSectionContent)
-    {
-        super.update(data: data)
-        
-        contentLabel.font = parent?.settings.headerFont
-        contentLabel.textColor = parent?.settings.headerColor
-        
-        if let textData = data as? BxInputSectionStringContent {
-            contentLabel.text = textData.contentText
-        }
     }
     
 }
