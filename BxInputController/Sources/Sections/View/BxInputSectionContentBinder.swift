@@ -1,13 +1,19 @@
-//
-//  BxInputSectionContentBinder.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 18/03/17.
-//  Copyright © 2017 Byterix. All rights reserved.
-//
+/**
+ *	@file BxInputSectionContentBinder.swift
+ *	@namespace BxInputController
+ *
+ *	@details Protocol and base class for binding data model with view of section content
+ *	@date 18.03.2017
+ *	@author Sergey Balalaev
+ *
+ *	@version last in https://github.com/ByteriX/BxInputController.git
+ *	@copyright The MIT License (MIT) https://opensource.org/licenses/MIT
+ *	 Copyright (c) 2017 ByteriX. See http://byterix.com
+ */
 
 import UIKit
 
+/// Protocol for binding data model with view of section content
 public protocol BxInputSectionContentBinder : AnyObject
 {
     
@@ -22,6 +28,7 @@ public protocol BxInputSectionContentBinder : AnyObject
     
 }
 
+/// Base class for binding data model with view of section content
 open class BxInputBaseSectionContentBinder<Content: BxInputSectionContent, View : UIView> : NSObject, BxInputSectionContentBinder
 {
     
@@ -32,7 +39,7 @@ open class BxInputBaseSectionContentBinder<Content: BxInputSectionContent, View 
         get { return content }
         set { content = newValue as! Content}
     }
-    /// view
+    /// view of content
     public var contentView: UIView? {
         get { return view }
         set { view = newValue as? View }
@@ -40,10 +47,10 @@ open class BxInputBaseSectionContentBinder<Content: BxInputSectionContent, View 
     
     /// data model of section content
     internal(set) public var content: Content
+    /// view of section content
     public weak var view: View? = nil
     
-    
-    
+    /// new value should map data model
     init(content: Content)
     {
         self.content = content

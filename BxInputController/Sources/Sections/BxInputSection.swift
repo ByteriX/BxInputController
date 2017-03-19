@@ -46,7 +46,9 @@ open class BxInputSection
         }
     }
 
+    /// binder with logic of working header view and data model
     internal(set) public var headerBinder: BxInputSectionContentBinder? = nil
+    /// binder with logic of working footer view and data model
     internal(set) public var footerBinder: BxInputSectionContentBinder? = nil
     
     /// construction object with text header and/or fother, default headerText/footerText is nil and they won't show
