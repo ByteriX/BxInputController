@@ -6,6 +6,16 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.0.0 (20.03.2017)
+##### Improvements
+* new paradigm supported MVVM
+* added RowBinder entity between Row and Cell, SectionContent and HeaderView/FooterView
+* rename all Selector classes
+* refactored all row.parent to parentRow
+* remove base View classes: BxInputBaseCell, BxInputBaseHeaderFooterView
+* fixed bug with header and footer confusion
+
+
 ## 1.1.2 (17.03.2017)
 ##### Bug fixing
 * fix bug with header and footer in BxInputSection
