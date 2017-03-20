@@ -14,7 +14,7 @@
 import UIKit
 
 /// Binder for BxInputVariantsRow
-class BxInputVariantsRowBinder<T : BxInputStringObject, Cell : BxInputStandartTextCell>: BxInputStandartTextRowBinder<BxInputVariantsRow<T>, Cell>, UIPickerViewDelegate, UIPickerViewDataSource
+open class BxInputVariantsRowBinder<T : BxInputStringObject, Cell : BxInputStandartTextCell>: BxInputStandartTextRowBinder<BxInputVariantsRow<T>, Cell>, UIPickerViewDelegate, UIPickerViewDataSource
 {
     /// call after common update for text attributes updating
     override open func updateCell()

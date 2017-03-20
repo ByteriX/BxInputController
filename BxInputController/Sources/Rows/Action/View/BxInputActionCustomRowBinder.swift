@@ -14,7 +14,7 @@
 import UIKit
 
 /// Binder for custom action row
-class BxInputActionCustomRowBinder<T : BxInputString, Cell : BxInputStandartTextCell>: BxInputStandartTextRowBinder<BxInputActionCustomRow<T>, Cell>
+open class BxInputActionCustomRowBinder<T : BxInputString, Cell : BxInputStandartTextCell>: BxInputStandartTextRowBinder<BxInputActionCustomRow<T>, Cell>
 {
     
     /// call when user selected this cell

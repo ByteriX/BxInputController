@@ -15,7 +15,7 @@ import UIKit
 import BxObjC
 
 /// Binder for BxInputRateRow subclasses
-public class BxInputRateRowBinder<Row: BxInputRateRow, Cell: BxInputRateCell> : BxInputBaseRowBinder<Row, Cell>, BxStandartRateViewDelegate
+open class BxInputRateRowBinder<Row: BxInputRateRow, Cell: BxInputRateCell> : BxInputBaseRowBinder<Row, Cell>, BxStandartRateViewDelegate
 {
     /// call when user selected this cell
     override open func didSelected()
