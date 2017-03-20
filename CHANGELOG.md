@@ -6,8 +6,17 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
-## 1.0.9 (03.03.2017)
-##### Improvements
+## 1.1.2 (17.03.2017)
+##### Bug fixing
+* fix bug with header and footer in BxInputSection
+
+## 1.1.1 (14.03.2017)
+##### Bug fixing
+* phone field has had number Pad type
+
+## 1.1.0 (14.03.2017)
+##### Features
+* added BxInputFormattedTextRow with url & phone formatting
 * clear warnings
 
 ## 1.0.8 (02.03.2017)

@@ -6,15 +6,18 @@ PODS:
   - BxObjC/Vcl (1.1.19):
     - BxObjC/Common
     - BxObjC/Data
+  - BxTextField (1.1.4)
   - XMLDictionary (1.4)
 
 DEPENDENCIES:
   - BxObjC/Vcl
+  - BxTextField
 
 SPEC CHECKSUMS:
   BxObjC: 07e11658faf742c6d982a9117e003f776af27d95
+  BxTextField: fcaf40ebedda9c6185c916ee8d610bf768bb4560
   XMLDictionary: f9f51601ba76678b594ab485f2b00ec1fed23724
 
-PODFILE CHECKSUM: 1a6e5b44f29b42d14e55918a9e4a3917161a942e
+PODFILE CHECKSUM: a9fa29c70569f08fd7b37217a6d0211770509924
 
 COCOAPODS: 1.2.0

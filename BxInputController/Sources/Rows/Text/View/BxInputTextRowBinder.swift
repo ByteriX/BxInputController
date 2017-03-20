@@ -14,7 +14,7 @@
 import UIKit
 
 /// Binder for BxInputTextRow subclasses
-class BxInputTextRowBinder<Row : BxInputTextRow, Cell : BxInputStandartTextCell>: BxInputStandartTextRowBinder<Row, Cell>
+open class BxInputTextRowBinder<Row : BxInputTextRow, Cell : BxInputStandartTextCell>: BxInputStandartTextRowBinder<Row, Cell>
 {
     /// call after common update for text attributes updating
     override open func updateCell()

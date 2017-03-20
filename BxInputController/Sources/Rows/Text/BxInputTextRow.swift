@@ -16,6 +16,7 @@ import UIKit
 /// Row for putting short text string
 open class BxInputTextRow: BxInputStringRow
 {
+    /// Make and return Binder for binding row with cell.
     open var binder : BxInputRowBinder {
         return BxInputTextRowBinder<BxInputTextRow, BxInputStandartTextCell>(row: self)
     }

@@ -7,5 +7,6 @@ target 'BxInputController' do
 
   # Pods for BxInputController
   pod 'BxObjC/Vcl'
+  pod 'BxTextField'
 
 end
