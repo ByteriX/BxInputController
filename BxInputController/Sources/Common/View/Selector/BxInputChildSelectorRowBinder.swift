@@ -18,7 +18,7 @@ open class BxInputChildSelectorRowBinder<Row: BxInputChildSelectorRow, Cell: UIT
 {
     
     /// parent row for easy access
-    var parentRow: ParentRow {
+    public var parentRow: ParentRow {
         return row.parent as! ParentRow
     }
     

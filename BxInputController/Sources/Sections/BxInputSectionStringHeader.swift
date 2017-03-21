@@ -17,11 +17,13 @@ import UIKit
 open class BxInputSectionStringHeader: BxInputSectionStringContent
 {
     /// Make and return Binder for binding section content data with view.
-    public var binder: BxInputSectionContentBinder {
-        return BxInputStringHeaderSectionContentBinder<BxInputSectionStringHeader>(content: self)
+    open var binder: BxInputSectionContentBinder {
+        return BxInputStringHeaderSectionContentBinder<BxInputSectionStringHeader, BxInputStringSectionContentView>(content: self)
     }
     /// xib name, see 'BxInputUtils'
-    open var resourceId = "BxInputTextHeaderView"
+    open var resourceId : String {
+        return "BxInputTextHeaderView"
+    }
     /// You may override this for custom size
     open var estimatedHeight : CGFloat = 36
     /// owner

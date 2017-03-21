@@ -54,7 +54,7 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
     public weak var cell: Cell? = nil
     
     /// new value should map with data model
-    init(row: Row)
+    public init(row: Row)
     {
         self.row = row
     }

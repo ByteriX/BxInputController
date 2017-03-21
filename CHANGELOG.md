@@ -6,6 +6,13 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.0.1 (21.03.2017)
+##### Bug fixing
+* made resourceId in SectionContent as getter property
+* made public inits for all binder
+* made open all binder getter in Row & SectionContent
+* added template View to BxInputStringHeaderSectionContentBinder
+
 ## 2.0.0 (20.03.2017)
 ##### Improvements
 * new paradigm supported MVVM

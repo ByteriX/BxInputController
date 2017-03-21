@@ -17,11 +17,13 @@ import UIKit
 open class BxInputSectionStringFooter: BxInputSectionStringContent
 {
     /// Make and return Binder for binding section content data with view.
-    public var binder: BxInputSectionContentBinder {
+    open var binder: BxInputSectionContentBinder {
         return BxInputStringFooterSectionContentBinder<BxInputSectionStringFooter>(content: self)
     }
     /// xib name, see 'BxInputUtils'
-    open var resourceId = "BxInputTextFooterView"
+    open var resourceId : String {
+        return "BxInputTextFooterView"
+    }
     /// You may override this for custom size
     open var estimatedHeight : CGFloat = 36
     /// owner

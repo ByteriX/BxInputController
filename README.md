@@ -319,7 +319,7 @@ Well I have solved create myself solution, abstracting from the conventional con
 
 ![Common paradigm](Screenshots/UML-base.png)
 
-### Description with exising paradigmes
+### Description with existing paradigmes
 
 `BxInputController` is a UIViewController with the Facade functions, so it may has "presenter" name in VIPER. It manages all ViewModels objects that inherited from `BxInputBaseSectionContentBinder`, `BxInputBaseRowBinder` classes. ViewModels have back-reference with `BxInputController`, because they have the single field of a responsibility drawing UI and may has "interactor" name in VIPER.
 

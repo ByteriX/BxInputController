@@ -14,7 +14,7 @@
 import Foundation
 
 /// Binding string data content of header section with view
-open class BxInputStringHeaderSectionContentBinder<T: BxInputSectionStringContent> : BxInputBaseSectionContentBinder<T, BxInputStringSectionContentView>
+open class BxInputStringHeaderSectionContentBinder<Content: BxInputSectionStringContent, View : BxInputStringSectionContentView> : BxInputBaseSectionContentBinder<Content, View>
 {
     override open func update()
     {

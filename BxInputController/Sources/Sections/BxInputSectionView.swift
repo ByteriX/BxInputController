@@ -17,7 +17,7 @@ import UIKit
 open class BxInputSectionView : BxInputSectionViewContent
 {
     /// Make and return Binder for binding section content data with view.
-    public var binder: BxInputSectionContentBinder {
+    open var binder: BxInputSectionContentBinder {
         return BxInputBaseSectionContentBinder<BxInputSectionView, UIView>(content: self)
     }
     /// default return size of view, but you may override it
