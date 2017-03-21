@@ -32,18 +32,34 @@ public protocol BxInputRowBinder : AnyObject {
 /// Base class for binding row data model with cell
 open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObject, BxInputRowBinder
 {
-    /// view
+    /// view for internal using
     public var viewCell: UITableViewCell?
-    {
+        {
         get { return cell }
-        set { cell = newValue as? Cell }
+        set {
+            if let cell = newValue as? Cell {
+                self.cell = cell
+            } else {
+                if let cell = newValue{
+                    assertionFailure("Error Cell class from \(type(of: self)).\nExpected: \(Cell.self) actual: \(type(of: cell)).\nThis use from row with class \(type(of: row)).")
+                } else {
+                    assertionFailure("Error from \(type(of: self)) get nil cell from tableView.\nThis use from row with class \(type(of: row))")
+                }
+            }
+        }
     }
 
     /// reference to model data
     public var rowData: BxInputRow
     {
         get { return row }
-        set { row = newValue as! Row }
+        set {
+            if let row = newValue as? Row {
+                self.row = row
+            } else {
+                assertionFailure("Error Row class from \(type(of: self)).\nExpected: \(Row.self) actual: \(type(of: newValue)).")
+            }
+        }
     }
 
     /// reference to owner

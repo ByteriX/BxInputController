@@ -34,6 +34,9 @@
 		F933F5BC1E7BD01200FB1E22 /* BxInputStandartTextRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F933F5B51E7BD01200FB1E22 /* BxInputStandartTextRowBinder.swift */; };
 		F933F5C01E7BD97C00FB1E22 /* BxInputSelectorDateRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F933F5BF1E7BD97C00FB1E22 /* BxInputSelectorDateRowBinder.swift */; };
 		F933F5C21E7BDE3F00FB1E22 /* BxInputSelectorTextRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F933F5C11E7BDE3F00FB1E22 /* BxInputSelectorTextRowBinder.swift */; };
+		F960F74F1E812244002F11A5 /* BxInputChildSelectorPicturesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F96D1F5C1E5463AC00BDB2CE /* BxInputChildSelectorPicturesCell.xib */; };
+		F960F7501E812244002F11A5 /* BxInputChildSelectorTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F96D1F6F1E5463AC00BDB2CE /* BxInputChildSelectorTextCell.xib */; };
+		F960F7511E812244002F11A5 /* BxInputChildSelectorVariantsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F96D1F771E5463AC00BDB2CE /* BxInputChildSelectorVariantsCell.xib */; };
 		F96D1F781E5463AC00BDB2CE /* BxInputActionCustomRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F461E5463AC00BDB2CE /* BxInputActionCustomRow.swift */; };
 		F96D1F791E5463AC00BDB2CE /* BxInputActionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F471E5463AC00BDB2CE /* BxInputActionRow.swift */; };
 		F96D1F7A1E5463AC00BDB2CE /* BxInputCheckRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F4A1E5463AC00BDB2CE /* BxInputCheckRow.swift */; };
@@ -48,7 +51,6 @@
 		F96D1F831E5463AC00BDB2CE /* BxInputPictureLibraryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F581E5463AC00BDB2CE /* BxInputPictureLibraryItem.swift */; };
 		F96D1F841E5463AC00BDB2CE /* BxInputPictureCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F5A1E5463AC00BDB2CE /* BxInputPictureCollectionCell.swift */; };
 		F96D1F851E5463AC00BDB2CE /* BxInputChildSelectorPicturesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F5B1E5463AC00BDB2CE /* BxInputChildSelectorPicturesCell.swift */; };
-		F96D1F861E5463AC00BDB2CE /* BxInputChildSelectorPicturesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F96D1F5C1E5463AC00BDB2CE /* BxInputChildSelectorPicturesCell.xib */; };
 		F96D1F871E5463AC00BDB2CE /* BxInputSelectorPicturesLibraryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F5D1E5463AC00BDB2CE /* BxInputSelectorPicturesLibraryDataSource.swift */; };
 		F96D1F881E5463AC00BDB2CE /* BxInputSelectorPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F5E1E5463AC00BDB2CE /* BxInputSelectorPictureView.swift */; };
 		F96D1F891E5463AC00BDB2CE /* BxInputRateRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F601E5463AC00BDB2CE /* BxInputRateRow.swift */; };
@@ -61,13 +63,11 @@
 		F96D1F901E5463AC00BDB2CE /* BxInputSelectorTextRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F6B1E5463AC00BDB2CE /* BxInputSelectorTextRow.swift */; };
 		F96D1F911E5463AC00BDB2CE /* BxInputTextRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F6C1E5463AC00BDB2CE /* BxInputTextRow.swift */; };
 		F96D1F921E5463AC00BDB2CE /* BxInputChildSelectorTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F6E1E5463AC00BDB2CE /* BxInputChildSelectorTextCell.swift */; };
-		F96D1F931E5463AC00BDB2CE /* BxInputChildSelectorTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F96D1F6F1E5463AC00BDB2CE /* BxInputChildSelectorTextCell.xib */; };
 		F96D1F941E5463AC00BDB2CE /* BxInputSelectorVariantsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F711E5463AC00BDB2CE /* BxInputSelectorVariantsRow.swift */; };
 		F96D1F951E5463AC00BDB2CE /* BxInputVariants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F721E5463AC00BDB2CE /* BxInputVariants.swift */; };
 		F96D1F961E5463AC00BDB2CE /* BxInputVariantsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F731E5463AC00BDB2CE /* BxInputVariantsItem.swift */; };
 		F96D1F971E5463AC00BDB2CE /* BxInputVariantsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F741E5463AC00BDB2CE /* BxInputVariantsRow.swift */; };
 		F96D1F981E5463AC00BDB2CE /* BxInputChildSelectorVariantsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F761E5463AC00BDB2CE /* BxInputChildSelectorVariantsCell.swift */; };
-		F96D1F991E5463AC00BDB2CE /* BxInputChildSelectorVariantsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F96D1F771E5463AC00BDB2CE /* BxInputChildSelectorVariantsCell.xib */; };
 		F96D1F9B1E54753C00BDB2CE /* SimpleAllRowsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F9A1E54753C00BDB2CE /* SimpleAllRowsController.swift */; };
 		F96D1F9E1E54859300BDB2CE /* BxInputSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F9C1E54859300BDB2CE /* BxInputSwitchCell.swift */; };
 		F96D1F9F1E54859300BDB2CE /* BxInputSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F96D1F9D1E54859300BDB2CE /* BxInputSwitchCell.xib */; };
@@ -691,14 +691,11 @@
 				F92183EE1E23AFB9002E1781 /* Main.storyboard in Resources */,
 				F92183ED1E23AFB9002E1781 /* LaunchScreen.storyboard in Resources */,
 				F9337C431E6811D5002134C2 /* LICENSE in Resources */,
-				F96D1F861E5463AC00BDB2CE /* BxInputChildSelectorPicturesCell.xib in Resources */,
-				F96D1F931E5463AC00BDB2CE /* BxInputChildSelectorTextCell.xib in Resources */,
+				F960F74F1E812244002F11A5 /* BxInputChildSelectorPicturesCell.xib in Resources */,
+				F960F7501E812244002F11A5 /* BxInputChildSelectorTextCell.xib in Resources */,
 				F933F5B81E7BD01200FB1E22 /* BxInputSelectorCell.xib in Resources */,
-				F96D1F991E5463AC00BDB2CE /* BxInputChildSelectorVariantsCell.xib in Resources */,
-				F96D1F861E5463AC00BDB2CE /* BxInputChildSelectorPicturesCell.xib in Resources */,
-				F96D1F931E5463AC00BDB2CE /* BxInputChildSelectorTextCell.xib in Resources */,
+				F960F7511E812244002F11A5 /* BxInputChildSelectorVariantsCell.xib in Resources */,
 				F907C7F21E77D25F000F3437 /* BxInputFormattedTextCell.xib in Resources */,
-				F96D1F991E5463AC00BDB2CE /* BxInputChildSelectorVariantsCell.xib in Resources */,
 				F92183EC1E23AFB9002E1781 /* Assets.xcassets in Resources */,
 				F96D1F8F1E5463AC00BDB2CE /* BxInputChildSelectorSuggestionCell.xib in Resources */,
 				F9E787371E52F6F800341996 /* BxInputTextFooterView.xib in Resources */,

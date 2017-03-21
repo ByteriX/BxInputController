@@ -37,12 +37,30 @@ open class BxInputBaseSectionContentBinder<Content: BxInputSectionContent, View 
     /// reference to model data
     public var contentData: BxInputSectionContent {
         get { return content }
-        set { content = newValue as! Content}
+        //set { content = newValue as! Content}
+        set {
+            if let content = newValue as? Content {
+                self.content = content
+            } else {
+                assertionFailure("Error View class from \(type(of: self)).\nExpected: \(Content.self) actual: \(type(of: newValue)).")
+            }
+        }
     }
     /// view of content
     public var contentView: UIView? {
         get { return view }
-        set { view = newValue as? View }
+        //set { view = newValue as? View }
+        set {
+            if let view = newValue as? View {
+                self.view = view
+            } else {
+                if let view = newValue{
+                    assertionFailure("Error View class from \(type(of: self)).\nExpected: \(View.self) actual: \(type(of: view)).\nThis use from section content with class \(type(of: content)).")
+                } else {
+                    assertionFailure("Error from \(type(of: self)) get nil section content from tableView.\nThis use from section content with class \(type(of: content)).")
+                }
+            }
+        }
     }
     
     /// data model of section content
