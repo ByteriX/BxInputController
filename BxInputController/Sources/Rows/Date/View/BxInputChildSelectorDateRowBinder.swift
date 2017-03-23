@@ -27,15 +27,17 @@ open class BxInputChildSelectorDateRowBinder<Row: BxInputChildSelectorDateRow, C
 
         cell.datePicker.minimumDate = parentRow.minimumDate
         cell.datePicker.maximumDate = parentRow.maximumDate
-        if let date = parentRow.value {
-            cell.datePicker.setDate(date, animated: false)
-        } else {
-            cell.datePicker.setDate(Date(), animated: false)
-        }
 
         DispatchQueue.main.async { [weak self] () -> Void in
-            if let datePicker = self?.cell?.datePicker {
-                self?.changeDate(datePicker: datePicker)
+            guard let this = self, let cell = this.cell else {
+                return
+            }
+            if let date = this.parentRow.value {
+                cell.datePicker.setDate(date, animated: false)
+                this.changeDate()
+            } else {
+                cell.datePicker.setDate(Date(), animated: false)
+                this.editedDate()
             }
         }
     }
@@ -48,14 +50,17 @@ open class BxInputChildSelectorDateRowBinder<Row: BxInputChildSelectorDateRow, C
         cell?.datePicker.alpha = value ? 1.0 : 0.5
     }
     
+    func changeDate() {
+        parentRow.value = cell?.datePicker.date
+        owner?.updateRow(parentRow)
+    }
+    
     // MARK - BxInputChildSelectorDateDelegate
     
     /// editing date from Picker
-    open func changeDate(datePicker: UIDatePicker) {
-        parentRow.value = cell?.datePicker.date
-        owner?.updateRow(parentRow)
+    open func editedDate() {
+        changeDate()
         didChangedValue(for: parentRow)
-        
         tryToClose()
     }
     

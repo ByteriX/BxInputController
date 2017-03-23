@@ -37,7 +37,7 @@ open class BxInputVariantsRowBinder<T : BxInputStringObject, Cell : BxInputStand
             variantsPicker.dataSource = self
             variantsPicker.delegate = self
             variantsPicker.reloadAllComponents()
-            var index = 0
+            var index: Int? = nil
             if let value = row.selectedVariant {
                 if let foundIndex = row.variants.index(where: { (item) -> Bool in
                     return item === value
@@ -45,14 +45,25 @@ open class BxInputVariantsRowBinder<T : BxInputStringObject, Cell : BxInputStand
                     index = foundIndex
                 }
             }
-            variantsPicker.selectRow(index, inComponent: 0, animated: true)
-            self.pickerView(variantsPicker, didSelectRow: index, inComponent: 0)
+            if let index = index {
+                variantsPicker.selectRow(index, inComponent: 0, animated: true)
+                changeValue(index: index)
+            } else {
+                variantsPicker.selectRow(0, inComponent: 0, animated: true)
+                self.pickerView(variantsPicker, didSelectRow: 0, inComponent: 0)
+            }
             cell?.valueTextField.inputView = variantsPicker
         } else {
             return false
         }
         
         return true
+    }
+    
+    func changeValue(index: Int) {
+        let value = row.variants[index]
+        self.row.selectedVariant = value
+        cell?.valueTextField.text = value.stringValue
     }
     
     
@@ -79,9 +90,7 @@ open class BxInputVariantsRowBinder<T : BxInputStringObject, Cell : BxInputStand
     /// event when user choose variant
     open func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
-        let value = self.row.variants[row]
-        self.row.selectedVariant = value
-        cell?.valueTextField.text = value.stringValue
+        changeValue(index: row)
         didChangedValue(for: self.row)
     }
 

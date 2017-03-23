@@ -22,7 +22,7 @@ open class BxInputChildSelectorVariantsRowBinder<T: BxInputStringObject> : BxInp
         super.update()
         cell?.delegate = self
         cell?.variantsPicker.reloadAllComponents()
-        var index = 0
+        var index: Int? = nil
         if let value = parentRow.selectedVariant {
             if let foundIndex = parentRow.variants.index(where: { (item) -> Bool in
                 return item === value
@@ -30,11 +30,17 @@ open class BxInputChildSelectorVariantsRowBinder<T: BxInputStringObject> : BxInp
                 index = foundIndex
             }
         }
-        cell?.variantsPicker.selectRow(index, inComponent: 0, animated: true)
         
         DispatchQueue.main.async { [weak cell, weak self] () -> Void in
             if let variantsPicker = cell?.variantsPicker {
-                self?.pickerView(variantsPicker, didSelectRow: index, inComponent: 0)
+                if let index = index {
+                    variantsPicker.selectRow(index, inComponent: 0, animated: true)
+                    self?.changeValue(index: index)
+                } else {
+                    variantsPicker.selectRow(0, inComponent: 0, animated: true)
+                    self?.pickerView(variantsPicker, didSelectRow: 0, inComponent: 0)
+                }
+                
             }
         }
     }
@@ -44,6 +50,12 @@ open class BxInputChildSelectorVariantsRowBinder<T: BxInputStringObject> : BxInp
         super.didSetEnabled(value)
         cell?.variantsPicker.isUserInteractionEnabled = value
         cell?.variantsPicker.alpha = value ? 1.0 : 0.5
+    }
+    
+    func changeValue(index: Int) {
+        let value = parentRow.variants[index]
+        parentRow.selectedVariant = value
+        owner?.updateRow(parentRow)
     }
     
     // MARK - UIPickerViewDelegate, UIPickerViewDataSource
@@ -77,12 +89,8 @@ open class BxInputChildSelectorVariantsRowBinder<T: BxInputStringObject> : BxInp
     /// event when user choose variant
     open func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
-        let value = parentRow.variants[row]
-        
-        parentRow.selectedVariant = value
-        owner?.updateRow(parentRow)
+        changeValue(index: row)
         didChangedValue(for: parentRow)
-        
         tryToClose()
     }
     

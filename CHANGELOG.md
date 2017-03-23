@@ -6,10 +6,14 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.1.2 (24.03.2017)
+##### Bug fix
+* fixed call didChangedValue if start editing Variant & Date rows with simple type & selector too
+
 ## 2.1.1 (23.03.2017)
 ##### Improvements
-renamed globalCellHeight to cellHeight in BxInputSettings
-added headerHeight & footerHeight to BxInputSettings as global values of content size
+* renamed globalCellHeight to cellHeight in BxInputSettings
+* added headerHeight & footerHeight to BxInputSettings as global values of content size
 
 ## 2.1.0 (23.03.2017)
 ##### Change logic

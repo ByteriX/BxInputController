@@ -16,7 +16,7 @@ import UIKit
 /// delegate for BxInputChildSelectorDateCell
 public protocol BxInputChildSelectorDateDelegate: AnyObject {
     /// call when date did changed
-    func changeDate(datePicker: UIDatePicker)
+    func editedDate()
     
 }
 
@@ -31,9 +31,7 @@ open class BxInputChildSelectorDateCell: UITableViewCell {
     
     /// editing Date
     @IBAction open func changeDate(_ sender: Any) {
-        if let datePicker = datePicker {
-            delegate?.changeDate(datePicker: datePicker)
-        }
+        delegate?.editedDate()
     }
     
 }
