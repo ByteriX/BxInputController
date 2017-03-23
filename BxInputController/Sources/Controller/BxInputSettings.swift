@@ -46,7 +46,11 @@ open class BxInputSettings
     public var placeholderColor: UIColor? = nil
     
     /// height of cells for all rows, which don't use a dynamic size or the static size
-    public var globalCellHeight: CGFloat? = 46
+    public var cellHeight: CGFloat? = 46
+    /// height for all headers with all content type exclude view, which don't use a dynamic size or the static size
+    public var headerHeight: CGFloat? = nil
+    /// height for all footers with all content type exclude view, which don't use a dynamic size or the static size
+    public var footerHeight: CGFloat? = nil
     /// seporator inset of all cells
     public var separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
     /// date format for showing value of the rows with date type

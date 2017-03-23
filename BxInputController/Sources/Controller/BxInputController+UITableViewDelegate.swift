@@ -103,14 +103,19 @@ extension BxInputController : UITableViewDelegate{
             return staticRow.height
         } else if isEstimatedContent {
             return UITableViewAutomaticDimension
-        } else if let cellHeight = settings.globalCellHeight {
-            return cellHeight
+        } else if let height = settings.cellHeight {
+            return height
         } else {
             return row.estimatedHeight
         }
     }
     
-    open func getFooterHeaderHeight(from content: BxInputSectionContent?) -> CGFloat
+    public enum SectionContentType: Int {
+        case footer
+        case header
+    }
+    
+    open func getFooterHeaderHeight(from content: BxInputSectionContent?, type: SectionContentType) -> CGFloat
     {
         guard let content = content else {
             return 1
@@ -118,19 +123,28 @@ extension BxInputController : UITableViewDelegate{
         if isEstimatedContent {
             return UITableViewAutomaticDimension
         }
+        if type == .header {
+            if let height = settings.headerHeight {
+                return height
+            }
+        } else if type == .footer {
+            if let height = settings.footerHeight {
+                return height
+            }
+        }
         return content.estimatedHeight
     }
     
     open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
     {
         let sectionData = sections[section]
-        return getFooterHeaderHeight(from: sectionData.header)
+        return getFooterHeaderHeight(from: sectionData.header, type: .header)
     }
     
     open func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
     {
         let sectionData = sections[section]
-        return getFooterHeaderHeight(from: sectionData.footer)
+        return getFooterHeaderHeight(from: sectionData.footer, type: .footer)
     }
     
     open func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat
