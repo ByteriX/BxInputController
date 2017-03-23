@@ -14,7 +14,7 @@
 import UIKit
 
 /// Boolean row with single checkbox
-open class BxInputCheckRow: BxInputRow
+open class BxInputCheckRow: BxInputValueRow
 {
     open var binder : BxInputRowBinder {
         return BxInputCheckRowBinder<BxInputCheckRow, BxInputStandartTextCell>(row: self)
@@ -37,6 +37,11 @@ open class BxInputCheckRow: BxInputRow
         self.title = title
         self.placeholder = placeholder
         self.value = value
+    }
+    
+    /// event when value of current row was changed
+    open func didChangedValue(){
+        //
     }
     
 }

@@ -14,7 +14,7 @@
 import UIKit
 
 /// Row for choosing date from selector with keyboard frame
-open class BxInputDateRow : BxInputRow
+open class BxInputDateRow : BxInputValueRow
 {
     /// Make and return Binder for binding row with cell.
     open var binder : BxInputRowBinder {
@@ -41,6 +41,11 @@ open class BxInputDateRow : BxInputRow
         self.title = title
         self.placeholder = placeholder
         self.value = value
+    }
+    
+    /// event when value of current row was changed
+    open func didChangedValue(){
+        //
     }
     
 }

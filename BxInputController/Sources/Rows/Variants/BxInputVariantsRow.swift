@@ -15,7 +15,7 @@ import UIKit
 
 /// Row for choosing one item from variants from selector with keyboard frame
 /// - parameter: T - is associated data model for variants rows, should be inherited from BxInputStringObject
-open class BxInputVariantsRow<T : BxInputStringObject> : BxInputRow, BxInputVariants
+open class BxInputVariantsRow<T : BxInputStringObject> : BxInputValueRow, BxInputVariants
 {
     
     /// Make and return Binder for binding row with cell.
@@ -55,6 +55,11 @@ open class BxInputVariantsRow<T : BxInputStringObject> : BxInputRow, BxInputVari
         self.title = title
         self.placeholder = placeholder
         self.value = value
+    }
+    
+    /// event when value of current row was changed
+    open func didChangedValue(){
+        //
     }
     
 }

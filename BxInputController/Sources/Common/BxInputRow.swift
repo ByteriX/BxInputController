@@ -35,4 +35,11 @@ public protocol BxInputRow : AnyObject{
     /// estimated height for the cell (got from resourceId) in the table
     var estimatedHeight : CGFloat {get}
     
+    
+}
+
+/// Data modeling protocol for Row with Value
+public protocol BxInputValueRow : BxInputRow{
+    /// event when value of current row was changed
+    func didChangedValue()
 }

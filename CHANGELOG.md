@@ -6,6 +6,14 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.1.0 (23.03.2017)
+##### Change logic
+* extracted BxInputValueRow for didChangedValue
+* removed BxInputStringRow
+* rename didChangedRow(_) to didChangedValue(row)
+* added didChangedValue(row) to base Binder
+* added didChangedValue() to Row protocol
+
 ## 2.0.2 (21.03.2017)
 ##### Improvements
 * added checking of expected Cell, Row and View, ContentSection templates classes from Binders.

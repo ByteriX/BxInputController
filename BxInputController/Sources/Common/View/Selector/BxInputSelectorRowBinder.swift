@@ -100,7 +100,7 @@ open class BxInputSelectorRowBinder<Row: BxInputSelectorRow, Cell: BxInputSelect
     /// visual updating of value && separator that depends on type of the row
     open func checkValue() {
         // all string changing of value
-        if let row = row as? BxInputStringRow{
+        if let row = row as? BxInputString{
             cell?.valueTextField.text = row.stringValue
         } else {
             cell?.valueTextField.text = ""

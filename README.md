@@ -289,7 +289,7 @@ class EnabledAllRowsController: SimpleAllRowsController {
         ]
     }
     
-    override func didChangedRow(_ row: BxInputRow)
+    override func didChangedValue(for row: BxInputValueRow)
     {
         if row === choosePhoneRow {
             if choosePhoneRow.value {
@@ -309,7 +309,7 @@ class EnabledAllRowsController: SimpleAllRowsController {
 You can scroll to needed row with method `scrollRow`. 
 If you need select (or activate) row, you may call `selectRow`. 
 For closing all selectors or/and keyboard you may call `dissmissSelectors`  or `dissmissAllRows`.
-table has Event of change value in overrided method `didChangedRow` in your custom class inherited from `BxInputController` (see last example).
+table has Event of change value in overrided method `didChangedValue(for row)` in your custom class inherited from `BxInputController` (see last example).
 
 ## Paradigm
 

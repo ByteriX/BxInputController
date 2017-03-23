@@ -37,6 +37,6 @@ open class BxInputTextRowBinder<Row : BxInputTextRow, Cell : BxInputStandartText
     override open func valueChanged(valueTextField: UITextField) {
         super.valueChanged(valueTextField: valueTextField)
         row.value = cell?.valueTextField.text
-        owner?.didChangedRow(row)
+        didChangedValue(for: row)
     }
 }

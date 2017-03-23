@@ -15,7 +15,7 @@ import UIKit
 
 /// Selector Row for choosing one item from variants in selector below this row
 /// - parameter: T - is associated data model for variants rows, should be inherited from BxInputStringObject
-open class BxInputSelectorVariantsRow<T: BxInputStringObject> : BxInputVariantsRow<T>, BxInputSelectorRow, BxInputStringRow
+open class BxInputSelectorVariantsRow<T: BxInputStringObject> : BxInputVariantsRow<T>, BxInputSelectorRow, BxInputString
 {
     /// Make and return Binder for binding row with cell.
     override open var binder : BxInputRowBinder {

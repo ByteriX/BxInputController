@@ -14,7 +14,7 @@
 import Foundation
 
 /// Protocol is used for provide user action with a row
-public protocol BxInputActionRow: BxInputStringRow
+public protocol BxInputActionRow: BxInputValueRow, BxInputString
 {
     
     /// action block

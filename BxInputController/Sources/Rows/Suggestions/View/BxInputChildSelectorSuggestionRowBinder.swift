@@ -26,7 +26,7 @@ open class BxInputChildSelectorSuggestionRowBinder<Row : BxInputChildSelectorRow
         parentRow.isOpened = false
         owner?.deleteRows(parentRow.children)
         owner?.updateRow(parentRow)
-        owner?.didChangedRow(parentRow)
+        didChangedValue(for: parentRow)
     }
     
     /// update cell from model data

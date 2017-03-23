@@ -39,7 +39,7 @@ open class BxInputDateRowBinder<Row : BxInputDateRow, Cell : BxInputStandartText
         }
         cell?.valueTextField.text = owner?.settings.dateFormat.string(from: date)
         row.value = date
-        owner?.didChangedRow(row)
+        didChangedValue(for: row)
     }
     
     /// start editing

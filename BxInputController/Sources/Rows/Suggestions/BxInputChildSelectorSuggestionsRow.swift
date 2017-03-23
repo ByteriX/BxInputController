@@ -14,7 +14,7 @@
 import UIKit
 
 /// Child row for showing suggestion from BxInputSelectorSuggestionsRow
-open class BxInputChildSelectorSuggestionsRow: BxInputStringRow, BxInputChildSelectorRow
+open class BxInputChildSelectorSuggestionsRow: BxInputRow, BxInputString, BxInputChildSelectorRow
 {
     /// Make and return Binder for binding row with cell.
     open var binder : BxInputRowBinder {

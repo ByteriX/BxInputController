@@ -44,7 +44,7 @@ class EnabledAllRowsController: SimpleAllRowsController {
 
     
     // for enabled/disabled
-    override func didChangedRow(_ row: BxInputRow)
+    override func didChangedValue(for row: BxInputValueRow)
     {
         if row === enabledStringActionRow {
             setEnabledRow(stringActionRow, enabled: enabledStringActionRow.value)

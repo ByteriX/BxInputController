@@ -503,8 +503,8 @@ open class BxInputController : UIViewController
     
     // MARK: - Event methods
     
-    /// event when row was changed
-    open func didChangedRow(_ row: BxInputRow)
+    /// event when value of a row was changed
+    open func didChangedValue(for row: BxInputValueRow)
     {
         // you can override
     }

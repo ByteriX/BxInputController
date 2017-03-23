@@ -82,7 +82,7 @@ open class BxInputVariantsRowBinder<T : BxInputStringObject, Cell : BxInputStand
         let value = self.row.variants[row]
         self.row.selectedVariant = value
         cell?.valueTextField.text = value.stringValue
-        owner?.didChangedRow(self.row)
+        didChangedValue(for: self.row)
     }
 
 }

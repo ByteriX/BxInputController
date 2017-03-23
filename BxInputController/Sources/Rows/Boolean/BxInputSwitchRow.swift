@@ -14,7 +14,7 @@
 import UIKit
 
 /// Boolean row with switch button
-open class BxInputSwitchRow: BxInputRow
+open class BxInputSwitchRow: BxInputValueRow
 {
     open var binder : BxInputRowBinder {
         return BxInputSwitchRowBinder<BxInputSwitchRow, BxInputSwitchCell>(row: self)
@@ -36,6 +36,11 @@ open class BxInputSwitchRow: BxInputRow
     public init(title: String? = nil, value: Bool = false) {
         self.title = title
         self.value = value
+    }
+    
+    /// event when value of current row was changed
+    open func didChangedValue(){
+        //
     }
     
 }

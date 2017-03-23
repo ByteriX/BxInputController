@@ -15,7 +15,7 @@ import UIKit
 
 /// Selector row for choosing single item from suggestion. Selector is shown below this row
 /// - parameter: T - is associated data model for suggestion rows, should be inherited from BxInputChildSelectorRow
-open class BxInputSelectorSuggestionsRow<T : BxInputChildSelectorRow> : BxInputStringRow, BxInputParentSelectorSuggestionsRow
+open class BxInputSelectorSuggestionsRow<T : BxInputChildSelectorRow> : BxInputValueRow, BxInputString, BxInputParentSelectorSuggestionsRow
 {
     /// Make and return Binder for binding row with cell.
     open var binder : BxInputRowBinder {
@@ -71,6 +71,11 @@ open class BxInputSelectorSuggestionsRow<T : BxInputChildSelectorRow> : BxInputS
     
     open func setChildren(_ children: [T]) {
         self.children = children
+    }
+    
+    /// event when value of current row was changed
+    open func didChangedValue(){
+        //
     }
     
 }

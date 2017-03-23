@@ -14,7 +14,7 @@
 import UIKit
 
 /// Implementation row with photos and camera selector. Selector is showed with keyboard frame
-open class BxInputSelectorPicturesRow : BxInputRow, BxInputSelectorRow
+open class BxInputSelectorPicturesRow : BxInputValueRow, BxInputSelectorRow
 {
     /// Make and return Binder for binding row with cell.
     open var binder : BxInputRowBinder {
@@ -65,6 +65,11 @@ open class BxInputSelectorPicturesRow : BxInputRow, BxInputSelectorRow
         self.pictures = pictures
         child = BxInputChildSelectorPicturesRow()
         child.parent = self
+    }
+    
+    /// event when value of current row was changed
+    open func didChangedValue(){
+        //
     }
     
 }

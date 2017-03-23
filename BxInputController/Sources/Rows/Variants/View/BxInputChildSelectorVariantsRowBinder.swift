@@ -81,7 +81,7 @@ open class BxInputChildSelectorVariantsRowBinder<T: BxInputStringObject> : BxInp
         
         parentRow.selectedVariant = value
         owner?.updateRow(parentRow)
-        owner?.didChangedRow(parentRow)
+        didChangedValue(for: parentRow)
         
         tryToClose()
     }

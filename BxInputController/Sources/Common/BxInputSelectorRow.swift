@@ -14,7 +14,7 @@
 import Foundation
 
 /// Row protocol with special selector for the owner of items rows (or single)
-public protocol BxInputSelectorRow : BxInputRow
+public protocol BxInputSelectorRow : BxInputValueRow
 {
     
     /// state of the selector: opened/closed

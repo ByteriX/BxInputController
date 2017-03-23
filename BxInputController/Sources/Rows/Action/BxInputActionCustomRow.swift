@@ -40,6 +40,11 @@ open class BxInputActionCustomRow<T : BxInputString>: BxInputActionRow
         self.placeholder = placeholder
         self.value = value
     }
+    
+    /// event when value of current row was changed
+    open func didChangedValue(){
+        //
+    }
 }
 
 /// Action row implementation with association with String

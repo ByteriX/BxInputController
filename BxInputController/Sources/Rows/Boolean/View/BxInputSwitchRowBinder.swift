@@ -53,6 +53,6 @@ open class BxInputSwitchRowBinder<Row: BxInputSwitchRow, Cell: BxInputSwitchCell
     open func valueDidChanged(valueSwitch: UISwitch)
     {
         row.value = valueSwitch.isOn
-        owner?.didChangedRow(row)
+        didChangedValue(for: row)
     }
 }

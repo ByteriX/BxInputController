@@ -14,7 +14,7 @@
 import UIKit
 
 /// Row for select rating
-open class BxInputRateRow: BxInputRow
+open class BxInputRateRow: BxInputValueRow
 {
     /// Make and return Binder for binding row with cell.
     open var binder : BxInputRowBinder {
@@ -43,6 +43,11 @@ open class BxInputRateRow: BxInputRow
         self.value = value
         self.maxValue = maxValue
         self.activeColor = activeColor
+    }
+    
+    /// event when value of current row was changed
+    open func didChangedValue(){
+        //
     }
     
 }

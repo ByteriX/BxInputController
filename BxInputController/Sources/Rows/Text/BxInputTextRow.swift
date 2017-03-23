@@ -14,7 +14,7 @@
 import UIKit
 
 /// Row for putting short text string
-open class BxInputTextRow: BxInputStringRow
+open class BxInputTextRow: BxInputValueRow, BxInputString
 {
     /// Make and return Binder for binding row with cell.
     open var binder : BxInputRowBinder {
@@ -44,7 +44,10 @@ open class BxInputTextRow: BxInputStringRow
         self.value = value
     }
     
-    
+    /// event when value of current row was changed
+    open func didChangedValue(){
+        //
+    }
     
     open var autocapitalizationType: UITextAutocapitalizationType = .none// UITextAutocapitalizationTypeSentences
     open var autocorrectionType: UITextAutocorrectionType = .no

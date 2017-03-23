@@ -102,6 +102,12 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
         // empty
     }
     
+    /// event when value of a row was changed. It may be not current row, for example parentRow from Selector type
+    open func didChangedValue(for row: BxInputValueRow) {
+        row.didChangedValue()
+        owner?.didChangedValue(for: row)
+    }
+    
     /// this for dismiss keybord if it was showing for this cell
     @discardableResult
     open func resignFirstResponder() -> Bool {
