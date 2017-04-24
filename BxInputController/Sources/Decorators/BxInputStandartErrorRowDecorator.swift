@@ -22,7 +22,7 @@ open class BxInputStandartErrorRowDecorator : BxInputRowDecorator {
     public var markPlaceholder : String? = nil
     
     public func mark(binder: BxInputRowBinder) {
-        if let cell = binder.viewCell as? BxInputStandartTextCell {
+        if let cell = binder.viewCell as? BxInputCell {
             cell.titleLabel.textColor = markColor
             cell.valueTextField.textColor = markColor
             var placeholder = markPlaceholder
@@ -36,7 +36,7 @@ open class BxInputStandartErrorRowDecorator : BxInputRowDecorator {
     }
     
     public func activation(binder: BxInputRowBinder) {
-        if let cell = binder.viewCell as? BxInputStandartTextCell {
+        if let cell = binder.viewCell as? BxInputCell {
             let shift = cell.valueTextField.frame.size.height * 2
             cell.valueTextField.shakeX(withOffset: fabs(shift), breakFactor: 0.5, duration: 0.5 + fabs(shift / 100.0), maxShakes: Int(fabs(shift * 2.0)))
         }

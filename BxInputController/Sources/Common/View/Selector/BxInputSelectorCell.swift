@@ -14,13 +14,13 @@
 import UIKit
 
 /// BxInputSelectorCell parent cell for rows with BxInputSelectorRow implemention
-open class BxInputSelectorCell: UITableViewCell {
+open class BxInputSelectorCell: UITableViewCell, BxInputCell {
     
     /// caption of the row
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet public weak var titleLabel: UILabel!
     /// value from selected field
-    @IBOutlet weak var valueTextField: UITextField!
+    @IBOutlet public weak var valueTextField: UITextField!
     /// arrow that show state of row closed/opened
-    @IBOutlet weak var arrowImage: UIImageView!
+    @IBOutlet public weak var arrowImage: UIImageView!
     
 }

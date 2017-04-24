@@ -15,7 +15,8 @@ import Foundation
 
 public enum BxInputRowCheckerPriority {
     case immediately
-    case transiton
+    case updateValue
+    case transitonValue
 }
 
 public protocol BxInputRowChecker : AnyObject
@@ -35,8 +36,8 @@ open class BxInputBaseRowChecker : BxInputRowChecker
 
     open var decorator: BxInputRowDecorator? = BxInputStandartErrorRowDecorator()
     
-    open var planPriority: BxInputRowCheckerPriority = .transiton
-    open var activePriority: BxInputRowCheckerPriority = .immediately
+    open var planPriority: BxInputRowCheckerPriority = .transitonValue
+    open var activePriority: BxInputRowCheckerPriority = .updateValue
     
     open var isActivated : Bool = false
     

@@ -15,7 +15,7 @@ class CheckingRowsController: BxInputController {
     private var emailValue = BxInputTextRow(title: "email value", placeholder: "only corrected email")
     
     private var filledDate = BxInputDateRow(title: "filled date", value: Date().addingTimeInterval(300000))
-    private var emptyDate = BxInputDateRow(title: "not empty value")
+    private var emptyDate = BxInputDateRow(title: "not empty value")//BxInputSelectorDateRow(title: "not empty value")
     
     
     override func viewDidLoad() {
@@ -33,6 +33,11 @@ class CheckingRowsController: BxInputController {
         // for email
         addChecker(BxInputEmptyValueChecker(message: "Please put your email"), for: emailValue)
         addChecker(BxInputEmailChecker(message: "Please put your email"), for: emailValue)
+        // for date
+        let dateChecker = BxInputEmptyValueChecker(message: "Please put date")
+        dateChecker.planPriority = .immediately
+        dateChecker.activePriority = .transitonValue
+        addChecker(dateChecker, for: emptyDate)
     }
     
     

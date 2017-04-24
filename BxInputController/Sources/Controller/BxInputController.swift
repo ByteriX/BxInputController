@@ -532,7 +532,7 @@ open class BxInputController : UIViewController
     open func changeRow(to row: BxInputRow?) {
         if let activeRow = activeRow {
             if let binder = getRowBinder(for: activeRow) {
-                binder.checking(priority: .transiton)
+                binder.checking(priority: .transitonValue)
             }
         }
     }

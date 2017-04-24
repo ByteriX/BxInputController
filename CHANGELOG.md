@@ -13,6 +13,8 @@ ByteriX, 2017. All right reserved.
 * made BxInputStandartErrorRowDecorator for default marking mistakes
 * made BxInputEmptyValueChecker for not empty checking
 * made BxInputEmailChecker for testing an email
+* added possibility change priority of checking
+* extracted base interface for cells BxInputCell
 * illustrated marking of putting error in the example
 
 ## 2.1.2 (24.03.2017)

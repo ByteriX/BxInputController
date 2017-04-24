@@ -20,7 +20,7 @@ public protocol BxInputStandartTextDelegate : UITextFieldDelegate
 }
 
 /// Common cell for textual rows which have title & value
-open class BxInputStandartTextCell: UITableViewCell {
+open class BxInputStandartTextCell: UITableViewCell, BxInputCell {
     
     /// delegate for transport events
     public weak var delegate: BxInputStandartTextDelegate? = nil
@@ -31,9 +31,9 @@ open class BxInputStandartTextCell: UITableViewCell {
     }
     
     /// caption of the row
-    @IBOutlet weak open var titleLabel: UILabel!
+    @IBOutlet public weak var titleLabel: UILabel!
     /// value for the row or a putting example
-    @IBOutlet weak open var valueTextField: UITextField!
+    @IBOutlet public weak var valueTextField: UITextField!
     
     /// value editing event
     @IBAction func valueTextFieldEditingChanged(_ sender: Any) {

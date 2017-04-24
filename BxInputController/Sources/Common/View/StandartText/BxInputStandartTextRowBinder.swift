@@ -50,13 +50,7 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
         
         cell?.valueTextField.setPlaceholder(row.placeholder, with: owner?.settings.placeholderColor)
         
-        for checker in checkers {
-            let isOK = checker.isOK(row: row)
-            if let decorator = checker.decorator, isOK == false, checker.isActivated {
-                decorator.mark(binder: self)
-                break
-            }
-        }
+        updateChecking()
         
         updateCell()
     }

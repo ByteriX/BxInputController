@@ -63,6 +63,10 @@ open class BxInputSelectorRowBinder<Row: BxInputSelectorRow, Cell: BxInputSelect
         cell?.valueTextField.setPlaceholder(row.placeholder, with: owner?.settings.placeholderColor)
         
         refreshOpened(animated: false)
+        
+        updateChecking()
+        
+        
     }
     
     /// event of change isEnabled

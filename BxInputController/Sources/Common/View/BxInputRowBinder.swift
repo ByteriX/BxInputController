@@ -123,8 +123,12 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
     open func planChecking(_ checker: BxInputRowChecker, priority: BxInputRowCheckerPriority) {
         if checker.planPriority == priority {
             if let decorator = checker.decorator, checker.isOK(row: row) == false {
-                decorator.activation(binder: self)
                 checker.isActivated = true
+                DispatchQueue.main.async { [weak self] in
+                    if let this = self {
+                        decorator.activation(binder: this)
+                    }
+                }
             }
         }
     }
@@ -145,9 +149,27 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
         }
     }
     
+    open func updateChecking() {
+        for checker in checkers {
+            if checker.isOK(row: row) == false {
+                if checker.planPriority == .immediately {
+                    checker.isActivated = true
+                }
+                if let decorator = checker.decorator, checker.isActivated {
+                    DispatchQueue.main.async { [weak self] in
+                        if let this = self {
+                            decorator.mark(binder: this)
+                        }
+                    }
+                    break
+                }
+            }
+        }
+    }
+    
     /// event when value of a row was changed. It may be not current row, for example parentRow from Selector type
     open func didChangedValue(for row: BxInputValueRow) {
-        checking(priority: .immediately)
+        checking(priority: .updateValue)
         row.didChangedValue()
         owner?.didChangedValue(for: row)
     }
