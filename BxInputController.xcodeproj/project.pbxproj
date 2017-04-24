@@ -87,6 +87,7 @@
 		F9DF02D91EADE34E006EC83E /* BxInputStandartErrorRowDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DF02D81EADE34E006EC83E /* BxInputStandartErrorRowDecorator.swift */; };
 		F9DF02DB1EADE389006EC83E /* BxInputRowDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DF02DA1EADE389006EC83E /* BxInputRowDecorator.swift */; };
 		F9DF02DD1EAE1690006EC83E /* CheckingRowsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DF02DC1EAE1690006EC83E /* CheckingRowsController.swift */; };
+		F9DF02DF1EAE1A44006EC83E /* BxInputEmailChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DF02DE1EAE1A44006EC83E /* BxInputEmailChecker.swift */; };
 		F9E786FD1E52F6F800341996 /* BxInputRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E786A91E52F6F800341996 /* BxInputRow.swift */; };
 		F9E786FE1E52F6F800341996 /* BxInputSelectorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E786AA1E52F6F800341996 /* BxInputSelectorRow.swift */; };
 		F9E786FF1E52F6F800341996 /* BxInputStaticHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E786AB1E52F6F800341996 /* BxInputStaticHeight.swift */; };
@@ -206,6 +207,7 @@
 		F9DF02D81EADE34E006EC83E /* BxInputStandartErrorRowDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputStandartErrorRowDecorator.swift; sourceTree = "<group>"; };
 		F9DF02DA1EADE389006EC83E /* BxInputRowDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputRowDecorator.swift; sourceTree = "<group>"; };
 		F9DF02DC1EAE1690006EC83E /* CheckingRowsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckingRowsController.swift; sourceTree = "<group>"; };
+		F9DF02DE1EAE1A44006EC83E /* BxInputEmailChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputEmailChecker.swift; sourceTree = "<group>"; };
 		F9E786A91E52F6F800341996 /* BxInputRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputRow.swift; sourceTree = "<group>"; };
 		F9E786AA1E52F6F800341996 /* BxInputSelectorRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSelectorRow.swift; sourceTree = "<group>"; };
 		F9E786AB1E52F6F800341996 /* BxInputStaticHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputStaticHeight.swift; sourceTree = "<group>"; };
@@ -569,6 +571,7 @@
 			isa = PBXGroup;
 			children = (
 				F9CA1C771EABD9310029A029 /* BxInputEmptyValueChecker.swift */,
+				F9DF02DE1EAE1A44006EC83E /* BxInputEmailChecker.swift */,
 			);
 			path = Checkers;
 			sourceTree = "<group>";
@@ -873,6 +876,7 @@
 				F933F5A41E7BB77A00FB1E22 /* BxInputActionCustomRowBinder.swift in Sources */,
 				F9E787361E52F6F800341996 /* BxInputTextFooterView.swift in Sources */,
 				F96D1F7C1E5463AC00BDB2CE /* BxInputDateRow.swift in Sources */,
+				F9DF02DF1EAE1A44006EC83E /* BxInputEmailChecker.swift in Sources */,
 				F993083C1E430C9A00EDA3BD /* ReviewController.swift in Sources */,
 				F99D888D1E6DDCA0003E591B /* BxInputChildSelectorVariantsRowBinder.swift in Sources */,
 				F9843E231E7DC57800057C7F /* BxInputStringSectionContentBinder.swift in Sources */,

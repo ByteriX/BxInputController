@@ -10,9 +10,9 @@ import UIKit
 
 class CheckingRowsController: BxInputController {
     
-    private var nameValue = BxInputTextRow(title: "name value")
-    private var surnameValue = BxInputTextRow(title: "surname value")
-    private var emailValue = BxInputTextRow(title: "email value", value: "")
+    private var nameValue = BxInputTextRow(title: "name value", placeholder: "should not be empty")
+    private var surnameValue = BxInputTextRow(title: "surname value", placeholder: "can be empty")
+    private var emailValue = BxInputTextRow(title: "email value", placeholder: "only corrected email")
     
     private var filledDate = BxInputDateRow(title: "filled date", value: Date().addingTimeInterval(300000))
     private var emptyDate = BxInputDateRow(title: "not empty value")
@@ -28,8 +28,11 @@ class CheckingRowsController: BxInputController {
             BxInputSection(headerText: "", rows: [filledDate, emptyDate])
         ]
         
+        // for name
         addChecker(BxInputEmptyValueChecker(message: "Please put your name"), for: nameValue)
+        // for email
         addChecker(BxInputEmptyValueChecker(message: "Please put your email"), for: emailValue)
+        addChecker(BxInputEmailChecker(message: "Please put your email"), for: emailValue)
     }
     
     
