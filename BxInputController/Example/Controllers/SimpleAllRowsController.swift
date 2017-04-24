@@ -28,7 +28,7 @@ class SimpleAllRowsController: BxInputController {
     // Suggestions
     internal let selectorSuggestionsRow = BxInputSelectorSuggestionsRow<BxInputChildSelectorSuggestionsRow>(title: "selector suggestions")
     // Text
-    internal let shortTextRow = BxInputTextRow(title: "text value", placeholder: "short text")
+    internal let shortTextRow = BxInputTextRow(title: "text value", placeholder: "short not empty text")
     internal let phoneTextRow = BxInputFormattedTextRow(title: "phone value", placeholder: "(___)-___-__-__", prefix: "+7", format: "(###)-###-##-##")
     internal let urlRow = BxInputFormattedTextRow(title: "url value", placeholder: "example", prefix: "http://", sufix: ".byterix.com")
     internal let selectorTextRow = BxInputSelectorTextRow(title: "text with selector", placeholder: "longest text")
@@ -89,6 +89,8 @@ class SimpleAllRowsController: BxInputController {
             BxInputSection(headerText: "Text", rows: [shortTextRow, phoneTextRow, urlRow, selectorTextRow]),
             BxInputSection(headerText: "Variants", rows: [variantsRow, selectorVariantsRow])
         ]
+        
+        addChecker(BxInputEmptyValueChecker(message: "Please put short text"), for: shortTextRow)
     }
     
     

@@ -17,6 +17,7 @@ import UIKit
 /// - parameter: T - is associated data model for suggestion rows, should be inherited from BxInputChildSelectorRow
 open class BxInputSelectorSuggestionsRow<T : BxInputChildSelectorRow> : BxInputValueRow, BxInputString, BxInputParentSelectorSuggestionsRow
 {
+
     /// Make and return Binder for binding row with cell.
     open var binder : BxInputRowBinder {
         return BxInputSelectorRowBinder<BxInputSelectorSuggestionsRow, BxInputSelectorCell>(row: self)
@@ -61,6 +62,12 @@ open class BxInputSelectorSuggestionsRow<T : BxInputChildSelectorRow> : BxInputV
                 child.parent = self
             }
         }
+    }
+    
+    /// Return true if value for the row is empty
+    open var hasEmptyValue: Bool
+    {
+        return value == nil
     }
     
     public init(title: String? = nil, placeholder: String? = nil, children: [T] = []) {

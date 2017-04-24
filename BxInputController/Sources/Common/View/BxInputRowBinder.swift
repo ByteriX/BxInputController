@@ -27,11 +27,15 @@ public protocol BxInputRowBinder : AnyObject {
     /// call when user selected this cell
     func didSelected()
     
+    var checkers: [BxInputRowChecker] {get}
+    func addChecker(_ checker: BxInputRowChecker)
+    func checking(priority: BxInputRowCheckerPriority)
 }
 
 /// Base class for binding row data model with cell
 open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObject, BxInputRowBinder
 {
+    
     /// view for internal using
     public var viewCell: UITableViewCell?
         {
@@ -69,6 +73,8 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
     /// view
     public weak var cell: Cell? = nil
     
+    public var rowCheckers: [BxInputRowChecker] = []
+    
     /// new value should map with data model
     public init(row: Row)
     {
@@ -101,9 +107,47 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
     {
         // empty
     }
+    public var checkers: [BxInputRowChecker]
+    {
+        return rowCheckers
+    }
+    open func addChecker(_ checker: BxInputRowChecker)
+    {
+        if let checker = checker as? BxInputRowChecker {
+            rowCheckers.append(checker)
+        } else {
+            assertionFailure("Error Checker class from \(type(of: self)).\nExpected: \(Row.self) actual: \(type(of: checker)).")
+        }
+    }
+    
+    open func planChecking(_ checker: BxInputRowChecker, priority: BxInputRowCheckerPriority) {
+        if checker.planPriority == priority {
+            if let decorator = checker.decorator, checker.isOK(row: row) == false {
+                decorator.activation(binder: self)
+                checker.isActivated = true
+            }
+        }
+    }
+    
+    open func activeChecking(_ checker: BxInputRowChecker, priority: BxInputRowCheckerPriority) {
+        if checker.activePriority == priority, checker.isActivated {
+            if checker.isOK(row: row) == true {
+                checker.isActivated = false
+                update()
+            }
+        }
+    }
+    
+    open func checking(priority: BxInputRowCheckerPriority) {
+        for checker in checkers {
+            planChecking(checker, priority: priority)
+            activeChecking(checker, priority: priority)
+        }
+    }
     
     /// event when value of a row was changed. It may be not current row, for example parentRow from Selector type
     open func didChangedValue(for row: BxInputValueRow) {
+        checking(priority: .immediately)
         row.didChangedValue()
         owner?.didChangedValue(for: row)
     }

@@ -6,6 +6,11 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.2.0 (24.04.2017)
+##### Features
+* added decorator entity for marking a row
+* added checker entity for finding mistake in value of a row
+
 ## 2.1.2 (24.03.2017)
 ##### Bug fix
 * fixed call didChangedValue if start editing Variant & Date rows with simple type & selector too

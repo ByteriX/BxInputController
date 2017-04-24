@@ -60,13 +60,7 @@ open class BxInputSelectorRowBinder<Row: BxInputSelectorRow, Cell: BxInputSelect
         //
         cell?.titleLabel.text = row.title
         
-        if let placeholder = row.placeholder,
-            let placeholderColor = owner?.settings.placeholderColor
-        {
-            cell?.valueTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSForegroundColorAttributeName : placeholderColor])
-        } else {
-            cell?.valueTextField.placeholder = row.placeholder
-        }
+        cell?.valueTextField.setPlaceholder(row.placeholder, with: owner?.settings.placeholderColor)
         
         refreshOpened(animated: false)
     }

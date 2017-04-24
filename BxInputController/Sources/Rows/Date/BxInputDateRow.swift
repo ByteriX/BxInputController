@@ -16,6 +16,7 @@ import UIKit
 /// Row for choosing date from selector with keyboard frame
 open class BxInputDateRow : BxInputValueRow
 {
+
     /// Make and return Binder for binding row with cell.
     open var binder : BxInputRowBinder {
         return BxInputDateRowBinder<BxInputDateRow, BxInputStandartTextCell>(row: self)
@@ -36,6 +37,11 @@ open class BxInputDateRow : BxInputValueRow
     open var value: Date? = nil
     open var minimumDate: Date? = nil
     open var maximumDate: Date? = nil
+    
+    /// Return true if value for the row is empty
+    open var hasEmptyValue: Bool {
+        return value == nil
+    }
     
     public init(title: String? = nil, placeholder: String? = nil, value: Date? = nil) {
         self.title = title

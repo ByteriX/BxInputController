@@ -16,6 +16,7 @@ import UIKit
 /// Row for putting short text string
 open class BxInputTextRow: BxInputValueRow, BxInputString
 {
+
     /// Make and return Binder for binding row with cell.
     open var binder : BxInputRowBinder {
         return BxInputTextRowBinder<BxInputTextRow, BxInputStandartTextCell>(row: self)
@@ -37,6 +38,15 @@ open class BxInputTextRow: BxInputValueRow, BxInputString
     
     
     open var value: String? = nil
+    
+    /// Return true if value for the row is empty
+    open var hasEmptyValue: Bool
+    {
+        if let value = value {
+            return value.isEmpty
+        }
+        return true
+    }
 
     public init(title: String? = nil, placeholder: String? = nil, value: String? = nil) {
         self.title = title

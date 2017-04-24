@@ -33,6 +33,12 @@ open class BxInputSwitchRow: BxInputValueRow
     /// result of user choosing
     open var value: Bool
     
+    /// Return true if value for the row is empty
+    open var hasEmptyValue: Bool
+    {
+        return false
+    }
+    
     public init(title: String? = nil, value: Bool = false) {
         self.title = title
         self.value = value

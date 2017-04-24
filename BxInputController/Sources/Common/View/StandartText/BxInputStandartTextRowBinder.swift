@@ -48,12 +48,14 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
         // reset cell for reuse subclass
         cell?.valueTextField.isSecureTextEntry = false
         
-        if let placeholder = row.placeholder,
-            let placeholderColor = owner?.settings.placeholderColor
-        {
-            cell?.valueTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSForegroundColorAttributeName : placeholderColor])
-        } else {
-            cell?.valueTextField.placeholder = row.placeholder
+        cell?.valueTextField.setPlaceholder(row.placeholder, with: owner?.settings.placeholderColor)
+        
+        for checker in checkers {
+            let isOK = checker.isOK(row: row)
+            if let decorator = checker.decorator, isOK == false, checker.isActivated {
+                decorator.mark(binder: self)
+                break
+            }
         }
         
         updateCell()

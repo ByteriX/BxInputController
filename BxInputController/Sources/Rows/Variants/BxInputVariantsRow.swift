@@ -37,6 +37,12 @@ open class BxInputVariantsRow<T : BxInputStringObject> : BxInputValueRow, BxInpu
     open var items: [T] = []
     open var value: T?
     
+    /// Return true if value for the row is empty
+    open var hasEmptyValue: Bool
+    {
+        return value == nil
+    }
+    
     internal var variants: [BxInputStringObject] {
         get { return items }
     }

@@ -16,6 +16,7 @@ import UIKit
 /// Row for select rating
 open class BxInputRateRow: BxInputValueRow
 {
+
     /// Make and return Binder for binding row with cell.
     open var binder : BxInputRowBinder {
         return BxInputRateRowBinder<BxInputRateRow, BxInputRateCell>(row: self)
@@ -36,6 +37,12 @@ open class BxInputRateRow: BxInputValueRow
     open var passiveColor: UIColor? = nil
     open var activeColor: UIColor
     open var value: Float? = nil
+    
+    /// Return true if value for the row is empty
+    open var hasEmptyValue: Bool
+    {
+        return value == nil
+    }
     
     public init(title: String? = nil, maxValue: Int = 5, activeColor: UIColor = UIColor.red, value: Float? = nil)
     {

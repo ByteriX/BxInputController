@@ -50,6 +50,9 @@ open class BxInputController : UIViewController
     }
     /// activate row for current time
     internal(set) public var activeRow: BxInputRow? = nil
+    {
+        willSet { changeRow(to: newValue) }
+    }
     /// data models with rows for showing
     public var sections: [BxInputSection] = []
     {
@@ -221,6 +224,14 @@ open class BxInputController : UIViewController
     /// return row for indexPath of cell
     open func getRowBinder(for indexPath: IndexPath) -> BxInputRowBinder {
         return sections[indexPath.section].rowBinders[indexPath.row]
+    }
+    
+    /// return row for indexPath of cell
+    open func getRowBinder(for currentRow: BxInputRow) -> BxInputRowBinder? {
+        if let indexPath = getIndex(for: currentRow) {
+            return getRowBinder(for: indexPath)
+        }
+        return nil
     }
     
     /// return indexPath of cell for row, if row added to content (added to any sections)
@@ -501,12 +512,29 @@ open class BxInputController : UIViewController
         }
     }
     
+    open func addChecker(_ checker: BxInputRowChecker, for row: BxInputRow)
+    {
+        if let binder = getRowBinder(for: row) {
+            binder.addChecker(checker)
+        } else {
+            assert(false, "row not found for checker")
+        }
+    }
+    
     // MARK: - Event methods
     
     /// event when value of a row was changed
     open func didChangedValue(for row: BxInputValueRow)
     {
         // you can override
+    }
+    
+    open func changeRow(to row: BxInputRow?) {
+        if let activeRow = activeRow {
+            if let binder = getRowBinder(for: activeRow) {
+                binder.checking(priority: .transiton)
+            }
+        }
     }
     
 }

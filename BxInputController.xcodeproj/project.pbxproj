@@ -81,6 +81,11 @@
 		F99D888D1E6DDCA0003E591B /* BxInputChildSelectorVariantsRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99D888C1E6DDCA0003E591B /* BxInputChildSelectorVariantsRowBinder.swift */; };
 		F99D888F1E6DDE66003E591B /* BxInputChildSelectorTextRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99D888E1E6DDE66003E591B /* BxInputChildSelectorTextRowBinder.swift */; };
 		F99D88911E6DDFF0003E591B /* BxInputChildSelectorPicturesRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99D88901E6DDFF0003E591B /* BxInputChildSelectorPicturesRowBinder.swift */; };
+		F9CA1C741EABA4BD0029A029 /* BxInputRowChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CA1C731EABA4BD0029A029 /* BxInputRowChecker.swift */; };
+		F9CA1C781EABD9310029A029 /* BxInputEmptyValueChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CA1C771EABD9310029A029 /* BxInputEmptyValueChecker.swift */; };
+		F9DF02D71EADDD53006EC83E /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DF02D61EADDD53006EC83E /* UITextField.swift */; };
+		F9DF02D91EADE34E006EC83E /* BxInputStandartErrorRowDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DF02D81EADE34E006EC83E /* BxInputStandartErrorRowDecorator.swift */; };
+		F9DF02DB1EADE389006EC83E /* BxInputRowDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DF02DA1EADE389006EC83E /* BxInputRowDecorator.swift */; };
 		F9E786FD1E52F6F800341996 /* BxInputRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E786A91E52F6F800341996 /* BxInputRow.swift */; };
 		F9E786FE1E52F6F800341996 /* BxInputSelectorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E786AA1E52F6F800341996 /* BxInputSelectorRow.swift */; };
 		F9E786FF1E52F6F800341996 /* BxInputStaticHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E786AB1E52F6F800341996 /* BxInputStaticHeight.swift */; };
@@ -194,6 +199,11 @@
 		F99D888C1E6DDCA0003E591B /* BxInputChildSelectorVariantsRowBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputChildSelectorVariantsRowBinder.swift; sourceTree = "<group>"; };
 		F99D888E1E6DDE66003E591B /* BxInputChildSelectorTextRowBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputChildSelectorTextRowBinder.swift; sourceTree = "<group>"; };
 		F99D88901E6DDFF0003E591B /* BxInputChildSelectorPicturesRowBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputChildSelectorPicturesRowBinder.swift; sourceTree = "<group>"; };
+		F9CA1C731EABA4BD0029A029 /* BxInputRowChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputRowChecker.swift; sourceTree = "<group>"; };
+		F9CA1C771EABD9310029A029 /* BxInputEmptyValueChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputEmptyValueChecker.swift; sourceTree = "<group>"; };
+		F9DF02D61EADDD53006EC83E /* UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		F9DF02D81EADE34E006EC83E /* BxInputStandartErrorRowDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputStandartErrorRowDecorator.swift; sourceTree = "<group>"; };
+		F9DF02DA1EADE389006EC83E /* BxInputRowDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputRowDecorator.swift; sourceTree = "<group>"; };
 		F9E786A91E52F6F800341996 /* BxInputRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputRow.swift; sourceTree = "<group>"; };
 		F9E786AA1E52F6F800341996 /* BxInputSelectorRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSelectorRow.swift; sourceTree = "<group>"; };
 		F9E786AB1E52F6F800341996 /* BxInputStaticHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputStaticHeight.swift; sourceTree = "<group>"; };
@@ -325,6 +335,8 @@
 				F9847E771E279B60007C26EC /* Assets.xcassets */,
 				F9E786A81E52F6F800341996 /* Common */,
 				F9E786B41E52F6F800341996 /* Controller */,
+				F9CA1C751EABD8100029A029 /* Checkers */,
+				F9CA1C761EABD8100029A029 /* Decorators */,
 				F9E786BB1E52F6F800341996 /* Extensions */,
 				F96D1F441E5463AC00BDB2CE /* Rows */,
 				F9E786EF1E52F6F800341996 /* Sections */,
@@ -550,11 +562,29 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F9CA1C751EABD8100029A029 /* Checkers */ = {
+			isa = PBXGroup;
+			children = (
+				F9CA1C771EABD9310029A029 /* BxInputEmptyValueChecker.swift */,
+			);
+			path = Checkers;
+			sourceTree = "<group>";
+		};
+		F9CA1C761EABD8100029A029 /* Decorators */ = {
+			isa = PBXGroup;
+			children = (
+				F9DF02D81EADE34E006EC83E /* BxInputStandartErrorRowDecorator.swift */,
+			);
+			path = Decorators;
+			sourceTree = "<group>";
+		};
 		F9E786A81E52F6F800341996 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				F9E7873B1E53340C00341996 /* BxInputUtils.swift */,
 				F9E786A91E52F6F800341996 /* BxInputRow.swift */,
+				F9CA1C731EABA4BD0029A029 /* BxInputRowChecker.swift */,
+				F9DF02DA1EADE389006EC83E /* BxInputRowDecorator.swift */,
 				F9E786AA1E52F6F800341996 /* BxInputSelectorRow.swift */,
 				F9E786AB1E52F6F800341996 /* BxInputStaticHeight.swift */,
 				F9E786AC1E52F6F800341996 /* BxInputString.swift */,
@@ -592,6 +622,7 @@
 			children = (
 				F9E786BC1E52F6F800341996 /* Formatter.swift */,
 				F9E786BD1E52F6F800341996 /* UIImage.swift */,
+				F9DF02D61EADDD53006EC83E /* UITextField.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -773,11 +804,15 @@
 				F9E7870E1E52F6F800341996 /* UIImage.swift in Sources */,
 				F96D1F8C1E5463AC00BDB2CE /* BxInputChildSelectorSuggestionsRow.swift in Sources */,
 				F933F5BC1E7BD01200FB1E22 /* BxInputStandartTextRowBinder.swift in Sources */,
+				F9DF02D71EADDD53006EC83E /* UITextField.swift in Sources */,
 				F9E7870A1E52F6F800341996 /* BxInputController+UITableViewDelegate.swift in Sources */,
 				F9E787091E52F6F800341996 /* BxInputController+UITableViewDataSource.swift in Sources */,
 				F96D1F981E5463AC00BDB2CE /* BxInputChildSelectorVariantsCell.swift in Sources */,
 				F9E787381E52F6F800341996 /* BxInputTextHeaderView.swift in Sources */,
+				F9DF02D91EADE34E006EC83E /* BxInputStandartErrorRowDecorator.swift in Sources */,
+				F9CA1C741EABA4BD0029A029 /* BxInputRowChecker.swift in Sources */,
 				F933F5B71E7BD01200FB1E22 /* BxInputSelectorCell.swift in Sources */,
+				F9DF02DB1EADE389006EC83E /* BxInputRowDecorator.swift in Sources */,
 				F9E7870D1E52F6F800341996 /* Formatter.swift in Sources */,
 				F9E7870B1E52F6F800341996 /* BxInputController.swift in Sources */,
 				F92183DF1E23AB21002E1781 /* CommonController.swift in Sources */,
@@ -847,6 +882,7 @@
 				F96D1F891E5463AC00BDB2CE /* BxInputRateRow.swift in Sources */,
 				F90EE7A11E6DCCC3006A506C /* BxInputSwitchRowBinder.swift in Sources */,
 				F907C7F11E77D25F000F3437 /* BxInputFormattedTextCell.swift in Sources */,
+				F9CA1C781EABD9310029A029 /* BxInputEmptyValueChecker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

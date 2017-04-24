@@ -16,6 +16,7 @@ import UIKit
 /// Boolean row with single checkbox
 open class BxInputCheckRow: BxInputValueRow
 {
+
     open var binder : BxInputRowBinder {
         return BxInputCheckRowBinder<BxInputCheckRow, BxInputStandartTextCell>(row: self)
     }
@@ -32,6 +33,12 @@ open class BxInputCheckRow: BxInputValueRow
     
     /// result of user choosing
     open var value: Bool
+    
+    /// Return true if value for the row is empty
+    open var hasEmptyValue: Bool
+    {
+        return false
+    }
     
     public init(title: String? = nil, placeholder: String? = nil, value: Bool = false) {
         self.title = title

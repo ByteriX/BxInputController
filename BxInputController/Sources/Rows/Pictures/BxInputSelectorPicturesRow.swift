@@ -16,6 +16,7 @@ import UIKit
 /// Implementation row with photos and camera selector. Selector is showed with keyboard frame
 open class BxInputSelectorPicturesRow : BxInputValueRow, BxInputSelectorRow
 {
+
     /// Make and return Binder for binding row with cell.
     open var binder : BxInputRowBinder {
         return BxInputSelectorRowBinder<BxInputSelectorPicturesRow, BxInputSelectorCell>(row: self)
@@ -50,7 +51,11 @@ open class BxInputSelectorPicturesRow : BxInputValueRow, BxInputSelectorRow
     open var maxSelectedCount: Int = 5
     open var isUniqueue: Bool = true
     
-    
+    /// Return true if value for the row is empty
+    open var hasEmptyValue: Bool
+    {
+        return pictures.count == 0
+    }
     
     public var child : BxInputChildSelectorPicturesRow
     public var children: [BxInputChildSelectorRow] {

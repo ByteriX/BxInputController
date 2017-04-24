@@ -16,6 +16,7 @@ import UIKit
 /// Custom action row implementation with association generic class
 open class BxInputActionCustomRow<T : BxInputString>: BxInputActionRow
 {
+
     open var binder : BxInputRowBinder {
         return BxInputActionCustomRowBinder<T, BxInputStandartTextCell>(row: self)
     }
@@ -34,6 +35,12 @@ open class BxInputActionCustomRow<T : BxInputString>: BxInputActionRow
     open var value: T? = nil
     open var handler: ((_ actionRow: BxInputActionRow) -> Void)? = nil
     open var isImmediatelyDeselect: Bool = false
+    
+    /// Return true if value for the row is empty
+    open var hasEmptyValue: Bool
+    {
+        return value == nil
+    }
     
     public init(title: String? = nil, placeholder: String? = nil, value: T? = nil) {
         self.title = title
