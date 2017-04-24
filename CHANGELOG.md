@@ -10,6 +10,9 @@ ByteriX, 2017. All right reserved.
 ##### Features
 * added decorator entity for marking a row
 * added checker entity for finding mistake in value of a row
+* made BxInputStandartErrorRowDecorator
+* made BxInputEmptyValueChecker
+* illustrated marking of putting error in the example
 
 ## 2.1.2 (24.03.2017)
 ##### Bug fix
