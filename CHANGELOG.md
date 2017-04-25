@@ -14,8 +14,9 @@ ByteriX, 2017. All right reserved.
 * made BxInputEmptyValueChecker for not empty checking
 * made BxInputEmailChecker for testing an email
 * added possibility change priority of checking
-* extracted base interface for cells BxInputCell and BxInputFieldCell
+* extracted base interface for cells BxInputTitleCell and BxInputFieldCell
 * added subtitle to base row
+* refactoring base Binder: added BxInputBaseTitleRowBinder, BxInputBaseFieldRowBinder subclasses
 * illustrated marking of putting error in the example
 
 ## 2.1.2 (24.03.2017)

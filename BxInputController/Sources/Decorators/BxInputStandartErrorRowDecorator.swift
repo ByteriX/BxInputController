@@ -24,7 +24,7 @@ open class BxInputStandartErrorRowDecorator : BxInputRowDecorator {
     public var markSubtitle : String? = nil
     
     public func mark(binder: BxInputRowBinder) {
-        if let cell = binder.viewCell as? BxInputCell {
+        if let cell = binder.viewCell as? BxInputTitleCell {
             cell.titleLabel.textColor = markColor
             
             if let cell = binder.viewCell as? BxInputFieldCell {
@@ -61,7 +61,7 @@ open class BxInputStandartErrorRowDecorator : BxInputRowDecorator {
                 text.isEmpty == true && cell.valueTextField.placeholder?.isEmpty == false
         {
             view = cell.valueTextField
-        } else if let cell = binder.viewCell as? BxInputCell,
+        } else if let cell = binder.viewCell as? BxInputTitleCell,
             let text = cell.titleLabel.text,
             text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty == false
         {

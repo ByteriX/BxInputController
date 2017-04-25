@@ -36,7 +36,7 @@ open class BxInputStandartTextCell: UITableViewCell, BxInputFieldCell {
     @IBOutlet public weak var titleLabel: UILabel!
     /// caption of title for the row
     @IBOutlet public weak var subtitleLabel: UILabel?
-    @IBOutlet weak var subtitleBottomMargin: NSLayoutConstraint?
+    @IBOutlet public weak var subtitleBottomMargin: NSLayoutConstraint?
     /// value for the row or a putting example
     @IBOutlet public weak var valueTextField: UITextField!
     

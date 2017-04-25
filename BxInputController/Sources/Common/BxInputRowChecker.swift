@@ -17,6 +17,7 @@ public enum BxInputRowCheckerPriority {
     case immediately
     case updateValue
     case transitonValue
+    case manualOnly
 }
 
 public protocol BxInputRowChecker : AnyObject

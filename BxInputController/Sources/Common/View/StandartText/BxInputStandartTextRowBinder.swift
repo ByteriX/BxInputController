@@ -14,7 +14,7 @@
 import UIKit
 
 /// Binder for a standart text row
-open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTextCell> : BxInputBaseRowBinder<Row, Cell>, BxInputStandartTextDelegate, UITextFieldDelegate
+open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTextCell> : BxInputBaseFieldRowBinder<Row, Cell>, BxInputStandartTextDelegate, UITextFieldDelegate
 {
     
     /// call when user selected this cell
@@ -38,41 +38,9 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
         super.update()
         cell?.delegate = self
         //
-        cell?.titleLabel.font = owner?.settings.titleFont
-        cell?.titleLabel.textColor = owner?.settings.titleColor
-        cell?.titleLabel.text = row.title
-        if let subtitleLabel = cell?.subtitleLabel {
-            subtitleLabel.font = owner?.settings.subtitleFont
-            subtitleLabel.textColor = owner?.settings.subtitleColor
-            if let margin = owner?.settings.subtitleMargin {
-                cell?.subtitleBottomMargin?.constant = margin
-            }
-            if let alignment = owner?.settings.subtitleAlignment {
-                subtitleLabel.textAlignment = alignment
-            }
-            subtitleLabel.text = row.subtitle
-        }
-        
-        
-        // reset cell for reuse subclass
-        cell?.valueTextField.font = owner?.settings.valueFont
-        cell?.valueTextField.textColor = owner?.settings.valueColor
-        cell?.valueTextField.setPlaceholder(row.placeholder, with: owner?.settings.placeholderColor)
-        
         cell?.valueTextField.isSecureTextEntry = false
-        
         updateChecking()
-        
         updateCell()
-    }
-    
-    /// event of change isEnabled
-    override open func didSetEnabled(_ value: Bool)
-    {
-        super.didSetEnabled(value)
-        cell?.valueTextField.isEnabled = value
-        cell?.valueTextField.alpha = value ? 1 : 0.5
-        cell?.titleLabel.alpha = value ? 1 : 0.5
     }
     
     /// resign value editing
