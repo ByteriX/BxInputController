@@ -63,6 +63,11 @@ open class BxInputChildSelectorTextRow: BxInputChildSelectorRow, BxInputStaticHe
             return parent?.title ?? nil
         }
     }
+    open var subtitle : String? {
+        get {
+            return parent?.subtitle ?? nil
+        }
+    }
     open var placeholder : String? {
         get {
             return parent?.placeholder ?? nil

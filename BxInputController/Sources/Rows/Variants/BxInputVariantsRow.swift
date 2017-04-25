@@ -31,6 +31,7 @@ open class BxInputVariantsRow<T : BxInputStringObject> : BxInputValueRow, BxInpu
     }
     
     open var title : String?
+    open var subtitle : String?
     open var placeholder : String?
     open var isEnabled : Bool = true
     

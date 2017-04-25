@@ -29,6 +29,7 @@ open class BxInputActionCustomRow<T : BxInputString>: BxInputActionRow
     }
     
     open var title : String?
+    open var subtitle : String?
     open var placeholder : String?
     open var isEnabled : Bool = true
     

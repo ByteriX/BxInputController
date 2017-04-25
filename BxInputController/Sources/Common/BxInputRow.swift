@@ -20,6 +20,9 @@ public protocol BxInputRow : AnyObject{
     /// caption for showing details about content
     var title : String? {get}
     
+    /// subcaption for showing details about content
+    var subtitle : String? {get}
+    
     /// hint for showing example puted a value
     var placeholder : String? {get}
     

@@ -40,15 +40,26 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
         //
         cell?.titleLabel.font = owner?.settings.titleFont
         cell?.titleLabel.textColor = owner?.settings.titleColor
-        cell?.valueTextField.font = owner?.settings.valueFont
-        cell?.valueTextField.textColor = owner?.settings.valueColor
-        //
         cell?.titleLabel.text = row.title
+        if let subtitleLabel = cell?.subtitleLabel {
+            subtitleLabel.font = owner?.settings.subtitleFont
+            subtitleLabel.textColor = owner?.settings.subtitleColor
+            if let margin = owner?.settings.subtitleMargin {
+                cell?.subtitleBottomMargin?.constant = margin
+            }
+            if let alignment = owner?.settings.subtitleAlignment {
+                subtitleLabel.textAlignment = alignment
+            }
+            subtitleLabel.text = row.subtitle
+        }
+        
         
         // reset cell for reuse subclass
-        cell?.valueTextField.isSecureTextEntry = false
-        
+        cell?.valueTextField.font = owner?.settings.valueFont
+        cell?.valueTextField.textColor = owner?.settings.valueColor
         cell?.valueTextField.setPlaceholder(row.placeholder, with: owner?.settings.placeholderColor)
+        
+        cell?.valueTextField.isSecureTextEntry = false
         
         updateChecking()
         

@@ -55,11 +55,21 @@ open class BxInputSelectorRowBinder<Row: BxInputSelectorRow, Cell: BxInputSelect
         //
         cell?.titleLabel.font = owner?.settings.titleFont
         cell?.titleLabel.textColor = owner?.settings.titleColor
+        cell?.titleLabel.text = row.title
+        if let subtitleLabel = cell?.subtitleLabel {
+            subtitleLabel.font = owner?.settings.subtitleFont
+            subtitleLabel.textColor = owner?.settings.subtitleColor
+            if let margin = owner?.settings.subtitleMargin {
+                cell?.subtitleBottomMargin?.constant = margin
+            }
+            if let alignment = owner?.settings.subtitleAlignment {
+                subtitleLabel.textAlignment = alignment
+            }
+            subtitleLabel.text = row.subtitle
+        }
+        
         cell?.valueTextField.font = owner?.settings.valueFont
         cell?.valueTextField.textColor = owner?.settings.valueColor
-        //
-        cell?.titleLabel.text = row.title
-        
         cell?.valueTextField.setPlaceholder(row.placeholder, with: owner?.settings.placeholderColor)
         
         refreshOpened(animated: false)

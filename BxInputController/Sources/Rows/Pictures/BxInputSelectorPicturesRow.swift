@@ -29,7 +29,8 @@ open class BxInputSelectorPicturesRow : BxInputValueRow, BxInputSelectorRow
     }
     
     open var title : String?
-    public var placeholderHint: String?
+    open var subtitle: String?
+    open var placeholderHint: String?
     open var placeholder : String? {
         get {
             if let placeholderHint = placeholderHint {
@@ -98,10 +99,14 @@ open class BxInputChildSelectorPicturesRow: BxInputChildSelectorRow, BxInputStat
     open var estimatedHeight : CGFloat {
         get { return height }
     }
-    
     open var title : String? {
         get {
             return parent?.title ?? nil
+        }
+    }
+    open var subtitle: String? {
+        get {
+            return parent?.subtitle ?? nil
         }
     }
     open var placeholder : String? {

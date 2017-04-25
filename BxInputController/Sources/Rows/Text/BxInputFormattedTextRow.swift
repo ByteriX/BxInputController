@@ -44,11 +44,12 @@ open class BxInputFormattedTextRow: BxInputTextRow
     public var enteredTextFont: UIFont?
     
     /// Constructor for phone putting
-    public init(title: String? = nil, placeholder: String? = nil,
+    public init(title: String? = nil, subtitle: String? = nil, placeholder: String? = nil,
                 phoneValue: String? = nil, prefix: String = "",
                 format: String, char: Character = "#")
     {
         super.init(title: title, placeholder: placeholder, value: phoneValue)
+        self.subtitle = subtitle
         leftPatternText = prefix
         formattingTemplate = format
         formattingReplacementChar = char

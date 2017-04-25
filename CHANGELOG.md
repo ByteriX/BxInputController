@@ -6,7 +6,7 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
-## 2.2.0 (24.04.2017)
+## 2.2.0 (25.04.2017)
 ##### Features
 * added decorator entity for marking a row
 * added checker entity for finding mistake in value of a row
@@ -14,7 +14,8 @@ ByteriX, 2017. All right reserved.
 * made BxInputEmptyValueChecker for not empty checking
 * made BxInputEmailChecker for testing an email
 * added possibility change priority of checking
-* extracted base interface for cells BxInputCell
+* extracted base interface for cells BxInputCell and BxInputFieldCell
+* added subtitle to base row
 * illustrated marking of putting error in the example
 
 ## 2.1.2 (24.03.2017)

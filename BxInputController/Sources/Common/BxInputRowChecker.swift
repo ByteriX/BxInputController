@@ -46,9 +46,10 @@ open class BxInputBaseRowChecker : BxInputRowChecker
         return false
     }
     
-    init(message: String? = nil) {
+    init(placeholder: String? = nil, subtitle: String? = nil) {
         let decorator = BxInputStandartErrorRowDecorator()
-        decorator.markPlaceholder = message
+        decorator.markPlaceholder = placeholder
+        decorator.markSubtitle = subtitle
         self.decorator = decorator
     }
 }

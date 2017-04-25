@@ -18,6 +18,13 @@ public protocol BxInputCell : AnyObject
 {
     /// caption of the row
     var titleLabel: UILabel! {get}
+    /// caption of title for the row. This is only option field
+    var subtitleLabel: UILabel? {get}
+}
+
+/// Base cell protocol with TextField
+public protocol BxInputFieldCell : BxInputCell
+{
     /// value for the row or a putting example
     var valueTextField: UITextField! {get}
 }

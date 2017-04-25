@@ -120,33 +120,44 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
         }
     }
     
-    open func planChecking(_ checker: BxInputRowChecker, priority: BxInputRowCheckerPriority) {
-        if checker.planPriority == priority {
-            if let decorator = checker.decorator, checker.isOK(row: row) == false {
-                checker.isActivated = true
-                DispatchQueue.main.async { [weak self] in
-                    if let this = self {
-                        decorator.activation(binder: this)
+    open func planChecking(priority: BxInputRowCheckerPriority) {
+        // it able disactivate secondery checker
+        var isFoundFirst = false
+        for checker in checkers {
+            if checker.planPriority == priority {
+                if isFoundFirst {
+                    checker.isActivated = false
+                    update()
+                } else {
+                    if let decorator = checker.decorator, checker.isOK(row: row) == false {
+                        checker.isActivated = true
+                        DispatchQueue.main.async { [weak self] in
+                            if let this = self {
+                                decorator.activation(binder: this)
+                            }
+                        }
+                        isFoundFirst = true
                     }
                 }
             }
         }
     }
     
-    open func activeChecking(_ checker: BxInputRowChecker, priority: BxInputRowCheckerPriority) {
-        if checker.activePriority == priority, checker.isActivated {
-            if checker.isOK(row: row) == true {
-                checker.isActivated = false
-                update()
+    open func activeChecking(priority: BxInputRowCheckerPriority) {
+        for checker in checkers {
+            if checker.activePriority == priority, checker.isActivated {
+                if checker.isOK(row: row) == true {
+                    checker.isActivated = false
+                    update()
+                    break
+                }
             }
         }
     }
     
     open func checking(priority: BxInputRowCheckerPriority) {
-        for checker in checkers {
-            planChecking(checker, priority: priority)
-            activeChecking(checker, priority: priority)
-        }
+        activeChecking(priority: priority)
+        planChecking(priority: priority)
     }
     
     open func updateChecking() {

@@ -21,26 +21,58 @@ open class BxInputStandartErrorRowDecorator : BxInputRowDecorator {
     
     public var markPlaceholder : String? = nil
     
+    public var markSubtitle : String? = nil
+    
     public func mark(binder: BxInputRowBinder) {
         if let cell = binder.viewCell as? BxInputCell {
             cell.titleLabel.textColor = markColor
-            cell.valueTextField.textColor = markColor
-            var placeholder = markPlaceholder
-            if placeholder == nil {
-                placeholder = binder.rowData.placeholder
+            
+            if let cell = binder.viewCell as? BxInputFieldCell {
+                cell.valueTextField.textColor = markColor
+                var placeholder = markPlaceholder
+                if placeholder == nil {
+                    placeholder = binder.rowData.placeholder
+                }
+                if let placeholder = placeholder {
+                    cell.valueTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSForegroundColorAttributeName : markColor.withAlphaComponent(0.3)])
+                }
             }
-            if let placeholder = placeholder {
-                cell.valueTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSForegroundColorAttributeName : markColor.withAlphaComponent(0.3)])
+            if let subtitleLabel = cell.subtitleLabel {
+                subtitleLabel.textColor = markColor
+                if let markSubtitle = markSubtitle {
+                    subtitleLabel.textAlignment = .right
+                    subtitleLabel.text = markSubtitle
+                }
             }
         }
     }
     
-    public func activation(binder: BxInputRowBinder) {
-        if let cell = binder.viewCell as? BxInputCell {
-            let shift = cell.valueTextField.frame.size.height * 2
-            cell.valueTextField.shakeX(withOffset: fabs(shift), breakFactor: 0.5, duration: 0.5 + fabs(shift / 100.0), maxShakes: Int(fabs(shift * 2.0)))
+    public func activation(binder: BxInputRowBinder)
+    {
+        // common changes
+        UIView.animate(withDuration: 0.5) { [weak self] in
+            self?.mark(binder: binder)
         }
-        mark(binder: binder)
+        var view: UIView? = nil
+        // foregen changes with views
+        if let cell = binder.viewCell as? BxInputFieldCell,
+            let text = cell.valueTextField.text,
+            text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty == false ||
+                text.isEmpty == true && cell.valueTextField.placeholder?.isEmpty == false
+        {
+            view = cell.valueTextField
+        } else if let cell = binder.viewCell as? BxInputCell,
+            let text = cell.titleLabel.text,
+            text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty == false
+        {
+            view = cell.titleLabel
+        }
+        
+        if let view = view
+        {
+            let shift = view.frame.size.height * 2
+            view.shakeX(withOffset: fabs(shift), breakFactor: 0.5, duration: 0.5 + fabs(shift / 100.0), maxShakes: Int(fabs(shift * 2.0)))
+        }
     }
     
     

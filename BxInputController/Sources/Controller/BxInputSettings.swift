@@ -38,6 +38,10 @@ open class BxInputSettings
     public var titleColor: UIColor = UIColor.black
     /// The font of text in the title label for a row
     public var titleFont: UIFont = UIFont.boldSystemFont(ofSize:  15)
+    /// The color of subtext in the subtitle label for a row
+    public var subtitleColor: UIColor = UIColor.black
+    /// The font of subtext in the title label for a row
+    public var subtitleFont: UIFont = UIFont.systemFont(ofSize:  10)
     /// The color of text in the value field for a row
     public var valueColor: UIColor = UIColor.black
     /// The font of text in the value field for a row
@@ -53,6 +57,10 @@ open class BxInputSettings
     public var footerHeight: CGFloat? = nil
     /// seporator inset of all cells
     public var separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
+    /// margin of subtitle from bottom
+    public var subtitleMargin: CGFloat = 2.0
+    /// alignment of subtitle
+    public var subtitleAlignment: NSTextAlignment = .left
     /// date format for showing value of the rows with date type
     public var dateFormat: DateFormatter = DateFormatter(dateStyle: DateFormatter.Style.long, timeStyle: DateFormatter.Style.none)
     

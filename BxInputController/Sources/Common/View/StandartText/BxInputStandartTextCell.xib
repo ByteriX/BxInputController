@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ITB-1p-VXa">
@@ -36,18 +36,29 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="900" text="      " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRM-n5-5OD">
+                        <rect key="frame" x="16" y="42" width="288" height="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="UVW-ze-o3d" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="06b-zp-VBg"/>
+                    <constraint firstItem="sRM-n5-5OD" firstAttribute="leading" secondItem="UVW-ze-o3d" secondAttribute="leading" id="CTT-ip-Zaq"/>
                     <constraint firstAttribute="bottom" secondItem="ITB-1p-VXa" secondAttribute="bottom" id="KMQ-Ms-Phb"/>
                     <constraint firstItem="UVW-ze-o3d" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="KsF-NR-Ion"/>
                     <constraint firstAttribute="top" secondItem="ITB-1p-VXa" secondAttribute="top" id="M2x-Wn-1lP"/>
+                    <constraint firstItem="sRM-n5-5OD" firstAttribute="trailing" secondItem="ITB-1p-VXa" secondAttribute="trailing" id="RfI-TG-mXg"/>
                     <constraint firstAttribute="bottom" secondItem="UVW-ze-o3d" secondAttribute="bottom" constant="12" id="T5W-pe-tAS"/>
                     <constraint firstAttribute="trailing" secondItem="ITB-1p-VXa" secondAttribute="trailing" constant="16" id="ceW-0g-trC"/>
                     <constraint firstItem="ITB-1p-VXa" firstAttribute="leading" secondItem="UVW-ze-o3d" secondAttribute="trailing" constant="8" id="n2o-3X-Xuu"/>
+                    <constraint firstAttribute="bottom" secondItem="sRM-n5-5OD" secondAttribute="bottom" constant="4" id="wge-mf-oCB"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="subtitleBottomMargin" destination="wge-mf-oCB" id="dXk-M9-AS8"/>
+                <outlet property="subtitleLabel" destination="sRM-n5-5OD" id="wlz-hC-J5Z"/>
                 <outlet property="titleLabel" destination="UVW-ze-o3d" id="RQh-es-MNV"/>
                 <outlet property="valueTextField" destination="ITB-1p-VXa" id="UFb-dq-D8O"/>
             </connections>
