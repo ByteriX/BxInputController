@@ -14,7 +14,7 @@
 import UIKit
 
 /// Binder for switch row subclasses
-open class BxInputSwitchRowBinder<Row: BxInputSwitchRow, Cell: BxInputSwitchCell> : BxInputBaseRowBinder<Row, Cell>, BxInputSwitchDelegate
+open class BxInputSwitchRowBinder<Row: BxInputSwitchRow, Cell: BxInputSwitchCell> : BxInputBaseTitleRowBinder<Row, Cell>, BxInputSwitchDelegate
 {
     /// call when user selected this cell
     override open func didSelected()
@@ -29,13 +29,7 @@ open class BxInputSwitchRowBinder<Row: BxInputSwitchRow, Cell: BxInputSwitchCell
         super.update()
         //
         cell?.delegate = self
-        //
-        cell?.titleLabel.font = owner?.settings.titleFont
-        cell?.titleLabel.textColor = owner?.settings.titleColor
-        cell?.titleLabel.text = row.title
-        
         cell?.selectionStyle = .none
-        
         cell?.valueSwitch.setOn(row.value, animated: false)
     }
     /// event of change isEnabled
@@ -44,7 +38,6 @@ open class BxInputSwitchRowBinder<Row: BxInputSwitchRow, Cell: BxInputSwitchCell
         super.didSetEnabled(value)
         cell?.valueSwitch.isEnabled = value
         //cell?.valueSwitch.alpha = value ? 1 : 0.5
-        cell?.titleLabel.alpha = value ? 1 : 0.5
     }
     
     // MARK - BxInputSwitchDelegate

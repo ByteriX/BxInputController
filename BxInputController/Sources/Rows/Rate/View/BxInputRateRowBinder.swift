@@ -15,7 +15,7 @@ import UIKit
 import BxObjC
 
 /// Binder for BxInputRateRow subclasses
-open class BxInputRateRowBinder<Row: BxInputRateRow, Cell: BxInputRateCell> : BxInputBaseRowBinder<Row, Cell>, BxStandartRateViewDelegate
+open class BxInputRateRowBinder<Row: BxInputRateRow, Cell: BxInputRateCell> : BxInputBaseTitleRowBinder<Row, Cell>, BxStandartRateViewDelegate
 {
     /// call when user selected this cell
     override open func didSelected()
@@ -34,11 +34,7 @@ open class BxInputRateRowBinder<Row: BxInputRateRow, Cell: BxInputRateCell> : Bx
         }
         // backward call delegate
         cell.valueRateView.delegate = self
-        //
-        cell.titleLabel.font = owner?.settings.titleFont
-        cell.titleLabel.textColor = owner?.settings.titleColor
-        cell.titleLabel.text = row.title
-        
+
         cell.selectionStyle = .none
         
         cell.valueRateView.maxRating = Int32(row.maxValue)
@@ -64,7 +60,6 @@ open class BxInputRateRowBinder<Row: BxInputRateRow, Cell: BxInputRateCell> : Bx
         super.didSetEnabled(value)
         cell?.valueRateView.editable = value
         cell?.valueRateView.alpha = value ? 1 : 0.5
-        cell?.titleLabel.alpha = value ? 1 : 0.5
     }
     
     // MARK - BxStandartRateViewDelegate

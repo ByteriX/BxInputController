@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Zd-c0-eqK" customClass="BxStandartRateView">
@@ -31,19 +31,30 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="900" text="      " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NkZ-ry-kYr">
+                        <rect key="frame" x="16" y="41.5" width="288" height="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Epb-2d-wIK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="0fw-W9-lhp"/>
+                    <constraint firstItem="NkZ-ry-kYr" firstAttribute="trailing" secondItem="2Zd-c0-eqK" secondAttribute="trailing" id="45K-dx-SyK"/>
                     <constraint firstItem="2Zd-c0-eqK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="5wi-DJ-LFy"/>
                     <constraint firstAttribute="trailing" secondItem="2Zd-c0-eqK" secondAttribute="trailing" constant="16" id="AT4-vQ-CdO"/>
+                    <constraint firstItem="NkZ-ry-kYr" firstAttribute="leading" secondItem="Epb-2d-wIK" secondAttribute="leading" id="AZG-XH-C6i"/>
                     <constraint firstAttribute="bottom" secondItem="Epb-2d-wIK" secondAttribute="bottom" constant="12" id="CEm-o6-f0J"/>
                     <constraint firstItem="2Zd-c0-eqK" firstAttribute="leading" secondItem="Epb-2d-wIK" secondAttribute="trailing" constant="10" id="Ihb-Sk-RHe"/>
+                    <constraint firstAttribute="bottom" secondItem="NkZ-ry-kYr" secondAttribute="bottom" constant="4" id="Ivv-6h-SfU"/>
                     <constraint firstItem="2Zd-c0-eqK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="WJN-6T-tB7"/>
                     <constraint firstItem="Epb-2d-wIK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="tSa-FZ-vWL"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="rateWidthConstraint" destination="XvN-ks-U8X" id="NjN-cz-nTx"/>
+                <outlet property="subtitleBottomMargin" destination="Ivv-6h-SfU" id="uVG-xI-XKP"/>
+                <outlet property="subtitleLabel" destination="NkZ-ry-kYr" id="dPK-jh-veU"/>
                 <outlet property="titleLabel" destination="Epb-2d-wIK" id="qyo-Cz-5fz"/>
                 <outlet property="valueRateView" destination="2Zd-c0-eqK" id="tYg-Oo-B2i"/>
             </connections>

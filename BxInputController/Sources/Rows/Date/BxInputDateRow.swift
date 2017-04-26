@@ -44,8 +44,11 @@ open class BxInputDateRow : BxInputValueRow
         return value == nil
     }
     
-    public init(title: String? = nil, placeholder: String? = nil, value: Date? = nil) {
+    public init(title: String? = nil, subtitle: String? = nil,
+                placeholder: String? = nil, value: Date? = nil)
+    {
         self.title = title
+        self.subtitle = subtitle
         self.placeholder = placeholder
         self.value = value
     }

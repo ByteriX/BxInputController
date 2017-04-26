@@ -58,8 +58,11 @@ open class BxInputVariantsRow<T : BxInputStringObject> : BxInputValueRow, BxInpu
         }
     }
     
-    public init(title: String? = nil, placeholder: String? = nil, value: T? = nil) {
+    public init(title: String? = nil, subtitle: String? = nil,
+                placeholder: String? = nil, value: T? = nil)
+    {
         self.title = title
+        self.subtitle = subtitle
         self.placeholder = placeholder
         self.value = value
     }

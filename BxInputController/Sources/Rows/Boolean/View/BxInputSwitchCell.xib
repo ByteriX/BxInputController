@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -30,9 +30,18 @@
                             <action selector="valueDidChanged" destination="KGk-i7-Jjw" eventType="valueChanged" id="KTk-Zi-eyV"/>
                         </connections>
                     </switch>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="900" text="      " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPP-Up-qbg">
+                        <rect key="frame" x="16" y="41.5" width="288" height="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="wPP-Up-qbg" firstAttribute="trailing" secondItem="WVX-d5-j4c" secondAttribute="trailing" id="Mib-RS-tKP"/>
                     <constraint firstAttribute="trailing" secondItem="WVX-d5-j4c" secondAttribute="trailing" constant="16" id="PYE-GZ-lUf"/>
+                    <constraint firstItem="wPP-Up-qbg" firstAttribute="leading" secondItem="X4V-qc-vK6" secondAttribute="leading" id="Wye-OO-0Rh"/>
+                    <constraint firstAttribute="bottom" secondItem="wPP-Up-qbg" secondAttribute="bottom" constant="4" id="a9l-Jj-JmL"/>
                     <constraint firstAttribute="bottom" secondItem="X4V-qc-vK6" secondAttribute="bottom" constant="12" id="bzN-Ah-y7h"/>
                     <constraint firstItem="WVX-d5-j4c" firstAttribute="leading" secondItem="X4V-qc-vK6" secondAttribute="trailing" constant="16" id="dPb-OV-wvR"/>
                     <constraint firstItem="X4V-qc-vK6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="eD8-Cd-dF4"/>
@@ -41,6 +50,8 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="subtitleBottomMargin" destination="a9l-Jj-JmL" id="aN9-d3-6TX"/>
+                <outlet property="subtitleLabel" destination="wPP-Up-qbg" id="Hsk-vu-uFS"/>
                 <outlet property="titleLabel" destination="X4V-qc-vK6" id="NYX-Dr-RGb"/>
                 <outlet property="valueSwitch" destination="WVX-d5-j4c" id="Sc8-vp-mDQ"/>
             </connections>

@@ -28,7 +28,9 @@ open class BxInputChildSelectorSuggestionsRow: BxInputRow, BxInputString, BxInpu
     }
     
     open var title : String?
+    /// This param doesn't used
     open var subtitle : String?
+    /// This param doesn't used
     open var placeholder : String?
     open var isEnabled : Bool {
         get {
@@ -46,8 +48,7 @@ open class BxInputChildSelectorSuggestionsRow: BxInputRow, BxInputString, BxInpu
     
     weak open var parent: BxInputSelectorRow? = nil
     
-    public init(title: String? = nil, placeholder: String? = nil) {
+    public init(title: String? = nil) {
         self.title = title
-        self.placeholder = placeholder
     }
 }

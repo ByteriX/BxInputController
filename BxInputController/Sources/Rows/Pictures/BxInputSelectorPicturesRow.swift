@@ -65,8 +65,11 @@ open class BxInputSelectorPicturesRow : BxInputValueRow, BxInputSelectorRow
         }
     }
     
-    public init(title: String? = nil, placeholder: String? = nil, pictures: [BxInputPictureItem] = []) {
+    public init(title: String? = nil, subtitle: String? = nil,
+                placeholder: String? = nil, pictures: [BxInputPictureItem] = [])
+    {
         self.title = title
+        self.subtitle = subtitle
         self.placeholderHint = placeholder
         self.pictures = pictures
         child = BxInputChildSelectorPicturesRow()

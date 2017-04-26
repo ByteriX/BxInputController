@@ -37,9 +37,11 @@ open class BxInputSelectorTextRow : BxInputTextRow, BxInputSelectorRow
         }
     }
     
-    override public init(title: String? = nil, placeholder: String? = nil, value: String? = nil) {
+    override public init(title: String? = nil, subtitle: String? = nil,
+                         placeholder: String? = nil, value: String? = nil)
+    {
         child = BxInputChildSelectorTextRow()
-        super.init(title: title, placeholder: placeholder, value: value)
+        super.init(title: title, subtitle: subtitle, placeholder: placeholder, value: value)
         child.parent = self
     }
     

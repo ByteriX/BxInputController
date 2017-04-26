@@ -45,9 +45,11 @@ open class BxInputRateRow: BxInputValueRow
         return value == nil
     }
     
-    public init(title: String? = nil, maxValue: Int = 5, activeColor: UIColor = UIColor.red, value: Float? = nil)
+    public init(title: String? = nil, subtitle: String? = nil,
+                maxValue: Int = 5, activeColor: UIColor = UIColor.red, value: Float? = nil)
     {
         self.title = title
+        self.subtitle = subtitle
         self.value = value
         self.maxValue = maxValue
         self.activeColor = activeColor

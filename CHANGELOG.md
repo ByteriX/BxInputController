@@ -16,6 +16,7 @@ ByteriX, 2017. All right reserved.
 * added possibility change priority of checking
 * extracted base interface for cells BxInputTitleCell and BxInputFieldCell
 * added subtitle to base row
+* added subtitle to all rows with init
 * refactoring base Binder: added BxInputBaseTitleRowBinder, BxInputBaseFieldRowBinder subclasses
 * illustrated marking of putting error in the example
 

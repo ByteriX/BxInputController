@@ -46,9 +46,11 @@ open class BxInputSelectorVariantsRow<T: BxInputStringObject> : BxInputVariantsR
         }
     }
     
-    override public init(title: String? = nil, placeholder: String? = nil, value: T? = nil) {
+    override public init(title: String? = nil, subtitle: String? = nil,
+                         placeholder: String? = nil, value: T? = nil)
+    {
         child = BxInputChildSelectorVariantsRow<T>()
-        super.init(title: title, placeholder: placeholder, value: value)
+        super.init(title: title, subtitle: subtitle, placeholder: placeholder, value: value)
         child.parent = self
     }
     

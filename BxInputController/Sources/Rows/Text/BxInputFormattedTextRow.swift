@@ -59,10 +59,10 @@ open class BxInputFormattedTextRow: BxInputTextRow
     }
     
     /// Constructor for url putting
-    public init(title: String? = nil, placeholder: String? = nil,
+    public init(title: String? = nil, subtitle: String? = nil, placeholder: String? = nil,
                 domainValue: String? = nil, prefix: String = "", sufix: String = "")
     {
-        super.init(title: title, placeholder: placeholder, value: domainValue)
+        super.init(title: title, subtitle: subtitle, placeholder: placeholder, value: domainValue)
         leftPatternText = prefix
         rightPatternText = sufix
         keyboardType = .URL

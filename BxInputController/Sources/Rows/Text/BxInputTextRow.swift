@@ -49,8 +49,11 @@ open class BxInputTextRow: BxInputValueRow, BxInputString
         return true
     }
 
-    public init(title: String? = nil, placeholder: String? = nil, value: String? = nil) {
+    public init(title: String? = nil, subtitle: String? = nil,
+                placeholder: String? = nil, value: String? = nil)
+    {
         self.title = title
+        self.subtitle = subtitle
         self.placeholder = placeholder
         self.value = value
     }

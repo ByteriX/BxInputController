@@ -37,9 +37,11 @@ open class BxInputSelectorDateRow : BxInputDateRow, BxInputSelectorRow
         }
     }
     
-    override public init(title: String? = nil, placeholder: String? = nil, value: Date? = nil) {
+    override public init(title: String? = nil, subtitle: String? = nil,
+                         placeholder: String? = nil, value: Date? = nil)
+    {
         child = BxInputChildSelectorDateRow()
-        super.init(title: title, placeholder: placeholder, value: value)
+        super.init(title: title, subtitle: subtitle, placeholder: placeholder, value: value)
         child.parent = self
     }
     

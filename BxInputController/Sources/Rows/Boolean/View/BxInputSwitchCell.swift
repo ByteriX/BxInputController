@@ -21,12 +21,17 @@ public protocol BxInputSwitchDelegate: AnyObject
 }
 
 /// Cell with switch button for boolean row
-open class BxInputSwitchCell: UITableViewCell {
+open class BxInputSwitchCell: UITableViewCell, BxInputTitleCell
+{
     /// delegate
     public weak var delegate: BxInputSwitchDelegate? = nil
 
     /// caption of row
     @IBOutlet weak open var titleLabel: UILabel!
+    /// caption of title for the row. This is only option field
+    @IBOutlet public weak var subtitleLabel: UILabel?
+    /// for managment of position subtitle
+    @IBOutlet public weak var subtitleBottomMargin: NSLayoutConstraint?
     /// switch button for changing value
     @IBOutlet weak open var valueSwitch: UISwitch!
     /// action from UISwitch

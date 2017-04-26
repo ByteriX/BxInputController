@@ -70,8 +70,11 @@ open class BxInputSelectorSuggestionsRow<T : BxInputChildSelectorRow> : BxInputV
         return value == nil
     }
     
-    public init(title: String? = nil, placeholder: String? = nil, children: [T] = []) {
+    public init(title: String? = nil, subtitle: String? = nil,
+                placeholder: String? = nil, children: [T] = [])
+    {
         self.title = title
+        self.subtitle = subtitle
         self.placeholder = placeholder
         self.children = children
     }

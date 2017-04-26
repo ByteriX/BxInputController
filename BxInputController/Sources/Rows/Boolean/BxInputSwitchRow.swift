@@ -40,8 +40,9 @@ open class BxInputSwitchRow: BxInputValueRow
         return false
     }
     
-    public init(title: String? = nil, value: Bool = false) {
+    public init(title: String? = nil, subtitle: String? = nil, value: Bool = false) {
         self.title = title
+        self.subtitle = subtitle
         self.value = value
     }
     

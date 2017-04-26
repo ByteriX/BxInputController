@@ -15,12 +15,17 @@ import UIKit
 import BxObjC
 
 /// Cell for select rating
-public class BxInputRateCell: UITableViewCell {
+open class BxInputRateCell: UITableViewCell, BxInputTitleCell {
     
+    /// caption of row
     @IBOutlet weak open var titleLabel: UILabel!
+    /// caption of title for the row. This is only option field
+    @IBOutlet public weak var subtitleLabel: UILabel?
+    /// for managment of position subtitle
+    @IBOutlet public weak var subtitleBottomMargin: NSLayoutConstraint?
+    /// rate control
     @IBOutlet weak open var valueRateView: BxStandartRateView!
+    /// width constraint for rate control. It may unuse
     @IBOutlet weak var rateWidthConstraint: NSLayoutConstraint!
-    
-    
-    
+
 }

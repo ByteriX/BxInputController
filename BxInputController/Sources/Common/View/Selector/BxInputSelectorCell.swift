@@ -18,8 +18,9 @@ open class BxInputSelectorCell: UITableViewCell, BxInputFieldCell {
     
     /// caption of the row
     @IBOutlet public weak var titleLabel: UILabel!
-    /// caption of title for the row
+    /// caption of title for the row. This is only option field
     @IBOutlet public weak var subtitleLabel: UILabel?
+    /// for managment of position subtitle
     @IBOutlet public weak var subtitleBottomMargin: NSLayoutConstraint?
     /// value from selected field
     @IBOutlet public weak var valueTextField: UITextField!
