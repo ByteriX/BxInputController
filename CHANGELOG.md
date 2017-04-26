@@ -6,6 +6,11 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.2.1 (26.04.2017)
+##### Bug fix
+* fixed bug with active UITextField in selector rows
+* added default init to Checker
+
 ## 2.2.0 (26.04.2017)
 ##### Features
 * added decorator entity for marking a row

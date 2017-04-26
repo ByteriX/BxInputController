@@ -67,6 +67,11 @@ open class BxInputBaseRowChecker : BxInputRowChecker
         return false
     }
     
+    /// default init without decorator
+    init() {
+        decorator = nil
+    }
+    
     /// init from standart decorator with highlighted placeholder and subtitle, if its are defined
     init(placeholder: String? = nil, subtitle: String? = nil) {
         let decorator = BxInputStandartErrorRowDecorator()
