@@ -16,8 +16,9 @@ import Foundation
 /// Decoration interface for redrawing row with a correction
 public protocol BxInputRowDecorator : AnyObject
 {
+    /// method calls when need show activation of something event
+    func activate(binder: BxInputRowBinder)
     
-    func mark(binder: BxInputRowBinder)
-    
-    func activation(binder: BxInputRowBinder)
+    /// method calls when binder update row
+    func update(binder: BxInputRowBinder)
 }

@@ -17,6 +17,7 @@ import Foundation
 open class BxInputEmptyValueChecker : BxInputBaseRowChecker
 {
     
+    /// checking method
     override open func isOK(row: BxInputRow) -> Bool
     {
         if let row = row as? BxInputValueRow {

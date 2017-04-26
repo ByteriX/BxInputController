@@ -304,6 +304,26 @@ class EnabledAllRowsController: SimpleAllRowsController {
 }
 ```
 
+### Checking of value
+
+If you need marked row, when it has incorrect value you can use `BxInputRowChecker` and `BxInputRowDecorator` for this case. Just make expected use case on this subclasses and call `addChecker` from `BxInputController` when row is had in controller then row will be marked according to checking priority which you can choose (see `BxInputRowCheckerPriority`).
+
+#### Example for checking
+
+```swift
+
+override func viewDidLoad() {
+    super.viewDidLoad()
+    self.sections = [BxInputSection(rows: [emailValue])]
+
+    addChecker(BxInputEmptyValueChecker(placeholder: "Please put your email"), for: emailValue)
+    let emailChecker = BxInputEmailChecker(subtitle: "incorrect email")
+    emailChecker.planPriority = .immediately
+    addChecker(emailChecker, for: emailValue)
+}
+
+```
+
 ### Other table transformation
 
 You can scroll to needed row with method `scrollRow`. 

@@ -53,6 +53,8 @@ open class BxInputRateRowBinder<Row: BxInputRateRow, Cell: BxInputRateCell> : Bx
         } else {
             cell.valueRateView.rating = 0
         }
+        
+        updateChecking()
     }
     /// event of change isEnabled
     override open func didSetEnabled(_ value: Bool)

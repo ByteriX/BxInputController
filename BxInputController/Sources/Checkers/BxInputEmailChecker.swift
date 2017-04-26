@@ -29,6 +29,7 @@ class BxInputEmailChecker: BxInputBaseRowChecker
         return result
     }
     
+    /// checking method
     override open func isOK(row: BxInputRow) -> Bool
     {
         if let textRow = row as? BxInputTextRow {

@@ -27,8 +27,9 @@ public protocol BxInputRowBinder : AnyObject {
     /// call when user selected this cell
     func didSelected()
     
-    var checkers: [BxInputRowChecker] {get}
+    /// add to row checker. The sequence is important for activation. First rights
     func addChecker(_ checker: BxInputRowChecker)
-    func checking(priority: BxInputRowCheckerPriority)
+    /// use all added checkers with 'priority' for testing value of row
+    func checkRow(priority: BxInputRowCheckerPriority)
 }
 

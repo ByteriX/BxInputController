@@ -54,7 +54,7 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
     /// view
     public weak var cell: Cell? = nil
     
-    public var rowCheckers: [BxInputRowChecker] = []
+    public var checkers: [BxInputRowChecker] = []
     
     /// new value should map with data model
     public init(row: Row)
@@ -88,20 +88,19 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
     {
         // empty
     }
-    public var checkers: [BxInputRowChecker]
-    {
-        return rowCheckers
-    }
+
+    /// add to row checker. The sequence is important for activation. First rights
     open func addChecker(_ checker: BxInputRowChecker)
     {
         if let checker = checker as? BxInputRowChecker {
-            rowCheckers.append(checker)
+            checkers.append(checker)
         } else {
             assertionFailure("Error Checker class from \(type(of: self)).\nExpected: \(Row.self) actual: \(type(of: checker)).")
         }
     }
     
-    open func planChecking(priority: BxInputRowCheckerPriority) {
+    /// use all added checkers with 'priority' for testing value of row
+    open func planCheckRow(priority: BxInputRowCheckerPriority) {
         // it able disactivate secondery checker
         var isFoundFirst = false
         for checker in checkers {
@@ -114,7 +113,7 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
                         checker.isActivated = true
                         DispatchQueue.main.async { [weak self] in
                             if let this = self {
-                                decorator.activation(binder: this)
+                                decorator.activate(binder: this)
                             }
                         }
                         isFoundFirst = true
@@ -124,7 +123,8 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
         }
     }
     
-    open func activeChecking(priority: BxInputRowCheckerPriority) {
+    /// use only active checkers with 'priority' for testing value of row
+    open func activeCheckRow(priority: BxInputRowCheckerPriority) {
         for checker in checkers {
             if checker.activePriority == priority, checker.isActivated {
                 if checker.isOK(row: row) == true {
@@ -136,11 +136,13 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
         }
     }
     
-    open func checking(priority: BxInputRowCheckerPriority) {
-        activeChecking(priority: priority)
-        planChecking(priority: priority)
+    /// use all added checkers with 'priority' for testing value of row
+    open func checkRow(priority: BxInputRowCheckerPriority) {
+        activeCheckRow(priority: priority)
+        planCheckRow(priority: priority)
     }
     
+    /// should be called after update row
     open func updateChecking() {
         for checker in checkers {
             if checker.isOK(row: row) == false {
@@ -150,7 +152,7 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
                 if let decorator = checker.decorator, checker.isActivated {
                     DispatchQueue.main.async { [weak self] in
                         if let this = self {
-                            decorator.mark(binder: this)
+                            decorator.update(binder: this)
                         }
                     }
                     break
@@ -161,7 +163,7 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
     
     /// event when value of a row was changed. It may be not current row, for example parentRow from Selector type
     open func didChangedValue(for row: BxInputValueRow) {
-        checking(priority: .updateValue)
+        checkRow(priority: .updateValue)
         row.didChangedValue()
         owner?.didChangedValue(for: row)
     }

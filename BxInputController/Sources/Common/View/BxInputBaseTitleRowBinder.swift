@@ -13,8 +13,6 @@
 
 import UIKit
 
-
-
 /// Base class for binding row data model with base title cell
 open class BxInputBaseTitleRowBinder<Row: BxInputRow, Cell> : BxInputBaseRowBinder<Row, Cell>
     where Cell : UITableViewCell, Cell : BxInputTitleCell

@@ -512,6 +512,7 @@ open class BxInputController : UIViewController
         }
     }
     
+    /// add to row checker. The sequence is important for activation. First rights
     open func addChecker(_ checker: BxInputRowChecker, for row: BxInputRow)
     {
         if let binder = getRowBinder(for: row) {
@@ -529,10 +530,11 @@ open class BxInputController : UIViewController
         // you can override
     }
     
+    /// when user go to next row or finish input activeRow
     open func changeRow(to row: BxInputRow?) {
         if let activeRow = activeRow {
             if let binder = getRowBinder(for: activeRow) {
-                binder.checking(priority: .transitonValue)
+                binder.checkRow(priority: .transitonValue)
             }
         }
     }

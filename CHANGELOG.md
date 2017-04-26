@@ -6,7 +6,7 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
-## 2.2.0 (25.04.2017)
+## 2.2.0 (26.04.2017)
 ##### Features
 * added decorator entity for marking a row
 * added checker entity for finding mistake in value of a row
@@ -19,6 +19,7 @@ ByteriX, 2017. All right reserved.
 * added subtitle to all rows with init
 * refactoring base Binder: added BxInputBaseTitleRowBinder, BxInputBaseFieldRowBinder subclasses
 * illustrated marking of putting error in the example
+* updated README and CHANGELOG
 
 ## 2.1.2 (24.03.2017)
 ##### Bug fix
