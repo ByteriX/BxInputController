@@ -92,11 +92,7 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
     /// add to row checker. The sequence is important for activation. First rights
     open func addChecker(_ checker: BxInputRowChecker)
     {
-        if let checker = checker as? BxInputRowChecker {
-            checkers.append(checker)
-        } else {
-            assertionFailure("Error Checker class from \(type(of: self)).\nExpected: \(Row.self) actual: \(type(of: checker)).")
-        }
+        checkers.append(checker)
     }
     
     /// use all added checkers with 'priority' for testing value of row
@@ -109,7 +105,7 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
                     checker.isActivated = false
                     update()
                 } else {
-                    if let decorator = checker.decorator, checker.isOK(row: row) == false {
+                    if let decorator = checker.decorator, checker.isOK() == false {
                         checker.isActivated = true
                         DispatchQueue.main.async { [weak self] in
                             if let this = self {
@@ -127,7 +123,7 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
     open func activeCheckRow(priority: BxInputRowCheckerPriority) {
         for checker in checkers {
             if checker.activePriority == priority, checker.isActivated {
-                if checker.isOK(row: row) == true {
+                if checker.isOK() == true {
                     checker.isActivated = false
                     update()
                     break
@@ -145,7 +141,7 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
     /// should be called after update row
     open func updateChecking() {
         for checker in checkers {
-            if checker.isOK(row: row) == false {
+            if checker.isOK() == false {
                 if checker.planPriority == .immediately {
                     checker.isActivated = true
                 }

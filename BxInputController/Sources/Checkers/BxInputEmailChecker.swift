@@ -14,7 +14,7 @@
 import Foundation
 
 /// Checker for test on corrected email putting
-class BxInputEmailChecker: BxInputBaseRowChecker
+class BxInputEmailChecker<Row: BxInputTextRow>: BxInputBaseRowChecker<Row>
 {
     /// only checking an email
     fileprivate func isEmail(email: String) -> Bool {
@@ -30,15 +30,21 @@ class BxInputEmailChecker: BxInputBaseRowChecker
     }
     
     /// checking method
-    override open func isOK(row: BxInputRow) -> Bool
+    override open func isOK() -> Bool
     {
-        if let textRow = row as? BxInputTextRow {
-            if let text = textRow.value {
-                return isEmail(email: text)
-            } else {
-                return false
-            }
+        if let text = row.value {
+            return isEmail(email: text)
+        } else {
+            return false
         }
-        return false
+    }
+    
+    /// init from standart decorator with highlighted placeholder and subtitle, if its are defined
+    convenience init(row: Row, placeholder: String? = nil, subtitle: String? = nil) {
+        self.init(row: row)
+        let decorator = BxInputStandartErrorRowDecorator()
+        decorator.placeholder = placeholder
+        decorator.subtitle = subtitle
+        self.decorator = decorator
     }
 }

@@ -90,7 +90,7 @@ class SimpleAllRowsController: BxInputController {
             BxInputSection(headerText: "Variants", rows: [variantsRow, selectorVariantsRow])
         ]
         
-        addChecker(BxInputEmptyValueChecker(placeholder: "Please put short text"), for: shortTextRow)
+        addChecker(BxInputEmptyValueChecker<BxInputTextRow>(row: shortTextRow, placeholder: "Please put short text"), for: shortTextRow)
     }
     
     

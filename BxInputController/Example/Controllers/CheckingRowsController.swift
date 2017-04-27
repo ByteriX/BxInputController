@@ -29,12 +29,12 @@ class CheckingRowsController: BxInputController {
         ]
         
         // for name
-        addChecker(BxInputEmptyValueChecker(placeholder: "Please put your name"), for: nameValue)
+        addChecker(BxInputEmptyValueChecker<BxInputTextRow>(row: nameValue, placeholder: "Please put your name"), for: nameValue)
         // for email
-        addChecker(BxInputEmptyValueChecker(placeholder: "Please put your email"), for: emailValue)
-        addChecker(BxInputEmailChecker(subtitle: "incorrect email"), for: emailValue)
+        addChecker(BxInputEmptyValueChecker<BxInputTextRow>(row: emailValue, placeholder: "Please put your email"), for: emailValue)
+        addChecker(BxInputEmailChecker<BxInputTextRow>(row: emailValue, subtitle: "incorrect email"), for: emailValue)
         // for date
-        let dateChecker = BxInputEmptyValueChecker(placeholder: "Please put date")
+        let dateChecker = BxInputEmptyValueChecker<BxInputDateRow>(row: emptyDate, placeholder: "Please put date")
         dateChecker.planPriority = .immediately
         dateChecker.activePriority = .transitonValue
         addChecker(dateChecker, for: emptyDate)

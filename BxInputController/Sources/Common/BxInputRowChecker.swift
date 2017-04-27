@@ -42,41 +42,5 @@ public protocol BxInputRowChecker : AnyObject
     
     
     /// checking method
-    func isOK(row: BxInputRow) -> Bool
-}
-
-/// Base class for checking putted value for row
-open class BxInputBaseRowChecker : BxInputRowChecker
-{
-
-    /// decoration row when checking fail
-    open var decorator: BxInputRowDecorator?
-    
-    /// Mode when checker waiting for a correction value
-    /// Row can have only one active checker (this is first checker, all other should will deactivated).
-    open var isActivated : Bool = false
-    
-    /// priority for deactive mode, when user isn't doing active changes
-    open var planPriority: BxInputRowCheckerPriority = .transitonValue
-    /// priority for active mode, when user is doing active changes
-    open var activePriority: BxInputRowCheckerPriority = .updateValue
-    
-    /// Checking method. Default fail
-    public func isOK(row: BxInputRow) -> Bool
-    {
-        return false
-    }
-    
-    /// default init without decorator
-    init() {
-        decorator = nil
-    }
-    
-    /// init from standart decorator with highlighted placeholder and subtitle, if its are defined
-    init(placeholder: String? = nil, subtitle: String? = nil) {
-        let decorator = BxInputStandartErrorRowDecorator()
-        decorator.placeholder = placeholder
-        decorator.subtitle = subtitle
-        self.decorator = decorator
-    }
+    func isOK() -> Bool
 }

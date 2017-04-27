@@ -306,7 +306,7 @@ class EnabledAllRowsController: SimpleAllRowsController {
 
 ### Checking of value
 
-If you need marked row, when it has incorrect value you can use `BxInputRowChecker` and `BxInputRowDecorator` for this case. Just make expected use case on this subclasses and call `addChecker` from `BxInputController` when row is had in controller then row will be marked according to checking priority which you can choose (see `BxInputRowCheckerPriority`).
+If you need marked row, when it has incorrect value you can use `BxInputChecker` and `BxInputRowDecorator` inherited classes for this case. Just make expected use case on this subclasses and call `addChecker` from `BxInputController` when row is had in controller then row will be marked according to checking priority which you can choose (see `BxInputRowCheckerPriority`).
 
 #### Example for checking
 
@@ -314,12 +314,12 @@ If you need marked row, when it has incorrect value you can use `BxInputRowCheck
 
 override func viewDidLoad() {
     super.viewDidLoad()
-    self.sections = [BxInputSection(rows: [emailValue])]
+    self.sections = [BxInputSection(rows: [emailRow])]
 
-    addChecker(BxInputEmptyValueChecker(placeholder: "Please put your email"), for: emailValue)
-    let emailChecker = BxInputEmailChecker(subtitle: "incorrect email")
+    addChecker(BxInputEmptyValueChecker<BxInputTextRow>(row: emailRow, placeholder: "Please put your email"), for: emailRow)
+    let emailChecker = BxInputEmailChecker<BxInputTextRow>(row: emailRow, subtitle: "incorrect email")
     emailChecker.planPriority = .immediately
-    addChecker(emailChecker, for: emailValue)
+    addChecker(emailChecker, for: emailRow)
 }
 
 ```

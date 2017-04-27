@@ -66,7 +66,7 @@ Pod::Spec.new do |s|
     s.resources = "BxInputController/Sources/Assets.xcassets", "BxInputController/Sources/**/*.xib"
 #s.public_header_files = "**/iBXCommon/Frameworks/**/*.h", "**/iBXCommon/Sources/**/*.h"
 
-    s.source_files  = "BxInputController/Sources/**/*.{swift}"
+    s.source_files  = "BxInputController/Sources/**/*.swift"
 
     s.dependency 'BxObjC/Vcl'
     s.dependency 'BxTextField'

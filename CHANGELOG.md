@@ -6,6 +6,12 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.2.2 (27.04.2017)
+##### Improvements
+* abstracted BxInputRowChecker (remove row assignation from check function)
+* made generic Row class for BxInputBaseRowChecker
+* updated example and README
+
 ## 2.2.1 (26.04.2017)
 ##### Bug fix
 * fixed bug with active UITextField in selector rows

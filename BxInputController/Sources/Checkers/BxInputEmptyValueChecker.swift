@@ -14,15 +14,20 @@
 import Foundation
 
 /// Cheker for not empty value
-open class BxInputEmptyValueChecker : BxInputBaseRowChecker
+open class BxInputEmptyValueChecker<Row : BxInputValueRow> : BxInputBaseRowChecker<Row>
 {
+    /// init from standart decorator with highlighted placeholder and subtitle, if its are defined
+    convenience init(row: Row, placeholder: String? = nil, subtitle: String? = nil) {
+        self.init(row: row)
+        let decorator = BxInputStandartErrorRowDecorator()
+        decorator.placeholder = placeholder
+        decorator.subtitle = subtitle
+        self.decorator = decorator
+    }
     
     /// checking method
-    override open func isOK(row: BxInputRow) -> Bool
+    override open func isOK() -> Bool
     {
-        if let row = row as? BxInputValueRow {
-            return row.hasEmptyValue == false
-        }
-        return false
+        return row.hasEmptyValue == false
     }
 }

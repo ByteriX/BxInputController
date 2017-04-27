@@ -14,6 +14,7 @@
 		F90EE7A11E6DCCC3006A506C /* BxInputSwitchRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EE7A01E6DCCC3006A506C /* BxInputSwitchRowBinder.swift */; };
 		F90EE7A71E6DD752006A506C /* BxInputRateRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EE7A61E6DD752006A506C /* BxInputRateRowBinder.swift */; };
 		F90EE7A91E6DD8C5006A506C /* BxInputChildSelectorDateRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EE7A81E6DD8C5006A506C /* BxInputChildSelectorDateRowBinder.swift */; };
+		F9191D471EB26E060099CD7A /* BxInputBaseRowChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9191D461EB26E060099CD7A /* BxInputBaseRowChecker.swift */; };
 		F92183DE1E23AB21002E1781 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92183D41E23AB21002E1781 /* AppDelegate.swift */; };
 		F92183DF1E23AB21002E1781 /* CommonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92183D61E23AB21002E1781 /* CommonController.swift */; };
 		F92183EC1E23AFB9002E1781 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92183E61E23AFB9002E1781 /* Assets.xcassets */; };
@@ -132,6 +133,7 @@
 		F90EE7A01E6DCCC3006A506C /* BxInputSwitchRowBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSwitchRowBinder.swift; sourceTree = "<group>"; };
 		F90EE7A61E6DD752006A506C /* BxInputRateRowBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputRateRowBinder.swift; sourceTree = "<group>"; };
 		F90EE7A81E6DD8C5006A506C /* BxInputChildSelectorDateRowBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputChildSelectorDateRowBinder.swift; sourceTree = "<group>"; };
+		F9191D461EB26E060099CD7A /* BxInputBaseRowChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputBaseRowChecker.swift; sourceTree = "<group>"; };
 		F92183BE1E23AA2D002E1781 /* BxInputController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BxInputController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F92183D41E23AB21002E1781 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F92183D61E23AB21002E1781 /* CommonController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonController.swift; sourceTree = "<group>"; };
@@ -578,6 +580,7 @@
 		F9CA1C751EABD8100029A029 /* Checkers */ = {
 			isa = PBXGroup;
 			children = (
+				F9191D461EB26E060099CD7A /* BxInputBaseRowChecker.swift */,
 				F9CA1C771EABD9310029A029 /* BxInputEmptyValueChecker.swift */,
 				F9DF02DE1EAE1A44006EC83E /* BxInputEmailChecker.swift */,
 			);
@@ -871,6 +874,7 @@
 				F96D1F7B1E5463AC00BDB2CE /* BxInputSwitchRow.swift in Sources */,
 				F933F5A81E7BC1E000FB1E22 /* BxInputDateRowBinder.swift in Sources */,
 				F9E7873C1E53340C00341996 /* BxInputUtils.swift in Sources */,
+				F9191D471EB26E060099CD7A /* BxInputBaseRowChecker.swift in Sources */,
 				F99D88911E6DDFF0003E591B /* BxInputChildSelectorPicturesRowBinder.swift in Sources */,
 				F96D1F781E5463AC00BDB2CE /* BxInputActionCustomRow.swift in Sources */,
 				F99D888B1E6DDB2A003E591B /* BxInputChildSelectorSuggestionRowBinder.swift in Sources */,
