@@ -51,7 +51,7 @@ open class BxInputController : UIViewController
     /// activate row for current time
     internal(set) public var activeRow: BxInputRow? = nil
     {
-        willSet { changeRow(to: newValue) }
+        willSet { willChangeActiveRow(to: newValue) }
     }
     /// data models with rows for showing
     public var sections: [BxInputSection] = []
@@ -70,6 +70,8 @@ open class BxInputController : UIViewController
     public static var emptyHeaderFooterId = "BxInputEmptyHeaderFooterView"
     /// buffer with resourceId values for registred header/foother/row
     internal var addedResources = NSMutableSet()
+    
+    internal var dependencyCheckerBinders: [BxInputRowBinder] = []
     
     // MARK: - Methods
     
@@ -517,6 +519,9 @@ open class BxInputController : UIViewController
     {
         if let binder = getRowBinder(for: row) {
             binder.addChecker(checker)
+            if let _ = checker as? BxInputDependencyRowsChecker {
+                dependencyCheckerBinders.append(binder)
+            }
         } else {
             assert(false, "row not found for checker")
         }
@@ -525,17 +530,26 @@ open class BxInputController : UIViewController
     // MARK: - Event methods
     
     /// event when value of a row was changed
-    open func didChangedValue(for row: BxInputValueRow)
+    open func didChangeValue(for row: BxInputValueRow)
     {
         // you can override
     }
     
     /// when user go to next row or finish input activeRow
-    open func changeRow(to row: BxInputRow?) {
+    open func willChangeActiveRow(to row: BxInputRow?) {
         if let activeRow = activeRow {
             if let binder = getRowBinder(for: activeRow) {
-                binder.checkRow(priority: .transitonValue)
+                binder.checkRow(priority: .transitonRow)
             }
+        }
+    }
+    
+    /// event when checker  status did change (found mistake or user corrected mistake)
+    open func didChangeActive(for checker: BxInputRowChecker)
+    {
+        // you can override, but don't forget call super
+        for binder in dependencyCheckerBinders {
+            binder.checkDependencies(with: checker)
         }
     }
     

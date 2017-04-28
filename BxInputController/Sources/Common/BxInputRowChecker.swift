@@ -16,13 +16,15 @@ import Foundation
 /// priority of checking value
 public enum BxInputRowCheckerPriority {
     /// when row showed
-    case immediately
+    case updateRow
     /// when user change value
     case updateValue
     /// when user go to next row or finish input
-    case transitonValue
+    case transitonRow
     /// programaly only
     case manualOnly
+    /// any where (content all cases)
+    case always
 }
 
 /// Base protocol for checking putted value for row

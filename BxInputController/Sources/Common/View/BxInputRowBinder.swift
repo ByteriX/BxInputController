@@ -31,5 +31,7 @@ public protocol BxInputRowBinder : AnyObject {
     func addChecker(_ checker: BxInputRowChecker)
     /// use all added checkers with 'priority' for testing value of row
     func checkRow(priority: BxInputRowCheckerPriority)
+    /// Which using BxInputDependencyRowsChecker subclasses it help you with checking dependencies rows
+    func checkDependencies(with checker: BxInputRowChecker)
 }
 

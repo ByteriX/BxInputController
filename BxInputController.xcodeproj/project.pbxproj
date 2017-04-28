@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B0240F32D7035DFA339DE59 /* Pods_BxInputController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDE3CA360A31AF4DA9BAFDDB /* Pods_BxInputController.framework */; };
+		F900D0DF1EB3203400047D0A /* BxInputDependencyRowsChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F900D0DE1EB3203400047D0A /* BxInputDependencyRowsChecker.swift */; };
 		F907C7EE1E77D027000F3437 /* BxInputFormattedTextRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907C7ED1E77D027000F3437 /* BxInputFormattedTextRow.swift */; };
 		F907C7F11E77D25F000F3437 /* BxInputFormattedTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907C7EF1E77D25F000F3437 /* BxInputFormattedTextCell.swift */; };
 		F907C7F21E77D25F000F3437 /* BxInputFormattedTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F907C7F01E77D25F000F3437 /* BxInputFormattedTextCell.xib */; };
@@ -15,6 +16,7 @@
 		F90EE7A71E6DD752006A506C /* BxInputRateRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EE7A61E6DD752006A506C /* BxInputRateRowBinder.swift */; };
 		F90EE7A91E6DD8C5006A506C /* BxInputChildSelectorDateRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90EE7A81E6DD8C5006A506C /* BxInputChildSelectorDateRowBinder.swift */; };
 		F9191D471EB26E060099CD7A /* BxInputBaseRowChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9191D461EB26E060099CD7A /* BxInputBaseRowChecker.swift */; };
+		F9191D491EB2760C0099CD7A /* BxInputDisabledRowDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9191D481EB2760C0099CD7A /* BxInputDisabledRowDecorator.swift */; };
 		F92183DE1E23AB21002E1781 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92183D41E23AB21002E1781 /* AppDelegate.swift */; };
 		F92183DF1E23AB21002E1781 /* CommonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92183D61E23AB21002E1781 /* CommonController.swift */; };
 		F92183EC1E23AFB9002E1781 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92183E61E23AFB9002E1781 /* Assets.xcassets */; };
@@ -127,6 +129,7 @@
 		426287E844423C4C137BCD01 /* Pods-BxInputController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BxInputController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BxInputController/Pods-BxInputController.debug.xcconfig"; sourceTree = "<group>"; };
 		A529CAF1FC63502159F31EBF /* Pods-BxInputController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BxInputController.release.xcconfig"; path = "Pods/Target Support Files/Pods-BxInputController/Pods-BxInputController.release.xcconfig"; sourceTree = "<group>"; };
 		EDE3CA360A31AF4DA9BAFDDB /* Pods_BxInputController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BxInputController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F900D0DE1EB3203400047D0A /* BxInputDependencyRowsChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputDependencyRowsChecker.swift; sourceTree = "<group>"; };
 		F907C7ED1E77D027000F3437 /* BxInputFormattedTextRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = BxInputFormattedTextRow.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F907C7EF1E77D25F000F3437 /* BxInputFormattedTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = BxInputFormattedTextCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F907C7F01E77D25F000F3437 /* BxInputFormattedTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BxInputFormattedTextCell.xib; sourceTree = "<group>"; };
@@ -134,6 +137,7 @@
 		F90EE7A61E6DD752006A506C /* BxInputRateRowBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputRateRowBinder.swift; sourceTree = "<group>"; };
 		F90EE7A81E6DD8C5006A506C /* BxInputChildSelectorDateRowBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputChildSelectorDateRowBinder.swift; sourceTree = "<group>"; };
 		F9191D461EB26E060099CD7A /* BxInputBaseRowChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputBaseRowChecker.swift; sourceTree = "<group>"; };
+		F9191D481EB2760C0099CD7A /* BxInputDisabledRowDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputDisabledRowDecorator.swift; sourceTree = "<group>"; };
 		F92183BE1E23AA2D002E1781 /* BxInputController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BxInputController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F92183D41E23AB21002E1781 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F92183D61E23AB21002E1781 /* CommonController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonController.swift; sourceTree = "<group>"; };
@@ -583,6 +587,7 @@
 				F9191D461EB26E060099CD7A /* BxInputBaseRowChecker.swift */,
 				F9CA1C771EABD9310029A029 /* BxInputEmptyValueChecker.swift */,
 				F9DF02DE1EAE1A44006EC83E /* BxInputEmailChecker.swift */,
+				F900D0DE1EB3203400047D0A /* BxInputDependencyRowsChecker.swift */,
 			);
 			path = Checkers;
 			sourceTree = "<group>";
@@ -591,6 +596,7 @@
 			isa = PBXGroup;
 			children = (
 				F9DF02D81EADE34E006EC83E /* BxInputStandartErrorRowDecorator.swift */,
+				F9191D481EB2760C0099CD7A /* BxInputDisabledRowDecorator.swift */,
 			);
 			path = Decorators;
 			sourceTree = "<group>";
@@ -827,11 +833,13 @@
 				F933F5BC1E7BD01200FB1E22 /* BxInputStandartTextRowBinder.swift in Sources */,
 				F9DF02D71EADDD53006EC83E /* UITextField.swift in Sources */,
 				F9E7870A1E52F6F800341996 /* BxInputController+UITableViewDelegate.swift in Sources */,
+				F9191D491EB2760C0099CD7A /* BxInputDisabledRowDecorator.swift in Sources */,
 				F9E787091E52F6F800341996 /* BxInputController+UITableViewDataSource.swift in Sources */,
 				F96D1F981E5463AC00BDB2CE /* BxInputChildSelectorVariantsCell.swift in Sources */,
 				F9E787381E52F6F800341996 /* BxInputTextHeaderView.swift in Sources */,
 				F9DF02D91EADE34E006EC83E /* BxInputStandartErrorRowDecorator.swift in Sources */,
 				F9CA1C741EABA4BD0029A029 /* BxInputRowChecker.swift in Sources */,
+				F900D0DF1EB3203400047D0A /* BxInputDependencyRowsChecker.swift in Sources */,
 				F933F5B71E7BD01200FB1E22 /* BxInputSelectorCell.swift in Sources */,
 				F9DF02DB1EADE389006EC83E /* BxInputRowDecorator.swift in Sources */,
 				F9E7870D1E52F6F800341996 /* Formatter.swift in Sources */,

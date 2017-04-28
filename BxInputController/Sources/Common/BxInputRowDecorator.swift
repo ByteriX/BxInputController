@@ -21,4 +21,7 @@ public protocol BxInputRowDecorator : AnyObject
     
     /// method calls when binder update row
     func update(binder: BxInputRowBinder)
+    
+    /// method calls when binder update row
+    func deactivate(binder: BxInputRowBinder)
 }

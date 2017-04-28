@@ -78,4 +78,10 @@ open class BxInputStandartErrorRowDecorator : BxInputRowDecorator {
         }
     }
     
+    /// method calls when need show activation of something event
+    public func deactivate(binder: BxInputRowBinder)
+    {
+        binder.update()
+    }
+    
 }

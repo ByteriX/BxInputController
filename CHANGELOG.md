@@ -6,10 +6,15 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
-## 2.2.2 (27.04.2017)
+## 2.3.0 (28.04.2017)
 ##### Improvements
 * abstracted BxInputRowChecker (remove row assignation from check function)
 * made generic Row class for BxInputBaseRowChecker
+* added to BxInputRowDecorator the 'deactivate' method
+* created BxInputDisabledRowDecorator as alternative decorator
+* created BxInputDependencyRowsChecker for check dependency rows
+* renamed didChangedValue to didChangeValue (removed 'd' char), changeRow to willChangeActiveRow in BxInputController
+* changed BxInputRowCheckerPriority
 * updated example and README
 
 ## 2.2.1 (26.04.2017)

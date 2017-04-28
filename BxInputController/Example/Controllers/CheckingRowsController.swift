@@ -10,12 +10,14 @@ import UIKit
 
 class CheckingRowsController: BxInputController {
     
-    private var nameValue = BxInputTextRow(title: "name value", placeholder: "should not be empty")
-    private var surnameValue = BxInputTextRow(title: "surname value", placeholder: "can be empty")
-    private var emailValue = BxInputTextRow(title: "email value", placeholder: "only corrected email")
+    private var nameRow = BxInputTextRow(title: "name value", placeholder: "should not be empty")
+    private var surnameRow = BxInputTextRow(title: "surname value", placeholder: "can be empty")
+    private var emailRow = BxInputTextRow(title: "email value", placeholder: "only corrected email")
     
-    private var filledDate = BxInputDateRow(title: "filled date", value: Date().addingTimeInterval(300000))
-    private var emptyDate = BxInputDateRow(title: "not empty value")//BxInputSelectorDateRow(title: "not empty value")
+    private var filledDateRow = BxInputDateRow(title: "filled date", value: Date().addingTimeInterval(300000))
+    private var emptyDateRow = BxInputDateRow(title: "not empty value")//BxInputSelectorDateRow(title: "not empty value")
+    
+    private var dependencyRow = BxInputTextRow(title: "dependency value")
     
     
     override func viewDidLoad() {
@@ -24,20 +26,26 @@ class CheckingRowsController: BxInputController {
         isEstimatedContent = false
         
         self.sections = [
-            BxInputSection(rows: [nameValue, surnameValue, emailValue]),
-            BxInputSection(headerText: "", rows: [filledDate, emptyDate])
+            BxInputSection(rows: [nameRow, surnameRow, emailRow]),
+            BxInputSection(headerText: "Date", rows: [filledDateRow, emptyDateRow]),
+            BxInputSection(headerText: "Dependency", rows: [dependencyRow])
         ]
         
         // for name
-        addChecker(BxInputEmptyValueChecker<BxInputTextRow>(row: nameValue, placeholder: "Please put your name"), for: nameValue)
+        let nameChecker = BxInputEmptyValueChecker<BxInputTextRow>(row: nameRow, placeholder: "Please put your name")
+        nameChecker.planPriority = .always
+        addChecker(nameChecker, for: nameRow)
         // for email
-        addChecker(BxInputEmptyValueChecker<BxInputTextRow>(row: emailValue, placeholder: "Please put your email"), for: emailValue)
-        addChecker(BxInputEmailChecker<BxInputTextRow>(row: emailValue, subtitle: "incorrect email"), for: emailValue)
+        addChecker(BxInputEmptyValueChecker<BxInputTextRow>(row: emailRow, placeholder: "Please put your email"), for: emailRow)
+        addChecker(BxInputEmailChecker<BxInputTextRow>(row: emailRow, subtitle: "incorrect email"), for: emailRow)
         // for date
-        let dateChecker = BxInputEmptyValueChecker<BxInputDateRow>(row: emptyDate, placeholder: "Please put date")
-        dateChecker.planPriority = .immediately
-        dateChecker.activePriority = .transitonValue
-        addChecker(dateChecker, for: emptyDate)
+        let dateChecker = BxInputEmptyValueChecker<BxInputDateRow>(row: emptyDateRow, placeholder: "Please put date")
+        dateChecker.planPriority = .always
+        dateChecker.activePriority = .transitonRow
+        addChecker(dateChecker, for: emptyDateRow)
+        
+        let dependencyChecker = BxInputDependencyRowsChecker(checkers: [nameChecker, dateChecker], subtitle: "Please put name and date")
+        addChecker(dependencyChecker, for: dependencyRow)
     }
     
     

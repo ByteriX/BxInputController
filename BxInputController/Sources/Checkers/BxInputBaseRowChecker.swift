@@ -25,7 +25,7 @@ open class BxInputBaseRowChecker<Row : BxInputRow> : BxInputRowChecker
     open var isActivated : Bool = false
     
     /// priority for deactive mode, when user isn't doing active changes
-    open var planPriority: BxInputRowCheckerPriority = .transitonValue
+    open var planPriority: BxInputRowCheckerPriority = .transitonRow
     /// priority for active mode, when user is doing active changes
     open var activePriority: BxInputRowCheckerPriority = .updateValue
     
