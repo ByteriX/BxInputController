@@ -14,7 +14,7 @@
 import Foundation
 
 /// Checker for test on corrected email putting
-class BxInputEmailChecker<Row: BxInputTextRow>: BxInputBaseRowChecker<Row>
+open class BxInputEmailChecker<Row: BxInputTextRow>: BxInputBaseRowChecker<Row>
 {
     /// only checking an email
     fileprivate func isEmail(email: String) -> Bool {
