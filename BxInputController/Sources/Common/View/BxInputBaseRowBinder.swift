@@ -96,13 +96,27 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
     }
     
     /// use all added checkers with 'priority' for testing value of row
-    open func planCheckRow(priority: BxInputRowCheckerPriority) {
+    @discardableResult
+    open func planCheckRow(priority: BxInputRowCheckerPriority) -> Bool {
         // it able disactivate secondery checker
-        var isFoundFirst = false
+        var result = true
         for checker in checkers {
             if checker.planPriority == priority || checker.planPriority == .always
             {
-                if isFoundFirst {
+                if result {
+                    if checker.isOK() == false {
+                        checker.isActivated = true
+                        if let decorator = checker.decorator {
+                            DispatchQueue.main.async { [weak self] in
+                                if let this = self {
+                                    decorator.activate(binder: this)
+                                }
+                            }
+                        }
+                        result = false
+                        owner?.didChangeActive(for: checker)
+                    }
+                } else {
                     if checker.isActivated {
                         checker.isActivated = false
                         if let decorator = checker.decorator {
@@ -114,22 +128,10 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
                         }
                         owner?.didChangeActive(for: checker)
                     }
-                } else {
-                    if checker.isOK() == false {
-                        checker.isActivated = true
-                        if let decorator = checker.decorator {
-                            DispatchQueue.main.async { [weak self] in
-                                if let this = self {
-                                    decorator.activate(binder: this)
-                                }
-                            }
-                        }
-                        isFoundFirst = true
-                        owner?.didChangeActive(for: checker)
-                    }
                 }
             }
         }
+        return result
     }
     
     /// use only active checkers with 'priority' for testing value of row
@@ -150,9 +152,10 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
     }
     
     /// use all added checkers with 'priority' for testing value of row
-    open func checkRow(priority: BxInputRowCheckerPriority) {
+    @discardableResult
+    open func checkRow(priority: BxInputRowCheckerPriority) -> Bool {
         activeCheckRow(priority: priority)
-        planCheckRow(priority: priority)
+        return planCheckRow(priority: priority)
     }
     
     /// Which using BxInputDependencyRowsChecker subclasses it help you with checking dependencies rows

@@ -30,7 +30,8 @@ public protocol BxInputRowBinder : AnyObject {
     /// add to row checker. The sequence is important for activation. First rights
     func addChecker(_ checker: BxInputRowChecker)
     /// use all added checkers with 'priority' for testing value of row
-    func checkRow(priority: BxInputRowCheckerPriority)
+    @discardableResult
+    func checkRow(priority: BxInputRowCheckerPriority) -> Bool
     /// Which using BxInputDependencyRowsChecker subclasses it help you with checking dependencies rows
     func checkDependencies(with checker: BxInputRowChecker)
 }

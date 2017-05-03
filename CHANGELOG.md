@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.3.2 (03.05.2017)
+##### Improvements
+* added functions: checkRow, checkSection checkAllRows
+
 ## 2.3.1 (03.05.2017)
 ##### Bug fix
 * fixed isEnabled and value setters in suggestion row type

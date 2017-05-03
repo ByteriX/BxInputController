@@ -527,6 +527,42 @@ open class BxInputController : UIViewController
         }
     }
     
+    /// check row and return result of checking
+    @discardableResult
+    open func checkRow(_ row: BxInputRow) -> Bool {
+        var result = false
+        if let rowBinder = getRowBinder(for: row) {
+            result = rowBinder.checkRow(priority: .always)
+        } else {
+            assert(false, "row not found for checker")
+        }
+        return result
+    }
+    
+    /// check all rows in section and return result of checking
+    @discardableResult
+    open func checkSection(_ section: BxInputSection) -> Bool {
+        var result = true
+        for rowBinder in section.rowBinders {
+            if !rowBinder.checkRow(priority: .always) {
+                result = false
+            }
+        }
+        return result
+    }
+    
+    /// check all rows in table and return result of checking
+    @discardableResult
+    open func checkAllRows() -> Bool {
+        var result = true
+        for section in sections {
+            if !checkSection(section) {
+                result = false
+            }
+        }
+        return result
+    }
+    
     // MARK: - Event methods
     
     /// event when value of a row was changed
