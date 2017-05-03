@@ -17,7 +17,7 @@ import Foundation
 open class BxInputEmptyValueChecker<Row : BxInputValueRow> : BxInputBaseRowChecker<Row>
 {
     /// init from standart decorator with highlighted placeholder and subtitle, if its are defined
-    convenience init(row: Row, placeholder: String? = nil, subtitle: String? = nil) {
+    convenience public init(row: Row, placeholder: String? = nil, subtitle: String? = nil) {
         self.init(row: row)
         let decorator = BxInputStandartErrorRowDecorator()
         decorator.placeholder = placeholder

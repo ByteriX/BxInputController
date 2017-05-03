@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.3.3 (04.05.2017)
+##### Improvements
+* change public/open accessible on any classes
+
 ## 2.3.2 (03.05.2017)
 ##### Improvements
 * added functions: checkRow, checkSection checkAllRows

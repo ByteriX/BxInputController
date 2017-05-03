@@ -20,14 +20,14 @@ open class BxInputDisabledRowDecorator : BxInputRowDecorator {
     public var subtitle : String? = nil
     
     /// method calls when need show activation of something event
-    public func activate(binder: BxInputRowBinder)
+    open func activate(binder: BxInputRowBinder)
     {
         // common changes
         update(binder: binder)
     }
     
     /// method calls when binder update row
-    public func update(binder: BxInputRowBinder) {
+    open func update(binder: BxInputRowBinder) {
         if let cell = binder.viewCell as? BxInputTitleCell {
             if let subtitleLabel = cell.subtitleLabel {
                 if let subtitleColor = subtitleColor {
@@ -42,7 +42,7 @@ open class BxInputDisabledRowDecorator : BxInputRowDecorator {
     }
     
     /// method calls when need show activation of something event
-    public func deactivate(binder: BxInputRowBinder)
+    open func deactivate(binder: BxInputRowBinder)
     {
         // common changes
         binder.owner?.setEnabledRow(binder.rowData, enabled: true)

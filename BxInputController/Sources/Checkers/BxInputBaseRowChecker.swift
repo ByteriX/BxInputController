@@ -38,7 +38,7 @@ open class BxInputBaseRowChecker<Row : BxInputRow> : BxInputRowChecker
     }
     
     /// default init without decorator
-    init(row: Row) {
+    public init(row: Row) {
         self.row = row
         decorator = nil
     }

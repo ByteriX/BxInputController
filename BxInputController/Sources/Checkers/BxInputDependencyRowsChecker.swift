@@ -44,7 +44,7 @@ open class BxInputDependencyRowsChecker : BxInputRowChecker
     public var checkers: [BxInputRowChecker]
     
     /// Checking method. Default ok
-    public func isOK() -> Bool
+    open func isOK() -> Bool
     {
         for checker in checkers {
             if checker.isOK() == false {
@@ -55,7 +55,7 @@ open class BxInputDependencyRowsChecker : BxInputRowChecker
     }
     
     /// default init without decorator
-    init(checkers: [BxInputRowChecker] = [], subtitleColor : UIColor? = nil, subtitle : String? = nil) {
+    public init(checkers: [BxInputRowChecker] = [], subtitleColor : UIColor? = nil, subtitle : String? = nil) {
         self.checkers = checkers
         let decorator = BxInputDisabledRowDecorator()
         decorator.subtitleColor = subtitleColor

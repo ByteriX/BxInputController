@@ -25,7 +25,7 @@ open class BxInputStandartErrorRowDecorator : BxInputRowDecorator {
     public var subtitle : String? = nil
     
     /// method calls when need show activation of something event
-    public func activate(binder: BxInputRowBinder)
+    open func activate(binder: BxInputRowBinder)
     {
         // common changes
         UIView.animate(withDuration: 0.5) { [weak self] in
@@ -54,7 +54,7 @@ open class BxInputStandartErrorRowDecorator : BxInputRowDecorator {
     }
     
     /// method calls when binder update row
-    public func update(binder: BxInputRowBinder) {
+    open func update(binder: BxInputRowBinder) {
         if let cell = binder.viewCell as? BxInputTitleCell {
             cell.titleLabel.textColor = color
             
@@ -79,7 +79,7 @@ open class BxInputStandartErrorRowDecorator : BxInputRowDecorator {
     }
     
     /// method calls when need show activation of something event
-    public func deactivate(binder: BxInputRowBinder)
+    open func deactivate(binder: BxInputRowBinder)
     {
         binder.update()
     }
