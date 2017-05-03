@@ -52,7 +52,7 @@ open class BxInputSelectorSuggestionsRow<T : BxInputChildSelectorRow> : BxInputV
     
     open var value: T? {
         get { return selectedChild as? T}
-        set { selectedChild = value}
+        set { selectedChild = newValue}
     }
     public var selectedChild: BxInputChildSelectorRow? = nil
     internal(set) public var children: [BxInputChildSelectorRow]

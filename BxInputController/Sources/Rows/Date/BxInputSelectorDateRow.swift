@@ -80,7 +80,7 @@ open class BxInputChildSelectorDateRow: BxInputChildSelectorRow, BxInputStaticHe
             return parent?.isEnabled ?? false
         }
         set {
-            parent?.isEnabled = isEnabled
+            parent?.isEnabled = newValue
         }
     }
     

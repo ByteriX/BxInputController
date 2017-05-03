@@ -6,6 +6,11 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.3.1 (03.05.2017)
+##### Bug fix
+* fixed isEnabled and value setters in suggestion row type
+* fixed README
+
 ## 2.3.0 (28.04.2017)
 ##### Improvements
 * abstracted BxInputRowChecker (remove row assignation from check function)

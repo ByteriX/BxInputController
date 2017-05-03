@@ -318,7 +318,7 @@ override func viewDidLoad() {
 
     addChecker(BxInputEmptyValueChecker<BxInputTextRow>(row: emailRow, placeholder: "Please put your email"), for: emailRow)
     let emailChecker = BxInputEmailChecker<BxInputTextRow>(row: emailRow, subtitle: "incorrect email")
-    emailChecker.planPriority = .immediately
+    emailChecker.planPriority = .always
     addChecker(emailChecker, for: emailRow)
 }
 

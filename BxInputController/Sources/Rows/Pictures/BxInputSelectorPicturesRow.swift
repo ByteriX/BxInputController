@@ -122,7 +122,7 @@ open class BxInputChildSelectorPicturesRow: BxInputChildSelectorRow, BxInputStat
             return parent?.isEnabled ?? false
         }
         set {
-            parent?.isEnabled = isEnabled
+            parent?.isEnabled = newValue
         }
     }
     

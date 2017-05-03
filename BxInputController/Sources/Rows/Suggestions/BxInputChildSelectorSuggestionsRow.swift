@@ -37,7 +37,7 @@ open class BxInputChildSelectorSuggestionsRow: BxInputRow, BxInputString, BxInpu
             return parent?.isEnabled ?? false
         }
         set {
-            parent?.isEnabled = isEnabled
+            parent?.isEnabled = newValue
         }
     }
     open var stringValue: String? {
