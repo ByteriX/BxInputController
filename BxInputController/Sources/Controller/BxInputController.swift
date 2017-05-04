@@ -529,22 +529,28 @@ open class BxInputController : UIViewController
     
     /// check row and return result of checking
     @discardableResult
-    open func checkRow(_ row: BxInputRow) -> Bool {
+    open func checkRow(_ row: BxInputRow, willSelect: Bool = false) -> Bool {
         var result = false
         if let rowBinder = getRowBinder(for: row) {
             result = rowBinder.checkRow(priority: .always)
         } else {
             assert(false, "row not found for checker")
         }
+        if willSelect && result == false {
+            selectRow(row)
+        }
         return result
     }
     
     /// check all rows in section and return result of checking
     @discardableResult
-    open func checkSection(_ section: BxInputSection) -> Bool {
+    open func checkSection(_ section: BxInputSection, willSelect: Bool = false) -> Bool {
         var result = true
         for rowBinder in section.rowBinders {
             if !rowBinder.checkRow(priority: .always) {
+                if willSelect && result {
+                    selectRow(rowBinder.rowData)
+                }
                 result = false
             }
         }
@@ -553,10 +559,10 @@ open class BxInputController : UIViewController
     
     /// check all rows in table and return result of checking
     @discardableResult
-    open func checkAllRows() -> Bool {
+    open func checkAllRows(willSelect: Bool) -> Bool {
         var result = true
         for section in sections {
-            if !checkSection(section) {
+            if !checkSection(section, willSelect: willSelect && result) {
                 result = false
             }
         }
