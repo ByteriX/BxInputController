@@ -562,7 +562,7 @@ open class BxInputController : UIViewController
     /// check all rows in table and return result of checking
     /// param willSelect - if it is true and checking fail for a row then this first row will be selected immediately. Default is false
     @discardableResult
-    open func checkAllRows(willSelect: Bool) -> Bool {
+    open func checkAllRows(willSelect: Bool = false) -> Bool {
         var result = true
         for section in sections {
             if !checkSection(section, willSelect: willSelect && result) {
