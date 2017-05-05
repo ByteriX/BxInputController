@@ -99,24 +99,16 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
     @discardableResult
     open func planCheckRow(priority: BxInputRowCheckerPriority) -> Bool {
         // it able disactivate secondery checker
-        var result = true
+        var resultActivation : BxInputRowChecker? = nil
         for checker in checkers {
-            if checker.planPriority == priority || checker.planPriority == .always
+            if checker.planPriority == priority || checker.planPriority == .always || priority == .always
             {
-                if result {
+                if resultActivation == nil {
                     if checker.isOK() == false {
-                        checker.isActivated = true
-                        if let decorator = checker.decorator {
-                            DispatchQueue.main.async { [weak self] in
-                                if let this = self {
-                                    decorator.activate(binder: this)
-                                }
-                            }
-                        }
-                        result = false
-                        owner?.didChangeActive(for: checker)
+                        resultActivation = checker // will activate later
                     }
                 } else {
+                    // deactivation all other checker
                     if checker.isActivated {
                         checker.isActivated = false
                         if let decorator = checker.decorator {
@@ -131,13 +123,25 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
                 }
             }
         }
-        return result
+        // check activation
+        if let checker = resultActivation {
+            checker.isActivated = true
+            if let decorator = checker.decorator {
+                DispatchQueue.main.async { [weak self] in
+                    if let this = self {
+                        decorator.activate(binder: this)
+                    }
+                }
+            }
+            owner?.didChangeActive(for: checker)
+        }
+        return resultActivation == nil
     }
     
     /// use only active checkers with 'priority' for testing value of row
     open func activeCheckRow(priority: BxInputRowCheckerPriority) {
         for checker in checkers {
-            if checker.activePriority == priority || checker.activePriority == .always
+            if checker.activePriority == priority || checker.activePriority == .always || priority == .always
             {
                 if checker.isOK() == true,
                     checker.isActivated == true

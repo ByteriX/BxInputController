@@ -6,6 +6,11 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.3.4 (05.05.2017)
+##### Improvements
+* fixed issue with .always type checking
+* fixed issue with activation multiply checkers set
+
 ## 2.3.3 (04.05.2017)
 ##### Improvements
 * change public/open accessible on any classes
