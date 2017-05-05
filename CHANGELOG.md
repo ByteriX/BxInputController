@@ -9,6 +9,7 @@ ByteriX, 2017. All right reserved.
 ## 2.3.5 (05.05.2017)
 ##### Improvements
 * added BxInputEqualValuesChecker
+* update example & README
 
 ## 2.3.4 (05.05.2017)
 ##### Bug fix

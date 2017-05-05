@@ -314,12 +314,13 @@ If you need marked row, when it has incorrect value you can use `BxInputChecker`
 
 override func viewDidLoad() {
     super.viewDidLoad()
-    self.sections = [BxInputSection(rows: [emailRow])]
+    self.sections = [BxInputSection(rows: [emailRow, confirmEmailRow])]
 
     addChecker(BxInputEmptyValueChecker<BxInputTextRow>(row: emailRow, placeholder: "Please put your email"), for: emailRow)
     let emailChecker = BxInputEmailChecker<BxInputTextRow>(row: emailRow, subtitle: "incorrect email")
     emailChecker.planPriority = .always
     addChecker(emailChecker, for: emailRow)
+    addChecker(BxInputEqualValuesChecker<BxInputTextRow>(row: confirmEmailRow, comparisonRow: emailRow, subtitle: "Email and Confirm fields have different values"), for: confirmEmailRow)
 }
 
 ```
