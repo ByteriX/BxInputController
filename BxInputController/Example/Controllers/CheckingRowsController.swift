@@ -17,7 +17,7 @@ class CheckingRowsController: BxInputController {
     private var filledDateRow = BxInputDateRow(title: "filled date", value: Date().addingTimeInterval(300000))
     private var emptyDateRow = BxInputDateRow(title: "not empty value")//BxInputSelectorDateRow(title: "not empty value")
     
-    private var dependencyRow = BxInputTextRow(title: "dependency value")
+    private var dependencyRow = BxInputTextRow(title: "dependent")
     
     
     override func viewDidLoad() {
@@ -28,7 +28,7 @@ class CheckingRowsController: BxInputController {
         self.sections = [
             BxInputSection(rows: [nameRow, surnameRow, emailRow]),
             BxInputSection(headerText: "Date", rows: [filledDateRow, emptyDateRow]),
-            BxInputSection(headerText: "Dependency", rows: [dependencyRow])
+            BxInputSection(headerText: "Dependent", rows: [dependencyRow])
         ]
         
         // for name
@@ -46,6 +46,7 @@ class CheckingRowsController: BxInputController {
         
         let dependencyChecker = BxInputDependencyRowsChecker(checkers: [nameChecker, dateChecker], subtitle: "Please put name and date")
         addChecker(dependencyChecker, for: dependencyRow)
+        addChecker(BxInputEqualValuesChecker<BxInputTextRow>(row: dependencyRow, comparisonRow: nameRow, subtitle: "should be equal to \"name values\""), for: dependencyRow)
     }
     
     

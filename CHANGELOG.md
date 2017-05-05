@@ -6,8 +6,12 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
-## 2.3.4 (05.05.2017)
+## 2.3.5 (05.05.2017)
 ##### Improvements
+* added BxInputEqualValuesChecker
+
+## 2.3.4 (05.05.2017)
+##### Bug fix
 * fixed issue with .always type checking
 * fixed issue with activation multiply checkers set
 
