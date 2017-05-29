@@ -8,7 +8,7 @@
 #
 
 APP_CONFIG_PATH="./build.config"
-TEMPLATE_SPEC_PATH="BxInputController.Template.podspec"
+TEMPLATE_SPEC_PATH="BxInputController.templatespec"
 WORK_SPEC_PATH="BxInputController.podspec"
 VAR_NAME="VERSION_NUMBER"
 
