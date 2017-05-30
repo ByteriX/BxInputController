@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.3.7.1 (30.05.2017)
+##### Bug fix
+* change BxInputSettings.standart
+
 ## 2.3.7 (30.05.2017)
 ##### Improvements
 * added rows property for section

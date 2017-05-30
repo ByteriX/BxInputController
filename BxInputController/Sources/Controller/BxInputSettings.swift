@@ -17,7 +17,7 @@ import UIKit
 public struct BxInputSettings
 {
     /// it is default for all BxInputController objects in a Target
-    internal(set) public static var standart = BxInputSettings()
+    public static var standart = BxInputSettings()
     
     // MARK: - Header/Footer
     
