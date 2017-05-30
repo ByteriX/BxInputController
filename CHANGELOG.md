@@ -6,6 +6,11 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.3.7 (30.05.2017)
+##### Improvements
+* added rows property for section
+* changed settings to structure for correctly copying
+
 ## 2.3.6 (29.05.2017)
 ##### Bug fix
 * changed build script

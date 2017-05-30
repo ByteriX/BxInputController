@@ -14,10 +14,10 @@
 import UIKit
 
 /// Settings of BxInputController for custom showing any controllers or concrete
-open class BxInputSettings
+public struct BxInputSettings
 {
     /// it is default for all BxInputController objects in a Target
-    internal(set) open static var standart = BxInputSettings()
+    internal(set) public static var standart = BxInputSettings()
     
     // MARK: - Header/Footer
     
