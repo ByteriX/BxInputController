@@ -1,8 +1,8 @@
 /**
- *	@file BxInputController+Keyboard.swift
+ *	@file UIViewController+Keyboard.swift
  *	@namespace BxInputController
  *
- *	@details Working with keyboard in BxInputController
+ *	@details Working with keyboard in UIViewController
  *	@date 10.01.2017
  *	@author Sergey Balalaev
  *
@@ -13,17 +13,18 @@
 
 import UIKit
 
-/// Working with keyboard in BxInputController
-extension BxInputController
+/// Working with keyboard in UIViewController
+extension UIViewController
 {
-    
-    internal func registerKeyboardNotification()
+    /// This need after probably controller show/hide keyboard. For example in viewWillAppear
+    public func registerKeyboardNotification()
     {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShown), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    internal func unregisterKeyboardNotification()
+    /// This need after probably controller show/hide keyboard. For example in viewDidDisappear
+    public func unregisterKeyboardNotification()
     {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -60,15 +61,8 @@ extension BxInputController
     
     /// event when keyboard will show or hide. 
     /// - parameter frame: frame of keyboard to view of controller
+    /// - This method need to override in your class, don't forget call registerKeyboardNotification() and unregisterKeyboardNotification(). In iOS 10 last func call not required
     open func keyboardWillChange(isShowing: Bool, frame: CGRect)
-    {
-        if isShowing {
-            contentRect = self.view.bounds
-            contentRect.size.height = frame.origin.y
-        } else {
-            contentRect = self.view.bounds
-        }
-        updateInsets()
-    }
+    {}
     
 }

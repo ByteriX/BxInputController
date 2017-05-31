@@ -131,6 +131,17 @@ open class BxInputController : UIViewController
     
     // MARK: - updating methods
     
+    /// event when keyboard will show or hide.
+    /// - parameter frame: frame of keyboard to view of controller
+    override open func keyboardWillChange(isShowing: Bool, frame: CGRect)
+    {
+        contentRect = self.view.bounds
+        if isShowing {
+            contentRect.size.height = frame.origin.y
+        }
+        updateInsets()
+    }
+    
     /// change insets for tableView
     open func updateInsets() {
         var bottom = bottomLayoutGuide.length
