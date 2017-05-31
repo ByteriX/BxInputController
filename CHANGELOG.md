@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.3.8 (31.05.2017)
+##### Improvements
+* change keyboard show/hide logic. Tranport this to UIViewController extension
+
 ## 2.3.7.1 (30.05.2017)
 ##### Bug fix
 * change BxInputSettings.standart
