@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.3.9 (05.06.2017)
+##### Improvements
+* added public init for Settings struct
+
 ## 2.3.8 (31.05.2017)
 ##### Improvements
 * change keyboard show/hide logic. Tranport this to UIViewController extension

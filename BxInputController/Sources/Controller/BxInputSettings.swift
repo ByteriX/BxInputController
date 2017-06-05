@@ -80,4 +80,9 @@ public struct BxInputSettings
     /// title of the done button on the keyboard panel
     public var doneButtonTitle = "Done"
     
+    /// Default initializer
+    public init() {
+        // all defined
+    }
+    
 }
