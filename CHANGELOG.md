@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.3.10 (05.06.2017)
+##### Improvements
+* added public init to Section class
+
 ## 2.3.9 (05.06.2017)
 ##### Improvements
 * added public init for Settings struct

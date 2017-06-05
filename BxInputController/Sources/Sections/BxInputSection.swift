@@ -81,4 +81,15 @@ open class BxInputSection
             }
         }
     }
+    
+    /// construction object with custom header and/or fother, default footer is nil and it won't show
+    public init(header: BxInputSectionContent, rows: [BxInputRow], footer: BxInputSectionContent? = nil) {
+        self.rows = rows
+        defer {
+            self.header = header
+            if let footer = footer {
+                self.footer = footer
+            }
+        }
+    }
 }
