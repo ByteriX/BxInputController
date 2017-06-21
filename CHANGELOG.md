@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.3.11 (22.06.2017)
+##### Improvements
+* fixed placeholder color from formatted text
+
 ## 2.3.10 (05.06.2017)
 ##### Improvements
 * added public init to Section class

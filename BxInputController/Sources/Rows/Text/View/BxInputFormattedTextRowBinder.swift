@@ -43,7 +43,7 @@ open class BxInputFormattedTextRowBinder<Row : BxInputFormattedTextRow, Cell : B
             cell.formattedTextField.enteredTextFont = enteredTextFont
         }
         
-        
+        cell.formattedTextField.placeholderColor = owner?.settings.placeholderColor
         cell.formattedTextField.placeholderText = row.placeholder ?? ""
         cell.formattedTextField.text = row.value
     }
