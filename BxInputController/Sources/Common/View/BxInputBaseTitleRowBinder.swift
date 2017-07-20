@@ -42,9 +42,27 @@ open class BxInputBaseTitleRowBinder<Row: BxInputRow, Cell> : BxInputBaseRowBind
     override open func didSetEnabled(_ value: Bool)
     {
         super.didSetEnabled(value)
-        cell?.titleLabel.alpha = value ? 1 : 0.5
-        if let subtitleLabel = cell?.subtitleLabel {
-            subtitleLabel.alpha = value ? 1 : 0.5
+        guard let cell = cell else {
+            return
+        }
+        // UI part
+        if needChangeDisadledCell {
+            if let changeViewEnableHandler = owner?.settings.changeViewEnableHandler {
+                changeViewEnableHandler(cell.titleLabel, isEnabled)
+                if let subtitleLabel = cell.subtitleLabel {
+                    changeViewEnableHandler(subtitleLabel, isEnabled)
+                }
+            } else {
+                cell.titleLabel.alpha = value ? 1 : alphaForDisabledView
+                if let subtitleLabel = cell.subtitleLabel {
+                    subtitleLabel.alpha = value ? 1 : alphaForDisabledView
+                }
+            }
+        } else {
+            cell.titleLabel.alpha = 1
+            if let subtitleLabel = cell.subtitleLabel {
+                subtitleLabel.alpha = 1
+            }
         }
     }
 

@@ -64,12 +64,19 @@ public struct BxInputSettings
     /// date format for showing value of the rows with date type
     public var dateFormat: DateFormatter = DateFormatter(dateStyle: DateFormatter.Style.long, timeStyle: DateFormatter.Style.none)
     
-    // MARK: - this don't used
+    // MARK: - this don't used for a future
     
-    var minValueWidth: CGFloat = 80
     var indentWidth: CGFloat = 10 // tagWidth / lineShift analog
+    
+    // MARK: - enabled/disabled options:
+    
+    /// If it is true then visual with UI will be nothing, else uses disadledViewAplpha or changeViewEnableHandler. This has high priority. Default NO.
     var isNormalShowingDisadledCell: Bool = false
-    var isFloatCellSize: Bool = false
+    /// If isNormalShowingDisadledCell == true then it ignored. It is doing possible change view from isEnabled status. Default is ignored.
+    var changeViewEnableHandler: ((_ view: UIView, _ isEnabled: Bool) -> Void)? = nil
+    /// If isNormalShowingDisadledCell == true or changeViewEnableHandler != nil then it ignored. Used for hidden showing view in cell when it need for showing disabled row. Value can be between 0..1
+    var alphaForDisabledView: CGFloat = 0.5
+    
     
     // MARK: - Strings values
     

@@ -443,6 +443,19 @@ open class BxInputController : UIViewController
         tableView.endUpdates()
     }
     
+    /// full reload content of sections array
+    open func reloadSections(_ sections: [BxInputSection], with animation: UITableViewRowAnimation = .top) {
+        var indexes = IndexSet()
+        for section in sections {
+            if let index = getIndex(for: section) {
+                indexes.insert(index)
+            }
+        }
+        tableView.beginUpdates()
+        tableView.reloadSections(indexes, with: animation)
+        tableView.endUpdates()
+    }
+    
     /// update only content of row, if cell is shown on the tableView
     open func updateRow(_ row: BxInputRow, with animation: UITableViewRowAnimation = .fade) {
         if let indexPath = getIndex(for: row)
@@ -455,17 +468,39 @@ open class BxInputController : UIViewController
     
     /// set enabled/disabled status for row
     /// recomended use it, because in row change value don't update table
-    open func setEnabledRow(_ row: BxInputRow, enabled: Bool)
+    open func setEnabledRow(_ row: BxInputRow, enabled: Bool, with animation: UITableViewRowAnimation = .none)
     {
         if row.isEnabled != enabled {
             row.isEnabled = enabled
-            reloadRow(row)
+            reloadRow(row, with: animation)
             if let row = row as? BxInputSelectorRow {
                 for childRow in row.children {
-                    reloadRow(childRow)
+                    reloadRow(childRow, with: animation)
                 }
             }
         }
+    }
+    
+    /// set enabled/disabled status for all section
+    /// recomended use it, because in row change value don't update table
+    open func setEnabledSection(_ section: BxInputSection, enabled: Bool, with animation: UITableViewRowAnimation = .none)
+    {
+        for row in section.rows {
+            row.isEnabled = enabled
+        }
+        reloadSection(section, with: animation)
+    }
+    
+    /// set enabled/disabled status for all section
+    /// recomended use it, because in row change value don't update table
+    open func setEnabled(_ enabled: Bool, with animation: UITableViewRowAnimation = .none)
+    {
+        for section in sections {
+            for row in section.rows {
+                row.isEnabled = enabled
+            }
+        }
+        reloadSections(sections, with: animation)
     }
     
     // MARK: - Handling methods

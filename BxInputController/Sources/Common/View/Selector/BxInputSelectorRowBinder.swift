@@ -61,7 +61,19 @@ open class BxInputSelectorRowBinder<Row: BxInputSelectorRow, Cell: BxInputSelect
     override open func didSetEnabled(_ value: Bool)
     {
         super.didSetEnabled(value)
-        cell?.arrowImage.alpha = value ? 1 : 0.5
+        guard let cell = cell else {
+            return
+        }
+        // UI part
+        if needChangeDisadledCell {
+            if let changeViewEnableHandler = owner?.settings.changeViewEnableHandler {
+                changeViewEnableHandler(cell.arrowImage, isEnabled)
+            } else {
+                cell.arrowImage.alpha = value ? 1 : alphaForDisabledView
+            }
+        } else {
+            cell.arrowImage.isHidden = !value
+        }
     }
     
     /// visual updating of state from opened/closed
@@ -70,7 +82,7 @@ open class BxInputSelectorRowBinder<Row: BxInputSelectorRow, Cell: BxInputSelect
             UIView.beginAnimations(nil, context: nil)
         }
         if row.isOpened {
-            cell?.arrowImage.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI))
+            cell?.arrowImage.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
         } else {
             cell?.arrowImage.transform = CGAffineTransform.identity
         }

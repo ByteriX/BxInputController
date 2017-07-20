@@ -37,11 +37,23 @@ open class BxInputChildSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, C
     override open func didSetEnabled(_ value: Bool)
     {
         super.didSetEnabled(value)
-        if !value {
-            cell?.textView.resignFirstResponder()
+        guard let cell = cell else {
+            return
         }
-        cell?.textView.isUserInteractionEnabled = value
-        cell?.textView.alpha = value ? 1 : 0.5
+        if !value {
+            cell.textView.resignFirstResponder()
+        }
+        cell.textView.isUserInteractionEnabled = value
+        // UI part
+        if needChangeDisadledCell {
+            if let changeViewEnableHandler = owner?.settings.changeViewEnableHandler {
+                changeViewEnableHandler(cell.textView, isEnabled)
+            } else {
+                cell.textView.alpha = value ? 1 : alphaForDisabledView
+            }
+        } else {
+            cell.textView.alpha = 1
+        }
     }
     
     /// check state of putting value

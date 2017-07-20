@@ -25,9 +25,21 @@ class EnabledAllRowsController: SimpleAllRowsController {
     internal let enabledVariantsRow = BxInputSwitchRow(title: "variants", value: true)
     internal let enabledSelectorVariantsRow = BxInputSwitchRow(title: "selector variants", value: true)
     
+    internal let isNormalShowingVariantsRow = BxInputSwitchRow(title: "isNormalShowingDisadledCell", value: false)
+    internal let alphaRow = BxInputFormattedTextRow(title: "alphaForDisabledView", prefix: "0.", format: "###")
+    internal let enabledSectionActionRow = BxInputSwitchRow(title: "enabled section", value: true)
+    internal let enabledAllActionRow = BxInputSwitchRow(title: "enabled all rows", value: true)
+    
+    internal let rowsSection = BxInputSection(headerText: "Rows", rows: [])
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        alphaRow.formattingEnteredCharacters = "0123456789"
+        
+        rowsSection.rows = [stringActionRow, customActionRow, switchRow, checkRow, dateRow,
+                            selectorDateRow, selectorPicturesRow, rateRow, selectorSuggestionsRow, shortTextRow,
+                            selectorTextRow, variantsRow, selectorVariantsRow]
 
         sections = [
             BxInputSection(headerText: "Access menegment enabled/disabled",
@@ -35,10 +47,9 @@ class EnabledAllRowsController: SimpleAllRowsController {
                 enabledDateRow, enabledSelectorDateRow, enabledSelectorPicturesRow, enabledRateRow,
                 enabledSelectorSuggestionsRow, enabledShortTextRow, enabledSelectorTextRow,
                 enabledVariantsRow, enabledSelectorVariantsRow]),
-            BxInputSection(headerText: "Rows",
-                           rows: [stringActionRow, customActionRow, switchRow, checkRow, dateRow,
-                selectorDateRow, selectorPicturesRow, rateRow, selectorSuggestionsRow, shortTextRow,
-                selectorTextRow, variantsRow, selectorVariantsRow])
+            BxInputSection(headerText: "Settings",
+                           rows: [isNormalShowingVariantsRow, alphaRow, enabledSectionActionRow, enabledAllActionRow]),
+            rowsSection
         ]
     }
 
@@ -72,6 +83,25 @@ class EnabledAllRowsController: SimpleAllRowsController {
             setEnabledRow(variantsRow, enabled: enabledVariantsRow.value)
         } else if row === enabledSelectorVariantsRow {
             setEnabledRow(selectorVariantsRow, enabled: enabledSelectorVariantsRow.value)
+        } else if row === enabledSectionActionRow {
+            setEnabledSection(rowsSection, enabled: enabledSectionActionRow.value, with: .fade)
+        } else if row === enabledAllActionRow {
+            setEnabled(enabledAllActionRow.value, with: .fade)
+        } else if row === isNormalShowingVariantsRow {
+            settings.isNormalShowingDisadledCell = isNormalShowingVariantsRow.value
+            refresh()
+        }
+    }
+    
+    override func willChangeActiveRow(to row: BxInputRow?) {
+        super.willChangeActiveRow(to: row)
+        if activeRow === alphaRow {
+            if let alphaString = alphaRow.value, alphaString.isEmpty == false {
+                settings.alphaForDisabledView = CGFloat(Float(alphaString)!)
+            } else {
+                settings.alphaForDisabledView = BxInputSettings().alphaForDisabledView
+            }
+            refresh()
         }
     }
 

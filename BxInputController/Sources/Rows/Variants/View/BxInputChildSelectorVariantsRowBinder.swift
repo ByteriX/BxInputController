@@ -48,8 +48,20 @@ open class BxInputChildSelectorVariantsRowBinder<T: BxInputStringObject> : BxInp
     override open func didSetEnabled(_ value: Bool)
     {
         super.didSetEnabled(value)
-        cell?.variantsPicker.isUserInteractionEnabled = value
-        cell?.variantsPicker.alpha = value ? 1.0 : 0.5
+        guard let cell = cell else {
+            return
+        }
+        cell.variantsPicker.isUserInteractionEnabled = value
+        // UI part
+        if needChangeDisadledCell {
+            if let changeViewEnableHandler = owner?.settings.changeViewEnableHandler {
+                changeViewEnableHandler(cell.variantsPicker, isEnabled)
+            } else {
+                cell.variantsPicker.alpha = value ? 1 : alphaForDisabledView
+            }
+        } else {
+            cell.variantsPicker.alpha = 1
+        }
     }
     
     func changeValue(index: Int) {

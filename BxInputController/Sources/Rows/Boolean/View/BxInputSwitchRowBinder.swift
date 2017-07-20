@@ -38,8 +38,20 @@ open class BxInputSwitchRowBinder<Row: BxInputSwitchRow, Cell: BxInputSwitchCell
     override open func didSetEnabled(_ value: Bool)
     {
         super.didSetEnabled(value)
-        cell?.valueSwitch.isEnabled = value
-        //cell?.valueSwitch.alpha = value ? 1 : 0.5
+        guard let cell = cell else {
+            return
+        }
+        cell.valueSwitch.isEnabled = value
+        // UI part
+        if needChangeDisadledCell {
+            if let changeViewEnableHandler = owner?.settings.changeViewEnableHandler {
+                changeViewEnableHandler(cell.valueSwitch, isEnabled)
+            } else {
+                //cell.valueSwitch.alpha = value ? 1 : alphaForDisabledView
+            }
+        } else {
+            cell.valueSwitch.alpha = 1
+        }
     }
     
     // MARK - BxInputSwitchDelegate

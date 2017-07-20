@@ -31,8 +31,20 @@ open class BxInputBaseFieldRowBinder<Row: BxInputRow, Cell> : BxInputBaseTitleRo
     override open func didSetEnabled(_ value: Bool)
     {
         super.didSetEnabled(value)
-        cell?.valueTextField.isEnabled = value
-        cell?.valueTextField.alpha = value ? 1 : 0.5
+        guard let cell = cell else {
+            return
+        }
+        cell.valueTextField.isEnabled = value
+        // UI part
+        if needChangeDisadledCell {
+            if let changeViewEnableHandler = owner?.settings.changeViewEnableHandler {
+                changeViewEnableHandler(cell.valueTextField, isEnabled)
+            } else {
+                cell.valueTextField.alpha = value ? 1 : alphaForDisabledView
+            }
+        } else {
+            cell.valueTextField.alpha = 1
+        }
     }
     
 }

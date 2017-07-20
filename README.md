@@ -264,7 +264,7 @@ class InputController: BxInputController {
 	}
 
 	func changeAccess() {
-		setEnabledRow(emailRow, enabled: !emailRow.isEnabled)
+		setEnabledRow(emailRow, enabled: !emailRow.isEnabled, with: .fade)
 	}
 }
 ```

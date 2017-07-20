@@ -44,7 +44,19 @@ open class BxInputChildSelectorSuggestionRowBinder<Row : BxInputChildSelectorRow
     override open func didSetEnabled(_ value: Bool)
     {
         super.didSetEnabled(value)
-        cell?.titleLabel.alpha = value ? 1.0 : 0.5
+        guard let cell = cell else {
+            return
+        }
+        // UI part
+        if needChangeDisadledCell {
+            if let changeViewEnableHandler = owner?.settings.changeViewEnableHandler {
+                changeViewEnableHandler(cell.titleLabel, isEnabled)
+            } else {
+                cell.titleLabel.alpha = value ? 1 : alphaForDisabledView
+            }
+        } else {
+            cell.titleLabel.alpha = 1
+        }
     }
     
 }

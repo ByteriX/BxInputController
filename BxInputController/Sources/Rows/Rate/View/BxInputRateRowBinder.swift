@@ -60,8 +60,20 @@ open class BxInputRateRowBinder<Row: BxInputRateRow, Cell: BxInputRateCell> : Bx
     override open func didSetEnabled(_ value: Bool)
     {
         super.didSetEnabled(value)
-        cell?.valueRateView.editable = value
-        cell?.valueRateView.alpha = value ? 1 : 0.5
+        guard let cell = cell else {
+            return
+        }
+        cell.valueRateView.editable = value
+        // UI part
+        if needChangeDisadledCell {
+            if let changeViewEnableHandler = owner?.settings.changeViewEnableHandler {
+                changeViewEnableHandler(cell.valueRateView, isEnabled)
+            } else {
+                cell.valueRateView.alpha = value ? 1 : alphaForDisabledView
+            }
+        } else {
+            cell.valueRateView.alpha = 1
+        }
     }
     
     // MARK - BxStandartRateViewDelegate

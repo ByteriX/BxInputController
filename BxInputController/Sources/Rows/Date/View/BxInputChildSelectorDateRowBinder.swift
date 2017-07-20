@@ -45,9 +45,22 @@ open class BxInputChildSelectorDateRowBinder<Row: BxInputChildSelectorDateRow, C
     override open func didSetEnabled(_ value: Bool)
     {
         super.didSetEnabled(value)
-        cell?.datePicker.isEnabled = value
-        cell?.datePicker.isUserInteractionEnabled = value
-        cell?.datePicker.alpha = value ? 1.0 : 0.5
+        guard let cell = cell else {
+            return
+        }
+        cell.datePicker.isEnabled = value
+        cell.datePicker.isUserInteractionEnabled = value
+        
+        // UI part
+        if needChangeDisadledCell {
+            if let changeViewEnableHandler = owner?.settings.changeViewEnableHandler {
+                changeViewEnableHandler(cell.datePicker, isEnabled)
+            } else {
+                cell.datePicker.alpha = value ? 1 : alphaForDisabledView
+            }
+        } else {
+            cell.datePicker.alpha = 1
+        }
     }
     
     func changeDate() {
