@@ -6,12 +6,17 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.4.1 (21.07.2017)
+##### Bug fix
+* published isNormalShowingDisabledCell, changeViewEnableHandler, alphaForDisabledView
+* fixed mistake in the word isNormalShowingDisabledCell
+
 ## 2.4.0 (20.07.2017)
 ##### Features
 * new methods setEnableSection, setEnable for batching process of dissable/enable rows
 * add to setEnableRow param for animating
 * new methods reloadSections for reload array of sections
-* new params in Settings for managment dissable/enable rows: isNormalShowingDisadledCell, changeViewEnableHandler, alphaForDisabledView
+* new params in Settings for managment dissable/enable rows: isNormalShowingDisabledCell, changeViewEnableHandler, alphaForDisabledView
 * edit example project for showing the changes regarging dissable/enable rows
 
 ## 2.3.11 (22.06.2017)

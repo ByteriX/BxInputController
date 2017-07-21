@@ -65,7 +65,7 @@ open class BxInputRateRowBinder<Row: BxInputRateRow, Cell: BxInputRateCell> : Bx
         }
         cell.valueRateView.editable = value
         // UI part
-        if needChangeDisadledCell {
+        if needChangeDisabledCell {
             if let changeViewEnableHandler = owner?.settings.changeViewEnableHandler {
                 changeViewEnableHandler(cell.valueRateView, isEnabled)
             } else {

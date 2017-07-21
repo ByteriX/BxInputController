@@ -48,7 +48,7 @@ open class BxInputChildSelectorSuggestionRowBinder<Row : BxInputChildSelectorRow
             return
         }
         // UI part
-        if needChangeDisadledCell {
+        if needChangeDisabledCell {
             if let changeViewEnableHandler = owner?.settings.changeViewEnableHandler {
                 changeViewEnableHandler(cell.titleLabel, isEnabled)
             } else {

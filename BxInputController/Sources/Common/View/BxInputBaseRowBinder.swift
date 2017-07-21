@@ -56,8 +56,8 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
     
     public var checkers: [BxInputRowChecker] = []
     
-    public var needChangeDisadledCell: Bool {
-        return owner?.settings.isNormalShowingDisadledCell == false
+    public var needChangeDisabledCell: Bool {
+        return owner?.settings.isNormalShowingDisabledCell == false
     }
     
     public var alphaForDisabledView: CGFloat {

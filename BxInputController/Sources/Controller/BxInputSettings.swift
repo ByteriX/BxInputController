@@ -70,12 +70,12 @@ public struct BxInputSettings
     
     // MARK: - enabled/disabled options:
     
-    /// If it is true then visual with UI will be nothing, else uses disadledViewAplpha or changeViewEnableHandler. This has high priority. Default NO.
-    var isNormalShowingDisadledCell: Bool = false
-    /// If isNormalShowingDisadledCell == true then it ignored. It is doing possible change view from isEnabled status. Default is ignored.
-    var changeViewEnableHandler: ((_ view: UIView, _ isEnabled: Bool) -> Void)? = nil
-    /// If isNormalShowingDisadledCell == true or changeViewEnableHandler != nil then it ignored. Used for hidden showing view in cell when it need for showing disabled row. Value can be between 0..1
-    var alphaForDisabledView: CGFloat = 0.5
+    /// If it is true then visual with UI will be nothing, else uses disabledViewAplpha or changeViewEnableHandler. This has high priority. Default NO.
+    public var isNormalShowingDisabledCell: Bool = false
+    /// If isNormalShowingDisabledCell == true then it ignored. It is doing possible change view from isEnabled status. Default is ignored.
+    public var changeViewEnableHandler: ((_ view: UIView, _ isEnabled: Bool) -> Void)? = nil
+    /// If isNormalShowingDisabledCell == true or changeViewEnableHandler != nil then it ignored. Used for hidden showing view in cell when it need for showing disabled row. Value can be between 0..1
+    public var alphaForDisabledView: CGFloat = 0.5
     
     
     // MARK: - Strings values

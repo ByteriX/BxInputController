@@ -43,7 +43,7 @@ open class BxInputSwitchRowBinder<Row: BxInputSwitchRow, Cell: BxInputSwitchCell
         }
         cell.valueSwitch.isEnabled = value
         // UI part
-        if needChangeDisadledCell {
+        if needChangeDisabledCell {
             if let changeViewEnableHandler = owner?.settings.changeViewEnableHandler {
                 changeViewEnableHandler(cell.valueSwitch, isEnabled)
             } else {

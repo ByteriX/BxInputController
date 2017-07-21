@@ -52,7 +52,7 @@ open class BxInputChildSelectorDateRowBinder<Row: BxInputChildSelectorDateRow, C
         cell.datePicker.isUserInteractionEnabled = value
         
         // UI part
-        if needChangeDisadledCell {
+        if needChangeDisabledCell {
             if let changeViewEnableHandler = owner?.settings.changeViewEnableHandler {
                 changeViewEnableHandler(cell.datePicker, isEnabled)
             } else {

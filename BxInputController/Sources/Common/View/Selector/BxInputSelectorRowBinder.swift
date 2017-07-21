@@ -65,7 +65,7 @@ open class BxInputSelectorRowBinder<Row: BxInputSelectorRow, Cell: BxInputSelect
             return
         }
         // UI part
-        if needChangeDisadledCell {
+        if needChangeDisabledCell {
             if let changeViewEnableHandler = owner?.settings.changeViewEnableHandler {
                 changeViewEnableHandler(cell.arrowImage, isEnabled)
             } else {

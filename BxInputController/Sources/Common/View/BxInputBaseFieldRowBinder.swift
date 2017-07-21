@@ -36,7 +36,7 @@ open class BxInputBaseFieldRowBinder<Row: BxInputRow, Cell> : BxInputBaseTitleRo
         }
         cell.valueTextField.isEnabled = value
         // UI part
-        if needChangeDisadledCell {
+        if needChangeDisabledCell {
             if let changeViewEnableHandler = owner?.settings.changeViewEnableHandler {
                 changeViewEnableHandler(cell.valueTextField, isEnabled)
             } else {

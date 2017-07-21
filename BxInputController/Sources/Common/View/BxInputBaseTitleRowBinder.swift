@@ -46,7 +46,7 @@ open class BxInputBaseTitleRowBinder<Row: BxInputRow, Cell> : BxInputBaseRowBind
             return
         }
         // UI part
-        if needChangeDisadledCell {
+        if needChangeDisabledCell {
             if let changeViewEnableHandler = owner?.settings.changeViewEnableHandler {
                 changeViewEnableHandler(cell.titleLabel, isEnabled)
                 if let subtitleLabel = cell.subtitleLabel {

@@ -25,7 +25,7 @@ class EnabledAllRowsController: SimpleAllRowsController {
     internal let enabledVariantsRow = BxInputSwitchRow(title: "variants", value: true)
     internal let enabledSelectorVariantsRow = BxInputSwitchRow(title: "selector variants", value: true)
     
-    internal let isNormalShowingVariantsRow = BxInputSwitchRow(title: "isNormalShowingDisadledCell", value: false)
+    internal let isNormalShowingVariantsRow = BxInputSwitchRow(title: "isNormalShowingDisabledCell", value: false)
     internal let alphaRow = BxInputFormattedTextRow(title: "alphaForDisabledView", prefix: "0.", format: "###")
     internal let enabledSectionActionRow = BxInputSwitchRow(title: "enabled section", value: true)
     internal let enabledAllActionRow = BxInputSwitchRow(title: "enabled all rows", value: true)
@@ -88,7 +88,7 @@ class EnabledAllRowsController: SimpleAllRowsController {
         } else if row === enabledAllActionRow {
             setEnabled(enabledAllActionRow.value, with: .fade)
         } else if row === isNormalShowingVariantsRow {
-            settings.isNormalShowingDisadledCell = isNormalShowingVariantsRow.value
+            settings.isNormalShowingDisabledCell = isNormalShowingVariantsRow.value
             refresh()
         }
     }

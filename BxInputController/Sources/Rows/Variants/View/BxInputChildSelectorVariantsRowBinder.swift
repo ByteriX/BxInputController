@@ -53,7 +53,7 @@ open class BxInputChildSelectorVariantsRowBinder<T: BxInputStringObject> : BxInp
         }
         cell.variantsPicker.isUserInteractionEnabled = value
         // UI part
-        if needChangeDisadledCell {
+        if needChangeDisabledCell {
             if let changeViewEnableHandler = owner?.settings.changeViewEnableHandler {
                 changeViewEnableHandler(cell.variantsPicker, isEnabled)
             } else {
