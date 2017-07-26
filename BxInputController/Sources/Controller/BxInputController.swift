@@ -60,7 +60,7 @@ open class BxInputController : UIViewController
     }
     /// show the panel abouve keyboard for navigation by rows
     open var isShowingInputAccessoryView: Bool = true
-    {
+        {
         didSet { updateInputAccessory() }
     }
     /// The panel abouve keyboard, not nil if isShowingInputAccessoryView = true
@@ -294,12 +294,6 @@ open class BxInputController : UIViewController
     
     // MARK: - managment of content methods
     
-    /// deselect cell for row
-    open func deselectRow(_ row: BxInputRow, animated: Bool = true) {
-        if let indexPath = getIndex(for: row) {
-            tableView.deselectRow(at: indexPath, animated: animated)
-        }
-    }
     
     /// full reload row
     open func reloadRow(_ row: BxInputRow, with animation: UITableViewRowAnimation = .fade) {
@@ -520,6 +514,9 @@ open class BxInputController : UIViewController
     /// select row with scroll at position
     open func selectRow(_ row: BxInputRow, at position: UITableViewScrollPosition = .middle, animated: Bool = true)
     {
+        guard activeRow !== row else {
+            return
+        }
         //scrollRow(row, at: position, animated: animated)
         if let indexPath = getIndex(for: row) {
             tableView.selectRow(at: indexPath, animated: animated, scrollPosition: position)
@@ -531,21 +528,38 @@ open class BxInputController : UIViewController
         }
     }
     
+    /// deselect cell for row
+    open func deselectRow(_ row: BxInputRow, animated: Bool = true) {
+        guard activeRow === row else {
+            return
+        }
+        if let indexPath = getIndex(for: row) {
+            tableView.deselectRow(at: indexPath, animated: animated)
+            dissmissSelectorRow(row)
+            activeRow = nil
+        }
+    }
+    
+    /// to close row if it has selector type
+    open func dissmissSelectorRow(_ row: BxInputRow) {
+        if let selectorData = row as? BxInputSelectorRow,
+            selectorData.isOpened
+        {
+            selectorData.isOpened = false
+            deleteRows(selectorData.children, with: .fade)
+            reloadRow(selectorData, with: .fade)
+        }
+    }
+    
     /// to close all rows with selector type
     /// - parameter exclude: if it not nil, then this row won't closed
     open func dissmissSelectors(exclude excludeRow: BxInputRow? = nil) {
         for section in sections {
             for rowBinder in section.rowBinders {
-                if let selectorData = rowBinder.rowData as? BxInputSelectorRow,
-                    selectorData.isOpened
-                {
-                    if selectorData === excludeRow {
-                        continue
-                    }
-                    selectorData.isOpened = false
-                    deleteRows(selectorData.children, with: .fade)
-                    reloadRow(selectorData, with: .fade)
+                if rowBinder.rowData === excludeRow {
+                    continue
                 }
+                dissmissSelectorRow(rowBinder.rowData)
             }
         }
     }

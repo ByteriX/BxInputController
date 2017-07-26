@@ -6,6 +6,11 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.4.2 (26.07.2017)
+##### Bug fix
+* change select/deselect row logic with bug fixes 
+* checking select/deselect row
+
 ## 2.4.1 (21.07.2017)
 ##### Bug fix
 * published isNormalShowingDisabledCell, changeViewEnableHandler, alphaForDisabledView
