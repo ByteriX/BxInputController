@@ -17,8 +17,8 @@ import BxObjC
 /// Standart decoration for showing error message in row
 open class BxInputStandartErrorRowDecorator : BxInputRowDecorator {
     
-    /// highlighed color for marking a value
-    public var color : UIColor = UIColor.red
+    /// highlighed color for marking a value. If is nil then get value from BxInputSettings Default nil.
+    public var color : UIColor? = nil
     /// if is defined, will change existing placeholder of value to this value
     public var placeholder : String? = nil
     /// if is defined, will change existing subtitle of row to this value.
@@ -56,6 +56,14 @@ open class BxInputStandartErrorRowDecorator : BxInputRowDecorator {
     /// method calls when binder update row
     open func update(binder: BxInputRowBinder) {
         if let cell = binder.viewCell as? BxInputTitleCell {
+            
+            var color = UIColor.red
+            if let thisColor = self.color {
+                color = thisColor
+            } else if let globalColor = binder.owner?.settings.errorColor {
+                color = globalColor
+            }
+            
             cell.titleLabel.textColor = color
             
             if let cell = binder.viewCell as? BxInputFieldCell {

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0B0240F32D7035DFA339DE59 /* Pods_BxInputController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDE3CA360A31AF4DA9BAFDDB /* Pods_BxInputController.framework */; };
 		F900D0DF1EB3203400047D0A /* BxInputDependencyRowsChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F900D0DE1EB3203400047D0A /* BxInputDependencyRowsChecker.swift */; };
+		F9064DE31F2FC3330098E4C9 /* BxInputBlockChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9064DE21F2FC3330098E4C9 /* BxInputBlockChecker.swift */; };
 		F907C7EE1E77D027000F3437 /* BxInputFormattedTextRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907C7ED1E77D027000F3437 /* BxInputFormattedTextRow.swift */; };
 		F907C7F11E77D25F000F3437 /* BxInputFormattedTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907C7EF1E77D25F000F3437 /* BxInputFormattedTextCell.swift */; };
 		F907C7F21E77D25F000F3437 /* BxInputFormattedTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F907C7F01E77D25F000F3437 /* BxInputFormattedTextCell.xib */; };
@@ -132,6 +133,7 @@
 		A529CAF1FC63502159F31EBF /* Pods-BxInputController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BxInputController.release.xcconfig"; path = "Pods/Target Support Files/Pods-BxInputController/Pods-BxInputController.release.xcconfig"; sourceTree = "<group>"; };
 		EDE3CA360A31AF4DA9BAFDDB /* Pods_BxInputController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BxInputController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F900D0DE1EB3203400047D0A /* BxInputDependencyRowsChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputDependencyRowsChecker.swift; sourceTree = "<group>"; };
+		F9064DE21F2FC3330098E4C9 /* BxInputBlockChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputBlockChecker.swift; sourceTree = "<group>"; };
 		F907C7ED1E77D027000F3437 /* BxInputFormattedTextRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = BxInputFormattedTextRow.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F907C7EF1E77D25F000F3437 /* BxInputFormattedTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = BxInputFormattedTextCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F907C7F01E77D25F000F3437 /* BxInputFormattedTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BxInputFormattedTextCell.xib; sourceTree = "<group>"; };
@@ -590,6 +592,7 @@
 				F9191D461EB26E060099CD7A /* BxInputBaseRowChecker.swift */,
 				F9CA1C771EABD9310029A029 /* BxInputEmptyValueChecker.swift */,
 				F9DF02DE1EAE1A44006EC83E /* BxInputEmailChecker.swift */,
+				F9064DE21F2FC3330098E4C9 /* BxInputBlockChecker.swift */,
 				F900D0DE1EB3203400047D0A /* BxInputDependencyRowsChecker.swift */,
 				F96126571EBC8E9500F00034 /* BxInputEqualValuesChecker.swift */,
 			);
@@ -831,6 +834,7 @@
 				F933F5C21E7BDE3F00FB1E22 /* BxInputSelectorTextRowBinder.swift in Sources */,
 				F9E787321E52F6F800341996 /* BxInputSectionStringHeader.swift in Sources */,
 				F96D1F831E5463AC00BDB2CE /* BxInputPictureLibraryItem.swift in Sources */,
+				F9064DE31F2FC3330098E4C9 /* BxInputBlockChecker.swift in Sources */,
 				F96D1F801E5463AC00BDB2CE /* BxInputSelectorPicturesRow.swift in Sources */,
 				F9E786FF1E52F6F800341996 /* BxInputStaticHeight.swift in Sources */,
 				F9E7870E1E52F6F800341996 /* UIImage.swift in Sources */,

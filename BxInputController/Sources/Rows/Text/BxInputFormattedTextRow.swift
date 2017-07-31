@@ -68,4 +68,16 @@ open class BxInputFormattedTextRow: BxInputTextRow
         keyboardType = .URL
     }
     
+    /// Return true if value for the row is empty
+    override open var hasEmptyValue: Bool
+    {
+        if rightPatternText.isEmpty, leftPatternText.isEmpty {
+            return super.hasEmptyValue
+        }
+        if let value = value {
+            return value == leftPatternText + rightPatternText
+        }
+        return true
+    }
+    
 }

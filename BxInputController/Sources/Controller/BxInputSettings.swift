@@ -48,6 +48,8 @@ public struct BxInputSettings
     public var valueFont: UIFont = UIFont.systemFont(ofSize:  15)
     /// The color of placeholder in the value field for a row, the font is used from valueFont value.
     public var placeholderColor: UIColor? = nil
+    /// The color for error marking. See BxInputStandartErrorRowDecorator when it used.
+    public var errorColor: UIColor = UIColor.red
     
     /// height of cells for all rows, which don't use a dynamic size or the static size
     public var cellHeight: CGFloat? = 46
