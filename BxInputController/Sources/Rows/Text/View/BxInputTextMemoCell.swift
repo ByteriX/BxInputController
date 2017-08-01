@@ -1,9 +1,9 @@
 /**
- *	@file BxInputChildSelectorTextCell.swift
+ *	@file BxInputTextMemoCell.swift
  *	@namespace BxInputController
  *
- *	@details Cell for selector Row with longest text string
- *	@date 02.02.2017
+ *	@details Cell for Row with longest text string
+ *	@date 01.08.2017
  *	@author Sergey Balalaev
  *
  *	@version last in https://github.com/ByteriX/BxInputController.git
@@ -14,25 +14,24 @@
 import UIKit
 import BxObjC
 
-/// Delegate for BxInputChildSelectorTextCell
-public protocol BxInputChildSelectorTextDelegate : UITextViewDelegate
+/// Delegate for BxInputTextMemoCell
+public protocol BxInputTextMemoCellDelegate : UITextViewDelegate
 {
     
 }
 
-/// Cell for selector Row with longest text string
-public class BxInputChildSelectorTextCell: UITableViewCell {
+/// Cell for Row with longest text string
+public class BxInputTextMemoCell: UITableViewCell {
     
     /// delegate has backword call UITextViewDelegate
-    public weak var delegate: BxInputChildSelectorTextDelegate? = nil
+    public weak var delegate: BxInputTextMemoCellDelegate? = nil
     {
         didSet {
             textView.delegate = delegate
         }
     }
-
+    
     /// value editor control
     @IBOutlet var textView: BxTextView!
-    
     
 }

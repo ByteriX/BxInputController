@@ -1,9 +1,9 @@
 /**
- *	@file BxInputChildSelectorTextRowBinder.swift
+ *	@file BxInputTextMemoRowBinder.swift
  *	@namespace BxInputController
  *
- *	@details Binder for BxInputChildSelectorTextRow subclasses
- *	@date 06.03.2017
+ *	@details Binder for BxInputTextMemoRow
+ *	@date 01.08.2017
  *	@author Sergey Balalaev
  *
  *	@version last in https://github.com/ByteriX/BxInputController.git
@@ -13,8 +13,8 @@
 
 import UIKit
 
-/// Binder for internal BxInputChildSelectorTextRow subclasses
-open class BxInputChildSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, Cell: BxInputChildSelectorTextCell, ParentRow: BxInputSelectorTextRow> : BxInputChildSelectorRowBinder<Row, Cell, ParentRow>, BxInputChildSelectorTextDelegate, UITextViewDelegate
+/// Binder for BxInputTextMemoRow
+open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMemoCell> : BxInputBaseRowBinder<Row, Cell>, BxInputTextMemoCellDelegate, UITextViewDelegate
 {
     /// call when user selected this cell
     override open func didSelected()
@@ -31,9 +31,9 @@ open class BxInputChildSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, C
         //
         cell?.textView.font = owner?.settings.valueFont
         cell?.textView.textColor = owner?.settings.valueColor
-        cell?.textView.text = parentRow.value
-//        cell?.textView.placeholderColor = owner?.settings.placeholderColor
-//        cell?.textView.placeholder = parentRow.placeholder
+        cell?.textView.text = row.value
+        cell?.textView.placeholderColor = owner?.settings.placeholderColor
+        cell?.textView.placeholder = row.placeholder
     }
     /// event of change isEnabled
     override open func didSetEnabled(_ value: Bool)
@@ -105,7 +105,13 @@ open class BxInputChildSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, C
     /// start editing
     open func textViewShouldBeginEditing(_ textView: UITextView) -> Bool
     {
-        owner?.activeRow = parentRow
+        if !isEnabled {
+            return false
+        }
+        if let owner = owner, owner.settings.isAutodissmissSelector {
+            owner.dissmissSelectors()
+        }
+        owner?.activeRow = row
         owner?.activeControl = textView
         return true
     }
@@ -119,16 +125,21 @@ open class BxInputChildSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, C
     /// end editing
     open func textViewShouldEndEditing(_ textView: UITextView) -> Bool
     {
+        if owner?.activeControl === textView {
+            owner?.activeControl = nil
+        }
+        if owner?.activeRow === row {
+            owner?.activeRow = nil
+        }
         return true
     }
     
     /// change value
     open func textViewDidChange(_ textView: UITextView)
     {
-        parentRow.value = textView.text
-        owner?.updateRow(parentRow)
+        row.value = textView.text
+        owner?.updateRow(row)
         check()
     }
     
 }
-

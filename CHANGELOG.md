@@ -6,6 +6,12 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.4.4 (01.08.2017)
+##### Improvements
+* small internal changes BxInputSelectorTextRow
+* added BxInputTextMemoRow for bigest text without selector
+* added BxInputTextMemoRow to example
+
 ## 2.4.3 (31.07.2017)
 ##### Improvements
 * fixed BxInputEmptyValueChecker for BxInputFormattedTextRow

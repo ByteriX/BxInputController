@@ -1,9 +1,9 @@
 PODS:
-  - BxObjC/Common (1.1.24)
-  - BxObjC/Data (1.1.24):
+  - BxObjC/Common (1.1.26)
+  - BxObjC/Data (1.1.26):
     - BxObjC/Common
     - XMLDictionary (= 1.4)
-  - BxObjC/Vcl (1.1.24):
+  - BxObjC/Vcl (1.1.26):
     - BxObjC/Common
     - BxObjC/Data
     - MBProgressHUD
@@ -16,7 +16,7 @@ DEPENDENCIES:
   - BxTextField
 
 SPEC CHECKSUMS:
-  BxObjC: ee2bacce1f758668f2aafb77e14c6af4112045ac
+  BxObjC: a5db6ec84d59bb0798250318197c36b97554fe33
   BxTextField: f626173dcd86d49f35eb29d047d3ab0c0eb2fcbd
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   XMLDictionary: f9f51601ba76678b594ab485f2b00ec1fed23724

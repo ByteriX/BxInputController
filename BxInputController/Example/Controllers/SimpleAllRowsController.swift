@@ -32,6 +32,9 @@ class SimpleAllRowsController: BxInputController {
     internal let phoneTextRow = BxInputFormattedTextRow(title: "phone value", subtitle: "only russian", placeholder: "(___)-___-__-__", prefix: "+7", format: "(###)-###-##-##")
     internal let urlRow = BxInputFormattedTextRow(title: "url value", placeholder: "example", prefix: "http://", sufix: ".byterix.com")
     internal let selectorTextRow = BxInputSelectorTextRow(title: "text with selector", placeholder: "longest text")
+    internal let textMemoRow = BxInputTextMemoRow(placeholder: "big text without selector")
+    
+    
     // Variants
     internal let variantsRow = BxInputVariantsRow<BxInputVariantsItem>(title: "variants")
     internal let selectorVariantsRow = BxInputSelectorVariantsRow<BxInputVariantsItem>(title: "selector variants")
@@ -86,7 +89,7 @@ class SimpleAllRowsController: BxInputController {
             BxInputSection(headerText: "Pictures", rows: [selectorPicturesRow]),
             BxInputSection(headerText: "Rate", rows: [rateRow]),
             BxInputSection(headerText: "Suggestions", rows: [selectorSuggestionsRow]),
-            BxInputSection(headerText: "Text", rows: [shortTextRow, phoneTextRow, urlRow, selectorTextRow]),
+            BxInputSection(headerText: "Text", rows: [shortTextRow, phoneTextRow, urlRow, selectorTextRow, textMemoRow]),
             BxInputSection(headerText: "Variants", rows: [variantsRow, selectorVariantsRow])
         ]
         
