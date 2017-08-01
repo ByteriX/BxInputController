@@ -21,7 +21,7 @@ public protocol BxInputTextMemoCellDelegate : UITextViewDelegate
 }
 
 /// Cell for Row with longest text string
-public class BxInputTextMemoCell: UITableViewCell {
+open class BxInputTextMemoCell: UITableViewCell {
     
     /// delegate has backword call UITextViewDelegate
     public weak var delegate: BxInputTextMemoCellDelegate? = nil

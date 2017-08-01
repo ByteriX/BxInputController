@@ -44,6 +44,9 @@ open class BxInputStandartErrorRowDecorator : BxInputRowDecorator {
             text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty == false
         {
             view = cell.titleLabel
+        }  else if let cell = binder.viewCell as? BxInputTextMemoCell
+        {
+            view = cell.textView
         }
         
         if let view = view
@@ -55,14 +58,14 @@ open class BxInputStandartErrorRowDecorator : BxInputRowDecorator {
     
     /// method calls when binder update row
     open func update(binder: BxInputRowBinder) {
+        var color = UIColor.red
+        if let thisColor = self.color {
+            color = thisColor
+        } else if let globalColor = binder.owner?.settings.errorColor {
+            color = globalColor
+        }
+        
         if let cell = binder.viewCell as? BxInputTitleCell {
-            
-            var color = UIColor.red
-            if let thisColor = self.color {
-                color = thisColor
-            } else if let globalColor = binder.owner?.settings.errorColor {
-                color = globalColor
-            }
             
             cell.titleLabel.textColor = color
             
@@ -82,6 +85,17 @@ open class BxInputStandartErrorRowDecorator : BxInputRowDecorator {
                     subtitleLabel.textAlignment = .right
                     subtitleLabel.text = subtitle
                 }
+            }
+        } else if let cell = binder.viewCell as? BxInputTextMemoCell
+        {
+            cell.textView.textColor = color
+            var placeholder = self.placeholder
+            if placeholder == nil {
+                placeholder = binder.rowData.placeholder
+            }
+            if let placeholder = placeholder {
+                cell.textView.placeholderColor = color.withAlphaComponent(0.3)
+                cell.textView.placeholder = placeholder
             }
         }
     }

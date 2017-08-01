@@ -6,6 +6,11 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.4.5 (02.08.2017)
+##### Improvements
+* changed the accesse of BxInputTextMemoCell
+* changed BxInputStandartErrorRowDecorator for supporting BxInputTextMemoRow
+
 ## 2.4.4 (01.08.2017)
 ##### Improvements
 * small internal changes BxInputSelectorTextRow
