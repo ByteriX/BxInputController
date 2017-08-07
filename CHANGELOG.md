@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.4.6 (07.08.2017)
+##### Bug fix
+* made BxInputSectionView as BxInputStaticHeight
+
 ## 2.4.5 (02.08.2017)
 ##### Improvements
 * changed the accesse of BxInputTextMemoCell

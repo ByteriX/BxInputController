@@ -120,7 +120,9 @@ extension BxInputController : UITableViewDelegate{
         guard let content = content else {
             return 1
         }
-        if isEstimatedContent {
+        if let staticRow = content as? BxInputStaticHeight {
+            return staticRow.height
+        } else if isEstimatedContent {
             return UITableViewAutomaticDimension
         }
         if type == .header {

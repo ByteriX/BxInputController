@@ -14,7 +14,7 @@
 import UIKit
 
 /// Class for implementation view content for header or footer of a section
-open class BxInputSectionView : BxInputSectionViewContent
+open class BxInputSectionView : BxInputSectionViewContent, BxInputStaticHeight
 {
     /// Make and return Binder for binding section content data with view.
     open var binder: BxInputSectionContentBinder {
@@ -22,7 +22,11 @@ open class BxInputSectionView : BxInputSectionViewContent
     }
     /// default return size of view, but you may override it
     open var estimatedHeight : CGFloat {
-        get { return view.frame.size.height }
+        return height
+    }
+    /// size for a header/footer/row content
+    open var height : CGFloat {
+        return view.frame.size.height
     }
     /// owner
     public var parent: BxInputSection? = nil
