@@ -55,7 +55,7 @@ open class BxInputFormattedTextRow: BxInputTextRow
         formattingReplacementChar = char
         formattingEnteredCharacters = "0123456789"
         patternTextFont = BxInputSettings.standart.valueFont
-        keyboardType = .numberPad
+        textSettings.keyboardType = .numberPad
     }
     
     /// Constructor for url putting
@@ -65,7 +65,7 @@ open class BxInputFormattedTextRow: BxInputTextRow
         super.init(title: title, subtitle: subtitle, placeholder: placeholder, value: domainValue)
         leftPatternText = prefix
         rightPatternText = sufix
-        keyboardType = .URL
+        textSettings.keyboardType = .URL
     }
     
     /// Return true if value for the row is empty

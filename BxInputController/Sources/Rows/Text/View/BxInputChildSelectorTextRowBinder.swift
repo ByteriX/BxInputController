@@ -34,6 +34,7 @@ open class BxInputChildSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, C
         cell?.textView.text = parentRow.value
 //        cell?.textView.placeholderColor = owner?.settings.placeholderColor
 //        cell?.textView.placeholder = parentRow.placeholder
+        cell?.textView.update(from: parentRow.textSettings)
     }
     /// event of change isEnabled
     override open func didSetEnabled(_ value: Bool)

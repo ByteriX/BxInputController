@@ -6,6 +6,11 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.5.0 (10.08.2017)
+##### Bug fix
+* introduced BxInputTextSettings for change text input style global/local
+* fixed bug with changing isSecureTextEntry on standart cell as result: rewriting first symbole from password field after checking on empty value
+
 ## 2.4.6 (07.08.2017)
 ##### Bug fix
 * made BxInputSectionView as BxInputStaticHeight

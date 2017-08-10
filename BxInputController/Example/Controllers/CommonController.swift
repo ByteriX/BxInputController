@@ -65,8 +65,8 @@ class CommonController: BxInputController {
         filledVariants.value = variants.first
         otherVariantsRow.items = otherVariants
         
-        emailValue.keyboardType = .emailAddress
-        passwordValue.isSecureTextEntry = true
+        emailValue.textSettings.keyboardType = .emailAddress
+        passwordValue.textSettings.isSecureTextEntry = true
         disabledValue.isEnabled = false
         
         deselectedActionAlert.handler = {[weak self, weak deselectedActionAlert] (actionRow) -> Void in

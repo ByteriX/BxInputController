@@ -34,6 +34,7 @@ open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMe
         cell?.textView.text = row.value
         cell?.textView.placeholderColor = owner?.settings.placeholderColor
         cell?.textView.placeholder = row.placeholder
+        cell?.textView.update(from: row.textSettings)
     }
     /// event of change isEnabled
     override open func didSetEnabled(_ value: Bool)

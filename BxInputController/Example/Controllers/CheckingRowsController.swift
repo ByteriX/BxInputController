@@ -13,6 +13,7 @@ class CheckingRowsController: BxInputController {
     private var nameRow = BxInputTextRow(title: "name value", placeholder: "should not be empty")
     private var surnameRow = BxInputTextRow(title: "surname value", placeholder: "can be empty")
     private var emailRow = BxInputFormattedTextRow(title: "email value", placeholder: "only corrected email")
+    private var passwordRow = BxInputTextRow(title: "password value", placeholder: "empty is incorrected")
     
     private var filledDateRow = BxInputDateRow(title: "filled date", value: Date().addingTimeInterval(300000))
     private var emptyDateRow = BxInputDateRow(title: "not empty value")//BxInputSelectorDateRow(title: "not empty value")
@@ -26,7 +27,7 @@ class CheckingRowsController: BxInputController {
         isEstimatedContent = false
         
         self.sections = [
-            BxInputSection(rows: [nameRow, surnameRow, emailRow]),
+            BxInputSection(rows: [nameRow, surnameRow, emailRow, passwordRow]),
             BxInputSection(headerText: "Date", rows: [filledDateRow, emptyDateRow]),
             BxInputSection(headerText: "Dependent", rows: [dependencyRow])
         ]
@@ -38,6 +39,9 @@ class CheckingRowsController: BxInputController {
         // for email
         addChecker(BxInputEmptyValueChecker<BxInputTextRow>(row: emailRow, placeholder: "Please put your email"), for: emailRow)
         addChecker(BxInputEmailChecker<BxInputTextRow>(row: emailRow, subtitle: "incorrect email"), for: emailRow)
+        // for password
+        passwordRow.textSettings.isSecureTextEntry = true
+        addChecker(BxInputEmptyValueChecker<BxInputTextRow>(row: passwordRow, placeholder: "Please put the password"), for: passwordRow)
         // for date
         let dateChecker = BxInputEmptyValueChecker<BxInputDateRow>(row: emptyDateRow, placeholder: "Please put date")
         dateChecker.planPriority = .always

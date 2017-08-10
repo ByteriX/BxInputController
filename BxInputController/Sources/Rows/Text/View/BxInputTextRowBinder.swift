@@ -23,7 +23,12 @@ open class BxInputTextRowBinder<Row : BxInputTextRow, Cell : BxInputStandartText
         
         cell?.valueTextField.inputView = nil
         cell?.valueTextField.text = row.value
-        cell?.valueTextField.update(from: row)
+        
+    }
+    
+    /// Update text input settings. If you want to specialize you can override this
+    override open func updateTextSettings() {
+        cell?.valueTextField.update(from: row.textSettings)
     }
     
     /// changing value event for correct showing

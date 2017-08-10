@@ -63,47 +63,8 @@ open class BxInputTextRow: BxInputValueRow, BxInputString
         //
     }
     
-    open var autocapitalizationType: UITextAutocapitalizationType = .none// UITextAutocapitalizationTypeSentences
-    open var autocorrectionType: UITextAutocorrectionType = .no
-    open var spellCheckingType: UITextSpellCheckingType = .no
-    open var keyboardType: UIKeyboardType  = .default
-    open var keyboardAppearance: UIKeyboardAppearance = .default
-    //open var returnKeyType: UIReturnKeyType = .go
-    open var enablesReturnKeyAutomatically: Bool = false
-    open var isSecureTextEntry: Bool = false
-    
+    open var textSettings: BxInputTextSettings = BxInputTextSettings.standart
     
 }
 
 
-extension UITextField {
-    
-    /// update field  from BxInputTextRow attributes
-    func update(from textRow: BxInputTextRow)
-    {
-        isSecureTextEntry = textRow.isSecureTextEntry
-        autocapitalizationType = textRow.autocapitalizationType
-        autocorrectionType = textRow.autocorrectionType
-        spellCheckingType = textRow.spellCheckingType
-        keyboardType = textRow.keyboardType
-        keyboardAppearance = textRow.keyboardAppearance
-        //returnKeyType = textRow.returnKeyType
-        enablesReturnKeyAutomatically = textRow.enablesReturnKeyAutomatically
-    }
-}
-
-extension UITextView {
-    
-    /// update field from BxInputTextRow attributes
-    func update(from textRow: BxInputTextRow)
-    {
-        isSecureTextEntry = textRow.isSecureTextEntry
-        autocapitalizationType = textRow.autocapitalizationType
-        autocorrectionType = textRow.autocorrectionType
-        spellCheckingType = textRow.spellCheckingType
-        keyboardType = textRow.keyboardType
-        keyboardAppearance = textRow.keyboardAppearance
-        //returnKeyType = textRow.returnKeyType
-        enablesReturnKeyAutomatically = textRow.enablesReturnKeyAutomatically
-    }
-}

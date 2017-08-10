@@ -102,6 +102,7 @@
 		F9DF02DD1EAE1690006EC83E /* CheckingRowsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DF02DC1EAE1690006EC83E /* CheckingRowsController.swift */; };
 		F9DF02DF1EAE1A44006EC83E /* BxInputEmailChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DF02DE1EAE1A44006EC83E /* BxInputEmailChecker.swift */; };
 		F9DF02E11EAE2671006EC83E /* BxInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DF02E01EAE2671006EC83E /* BxInputCell.swift */; };
+		F9E20F671F3CC5C500792F5A /* BxInputTextSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E20F661F3CC5C500792F5A /* BxInputTextSettings.swift */; };
 		F9E786FD1E52F6F800341996 /* BxInputRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E786A91E52F6F800341996 /* BxInputRow.swift */; };
 		F9E786FE1E52F6F800341996 /* BxInputSelectorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E786AA1E52F6F800341996 /* BxInputSelectorRow.swift */; };
 		F9E786FF1E52F6F800341996 /* BxInputStaticHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E786AB1E52F6F800341996 /* BxInputStaticHeight.swift */; };
@@ -235,6 +236,7 @@
 		F9DF02DC1EAE1690006EC83E /* CheckingRowsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckingRowsController.swift; sourceTree = "<group>"; };
 		F9DF02DE1EAE1A44006EC83E /* BxInputEmailChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputEmailChecker.swift; sourceTree = "<group>"; };
 		F9DF02E01EAE2671006EC83E /* BxInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputCell.swift; sourceTree = "<group>"; };
+		F9E20F661F3CC5C500792F5A /* BxInputTextSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputTextSettings.swift; sourceTree = "<group>"; };
 		F9E786A91E52F6F800341996 /* BxInputRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputRow.swift; sourceTree = "<group>"; };
 		F9E786AA1E52F6F800341996 /* BxInputSelectorRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSelectorRow.swift; sourceTree = "<group>"; };
 		F9E786AB1E52F6F800341996 /* BxInputStaticHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputStaticHeight.swift; sourceTree = "<group>"; };
@@ -659,6 +661,7 @@
 				F9E786B81E52F6F800341996 /* BxInputController+UITableViewDelegate.swift */,
 				F9E786B91E52F6F800341996 /* BxInputController.swift */,
 				F9E786BA1E52F6F800341996 /* BxInputSettings.swift */,
+				F9E20F661F3CC5C500792F5A /* BxInputTextSettings.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -843,6 +846,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9E20F671F3CC5C500792F5A /* BxInputTextSettings.swift in Sources */,
 				F93206AA1F30FB100015ACDC /* BxInputTextMemoCell.swift in Sources */,
 				F96D1F9E1E54859300BDB2CE /* BxInputSwitchCell.swift in Sources */,
 				F933F5C21E7BDE3F00FB1E22 /* BxInputSelectorTextRowBinder.swift in Sources */,

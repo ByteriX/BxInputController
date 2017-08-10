@@ -32,13 +32,18 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
         cell?.selectionStyle = .none
     }
     
+    /// Update text input settings. If you want to specialize you can override this
+    open func updateTextSettings() {
+        cell?.valueTextField.update(from: BxInputTextSettings.standart)
+    }
+    
     /// update cell from model data
     override open func update()
     {
         super.update()
         cell?.delegate = self
         //
-        cell?.valueTextField.isSecureTextEntry = false
+        updateTextSettings()
         updateChecking()
         updateCell()
     }
