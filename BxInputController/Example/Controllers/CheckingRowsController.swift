@@ -12,7 +12,7 @@ class CheckingRowsController: BxInputController {
     
     private var nameRow = BxInputTextRow(title: "name value", placeholder: "should not be empty")
     private var surnameRow = BxInputTextRow(title: "surname value", placeholder: "can be empty")
-    private var emailRow = BxInputTextRow(title: "email value", placeholder: "only corrected email")
+    private var emailRow = BxInputFormattedTextRow(title: "email value", placeholder: "only corrected email")
     
     private var filledDateRow = BxInputDateRow(title: "filled date", value: Date().addingTimeInterval(300000))
     private var emptyDateRow = BxInputDateRow(title: "not empty value")//BxInputSelectorDateRow(title: "not empty value")
