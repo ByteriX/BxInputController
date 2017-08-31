@@ -44,7 +44,6 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
         cell?.delegate = self
         //
         updateTextSettings()
-        updateChecking()
         updateCell()
     }
     

@@ -21,6 +21,8 @@ class CheckingRowsController: BxInputController {
     
     private var dependencyRow = BxInputTextRow(title: "dependent")
     
+    private var textRow = BxInputTextRow(title: "text value", placeholder: "reuseble test")
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +32,8 @@ class CheckingRowsController: BxInputController {
         self.sections = [
             BxInputSection(rows: [nameRow, surnameRow, emailRow, passwordRow]),
             BxInputSection(headerText: "Date", rows: [filledDateRow, emptyDateRow, testDateRow]),
-            BxInputSection(headerText: "Dependent", rows: [dependencyRow])
+            BxInputSection(headerText: "Dependent", rows: [dependencyRow]),
+            BxInputSection(headerText: "Reusable section", rows: [textRow])
         ]
         
         // for name
@@ -56,6 +59,8 @@ class CheckingRowsController: BxInputController {
         addChecker(dependencyChecker, for: dependencyRow)
         let equalChecker = BxInputEqualValuesChecker<BxInputTextRow>(row: dependencyRow, comparisonRow: nameRow, subtitle: "should be equal to \"name values\"")
         addChecker(equalChecker, for: dependencyRow)
+        
+        addChecker(BxInputEmptyValueChecker<BxInputTextRow>(row: textRow, placeholder: "Please put text for testing reusable"), for: textRow)
     }
     
     @IBAction func checkClick(_ sender: Any) {

@@ -54,7 +54,6 @@ open class BxInputSelectorRowBinder<Row: BxInputSelectorRow, Cell: BxInputSelect
         cell?.arrowImage.image = BxInputUtils.getImage(resourceId: "bx_arrow_to_bottom")
         //
         refreshOpened(animated: false)
-        updateChecking()
     }
     
     /// event of change isEnabled

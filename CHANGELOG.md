@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.5.2 (01.09.2017)
+##### Bug fix
+* rewrote features for activation checker
+
 ## 2.5.1 (31.08.2017)
 ##### Bug fix
 * introduced double check pattern into decarator activation

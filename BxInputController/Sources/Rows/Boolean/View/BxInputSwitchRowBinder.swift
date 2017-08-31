@@ -31,8 +31,6 @@ open class BxInputSwitchRowBinder<Row: BxInputSwitchRow, Cell: BxInputSwitchCell
         cell?.delegate = self
         cell?.selectionStyle = .none
         cell?.valueSwitch.setOn(row.value, animated: false)
-        
-        updateChecking()
     }
     /// event of change isEnabled
     override open func didSetEnabled(_ value: Bool)

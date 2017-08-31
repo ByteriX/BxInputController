@@ -34,6 +34,7 @@ extension BxInputController : UITableViewDataSource
         rowBinder.viewCell = cell
         rowBinder.owner = self
         rowBinder.update()
+        rowBinder.updateChecking()
         return cell
     }
 

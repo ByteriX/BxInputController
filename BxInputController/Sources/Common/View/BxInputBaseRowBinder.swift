@@ -186,7 +186,12 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
     
     /// should be called after update row
     open func updateChecking() {
-        checkRow(priority:  .updateRow)
+        for checker in checkers {
+            if checker.isActivated {
+                checker.decorator?.update(binder: self)
+            }
+        }
+        checkRow(priority: .updateRow)
     }
     
     /// event when value of a row was changed. It may be not current row, for example parentRow from Selector type
