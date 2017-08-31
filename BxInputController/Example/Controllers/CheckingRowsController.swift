@@ -17,6 +17,7 @@ class CheckingRowsController: BxInputController {
     
     private var filledDateRow = BxInputDateRow(title: "filled date", value: Date().addingTimeInterval(300000))
     private var emptyDateRow = BxInputDateRow(title: "not empty value")//BxInputSelectorDateRow(title: "not empty value")
+    private var testDateRow = BxInputDateRow(title: "should filled")
     
     private var dependencyRow = BxInputTextRow(title: "dependent")
     
@@ -28,7 +29,7 @@ class CheckingRowsController: BxInputController {
         
         self.sections = [
             BxInputSection(rows: [nameRow, surnameRow, emailRow, passwordRow]),
-            BxInputSection(headerText: "Date", rows: [filledDateRow, emptyDateRow]),
+            BxInputSection(headerText: "Date", rows: [filledDateRow, emptyDateRow, testDateRow]),
             BxInputSection(headerText: "Dependent", rows: [dependencyRow])
         ]
         
@@ -47,6 +48,9 @@ class CheckingRowsController: BxInputController {
         dateChecker.planPriority = .always
         dateChecker.activePriority = .transitonRow
         addChecker(dateChecker, for: emptyDateRow)
+        // for test date
+        let testChecker = BxInputEmptyValueChecker<BxInputDateRow>(row: testDateRow, placeholder: "You should put date")
+        addChecker(testChecker, for: testDateRow)
         
         let dependencyChecker = BxInputDependencyRowsChecker(checkers: [nameChecker, dateChecker], subtitle: "Please put name and date")
         addChecker(dependencyChecker, for: dependencyRow)
@@ -54,5 +58,8 @@ class CheckingRowsController: BxInputController {
         addChecker(equalChecker, for: dependencyRow)
     }
     
+    @IBAction func checkClick(_ sender: Any) {
+        checkRow(testDateRow, willSelect: true)
+    }
     
 }

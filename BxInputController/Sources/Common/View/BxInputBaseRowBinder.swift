@@ -121,7 +121,7 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
                         checker.isActivated = false
                         if let decorator = checker.decorator {
                             DispatchQueue.main.async { [weak self] in
-                                if let this = self {
+                                if let this = self, checker.isActivated == false {
                                     decorator.deactivate(binder: this)
                                 }
                             }
@@ -136,7 +136,7 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
             checker.isActivated = true
             if let decorator = checker.decorator {
                 DispatchQueue.main.async { [weak self] in
-                    if let this = self {
+                    if let this = self, checker.isActivated == true {
                         decorator.activate(binder: this)
                     }
                 }

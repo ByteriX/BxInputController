@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.5.1 (31.08.2017)
+##### Bug fix
+* introduced double check pattern into decarator activation
+
 ## 2.5.0 (10.08.2017)
 ##### Bug fix
 * introduced BxInputTextSettings for change text input style global/local
