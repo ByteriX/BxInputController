@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.5.3 (02.09.2017)
+##### Bug fix
+* fixed hasEmptyValue for formatted text row
+
 ## 2.5.2 (01.09.2017)
 ##### Bug fix
 * rewrote features for activation checker

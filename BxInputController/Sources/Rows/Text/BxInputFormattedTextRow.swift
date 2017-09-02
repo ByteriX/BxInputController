@@ -75,7 +75,7 @@ open class BxInputFormattedTextRow: BxInputTextRow
             return super.hasEmptyValue
         }
         if let value = value {
-            return value == leftPatternText + rightPatternText
+            return value.isEmpty || value == leftPatternText + rightPatternText
         }
         return true
     }
