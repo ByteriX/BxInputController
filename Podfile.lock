@@ -1,26 +1,25 @@
 PODS:
-  - BxObjC/Common (1.1.26)
-  - BxObjC/Data (1.1.26):
+  - BxObjC/Common (1.1.32)
+  - BxObjC/Control/Navigation (1.1.32):
     - BxObjC/Common
-    - XMLDictionary (= 1.4)
-  - BxObjC/Vcl (1.1.26):
-    - BxObjC/Common
-    - BxObjC/Data
-    - MBProgressHUD
-  - BxTextField (1.2.4)
-  - MBProgressHUD (1.0.0)
-  - XMLDictionary (1.4)
+    - BxObjC/Control/ShakeAnimation
+  - BxObjC/Control/Rate (1.1.32)
+  - BxObjC/Control/ShakeAnimation (1.1.32)
+  - BxObjC/Control/TextView (1.1.32)
+  - BxTextField (1.2.5)
 
 DEPENDENCIES:
-  - BxObjC/Vcl
+  - BxObjC/Common
+  - BxObjC/Control/Navigation
+  - BxObjC/Control/Rate
+  - BxObjC/Control/ShakeAnimation
+  - BxObjC/Control/TextView
   - BxTextField
 
 SPEC CHECKSUMS:
-  BxObjC: a5db6ec84d59bb0798250318197c36b97554fe33
-  BxTextField: f626173dcd86d49f35eb29d047d3ab0c0eb2fcbd
-  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  XMLDictionary: f9f51601ba76678b594ab485f2b00ec1fed23724
+  BxObjC: 7b4eda2888c733ab7c69e85d049805a90528d137
+  BxTextField: 335c0b392f8b68292e8d18b12815803f4def826b
 
-PODFILE CHECKSUM: a9fa29c70569f08fd7b37217a6d0211770509924
+PODFILE CHECKSUM: 522f877a07031991adc1f925cf042cfe438e2156
 
 COCOAPODS: 1.2.1

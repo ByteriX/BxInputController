@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.5.4 (11.09.2017)
+##### Improvments
+* revomed extra frameworks from dependency
+
 ## 2.5.3 (02.09.2017)
 ##### Bug fix
 * fixed hasEmptyValue for formatted text row

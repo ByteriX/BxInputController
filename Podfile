@@ -6,7 +6,11 @@ target 'BxInputController' do
   use_frameworks!
 
   # Pods for BxInputController
-  pod 'BxObjC/Vcl'
+  pod 'BxObjC/Common'
+  pod 'BxObjC/Control/Rate'
+  pod 'BxObjC/Control/TextView'
+  pod 'BxObjC/Control/ShakeAnimation'
+  pod 'BxObjC/Control/Navigation'
   pod 'BxTextField'
 
 end

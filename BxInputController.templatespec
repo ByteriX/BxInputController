@@ -68,7 +68,11 @@ Pod::Spec.new do |s|
 
     s.source_files  = "BxInputController/Sources/**/*.swift"
 
-    s.dependency 'BxObjC/Vcl'
+    s.dependency 'BxObjC/Common'
+    s.dependency 'BxObjC/Control/Rate'
+    s.dependency 'BxObjC/Control/TextView'
+    s.dependency 'BxObjC/Control/ShakeAnimation'
+    s.dependency 'BxObjC/Control/Navigation'
     s.dependency 'BxTextField'
 
 
