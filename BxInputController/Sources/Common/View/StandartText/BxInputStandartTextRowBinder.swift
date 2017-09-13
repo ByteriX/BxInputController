@@ -15,7 +15,7 @@ import UIKit
 
 /// Binder for a standart text row
 open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell> : BxInputBaseFieldRowBinder<Row, Cell>, UITextFieldDelegate
-where Cell : UITableViewCell, Cell : BxInputStandartTextCellProtocol
+where Cell : UITableViewCell, Cell : BxInputFieldCell
 {
     
     /// call when user selected this cell
@@ -42,8 +42,8 @@ where Cell : UITableViewCell, Cell : BxInputStandartTextCellProtocol
     override open func update()
     {
         super.update()
-        cell?.valueTextField.removeTarget(nil, action: #selector(bxValueChanged), for: .editingChanged)
-        cell?.valueTextField.addTarget(self, action: #selector(bxValueChanged), for: .editingChanged)
+        //
+        cell?.valueTextField.changeTarget(self, action: #selector(bxValueChanged(valueTextField:)), for: .editingChanged)
         cell?.valueTextField.delegate = self
         //
         updateTextSettings()

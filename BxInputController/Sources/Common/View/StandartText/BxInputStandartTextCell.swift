@@ -13,13 +13,8 @@
 
 import UIKit
 
-public protocol BxInputStandartTextCellProtocol: BxInputFieldCell
-{
-    //weak var bxDelegate: BxInputStandartTextDelegate? {get set}
-}
-
 /// Common cell for textual rows which have title & value
-open class BxInputStandartTextCell: UITableViewCell, BxInputStandartTextCellProtocol {
+open class BxInputStandartTextCell: UITableViewCell, BxInputFieldCell {
 
     /// caption of the row
     @IBOutlet public weak var titleLabel: UILabel!
@@ -31,8 +26,8 @@ open class BxInputStandartTextCell: UITableViewCell, BxInputStandartTextCellProt
     @IBOutlet public weak var valueTextField: UITextField!
     
     /// value editing event
+    @available(iOS, deprecated: 6.0, message: "This method can't call and will be removed in a future. Please remove reference from xib.")
     @IBAction func valueTextFieldEditingChanged(_ sender: Any) {
-        //bxDelegate?.valueChanged(valueTextField: valueTextField)
         // this need mark as depricated
     }
 

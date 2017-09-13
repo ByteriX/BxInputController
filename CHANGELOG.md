@@ -6,6 +6,12 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.6.0 (14.09.2017)
+##### Improvments
+* removed delegate from BxInputStandartTextCell for easaly supporting View Cells
+* made changeTarget for replease target from UIControl
+* removed unnecessary entities
+
 ## 2.5.5 (13.09.2017)
 ##### Improvments
 * abstract BxInputStandartTextCell as BxInputStandartTextCellProtocol
