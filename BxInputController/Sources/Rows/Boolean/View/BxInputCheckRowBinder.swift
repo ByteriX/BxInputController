@@ -14,7 +14,8 @@
 import UIKit
 
 /// Binder for check box Row subclasses
-open class BxInputCheckRowBinder<Row : BxInputCheckRow, Cell : BxInputStandartTextCell>: BxInputStandartTextRowBinder<Row, Cell>
+open class BxInputCheckRowBinder<Row : BxInputCheckRow, Cell>: BxInputStandartTextRowBinder<Row, Cell>
+where Cell : UITableViewCell, Cell : BxInputStandartTextCellProtocol
 {
     /// call when user selected this cell
     override open func didSelected()

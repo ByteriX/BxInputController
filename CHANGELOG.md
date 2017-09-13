@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.5.5 (13.09.2017)
+##### Improvments
+* abstract BxInputStandartTextCell as BxInputStandartTextCellProtocol
+
 ## 2.5.4 (11.09.2017)
 ##### Improvments
 * revomed extra frameworks from dependency

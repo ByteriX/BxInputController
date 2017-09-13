@@ -14,23 +14,21 @@
 import UIKit
 
 /// Delegate of BxInputStandartTextCell
-public protocol BxInputStandartTextDelegate : UITextFieldDelegate
+public protocol BxInputStandartTextDelegate : AnyObject
 {
     func valueChanged(valueTextField: UITextField)
 }
 
-/// Common cell for textual rows which have title & value
-open class BxInputStandartTextCell: UITableViewCell, BxInputFieldCell {
-    
+public protocol BxInputStandartTextCellProtocol: BxInputFieldCell
+{
+    weak var delegate: BxInputStandartTextDelegate? {get set}
+}
 
+/// Common cell for textual rows which have title & value
+open class BxInputStandartTextCell: UITableViewCell, BxInputStandartTextCellProtocol {
     
     /// delegate for transport events
     public weak var delegate: BxInputStandartTextDelegate? = nil
-    {
-        didSet {
-            valueTextField.delegate = delegate
-        }
-    }
     
     /// caption of the row
     @IBOutlet public weak var titleLabel: UILabel!
@@ -47,3 +45,4 @@ open class BxInputStandartTextCell: UITableViewCell, BxInputFieldCell {
     }
 
 }
+

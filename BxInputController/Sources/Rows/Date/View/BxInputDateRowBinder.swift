@@ -14,7 +14,8 @@
 import UIKit
 
 /// Binder for BxInputDateRow subclasses
-open class BxInputDateRowBinder<Row : BxInputDateRow, Cell : BxInputStandartTextCell>: BxInputStandartTextRowBinder<Row, Cell>
+open class BxInputDateRowBinder<Row : BxInputDateRow, Cell>: BxInputStandartTextRowBinder<Row, Cell>
+where Cell : UITableViewCell, Cell : BxInputStandartTextCellProtocol
 {
     /// call after common update for text attributes updating
     override open func updateCell()

@@ -14,7 +14,8 @@
 import UIKit
 
 /// Binder for a standart text row
-open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTextCell> : BxInputBaseFieldRowBinder<Row, Cell>, BxInputStandartTextDelegate, UITextFieldDelegate
+open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell> : BxInputBaseFieldRowBinder<Row, Cell>, BxInputStandartTextDelegate, UITextFieldDelegate
+where Cell : UITableViewCell, Cell : BxInputStandartTextCellProtocol
 {
     
     /// call when user selected this cell
@@ -42,6 +43,7 @@ open class BxInputStandartTextRowBinder<Row: BxInputRow, Cell: BxInputStandartTe
     {
         super.update()
         cell?.delegate = self
+        cell?.valueTextField.delegate = self
         //
         updateTextSettings()
         updateCell()

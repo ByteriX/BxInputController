@@ -14,7 +14,8 @@
 import UIKit
 
 /// Binder for custom action row
-open class BxInputActionCustomRowBinder<T : BxInputString, Cell : BxInputStandartTextCell>: BxInputStandartTextRowBinder<BxInputActionCustomRow<T>, Cell>
+open class BxInputActionCustomRowBinder<T : BxInputString, Cell>: BxInputStandartTextRowBinder<BxInputActionCustomRow<T>, Cell>
+where Cell : UITableViewCell, Cell : BxInputStandartTextCellProtocol
 {
     
     /// call when user selected this cell
