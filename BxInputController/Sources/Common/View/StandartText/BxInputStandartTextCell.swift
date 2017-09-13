@@ -13,23 +13,14 @@
 
 import UIKit
 
-/// Delegate of BxInputStandartTextCell
-public protocol BxInputStandartTextDelegate : AnyObject
-{
-    func valueChanged(valueTextField: UITextField)
-}
-
 public protocol BxInputStandartTextCellProtocol: BxInputFieldCell
 {
-    weak var delegate: BxInputStandartTextDelegate? {get set}
+    //weak var bxDelegate: BxInputStandartTextDelegate? {get set}
 }
 
 /// Common cell for textual rows which have title & value
 open class BxInputStandartTextCell: UITableViewCell, BxInputStandartTextCellProtocol {
-    
-    /// delegate for transport events
-    public weak var delegate: BxInputStandartTextDelegate? = nil
-    
+
     /// caption of the row
     @IBOutlet public weak var titleLabel: UILabel!
     /// caption of title for the row. This is only option field
@@ -41,7 +32,8 @@ open class BxInputStandartTextCell: UITableViewCell, BxInputStandartTextCellProt
     
     /// value editing event
     @IBAction func valueTextFieldEditingChanged(_ sender: Any) {
-        delegate?.valueChanged(valueTextField: valueTextField)
+        //bxDelegate?.valueChanged(valueTextField: valueTextField)
+        // this need mark as depricated
     }
 
 }

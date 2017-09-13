@@ -40,8 +40,8 @@ where Cell : UITableViewCell, Cell : BxInputStandartTextCellProtocol
     }
     
     /// event when value is changed
-    override open func valueChanged(valueTextField: UITextField) {
-        super.valueChanged(valueTextField: valueTextField)
+    override open func bxValueChanged(valueTextField: UITextField) {
+        super.bxValueChanged(valueTextField: valueTextField)
         row.value = cell?.valueTextField.text
         didChangedValue(for: row)
     }

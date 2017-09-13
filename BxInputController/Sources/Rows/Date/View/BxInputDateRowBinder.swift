@@ -29,7 +29,7 @@ where Cell : UITableViewCell, Cell : BxInputStandartTextCellProtocol
     }
     
     /// event when value is changed
-    override open func valueChanged(valueTextField: UITextField) {
+    override open func bxValueChanged(valueTextField: UITextField) {
         // date value changed from 'editedDate()' method
     }
     
