@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.6.1 (14.09.2017)
+##### Improvments
+* return open func valueChanged(valueTextField: UITextField)
+
 ## 2.6.0 (14.09.2017)
 ##### Improvments
 * removed delegate from BxInputStandartTextCell for easaly supporting View Cells

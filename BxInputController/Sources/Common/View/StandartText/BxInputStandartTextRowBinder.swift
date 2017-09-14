@@ -43,7 +43,7 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
     {
         super.update()
         //
-        cell?.valueTextField.changeTarget(self, action: #selector(bxValueChanged(valueTextField:)), for: .editingChanged)
+        cell?.valueTextField.changeTarget(self, action: #selector(valueChanged(valueTextField:)), for: .editingChanged)
         cell?.valueTextField.delegate = self
         //
         updateTextSettings()
@@ -57,7 +57,7 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
     }
     
     /// event when value is changed. Need reload this in inherited classes
-    open func bxValueChanged(valueTextField: UITextField) {
+    open func valueChanged(valueTextField: UITextField) {
         // empty
     }
     
