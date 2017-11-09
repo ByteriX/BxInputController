@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.7.0 (09.11.2017)
+##### Bug fix
+* fixed intererface of FormatedText row
+
 ## 2.6.1 (14.09.2017)
 ##### Improvments
 * return open func valueChanged(valueTextField: UITextField)

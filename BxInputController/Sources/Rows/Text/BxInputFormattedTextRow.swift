@@ -27,7 +27,7 @@ open class BxInputFormattedTextRow: BxInputTextRow
     /// Format text for putting pattern. If formattingReplacementChar is "*" then example may has value "**** - **** - ********". Default is ""
     public var formattingTemplate: String = ""
     /// Replacement symbol, it use for formattingTemplate as is as pattern for replacing. Default is "#"
-    public var formattingReplacementChar: Character = "#"
+    public var formattingReplacementChar: String = "#"
     /// Allowable symbols for entering. Uses only if formattingTemplate is not empty. Default is "", that is all symbols.
     public var formattingEnteredCharacters: String = ""
     
@@ -46,7 +46,7 @@ open class BxInputFormattedTextRow: BxInputTextRow
     /// Constructor for phone putting
     public init(title: String? = nil, subtitle: String? = nil, placeholder: String? = nil,
                 phoneValue: String? = nil, prefix: String = "",
-                format: String, char: Character = "#")
+                format: String, char: String = "#")
     {
         super.init(title: title, placeholder: placeholder, value: phoneValue)
         self.subtitle = subtitle
