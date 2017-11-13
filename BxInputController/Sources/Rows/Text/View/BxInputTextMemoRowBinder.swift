@@ -60,7 +60,7 @@ open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMe
     }
     
     /// check state of putting value
-    open func check()
+    @objc open func check()
     {
         if checkSize() {
             checkScroll()

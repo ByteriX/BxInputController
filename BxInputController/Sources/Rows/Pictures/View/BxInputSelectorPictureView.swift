@@ -49,7 +49,7 @@ open class BxInputSelectorPictureView : UIImageView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func removeClick() {
+    @objc func removeClick() {
         if let removeHandler = removeHandler {
             removeHandler()
         }

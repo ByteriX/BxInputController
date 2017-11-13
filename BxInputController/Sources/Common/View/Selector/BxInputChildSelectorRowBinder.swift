@@ -31,7 +31,7 @@ open class BxInputChildSelectorRowBinder<Row: BxInputChildSelectorRow, Cell: UIT
     }
     
     /// This should call automaticle for close this from parent
-    open func autoclose() {
+    @objc open func autoclose() {
         if parentRow.isOpened {
             parentRow.isOpened = false
             owner?.deleteRow(row)

@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.7.1 (13.11.2017)
+##### Bug fix
+* supporting Swift 4.0 with 3.2
+
 ## 2.7.0 (09.11.2017)
 ##### Bug fix
 * fixed intererface of FormatedText row

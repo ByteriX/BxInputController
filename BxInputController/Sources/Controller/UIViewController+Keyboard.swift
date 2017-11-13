@@ -13,14 +13,27 @@
 
 import UIKit
 
+/// event when keyboard will show or hide.
+public protocol BxKeyboardChangeProtocol : NSObjectProtocol {
+    
+    /// - parameter frame: frame of keyboard to view of controller
+    /// - This method need to override in your class, don't forget call registerKeyboardNotification() and unregisterKeyboardNotification(). In iOS 10 last func call not required
+    func keyboardWillChange(isShowing: Bool, frame: CGRect)
+    
+}
+
 /// Working with keyboard in UIViewController
-extension UIViewController
+extension BxKeyboardChangeProtocol where Self: UIViewController
 {
     /// This need after probably controller show/hide keyboard. For example in viewWillAppear
     public func registerKeyboardNotification()
     {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShown), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillShow, object: nil, queue: nil) {[weak self] (notification) in
+            self?.keyboardWillShown(aNotification: notification)
+        }
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillHide, object: nil, queue: nil) {[weak self] (notification) in
+            self?.keyboardWillHide(aNotification: notification)
+        }
     }
     
     /// This need after probably controller show/hide keyboard. For example in viewDidDisappear
@@ -58,11 +71,5 @@ extension UIViewController
         }
         return CGRect()
     }
-    
-    /// event when keyboard will show or hide. 
-    /// - parameter frame: frame of keyboard to view of controller
-    /// - This method need to override in your class, don't forget call registerKeyboardNotification() and unregisterKeyboardNotification(). In iOS 10 last func call not required
-    open func keyboardWillChange(isShowing: Bool, frame: CGRect)
-    {}
     
 }

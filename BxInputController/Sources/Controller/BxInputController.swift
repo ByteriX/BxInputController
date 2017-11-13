@@ -16,7 +16,7 @@ import Foundation
 import BxObjC
 
 /// Controller for input values
-open class BxInputController : UIViewController
+open class BxInputController : UIViewController, BxKeyboardChangeProtocol
 {
     
     // MARK: - Fields
@@ -133,7 +133,7 @@ open class BxInputController : UIViewController
     
     /// event when keyboard will show or hide.
     /// - parameter frame: frame of keyboard to view of controller
-    override open func keyboardWillChange(isShowing: Bool, frame: CGRect)
+    open func keyboardWillChange(isShowing: Bool, frame: CGRect)
     {
         contentRect = self.view.bounds
         if isShowing {

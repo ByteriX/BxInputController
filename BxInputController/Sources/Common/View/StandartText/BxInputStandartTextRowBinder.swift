@@ -57,7 +57,7 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
     }
     
     /// event when value is changed. Need reload this in inherited classes
-    open func valueChanged(valueTextField: UITextField) {
+    @objc open func valueChanged(valueTextField: UITextField) {
         // empty
     }
     

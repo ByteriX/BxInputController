@@ -60,7 +60,7 @@ open class BxInputChildSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, C
     }
     
     /// check state of putting value
-    open func check()
+    @objc open func check()
     {
         if checkSize() {
             checkScroll()

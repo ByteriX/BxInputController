@@ -33,7 +33,7 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
         // date value changed from 'editedDate()' method
     }
     
-    func changeDate() {
+    @objc func changeDate() {
         guard let date = owner?.datePicker.date else {
             return
         }
@@ -42,7 +42,7 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
     }
     
     /// event when value is changed if value have date type
-    func editedDate() {
+    @objc func editedDate() {
         changeDate()
         didChangedValue(for: row)
     }

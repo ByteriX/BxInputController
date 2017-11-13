@@ -80,7 +80,7 @@ extension BxInputController
     }
     
     /// event when user click back or next row
-    open func backNextButtonClick(control: UISegmentedControl) {
+    @objc open func backNextButtonClick(control: UISegmentedControl) {
         guard let activeRow = activeRow else {
             activeControl?.resignFirstResponder()
             return
@@ -103,7 +103,7 @@ extension BxInputController
     }
     
     /// event when user click done
-    open func doneButtonClick() {
+    @objc open func doneButtonClick() {
         activeControl?.resignFirstResponder()
     }
     
