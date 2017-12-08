@@ -22,6 +22,7 @@ This framework will help iOS developers for simplify development general inputin
 
 - iOS 8.0+
 - Swift 3.0+
+- Swift 3.2/4.0 supported
 
 
 ## Installation

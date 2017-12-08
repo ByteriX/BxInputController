@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.7.2 (08.12.2017)
+##### Improvments
+* changed only description
+
 ## 2.7.1 (13.11.2017)
 ##### Bug fix
 * supporting Swift 4.0 with 3.2
