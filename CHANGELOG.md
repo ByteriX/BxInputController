@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.7.3 (15.12.2017)
+##### Improvments
+* added Swift version
+
 ## 2.7.2 (08.12.2017)
 ##### Improvments
 * changed only description
