@@ -62,18 +62,33 @@ Pod::Spec.new do |s|
 # s.tvos.deployment_target = "9.0"
 
     s.source       = { :git => "https://github.com/ByteriX/BxInputController.git", :tag => s.version }
-    s.frameworks = ["Foundation", "UIKit"]
-    s.resources = "BxInputController/Sources/Assets.xcassets", "BxInputController/Sources/**/*.xib"
-#s.public_header_files = "**/iBXCommon/Frameworks/**/*.h", "**/iBXCommon/Sources/**/*.h"
+    
 
-    s.source_files  = "BxInputController/Sources/**/*.swift"
+    s.subspec 'Common' do |common|
+		common.frameworks = ["Foundation", "UIKit"]
+		common.resources = "BxInputController/Sources/Assets.xcassets", "BxInputController/Sources/**/*.xib"
+    	common.source_files  = "BxInputController/Sources/**/*.swift"
 
-    s.dependency 'BxObjC/Common'
-    s.dependency 'BxObjC/Control/Rate'
-    s.dependency 'BxObjC/Control/TextView'
-    s.dependency 'BxObjC/Control/ShakeAnimation'
-    s.dependency 'BxObjC/Control/Navigation'
-    s.dependency 'BxTextField'
+    	common.exclude_files = "**/Pictures/**/*.*"
+
+    	common.dependency 'BxObjC/Common'
+    	common.dependency 'BxObjC/Control/Rate'
+    	common.dependency 'BxObjC/Control/TextView'
+    	common.dependency 'BxObjC/Control/ShakeAnimation'
+    	common.dependency 'BxObjC/Control/Navigation'
+    	common.dependency 'BxTextField'
+	end
+
+	s.subspec 'Photo' do |photo|
+		photo.dependency 'BxInputController/Common'
+		photo.frameworks = ["Photos", "AssetsLibrary"]
+		photo.resources = "BxInputController/Sources/Assets.xcassets", "BxInputController/**/Pictures/**/*.xib"
+    	photo.source_files  = "BxInputController/**/Pictures/**/*.swift"
+	end
+
+    
+
+    
 
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

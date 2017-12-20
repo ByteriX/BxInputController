@@ -4,7 +4,7 @@ This framework will help iOS developers for simplify development general inputin
 
 ## Gif demo
 
-![Demo Gif](Screenshots/simple_demo.gif)
+![Demo Gif](https://github.com/ByteriX/BxInputController/raw/master/Screenshots/simple_demo.gif)
 
 ## Features
 
@@ -35,6 +35,8 @@ This framework will help iOS developers for simplify development general inputin
 $ gem install cocoapods
 ```
 
+Now you can use seporated subpods `BxInputController/Common` and `BxInputController/Photo`, or all `BxInputController`.
+`BxInputController/Photo` pod you can reject if you won't show Photo Library request in App.
 To integrate BxInputController into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
@@ -43,7 +45,8 @@ platform :ios, '8.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-pod 'BxInputController', '~> 0.9'
+pod 'BxInputController/Common', '~> 2.7.4'
+pod 'BxInputController/Photo', '~> 2.7.4'
 end
 ```
 

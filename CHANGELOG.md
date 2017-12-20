@@ -6,6 +6,11 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.7.4 (20.12.2017)
+##### Improvments
+* seporated Photo library module to submodule "BxInputController/Photo". General will be "BxInputController/Common"
+* fixed README gif url
+
 ## 2.7.3 (15.12.2017)
 ##### Improvments
 * added Swift version
