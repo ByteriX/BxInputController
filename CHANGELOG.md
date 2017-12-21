@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.7.6 (21.12.2017)
+##### Improvments
+* updated build script
+
 ## 2.7.5 (20.12.2017)
 ##### Improvments
 * tried to update README and CHANGELOG from cocoapods 1.4.0
