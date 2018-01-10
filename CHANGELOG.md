@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.7.7 (10.01.2018)
+##### Improvments
+* fixed all warnings
+
 ## 2.7.6 (21.12.2017)
 ##### Improvments
 * updated build script
