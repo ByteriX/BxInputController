@@ -94,7 +94,7 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
     open func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
     {
         if let text = textField.text,
-            range.location == text.characters.count && string == " "
+            range.location == text.chars.count && string == " "
         {
             textField.text = text + "\u{00a0}"
             return false

@@ -100,9 +100,7 @@ open class BxInputSelectorPicturesLibraryDataSource : NSObject {
     internal func backCamera() -> AVCaptureDevice?
     {
 #if swift ( >=4.0 )
-        guard let devices = AVCaptureDevice.devices(for: AVMediaType.video) as? [AVCaptureDevice] else {
-            return nil
-        }
+        let devices = AVCaptureDevice.devices(for: AVMediaType.video)
 #else
         guard let devices = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo) as? [AVCaptureDevice] else {
             return nil
