@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.7.8 (14.03.2018)
+##### Bug fix
+* made BxInputActionRow as activeRow when selected
+
 ## 2.7.7 (10.01.2018)
 ##### Improvments
 * fixed all warnings

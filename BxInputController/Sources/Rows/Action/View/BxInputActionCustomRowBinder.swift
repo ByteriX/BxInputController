@@ -26,6 +26,7 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
         if let owner = owner, owner.settings.isAutodissmissSelector {
             owner.dissmissAllRows()
         }
+        owner?.activeRow = row
         if let handler = row.handler {
             handler(row)
         }
