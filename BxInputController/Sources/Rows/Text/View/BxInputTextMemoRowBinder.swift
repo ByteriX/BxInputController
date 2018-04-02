@@ -139,7 +139,8 @@ open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMe
     open func textViewDidChange(_ textView: UITextView)
     {
         row.value = textView.text
-        owner?.updateRow(row)
+        didChangedValue(for: row)
+        //owner?.updateRow(row) - it is redundant (2.7.9)
         check()
     }
     
