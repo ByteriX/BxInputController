@@ -721,6 +721,7 @@
 				F92183BC1E23AA2D002E1781 /* Resources */,
 				CBB2B0348D204C962169760F /* [CP] Embed Pods Frameworks */,
 				0993AA811CF215586546F6BE /* [CP] Copy Pods Resources */,
+				CF40B76620726D1400543E26 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -831,6 +832,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BxInputController/Pods-BxInputController-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		CF40B76620726D1400543E26 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"";
 		};
 		DF58BA2CADF6F9D41CD58920 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

@@ -194,6 +194,7 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
         checkRow(priority: .updateRow)
     }
     
+    // TODO: didChangedValue -> didChangeValue
     /// event when value of a row was changed. It may be not current row, for example parentRow from Selector type
     open func didChangedValue(for row: BxInputValueRow) {
         checkRow(priority: .updateValue)
