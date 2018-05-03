@@ -16,8 +16,8 @@ import UIKit
 /// Protocol for binding row data model with cell
 public protocol BxInputRowBinder : AnyObject {
     
-    /// reference to owner
-    weak var owner: BxInputController? {get set}
+    /// reference to owner. It will be weaked.
+    var owner: BxInputController? {get set}
     /// reference to model data
     var rowData: BxInputRow {get set}
     /// view

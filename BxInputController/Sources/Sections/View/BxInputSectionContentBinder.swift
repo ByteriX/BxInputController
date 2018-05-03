@@ -17,8 +17,8 @@ import UIKit
 public protocol BxInputSectionContentBinder : AnyObject
 {
     
-    /// reference to owner
-    weak var owner: BxInputController? {get set}
+    /// reference to owner. It will be weaked.
+    var owner: BxInputController? {get set}
     /// reference to model data
     var contentData: BxInputSectionContent {get set}
     /// view

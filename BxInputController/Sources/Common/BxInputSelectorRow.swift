@@ -32,8 +32,8 @@ public protocol BxInputSelectorRow : BxInputValueRow
 public protocol BxInputChildSelectorRow : BxInputRow
 {
     
-    /// back link to the ower
-    weak var parent: BxInputSelectorRow? {get set}
+    /// back link to the ower. It will be weaked.
+    var parent: BxInputSelectorRow? {get set}
     
 }
 

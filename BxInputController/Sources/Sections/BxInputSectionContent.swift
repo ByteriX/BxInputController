@@ -16,8 +16,8 @@ import UIKit
 /// base protocol for the BxInputSection header/footer
 public protocol BxInputSectionContent : AnyObject {
     
-    /// owner of this content
-    weak var parent: BxInputSection? {get set}
+    /// owner of this content. It will be weaked.
+    var parent: BxInputSection? {get set}
     
     /// estimated height of content for dynamical size
     var estimatedHeight : CGFloat {get}

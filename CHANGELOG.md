@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.7.10 (03.05.2018)
+##### Improvments
+* remove weak from protocols
+
 ## 2.7.9 (02.04.2018)
 ##### Bug fix
 * fixed updating value of MemoTextRow (didn't call didChangedValue event)
