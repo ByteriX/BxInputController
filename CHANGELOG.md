@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.7.11 (10.05.2018)
+##### Improvments
+* New property in BxInputFormattedTextRow: enteredValue without patterns and format
+
 ## 2.7.10 (03.05.2018)
 ##### Improvments
 * remove weak from protocols

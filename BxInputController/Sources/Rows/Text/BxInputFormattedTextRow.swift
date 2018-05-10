@@ -43,6 +43,9 @@ open class BxInputFormattedTextRow: BxInputTextRow
     /// Need override standart font, because in iOS 10 changing attributedText rewrite font property
     public var enteredTextFont: UIFont?
     
+    // Value without patterns and format. Only users entered symboles
+    public var enteredValue: String?
+    
     /// Constructor for phone putting
     public init(title: String? = nil, subtitle: String? = nil, placeholder: String? = nil,
                 phoneValue: String? = nil, prefix: String = "",

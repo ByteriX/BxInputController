@@ -48,6 +48,11 @@ open class BxInputFormattedTextRowBinder<Row : BxInputFormattedTextRow, Cell : B
         cell.formattedTextField.text = row.value
     }
     
+    override open func valueChanged(valueTextField: UITextField) {
+        row.enteredValue = cell?.formattedTextField.enteredText
+        super.valueChanged(valueTextField: valueTextField)
+    }
+    
 }
 
 
