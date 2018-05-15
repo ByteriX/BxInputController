@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.8.1 (15.05.2018)
+##### Bug fix
+* Fixed calculation keyboardRect
+
 ## 2.8.0 (15.05.2018)
 ##### Improvments
 * New property keyboardRect
