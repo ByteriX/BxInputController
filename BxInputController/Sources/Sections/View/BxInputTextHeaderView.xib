@@ -1,38 +1,41 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="73A-JV-d39" customClass="BxInputTextHeaderView" customModule="BxInputController" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="36" id="rHC-n3-l66" customClass="BxInputTextHeaderView" customModule="BxInputController" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="36"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6m-ul-Pe2">
-                    <rect key="frame" x="16" y="12" width="292" height="18"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <nil key="highlightedColor"/>
-                </label>
-            </subviews>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rHC-n3-l66" id="kel-MB-I63">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="35.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VkC-t6-3AM">
+                        <rect key="frame" x="16" y="12" width="292" height="17.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="VkC-t6-3AM" secondAttribute="trailing" constant="12" id="AGc-Co-0eV"/>
+                    <constraint firstItem="VkC-t6-3AM" firstAttribute="leading" secondItem="kel-MB-I63" secondAttribute="leading" constant="16" id="amJ-72-PXJ"/>
+                    <constraint firstItem="VkC-t6-3AM" firstAttribute="top" secondItem="kel-MB-I63" secondAttribute="top" constant="12" id="fhj-Yj-1jO"/>
+                    <constraint firstAttribute="bottom" secondItem="VkC-t6-3AM" secondAttribute="bottom" constant="6" id="qt7-FE-0TB"/>
+                </constraints>
+            </tableViewCellContentView>
             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-            <constraints>
-                <constraint firstAttribute="trailing" secondItem="J6m-ul-Pe2" secondAttribute="trailing" constant="12" id="9MT-5A-63o"/>
-                <constraint firstAttribute="bottom" secondItem="J6m-ul-Pe2" secondAttribute="bottom" constant="6" id="GMU-iV-Scx"/>
-                <constraint firstItem="J6m-ul-Pe2" firstAttribute="top" secondItem="73A-JV-d39" secondAttribute="top" constant="12" id="KJP-k8-aj1"/>
-                <constraint firstItem="J6m-ul-Pe2" firstAttribute="leading" secondItem="73A-JV-d39" secondAttribute="leading" constant="16" id="zcs-NS-Zq0"/>
-            </constraints>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="contentLabel" destination="J6m-ul-Pe2" id="0iE-QJ-9nw"/>
+                <outlet property="contentLabel" destination="VkC-t6-3AM" id="Tyf-Tx-sVU"/>
             </connections>
-            <point key="canvasLocation" x="33" y="-113.5"/>
-        </view>
+            <point key="canvasLocation" x="25" y="60"/>
+        </tableViewCell>
     </objects>
 </document>
