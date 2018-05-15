@@ -127,7 +127,7 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     
     override open func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        tableView.frame = self.view.bounds
+        tableView.frame = tableFrame
         updateInsets()
     }
     
@@ -145,8 +145,19 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
         updateInsets()
     }
     
-    /// change insets for tableView
-    open func updateInsets() {
+    /// change insets for tableView. If you want to override this, please try to override tableInsets
+    public func updateInsets() {
+        tableView.contentInset = tableInsets
+        tableView.scrollIndicatorInsets = tableView.contentInset
+    }
+    
+    /// If you want to change frame of tableView, please override it
+    open var tableFrame : CGRect {
+        return self.view.bounds
+    }
+    
+    /// calculation insets for tableView. Please override it and don't override updateInsets()
+    open var tableInsets : UIEdgeInsets {
         contentRect = self.view.bounds
         if keyboardRect.origin.y > 0 {
             contentRect.size.height = keyboardRect.origin.y
@@ -158,8 +169,8 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
         }
         let extendedEdgesBounds = self.extendedEdgesBounds()
         let top = extendedEdgesBounds.origin.y - contentRect.origin.y
-        tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0)
-        tableView.scrollIndicatorInsets = tableView.contentInset
+        
+        return UIEdgeInsetsMake(top, 0, bottom, 0)
     }
     
     /// check buffer for register resources, which needed for showing content of row

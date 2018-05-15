@@ -6,6 +6,11 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.8.2 (15.05.2018)
+##### Improvments
+* added tableFrame, tableInsets for change tableView showing
+* pick down updateInsets from open to publuc method. You shouldn't override this yet
+
 ## 2.8.1 (15.05.2018)
 ##### Bug fix
 * Fixed calculation keyboardRect
