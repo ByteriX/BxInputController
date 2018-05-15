@@ -41,7 +41,9 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     internal(set) public var datePicker: UIDatePicker = UIDatePicker()
     /// this picker is used in a simple variants row
     internal(set) public var variantsPicker: UIPickerView = UIPickerView()
-    /// frame of content for inputting, if keyboard is showed then it be less then tableView
+    /// frame of keyboard, if keyboard is shown then it will have real size else zero size and point from bottom
+    internal(set) public var keyboardRect: CGRect = CGRect()
+    /// frame of content for inputting, if keyboard is shown then it is less then tableView
     internal(set) public var contentRect: CGRect = CGRect()
     /// activate control for current time
     internal(set) public var activeControl: UIView? = nil
@@ -101,6 +103,7 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
         updateEstimatedContent()
         updateInputAccessory()
         
+        keyboardRect = CGRect(x: 0, y: self.view.bounds.size.height, width: 0, height: 0)
         contentRect = self.view.bounds
         updateInsets()
         let offset = CGPoint(x: 0, y: -1 * tableView.contentInset.top)
@@ -135,15 +138,17 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     /// - parameter frame: frame of keyboard to view of controller
     open func keyboardWillChange(isShowing: Bool, frame: CGRect)
     {
-        contentRect = self.view.bounds
-        if isShowing {
-            contentRect.size.height = frame.origin.y
-        }
+        keyboardRect = frame
+//        if !isShowing {
+//            keyboardRect.origin = CGPoint(x: 0, y: self.view.bounds.size.height)
+//        }
         updateInsets()
     }
     
     /// change insets for tableView
     open func updateInsets() {
+        contentRect = self.view.bounds
+        contentRect.size.height = keyboardRect.origin.y
         var bottom = bottomLayoutGuide.length
         let height = self.view.frame.size.height - contentRect.size.height
         if height > bottom {
