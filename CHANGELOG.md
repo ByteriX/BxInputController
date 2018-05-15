@@ -6,6 +6,12 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.8.0 (15.05.2018)
+##### Improvments
+* New property keyboardRect
+* Fixed contentRect for layout changing (without keyboard showing)
+* Fixed Header and Footer xibs: using contentView
+
 ## 2.7.11 (10.05.2018)
 ##### Improvments
 * New property in BxInputFormattedTextRow: enteredValue without patterns and format
