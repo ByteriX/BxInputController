@@ -35,7 +35,7 @@ open class BxInputSectionView : BxInputSectionViewContent, BxInputStaticHeight
     open var view: UIView
     
     /// view will shown in the header or footer of a section
-    public init(view: UIView) {
+    public init(_ view: UIView) {
         self.view = view
     }
 }

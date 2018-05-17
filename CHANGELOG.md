@@ -6,6 +6,13 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.9.0 (17.05.2018)
+##### Improvments
+* added init to BxInputSection with view content of header/footer
+* changed BxInputSectionView init as is as BxInputSectionStringHeader/BxInputSectionStringFooter
+* rewritten Readme with new changes
+
+
 ## 2.8.2 (15.05.2018)
 ##### Improvments
 * added tableFrame, tableInsets for change tableView showing

@@ -82,6 +82,19 @@ open class BxInputSection
         }
     }
     
+    /// construction object with text header and/or fother, default headerText/footerText is nil and they won't show
+    public init(headerView: UIView?, rows: [BxInputRow], footerView: UIView? = nil) {
+        self.rows = rows
+        defer {
+            if let headerView = headerView {
+                header = BxInputSectionView(headerView)
+            }
+            if let footerView = footerView {
+                footer = BxInputSectionView(footerView)
+            }
+        }
+    }
+    
     /// construction object with custom header and/or fother, default footer is nil and it won't show
     public init(header: BxInputSectionContent, rows: [BxInputRow], footer: BxInputSectionContent? = nil) {
         self.rows = rows

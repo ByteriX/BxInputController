@@ -310,7 +310,7 @@ class EnabledAllRowsController: SimpleAllRowsController {
 
 ### Checking of value
 
-If you need marked row, when it has incorrect value you can use `BxInputChecker` and `BxInputRowDecorator` inherited classes for this case. Just make expected use case on this subclasses and call `addChecker` from `BxInputController` when row is had in controller then row will be marked according to checking priority which you can choose (see `BxInputRowCheckerPriority`).
+If you need marked row, when it has incorrect value you can use `BxInputChecker` and `BxInputRowDecorator` inherited classes for this case. Just make expected use case on this subclasses and call `addChecker` from `BxInputController` when row is had in controller then row will be marked according to checking priority which you can choose (see `BxInputRowCheckerPriority`). If you would initialize chacking you need call  `checkAllRows` param `willSelect` can execute scroll to first misstaken row.
 
 #### Example for checking
 
@@ -328,6 +328,10 @@ override func viewDidLoad() {
 }
 
 ```
+
+### Showing Section from different resourses
+
+You can use different `init` for `BxInputSection` header/footer creation. It maught text, view, or custom `BxInputSectionViewContent`.
 
 ### Other table transformation
 
