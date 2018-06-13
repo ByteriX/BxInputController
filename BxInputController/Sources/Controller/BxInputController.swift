@@ -105,8 +105,6 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
         
         contentRect = self.view.bounds
         updateInsets()
-        let offset = CGPoint(x: 0, y: -1 * tableView.contentInset.top)
-        tableView.setContentOffset(offset, animated: false)
     }
     
     override open func viewWillAppear(_ animated: Bool) {
@@ -147,8 +145,14 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     
     /// change insets for tableView. If you want to override this, please try to override tableInsets
     public func updateInsets() {
+        let shiftTop = tableView.contentInset.top - tableInsets.top
         tableView.contentInset = tableInsets
         tableView.scrollIndicatorInsets = tableView.contentInset
+        
+        if shiftTop != 0 {
+            let offset = CGPoint(x: tableView.contentOffset.x, y: tableView.contentOffset.y + shiftTop)
+            tableView.setContentOffset(offset, animated: false)
+        }
     }
     
     /// If you want to change frame of tableView, please override it

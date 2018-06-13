@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.9.1 (13.06.2018)
+##### Bug fix
+* true contentOffset from updating insets of the table
+
 ## 2.9.0 (17.05.2018)
 ##### Improvments
 * added init to BxInputSection with view content of header/footer
