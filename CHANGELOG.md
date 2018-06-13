@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.9.2 (13.06.2018)
+##### Bug fix
+* true updateInsets() with who is who
+
 ## 2.9.1 (13.06.2018)
 ##### Bug fix
 * true contentOffset from updating insets of the table

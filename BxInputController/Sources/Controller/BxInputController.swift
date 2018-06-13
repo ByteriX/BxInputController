@@ -143,16 +143,24 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
         updateInsets()
     }
     
-    /// change insets for tableView. If you want to override this, please try to override tableInsets
+    /// change insets for tableView. If you want to override this, please try to override tableInsets.
     public func updateInsets() {
+        // calculate content
+        contentRect = self.view.bounds
+        if keyboardRect.origin.y > 0 {
+            contentRect.size.height = keyboardRect.origin.y
+        }
+        // get insets
+        let tableInsets = self.tableInsets
+        // setup contentOffset for changing contentInset
         let shiftTop = tableView.contentInset.top - tableInsets.top
-        tableView.contentInset = tableInsets
-        tableView.scrollIndicatorInsets = tableView.contentInset
-        
         if shiftTop != 0 {
             let offset = CGPoint(x: tableView.contentOffset.x, y: tableView.contentOffset.y + shiftTop)
             tableView.setContentOffset(offset, animated: false)
         }
+        // changing contentInset (with updating scrollIndicatorInsets)
+        tableView.contentInset = tableInsets
+        tableView.scrollIndicatorInsets = tableView.contentInset
     }
     
     /// If you want to change frame of tableView, please override it
@@ -161,11 +169,8 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     }
     
     /// calculation insets for tableView. Please override it and don't override updateInsets()
+    /// for that method contentRect is already defined
     open var tableInsets : UIEdgeInsets {
-        contentRect = self.view.bounds
-        if keyboardRect.origin.y > 0 {
-            contentRect.size.height = keyboardRect.origin.y
-        }
         var bottom = bottomLayoutGuide.length
         let height = self.view.frame.size.height - contentRect.size.height
         if height > bottom {
