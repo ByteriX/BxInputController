@@ -65,6 +65,9 @@ open class BxInputChildSelectorVariantsRowBinder<T: BxInputStringObject> : BxInp
     }
     
     func changeValue(index: Int) {
+        guard index < parentRow.variants.count else {
+            return
+        }
         let value = parentRow.variants[index]
         parentRow.selectedVariant = value
         owner?.updateRow(parentRow)

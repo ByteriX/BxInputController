@@ -62,6 +62,9 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
     }
     
     func changeValue(index: Int) {
+        guard index < row.variants.count else {
+            return
+        }
         let value = row.variants[index]
         self.row.selectedVariant = value
         cell?.valueTextField.text = value.stringValue

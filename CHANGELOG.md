@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.9.3 (16.06.2018)
+##### Bug fix
+* fixed crash when Variants rows have empty list
+
 ## 2.9.2 (13.06.2018)
 ##### Bug fix
 * true updateInsets() with who is who
