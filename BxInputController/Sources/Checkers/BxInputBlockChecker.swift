@@ -22,11 +22,10 @@ open class BxInputBlockChecker<Row : BxInputValueRow> : BxInputBaseRowChecker<Ro
     
     /// init from standart decorator with highlighted placeholder and subtitle, if its are defined
     convenience public init(row: Row, placeholder: String? = nil, subtitle: String? = nil, handler: ((_ row: Row) -> Bool)?) {
-        self.init(row: row)
         let decorator = BxInputStandartErrorRowDecorator()
         decorator.placeholder = placeholder
         decorator.subtitle = subtitle
-        self.decorator = decorator
+        self.init(row: row, decorator: decorator)
         self.handler = handler
     }
     

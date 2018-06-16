@@ -25,11 +25,10 @@ where Row : BxInputRow, Row : BxInputString
     required public init(row: Row, comparisonRow: Row, placeholder: String? = nil, subtitle: String? = nil)
     {
         self.comparisonRow = comparisonRow
-        super.init(row: row)
         let decorator = BxInputStandartErrorRowDecorator()
         decorator.placeholder = placeholder
         decorator.subtitle = subtitle
-        self.decorator = decorator
+        super.init(row: row, decorator: decorator)
     }
     
     /// checking method

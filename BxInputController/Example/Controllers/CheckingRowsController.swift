@@ -41,7 +41,7 @@ class CheckingRowsController: BxInputController {
         nameChecker.planPriority = .always
         addChecker(nameChecker, for: nameRow)
         // for email
-        addChecker(BxInputEmptyValueChecker<BxInputTextRow>(row: emailRow, placeholder: "Please put your email"), for: emailRow)
+        addChecker(BxInputEmptyValueChecker<BxInputTextRow>(row: emailRow), for: emailRow)
         addChecker(BxInputEmailChecker<BxInputTextRow>(row: emailRow, subtitle: "incorrect email"), for: emailRow)
         // for password
         passwordRow.textSettings.isSecureTextEntry = true

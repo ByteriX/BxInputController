@@ -18,11 +18,10 @@ open class BxInputEmptyValueChecker<Row : BxInputValueRow> : BxInputBaseRowCheck
 {
     /// init from standart decorator with highlighted placeholder and subtitle, if its are defined
     convenience public init(row: Row, placeholder: String? = nil, subtitle: String? = nil) {
-        self.init(row: row)
         let decorator = BxInputStandartErrorRowDecorator()
         decorator.placeholder = placeholder
         decorator.subtitle = subtitle
-        self.decorator = decorator
+        self.init(row: row, decorator: decorator)
     }
     
     /// checking method

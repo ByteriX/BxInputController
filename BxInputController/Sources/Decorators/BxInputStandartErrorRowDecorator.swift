@@ -24,6 +24,11 @@ open class BxInputStandartErrorRowDecorator : BxInputRowDecorator {
     /// if is defined, will change existing subtitle of row to this value.
     public var subtitle : String? = nil
     
+    // default init
+    public init() {
+        //
+    }
+    
     /// method calls when need show activation of something event
     open func activate(binder: BxInputRowBinder)
     {

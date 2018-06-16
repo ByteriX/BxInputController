@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.9.4 (17.06.2018)
+##### Improvments
+* default checker init call with standart decorator. If you don't want decarate, please use decorator: nil
+
 ## 2.9.3 (16.06.2018)
 ##### Bug fix
 * fixed crash when Variants rows have empty list
