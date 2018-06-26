@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.10.0 (26.06.2018)
+##### Improvments
+* added new row: BxInputIconActionRow. It's the same BxInputActionCustomRow but is easy and has icon,titleColor and more each other
+
 ## 2.9.4 (17.06.2018)
 ##### Improvments
 * default checker init call with standart decorator. If you don't want decarate, please use decorator: nil
