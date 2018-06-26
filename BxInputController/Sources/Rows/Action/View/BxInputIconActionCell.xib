@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="60" id="J3U-0Q-4z1" customClass="BxInputIconActionCell" customModule="BxInputController" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J3U-0Q-4z1" id="Gqe-U4-420">
+                <rect key="frame" x="0.0" y="0.0" width="286" height="59.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="900" text="      " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bif-Ix-ofh">
+                        <rect key="frame" x="56" y="12" width="190" height="35.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="900" text="      " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGV-jT-4xB">
+                        <rect key="frame" x="56" y="42.5" width="19.5" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="300" verticalHuggingPriority="251" horizontalCompressionResistancePriority="400" text="      " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WhL-ZI-ill">
+                        <rect key="frame" x="254" y="0.0" width="24" height="60"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Seb-RN-GIY">
+                        <rect key="frame" x="16" y="13" width="32" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="32" id="tzY-Iu-kBh"/>
+                            <constraint firstAttribute="height" constant="32" id="zkx-zv-NO2"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="WhL-ZI-ill" secondAttribute="bottom" constant="-0.5" id="4XB-3E-zjF"/>
+                    <constraint firstAttribute="bottom" secondItem="WGV-jT-4xB" secondAttribute="bottom" constant="4" id="FOf-DW-NCU"/>
+                    <constraint firstItem="bif-Ix-ofh" firstAttribute="leading" secondItem="Gqe-U4-420" secondAttribute="leading" constant="56" id="NG8-nJ-zRi"/>
+                    <constraint firstItem="Seb-RN-GIY" firstAttribute="leading" secondItem="Gqe-U4-420" secondAttribute="leading" constant="16" id="RyI-vV-T4V"/>
+                    <constraint firstAttribute="trailing" secondItem="WhL-ZI-ill" secondAttribute="trailing" constant="8" id="VLe-gw-hMM"/>
+                    <constraint firstItem="WhL-ZI-ill" firstAttribute="leading" secondItem="bif-Ix-ofh" secondAttribute="trailing" constant="8" id="YHQ-wg-AXg"/>
+                    <constraint firstAttribute="bottom" secondItem="bif-Ix-ofh" secondAttribute="bottom" constant="12" id="aVP-fb-QFl"/>
+                    <constraint firstItem="WGV-jT-4xB" firstAttribute="leading" secondItem="bif-Ix-ofh" secondAttribute="leading" id="baV-6r-yS8"/>
+                    <constraint firstItem="WhL-ZI-ill" firstAttribute="top" secondItem="Gqe-U4-420" secondAttribute="top" id="giZ-74-Wag"/>
+                    <constraint firstItem="Seb-RN-GIY" firstAttribute="centerY" secondItem="Gqe-U4-420" secondAttribute="centerY" id="i8u-bR-KXd"/>
+                    <constraint firstItem="bif-Ix-ofh" firstAttribute="top" secondItem="Gqe-U4-420" secondAttribute="top" constant="12" id="zYv-vy-rBK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="iconHeightMargin" destination="zkx-zv-NO2" id="k40-dh-Ge1"/>
+                <outlet property="iconView" destination="Seb-RN-GIY" id="IMl-sE-prU"/>
+                <outlet property="iconWidthMargin" destination="tzY-Iu-kBh" id="rEy-Px-Le9"/>
+                <outlet property="subtitleBottomMargin" destination="FOf-DW-NCU" id="6IF-DM-yj3"/>
+                <outlet property="subtitleLabel" destination="WGV-jT-4xB" id="6rB-RQ-clN"/>
+                <outlet property="titleLabel" destination="bif-Ix-ofh" id="ZMD-SD-0UL"/>
+                <outlet property="titleLeftMargin" destination="NG8-nJ-zRi" id="1js-iz-VQe"/>
+                <outlet property="valueLabel" destination="WhL-ZI-ill" id="IeW-qU-5EV"/>
+            </connections>
+            <point key="canvasLocation" x="25" y="60"/>
+        </tableViewCell>
+    </objects>
+</document>

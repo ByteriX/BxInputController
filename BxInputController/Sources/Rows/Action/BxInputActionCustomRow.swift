@@ -14,6 +14,7 @@
 import UIKit
 
 /// Custom action row implementation with association generic class
+/// Please use BxInputIconActionRow
 open class BxInputActionCustomRow<T : BxInputString>: BxInputActionRow
 {
 

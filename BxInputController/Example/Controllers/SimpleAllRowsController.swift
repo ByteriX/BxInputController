@@ -15,6 +15,8 @@ class SimpleAllRowsController: BxInputController {
     // Action
     internal let stringActionRow = BxInputActionStringRow(title: "string action")
     internal let customActionRow = BxInputActionCustomRow<BxInputActionStringRow>(title: "custom action")
+    internal let iconActionRow = BxInputIconActionRow<String>(icon: UIImage(named: "actionIcon"), iconSize: CGSize(width: 32, height: 32), title: "icon row")
+    internal let coloredActionRow = BxInputIconActionRow<String>(title: "colored row", titleColor: UIColor.red, value: "It is long value")
     // Boolean
     internal let switchRow = BxInputSwitchRow(title: "boolean switch", value: true)
     internal let checkRow = BxInputCheckRow(title: "boolean check", placeholder: "selected value")
@@ -75,6 +77,15 @@ class SimpleAllRowsController: BxInputController {
             this.updateRow(this.customActionRow)
         }
         customActionRow.isImmediatelyDeselect = true
+        iconActionRow.isImmediatelyDeselect = true
+        coloredActionRow.handler = {[weak self] (actionRow) -> Void in
+            guard let this = self else {
+                return
+            }
+            this.coloredActionRow.titleColor = UIColor.green
+            this.updateRow(this.coloredActionRow)
+        }
+        coloredActionRow.isImmediatelyDeselect = true
         selectorSuggestionsRow.children = suggestionItems
         variantsRow.items = variantsItems
         selectorVariantsRow.items = variantsItems
@@ -83,7 +94,7 @@ class SimpleAllRowsController: BxInputController {
         urlRow.enteredTextFont = UIFont.systemFont(ofSize: 14)
 
         self.sections = [
-            BxInputSection(headerText: "Action", rows: [stringActionRow, customActionRow]),
+            BxInputSection(headerText: "Action", rows: [stringActionRow, customActionRow, iconActionRow, coloredActionRow]),
             BxInputSection(headerText: "Boolean", rows: [switchRow, checkRow]),
             BxInputSection(headerText: "Date", rows: [dateRow, selectorDateRow]),
             BxInputSection(headerText: "Pictures", rows: [selectorPicturesRow]),

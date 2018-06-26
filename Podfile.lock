@@ -6,7 +6,7 @@ PODS:
   - BxObjC/Control/Rate (1.3.3)
   - BxObjC/Control/ShakeAnimation (1.3.3)
   - BxObjC/Control/TextView (1.3.3)
-  - BxTextField (1.6.2)
+  - BxTextField (1.7.0)
 
 DEPENDENCIES:
   - BxObjC/Common
@@ -17,14 +17,14 @@ DEPENDENCIES:
   - BxTextField
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - BxObjC
     - BxTextField
 
 SPEC CHECKSUMS:
   BxObjC: 659ab90494efe68564a485b50f7cf56c3363cd7b
-  BxTextField: 4d0c3c47d017848ef45c6ab3d19edfde61a39e51
+  BxTextField: 7da05a349a96e531ec370283743d211f751fb501
 
 PODFILE CHECKSUM: 522f877a07031991adc1f925cf042cfe438e2156
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3
