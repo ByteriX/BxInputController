@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.10.1 (10.07.2018)
+##### Improvments
+* fixed SDK issue with false value of "adjust to fit"
+
 ## 2.10.0 (26.06.2018)
 ##### Improvments
 * added new row: BxInputIconActionRow. It's the same BxInputActionCustomRow but is easy and has icon,titleColor and more each other
