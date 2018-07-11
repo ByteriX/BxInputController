@@ -35,7 +35,12 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
     /// changing value event for correct showing
     override open func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
     {
-        // not yet implemented couting
+        if let maxCount = row.maxCount {
+            var textField = textField
+            if textField.cutText(maxCount: maxCount, shouldChangeCharactersIn: range, replacementString: string) {
+                return false
+            }
+        }
         return super.textField(textField, shouldChangeCharactersIn: range, replacementString: string)
     }
     
@@ -45,4 +50,5 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
         row.value = cell?.valueTextField.text
         didChangedValue(for: row)
     }
+    
 }

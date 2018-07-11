@@ -12,6 +12,7 @@
  */
 
 import UIKit
+import BxObjC
 
 /// Binder for internal BxInputChildSelectorTextRow subclasses
 open class BxInputChildSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, Cell: BxInputChildSelectorTextCell, ParentRow: BxInputSelectorTextRow> : BxInputChildSelectorRowBinder<Row, Cell, ParentRow>, BxInputChildSelectorTextDelegate, UITextViewDelegate
@@ -129,6 +130,18 @@ open class BxInputChildSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, C
         parentRow.value = textView.text
         owner?.updateRow(parentRow)
         check()
+    }
+    
+    open func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
+    {
+        if let maxCount = parentRow.maxCount {
+            if var textView = textView as? BxTextView {
+                if textView.cutText(maxCount: maxCount, shouldChangeCharactersIn: range, replacementString: text) {
+                    return false
+                }
+            }
+        }
+        return true
     }
     
 }

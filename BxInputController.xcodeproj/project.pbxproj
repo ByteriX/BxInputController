@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B0240F32D7035DFA339DE59 /* Pods_BxInputController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDE3CA360A31AF4DA9BAFDDB /* Pods_BxInputController.framework */; };
+		E32D92D720F6368200F1993B /* BxInputTextSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32D92D620F6368200F1993B /* BxInputTextSourceProtocol.swift */; };
 		E3FD688020E208CB00421EA8 /* BxInputIconActionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FD687F20E208CB00421EA8 /* BxInputIconActionRow.swift */; };
 		E3FD688320E2096600421EA8 /* BxInputIconActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FD688120E2096600421EA8 /* BxInputIconActionCell.swift */; };
 		E3FD688420E2096600421EA8 /* BxInputIconActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3FD688220E2096600421EA8 /* BxInputIconActionCell.xib */; };
@@ -141,6 +142,7 @@
 /* Begin PBXFileReference section */
 		426287E844423C4C137BCD01 /* Pods-BxInputController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BxInputController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BxInputController/Pods-BxInputController.debug.xcconfig"; sourceTree = "<group>"; };
 		A529CAF1FC63502159F31EBF /* Pods-BxInputController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BxInputController.release.xcconfig"; path = "Pods/Target Support Files/Pods-BxInputController/Pods-BxInputController.release.xcconfig"; sourceTree = "<group>"; };
+		E32D92D620F6368200F1993B /* BxInputTextSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BxInputTextSourceProtocol.swift; sourceTree = "<group>"; };
 		E3FD687F20E208CB00421EA8 /* BxInputIconActionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BxInputIconActionRow.swift; sourceTree = "<group>"; };
 		E3FD688120E2096600421EA8 /* BxInputIconActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BxInputIconActionCell.swift; sourceTree = "<group>"; };
 		E3FD688220E2096600421EA8 /* BxInputIconActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BxInputIconActionCell.xib; sourceTree = "<group>"; };
@@ -568,6 +570,7 @@
 				F96D1F6B1E5463AC00BDB2CE /* BxInputSelectorTextRow.swift */,
 				F96D1F6C1E5463AC00BDB2CE /* BxInputTextRow.swift */,
 				F907C7ED1E77D027000F3437 /* BxInputFormattedTextRow.swift */,
+				E32D92D620F6368200F1993B /* BxInputTextSourceProtocol.swift */,
 				F96D1F6D1E5463AC00BDB2CE /* View */,
 			);
 			path = Text;
@@ -924,6 +927,7 @@
 				F9369E361EAF3EB800D6758E /* BxInputBaseTitleRowBinder.swift in Sources */,
 				F9DF02E11EAE2671006EC83E /* BxInputCell.swift in Sources */,
 				F933F5B61E7BD01200FB1E22 /* BxInputChildSelectorRowBinder.swift in Sources */,
+				E32D92D720F6368200F1993B /* BxInputTextSourceProtocol.swift in Sources */,
 				F90EE7A91E6DD8C5006A506C /* BxInputChildSelectorDateRowBinder.swift in Sources */,
 				F96D1F8E1E5463AC00BDB2CE /* BxInputChildSelectorSuggestionCell.swift in Sources */,
 				F9DF02DD1EAE1690006EC83E /* CheckingRowsController.swift in Sources */,

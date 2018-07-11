@@ -6,6 +6,12 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.11.0 (11.07.2018)
+##### Improvments
+* added maxCount to BxInputTextRow and inherited for limitation of string putting
+* used BxInputTextSourceProtocol for abstarct solution with UITextField and UITextView
+* changed Simple example to show maxCount using
+
 ## 2.10.1 (10.07.2018)
 ##### Improvments
 * fixed SDK issue with false value of "adjust to fit"

@@ -12,6 +12,7 @@
  */
 
 import UIKit
+import BxObjC
 
 /// Binder for BxInputTextMemoRow
 open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMemoCell> : BxInputBaseRowBinder<Row, Cell>, BxInputTextMemoCellDelegate, UITextViewDelegate
@@ -142,6 +143,18 @@ open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMe
         didChangedValue(for: row)
         //owner?.updateRow(row) - it is redundant (2.7.9)
         check()
+    }
+    
+    open func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
+    {
+        if let maxCount = row.maxCount {
+            if var textView = textView as? BxTextView {
+                if textView.cutText(maxCount: maxCount, shouldChangeCharactersIn: range, replacementString: text) {
+                    return false
+                }
+            }
+        }
+        return true
     }
     
 }

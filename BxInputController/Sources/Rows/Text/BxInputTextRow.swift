@@ -35,6 +35,7 @@ open class BxInputTextRow: BxInputValueRow, BxInputString
     open var title : String?
     open var subtitle: String?
     open var placeholder : String?
+    open var maxCount : Int?
     open var isEnabled : Bool = true
     
     
@@ -50,11 +51,12 @@ open class BxInputTextRow: BxInputValueRow, BxInputString
     }
 
     public init(title: String? = nil, subtitle: String? = nil,
-                placeholder: String? = nil, value: String? = nil)
+                placeholder: String? = nil, maxCount : Int? = nil, value: String? = nil)
     {
         self.title = title
         self.subtitle = subtitle
         self.placeholder = placeholder
+        self.maxCount = maxCount
         self.value = value
     }
     
