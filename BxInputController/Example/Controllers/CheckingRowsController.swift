@@ -15,8 +15,11 @@ class CheckingRowsController: BxInputController {
     private var emailRow = BxInputFormattedTextRow(title: "email value", placeholder: "only corrected email")
     private var passwordRow = BxInputTextRow(title: "password value", placeholder: "empty is incorrected")
     
+    internal let genderRow = BxInputSelectorVariantsRow<BxInputVariantsItem>(title: "gender")
+    
     private var filledDateRow = BxInputDateRow(title: "filled date", value: Date().addingTimeInterval(300000))
-    private var emptyDateRow = BxInputDateRow(title: "not empty value")//BxInputSelectorDateRow(title: "not empty value")
+    private var emptyDateRow = BxInputDateRow(title: "not empty value")
+    private var emptySelectorDateRow = BxInputSelectorDateRow(title: "not empty date")
     private var testDateRow = BxInputDateRow(title: "should filled")
     
     private var dependencyRow = BxInputTextRow(title: "dependent")
@@ -28,10 +31,15 @@ class CheckingRowsController: BxInputController {
         super.viewDidLoad()
         
         isEstimatedContent = false
+
+        genderRow.items = [
+            BxInputVariantsItem(id: "none", name: "none"),
+            BxInputVariantsItem(id: "male", name: "male"),
+            BxInputVariantsItem(id: "famale", name: "famale")]
         
         self.sections = [
-            BxInputSection(rows: [nameRow, surnameRow, emailRow, passwordRow]),
-            BxInputSection(headerText: "Date", rows: [filledDateRow, emptyDateRow, testDateRow]),
+            BxInputSection(rows: [nameRow, surnameRow, emailRow, passwordRow, genderRow]),
+            BxInputSection(headerText: "Date", rows: [filledDateRow, emptyDateRow, emptySelectorDateRow, testDateRow]),
             BxInputSection(headerText: "Dependent", rows: [dependencyRow]),
             BxInputSection(headerText: "Reusable section", rows: [textRow])
         ]
@@ -51,6 +59,14 @@ class CheckingRowsController: BxInputController {
         dateChecker.planPriority = .always
         dateChecker.activePriority = .transitonRow
         addChecker(dateChecker, for: emptyDateRow)
+        addChecker(BxInputEmptyValueChecker<BxInputSelectorDateRow>(row: emptySelectorDateRow, placeholder: "Please put the date"), for: emptySelectorDateRow)
+        // for variant
+        addChecker(BxInputBlockChecker(row: genderRow , handler: {[weak self] (_) -> Bool in
+            guard let result = self?.genderRow.value?.id else {
+                return false
+            }
+            return result != "none"
+        }), for: genderRow)
         // for test date
         let testChecker = BxInputEmptyValueChecker<BxInputDateRow>(row: testDateRow, placeholder: "You should put date")
         addChecker(testChecker, for: testDateRow)
@@ -64,7 +80,9 @@ class CheckingRowsController: BxInputController {
     }
     
     @IBAction func checkClick(_ sender: Any) {
-        checkRow(testDateRow, willSelect: true)
+        if checkRow(testDateRow, willSelect: true) {
+            checkRow(emptySelectorDateRow, willSelect: true)
+        }
     }
     
 }
