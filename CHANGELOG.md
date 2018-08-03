@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.11.1 (03.08.2018)
+##### Bug fix
+* full size of memo immediate when showed
+
 ## 2.11.0 (11.07.2018)
 ##### Improvments
 * added maxCount to BxInputTextRow and inherited for limitation of string putting

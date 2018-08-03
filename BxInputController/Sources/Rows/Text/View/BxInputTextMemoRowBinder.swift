@@ -28,14 +28,20 @@ open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMe
     override open func update()
     {
         super.update()
-        cell?.delegate = self
+        guard let cell = cell else {
+            return
+        }
+        cell.delegate = self
         //
-        cell?.textView.font = owner?.settings.valueFont
-        cell?.textView.textColor = owner?.settings.valueColor
-        cell?.textView.text = row.value
-        cell?.textView.placeholderColor = owner?.settings.placeholderColor
-        cell?.textView.placeholder = row.placeholder
-        cell?.textView.update(from: row.textSettings)
+        cell.textView.font = owner?.settings.valueFont
+        cell.textView.textColor = owner?.settings.valueColor
+        cell.textView.text = row.value
+        cell.textView.placeholderColor = owner?.settings.placeholderColor
+        cell.textView.placeholder = row.placeholder
+        cell.textView.update(from: row.textSettings)
+        
+        checkSize(isNeedUpdate: false)
+        //row.height = contentHeight
     }
     /// event of change isEnabled
     override open func didSetEnabled(_ value: Bool)
@@ -86,8 +92,19 @@ open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMe
             }
         }
     }
+    
+    // Doesn't use, but can be used by checkSize or update() for calculate full size of cell
+    open var contentHeight : CGFloat
+    {
+        guard let cell = cell else {
+            return 0
+        }
+        return cell.textView.contentSize.height + cell.frame.size.height - cell.textView.frame.size.height + 1
+    }
+    
     /// check and change only size if need
-    open func checkSize() -> Bool
+    @discardableResult
+    open func checkSize(isNeedUpdate: Bool = true) -> Bool
     {
         guard let cell = cell else {
             return false
@@ -95,8 +112,10 @@ open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMe
         let shift = cell.textView.contentSize.height - cell.textView.frame.size.height
         if shift > 0 {
             row.height = row.height + shift + 1
-            owner?.reloadRow(row, with: .none)
-            owner?.selectRow(row, at: .none, animated: false)
+            if isNeedUpdate {
+                owner?.reloadRow(row, with: .none)
+                owner?.selectRow(row, at: .none, animated: false)
+            }
             return false
         }
         return true
