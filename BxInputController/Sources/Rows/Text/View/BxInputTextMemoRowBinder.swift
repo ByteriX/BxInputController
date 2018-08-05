@@ -40,8 +40,8 @@ open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMe
         cell.textView.placeholder = row.placeholder
         cell.textView.update(from: row.textSettings)
         
-        checkSize(isNeedUpdate: false)
-        //row.height = contentHeight
+        //checkSize(isNeedUpdate: false)
+        row.height = contentHeight
     }
     /// event of change isEnabled
     override open func didSetEnabled(_ value: Bool)
@@ -77,6 +77,7 @@ open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMe
     /// check and change only scroll if need
     open func checkScroll()
     {
+        // TODO: need clear shake from update/reload cell + scroll
         guard let cell = cell else {
             return
         }
@@ -96,10 +97,19 @@ open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMe
     // Doesn't use, but can be used by checkSize or update() for calculate full size of cell
     open var contentHeight : CGFloat
     {
-        guard let cell = cell else {
+        guard let cell = cell,
+            let textView = cell.textView
+        else {
             return 0
         }
-        return cell.textView.contentSize.height + cell.frame.size.height - cell.textView.frame.size.height + 1
+        //let contentView = cell.contentView
+        //print("cell.textView.contentSize.height = \(textView.contentSize.height)")
+        
+        /// That it's strongest then use textView.frame
+        let result = textView.contentSize.height + cell.topConstraint.constant + cell.bottomConstraint.constant + 1
+        
+        //print("contentHeight = \(result)")
+        return result
     }
     
     /// check and change only size if need
@@ -111,7 +121,7 @@ open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMe
         }
         let shift = cell.textView.contentSize.height - cell.textView.frame.size.height
         if shift > 0 {
-            row.height = row.height + shift + 1
+            row.height = contentHeight
             if isNeedUpdate {
                 owner?.reloadRow(row, with: .none)
                 owner?.selectRow(row, at: .none, animated: false)
