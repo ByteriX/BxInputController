@@ -484,6 +484,7 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
         {
             let rowBinder = getRowBinder(for: indexPath)
             rowBinder.update()
+            rowBinder.updateChecking()
         }
     }
     
