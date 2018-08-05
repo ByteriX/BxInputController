@@ -51,7 +51,7 @@ open class BxInputCheckRow: BxInputValueRow
     }
     
     /// event when value of current row was changed
-    open func didChangedValue(){
+    open func didChangeValue(){
         //
     }
     

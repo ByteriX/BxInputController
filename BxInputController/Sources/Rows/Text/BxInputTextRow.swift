@@ -61,7 +61,7 @@ open class BxInputTextRow: BxInputValueRow, BxInputString
     }
     
     /// event when value of current row was changed
-    open func didChangedValue(){
+    open func didChangeValue(){
         //
     }
     

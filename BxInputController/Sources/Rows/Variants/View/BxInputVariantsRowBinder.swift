@@ -95,7 +95,7 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
     open func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         changeValue(index: row)
-        didChangedValue(for: self.row)
+        didChangeValue()
     }
 
 }

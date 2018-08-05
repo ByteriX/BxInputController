@@ -47,7 +47,7 @@ open class BxInputSwitchRow: BxInputValueRow
     }
     
     /// event when value of current row was changed
-    open func didChangedValue(){
+    open func didChangeValue(){
         //
     }
     

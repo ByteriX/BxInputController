@@ -48,7 +48,7 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
     override open func valueChanged(valueTextField: UITextField) {
         super.valueChanged(valueTextField: valueTextField)
         row.value = cell?.valueTextField.text
-        didChangedValue(for: row)
+        didChangeValue()
     }
     
 }

@@ -77,7 +77,7 @@ open class BxInputSelectorPicturesRow : BxInputValueRow, BxInputSelectorRow
     }
     
     /// event when value of current row was changed
-    open func didChangedValue(){
+    open func didChangeValue(){
         //
     }
     

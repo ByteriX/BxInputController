@@ -95,6 +95,7 @@ class SimpleAllRowsController: BxInputController {
         
         textMemoRow.value =
             "# Versions\n## 2.11.0 (11.07.2018)\n##### Improvments\n* added maxCount to BxInputTextRow and inherited for limitation of string putting\n used BxInputTextSourceProtocol for abstarct solution with UITextField and UITextView\n* changed Simple example to show maxCount using\n\n## 2.10.1 (10.07.2018)\n##### Improvments\n* fixed SDK issue with false value of 'adjust to fit'"
+        selectorTextRow.value = textMemoRow.value! + "\nNew line"
 
         self.sections = [
             BxInputSection(headerText: "Action", rows: [stringActionRow, customActionRow, iconActionRow, coloredActionRow]),

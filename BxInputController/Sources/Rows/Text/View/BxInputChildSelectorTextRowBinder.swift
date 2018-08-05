@@ -144,7 +144,7 @@ open class BxInputChildSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, C
     open func textViewDidChange(_ textView: UITextView)
     {
         parentRow.value = textView.text
-        parentRowBinder.didChangedValue(for: parentRow)
+        parentRowBinder.didChangeValue()
         //owner?.updateRow(parentRow)  - it is redundant (2.7.9) but fixed after 2.11
         check()
     }

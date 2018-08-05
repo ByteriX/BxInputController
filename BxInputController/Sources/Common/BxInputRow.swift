@@ -46,7 +46,6 @@ public protocol BxInputValueRow : BxInputRow{
     /// Return true if value for the row is empty
     var hasEmptyValue: Bool {get}
     
-    // TODO: didChangedValue -> didChangeValue
     /// event when value of current row was changed
-    func didChangedValue()
+    func didChangeValue()
 }

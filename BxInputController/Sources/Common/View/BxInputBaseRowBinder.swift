@@ -195,10 +195,12 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
     }
     
     /// See BxInputRowBinder
-    open func didChangedValue(for row: BxInputValueRow) {
+    open func didChangeValue() {
         checkRow(priority: .updateValue)
-        row.didChangedValue()
-        owner?.didChangeValue(for: row)
+        if let row = rowData as? BxInputValueRow { // May will create new subclass of this
+            row.didChangeValue()
+            owner?.didChangeValue(for: row)
+        }
     }
     
     /// this for dismiss keybord if it was showing for this cell

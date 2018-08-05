@@ -84,7 +84,7 @@ open class BxInputSelectorSuggestionsRow<T : BxInputChildSelectorRow> : BxInputV
     }
     
     /// event when value of current row was changed
-    open func didChangedValue(){
+    open func didChangeValue(){
         //
     }
     

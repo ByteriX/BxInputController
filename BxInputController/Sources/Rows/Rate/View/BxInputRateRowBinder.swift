@@ -80,7 +80,7 @@ open class BxInputRateRowBinder<Row: BxInputRateRow, Cell: BxInputRateCell> : Bx
     open func standartRateView(_ rateView: BxStandartRateView!, ratingDidChange rating: Float)
     {
         row.value = rating
-        didChangedValue(for: row)
+        didChangeValue()
     }
     
 }

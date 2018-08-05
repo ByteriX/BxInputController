@@ -52,7 +52,7 @@ open class BxInputActionCustomRow<T : BxInputString>: BxInputActionRow
     }
     
     /// event when value of current row was changed
-    open func didChangedValue(){
+    open func didChangeValue(){
         //
     }
 }

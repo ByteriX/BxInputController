@@ -36,9 +36,7 @@ public protocol BxInputRowBinder : AnyObject {
     func checkRow(priority: BxInputRowCheckerPriority) -> Bool
     /// Which using BxInputDependencyRowsChecker subclasses it help you with checking dependencies rows
     func checkDependencies(with checker: BxInputRowChecker)
-    // TODO: didChangedValue -> didChangeValue
-    // TODO: Needs remove for row: BxInputValueRow, because all operation will change only current row
     /// event when value of a row was changed. It may be not current row, for example parentRow from Selector type
-    func didChangedValue(for row: BxInputValueRow)
+    func didChangeValue()
 }
 

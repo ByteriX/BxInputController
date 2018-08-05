@@ -44,7 +44,7 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
     /// event when value is changed if value have date type
     @objc func editedDate() {
         changeDate()
-        didChangedValue(for: row)
+        didChangeValue()
     }
     
     /// start editing

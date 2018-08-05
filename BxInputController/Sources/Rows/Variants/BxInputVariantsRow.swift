@@ -68,7 +68,7 @@ open class BxInputVariantsRow<T : BxInputStringObject> : BxInputValueRow, BxInpu
     }
     
     /// event when value of current row was changed
-    open func didChangedValue(){
+    open func didChangeValue(){
         //
     }
     
