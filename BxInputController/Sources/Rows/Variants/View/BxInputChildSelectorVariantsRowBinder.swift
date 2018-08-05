@@ -105,7 +105,7 @@ open class BxInputChildSelectorVariantsRowBinder<T: BxInputStringObject> : BxInp
     open func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         changeValue(index: row)
-        didChangedValue(for: parentRow)
+        parentRowBinder.didChangedValue(for: parentRow)
         tryToClose()
     }
     

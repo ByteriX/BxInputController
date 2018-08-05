@@ -73,7 +73,7 @@ open class BxInputChildSelectorDateRowBinder<Row: BxInputChildSelectorDateRow, C
     /// editing date from Picker
     open func editedDate() {
         changeDate()
-        didChangedValue(for: parentRow)
+        parentRowBinder.didChangedValue(for: parentRow)
         tryToClose()
     }
     

@@ -22,6 +22,12 @@ open class BxInputChildSelectorRowBinder<Row: BxInputChildSelectorRow, Cell: UIT
         return row.parent as! ParentRow
     }
     
+    /// parent row binder for easy access
+    public var parentRowBinder: BxInputRowBinder {
+        let binder = owner?.getRowBinder(for: parentRow)
+        return binder!
+    }
+    
     /// call if need check after end of putting data
     open func tryToClose() {
         if parentRow.timeForAutoselection > 0.499 {
