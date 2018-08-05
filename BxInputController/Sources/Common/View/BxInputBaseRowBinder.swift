@@ -120,11 +120,11 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
                     if checker.isActivated {
                         checker.isActivated = false
                         if let decorator = checker.decorator {
-                            DispatchQueue.main.async { [weak self] in
-                                if let this = self, checker.isActivated == false {
-                                    decorator.deactivate(binder: this)
+                            //DispatchQueue.main.async { [weak self] in
+                                if checker.isActivated == false {
+                                    decorator.deactivate(binder: self)
                                 }
-                            }
+                            //}
                         }
                         owner?.didChangeActive(for: checker)
                     }
@@ -135,11 +135,11 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
         if let checker = resultActivation {
             checker.isActivated = true
             if let decorator = checker.decorator {
-                DispatchQueue.main.async { [weak self] in
-                    if let this = self, checker.isActivated == true {
-                        decorator.activate(binder: this)
+                //DispatchQueue.main.async { [weak self] in
+                    if checker.isActivated == true {
+                        decorator.activate(binder: self)
                     }
-                }
+                //}
             }
             owner?.didChangeActive(for: checker)
         }
@@ -194,8 +194,7 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
         checkRow(priority: .updateRow)
     }
     
-    // TODO: didChangedValue -> didChangeValue
-    /// event when value of a row was changed. It may be not current row, for example parentRow from Selector type
+    /// See BxInputRowBinder
     open func didChangedValue(for row: BxInputValueRow) {
         checkRow(priority: .updateValue)
         row.didChangedValue()

@@ -56,8 +56,10 @@ open class BxInputStandartErrorRowDecorator : BxInputRowDecorator {
         
         if let view = view
         {
-            let shift = view.frame.size.height * 2
-            view.shakeX(withOffset: fabs(shift), breakFactor: 0.5, duration: 0.5 + fabs(shift / 100.0), maxShakes: Int(fabs(shift * 2.0)))
+            DispatchQueue.main.async {
+                let shift = view.frame.size.height * 2
+                view.shakeX(withOffset: fabs(shift), breakFactor: 0.5, duration: 0.5 + fabs(shift / 100.0), maxShakes: Int(fabs(shift * 2.0)))
+            }
         }
     }
     
