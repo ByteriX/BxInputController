@@ -13,6 +13,8 @@
 
 import UIKit
 
+// TODO: change BxInputBaseFieldRowBinder to BxInputBaseRowBinder
+
 /// Binder for a selector row
 open class BxInputSelectorRowBinder<Row: BxInputSelectorRow, Cell: BxInputSelectorCell>: BxInputBaseFieldRowBinder<Row, Cell>
 {

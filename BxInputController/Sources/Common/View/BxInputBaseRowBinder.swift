@@ -197,7 +197,7 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
     /// See BxInputRowBinder
     open func didChangeValue() {
         checkRow(priority: .updateValue)
-        if let row = rowData as? BxInputValueRow { // May will create new subclass of this
+        if let row = rowData as? BxInputValueRow { // May will create new subclass of this, NO!!!
             row.didChangeValue()
             owner?.didChangeValue(for: row)
         }

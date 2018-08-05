@@ -6,9 +6,13 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
-## 2.11.1 (03.08.2018)
+## 2.12.0 (03.08.2018)
 ##### Bug fix
-* full size of memo immediate when showed
+* fixed issues from checking of a selector row
+* made full size of memo immediate when showed
+* changed logic of SelectorText as Memo
+* renamed didChangedValue to didChangeValue
+* removed param from didChangeValue(for row: BxInputValueRow)
 
 ## 2.11.0 (11.07.2018)
 ##### Improvments
