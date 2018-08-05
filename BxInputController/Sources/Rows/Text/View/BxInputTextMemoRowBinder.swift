@@ -40,8 +40,8 @@ open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMe
         cell.textView.placeholder = row.placeholder
         cell.textView.update(from: row.textSettings)
         
-        //checkSize(isNeedUpdate: false)
-        row.height = contentHeight
+        checkSize(isNeedUpdate: false)
+        //row.height = contentHeight
     }
     /// event of change isEnabled
     override open func didSetEnabled(_ value: Bool)
@@ -94,7 +94,7 @@ open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMe
         }
     }
     
-    // Doesn't use, but can be used by checkSize or update() for calculate full size of cell
+    /// Used by checkSize or update() for calculate full size of cell
     open var contentHeight : CGFloat
     {
         guard let cell = cell,
@@ -121,10 +121,11 @@ open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMe
         }
         let shift = cell.textView.contentSize.height - cell.textView.frame.size.height
         if shift > 0 {
-            row.height = contentHeight
             if isNeedUpdate {
-                owner?.reloadRow(row, with: .none)
+                owner?.reloadRow(row, with: .none) // row.height will be updated from update()
                 owner?.selectRow(row, at: .none, animated: false)
+            } else {
+                row.height = contentHeight
             }
             return false
         }

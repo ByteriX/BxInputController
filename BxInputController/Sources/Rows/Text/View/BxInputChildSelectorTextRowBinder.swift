@@ -36,6 +36,8 @@ open class BxInputChildSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, C
 //        cell?.textView.placeholderColor = owner?.settings.placeholderColor
 //        cell?.textView.placeholder = parentRow.placeholder
         cell?.textView.update(from: parentRow.textSettings)
+        
+        //row.height = contentHeight I think it doesn't need
     }
     /// event of change isEnabled
     override open func didSetEnabled(_ value: Bool)
@@ -86,6 +88,19 @@ open class BxInputChildSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, C
             }
         }
     }
+    
+    /// Copied from Memo. Used by checkSize or update() for calculate full size of cell.
+    open var contentHeight : CGFloat
+    {
+        guard let cell = cell,
+            let textView = cell.textView
+            else {
+                return 0
+        }
+        let result = textView.contentSize.height + cell.topConstraint.constant + cell.bottomConstraint.constant + 1
+        return result
+    }
+    
     /// check and change only size if need
     open func checkSize() -> Bool
     {
@@ -94,7 +109,8 @@ open class BxInputChildSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, C
         }
         let shift = cell.textView.contentSize.height - cell.textView.frame.size.height
         if shift > 0 {
-            row.height = row.height + shift + 1
+            // TODO: make as Memo update
+            row.height = contentHeight
             owner?.reloadRow(row, with: .none)
             owner?.selectRow(row, at: .none, animated: false)
             return false
@@ -128,7 +144,8 @@ open class BxInputChildSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, C
     open func textViewDidChange(_ textView: UITextView)
     {
         parentRow.value = textView.text
-        owner?.updateRow(parentRow)
+        parentRowBinder.didChangedValue(for: parentRow)
+        //owner?.updateRow(parentRow)  - it is redundant (2.7.9) but fixed after 2.11
         check()
     }
     

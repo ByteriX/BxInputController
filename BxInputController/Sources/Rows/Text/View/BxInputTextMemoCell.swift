@@ -35,7 +35,6 @@ open class BxInputTextMemoCell: UITableViewCell {
     @IBOutlet var textView: BxTextView!
     
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     

@@ -34,5 +34,6 @@ public class BxInputChildSelectorTextCell: UITableViewCell {
     /// value editor control
     @IBOutlet var textView: BxTextView!
     
-    
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
 }
