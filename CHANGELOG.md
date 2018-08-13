@@ -6,6 +6,11 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.12.1 (13.07.2018)
+##### Improvments
+* added maxCount to BxInputFormattedTextRow
+* added new constructor to BxInputFormattedTextRow for filtered symboles
+
 ## 2.12.0 (03.08.2018)
 ##### Bug fix
 * fixed issues from checking of a selector row

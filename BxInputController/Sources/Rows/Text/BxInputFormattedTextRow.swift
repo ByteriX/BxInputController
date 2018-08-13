@@ -62,13 +62,21 @@ open class BxInputFormattedTextRow: BxInputTextRow
     }
     
     /// Constructor for url putting
-    public init(title: String? = nil, subtitle: String? = nil, placeholder: String? = nil,
+    public init(title: String? = nil, subtitle: String? = nil, placeholder: String? = nil, maxCount: Int? = nil,
                 domainValue: String? = nil, prefix: String = "", sufix: String = "")
     {
-        super.init(title: title, subtitle: subtitle, placeholder: placeholder, value: domainValue)
+        super.init(title: title, subtitle: subtitle, placeholder: placeholder, maxCount: maxCount, value: domainValue)
         leftPatternText = prefix
         rightPatternText = sufix
         textSettings.keyboardType = .URL
+    }
+    
+    /// Constructor for filtered symboles
+    public init(title: String? = nil, subtitle: String? = nil, placeholder: String? = nil, enteredCharacters: String, keyboardType: UIKeyboardType  = .default, maxCount: Int? = nil, value: String? = nil)
+    {
+        super.init(title: title, subtitle: subtitle, placeholder: placeholder, maxCount: maxCount, value: value)
+        formattingEnteredCharacters = enteredCharacters
+        textSettings.keyboardType = keyboardType
     }
     
     /// Return true if value for the row is empty
