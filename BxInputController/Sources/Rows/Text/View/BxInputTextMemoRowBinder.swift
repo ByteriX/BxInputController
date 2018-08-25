@@ -39,7 +39,8 @@ open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMe
         cell.textView.placeholderColor = owner?.settings.placeholderColor
         cell.textView.placeholder = row.placeholder
         cell.textView.update(from: row.textSettings)
-        
+
+        cell.textView.layoutIfNeeded()
         checkSize(isNeedUpdate: false)
         //row.height = contentHeight
     }
@@ -120,7 +121,7 @@ open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMe
             return false
         }
         let shift = cell.textView.contentSize.height - cell.textView.frame.size.height
-        if shift > 0 {
+        if shift > 0 { //TODO: это негарантирует отсутствие зацикленности
             if isNeedUpdate {
                 owner?.reloadRow(row, with: .none) // row.height will be updated from update()
                 owner?.selectRow(row, at: .none, animated: false)

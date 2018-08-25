@@ -37,6 +37,7 @@ open class BxInputChildSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, C
 //        cell?.textView.placeholder = parentRow.placeholder
         cell?.textView.update(from: parentRow.textSettings)
         
+        // TODO: make as Memo update
         //row.height = contentHeight I think it doesn't need
     }
     /// event of change isEnabled

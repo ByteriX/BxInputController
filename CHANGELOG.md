@@ -6,7 +6,11 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
-## 2.12.1 (13.07.2018)
+## 2.12.2 (25.08.2018)
+##### Bug fix
+* fixed issues with calculation memo height
+
+## 2.12.1 (13.08.2018)
 ##### Improvments
 * added maxCount to BxInputFormattedTextRow
 * added new constructor to BxInputFormattedTextRow for filtered symboles
