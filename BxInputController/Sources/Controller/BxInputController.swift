@@ -18,6 +18,15 @@ import BxObjC
 /// Controller for input values
 open class BxInputController : UIViewController, BxKeyboardChangeProtocol
 {
+#if swift( >=4.2 )
+    static let automaticDimension = UITableView.automaticDimension
+    public typealias RowAnimation = UITableView.RowAnimation
+    public typealias ScrollPosition = UITableView.ScrollPosition
+#else
+    static let automaticDimension = UITableViewAutomaticDimension
+    public typealias RowAnimation = UITableView.RowAnimation
+    public typealias ScrollPosition = UITableViewScrollPosition
+#endif
     
     // MARK: - Fields
     
@@ -179,7 +188,7 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
         let extendedEdgesBounds = self.extendedEdgesBounds()
         let top = extendedEdgesBounds.origin.y - contentRect.origin.y
         
-        return UIEdgeInsetsMake(top, 0, bottom, 0)
+        return UIEdgeInsets(top: top, left: 0, bottom: bottom, right: 0)
     }
     
     /// check buffer for register resources, which needed for showing content of row
@@ -242,9 +251,9 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     {
         tableView.dataSource = self
         if isEstimatedContent {
-            tableView.rowHeight = UITableViewAutomaticDimension
-            tableView.sectionHeaderHeight = UITableViewAutomaticDimension
-            tableView.sectionFooterHeight = UITableViewAutomaticDimension
+            tableView.rowHeight = BxInputController.automaticDimension
+            tableView.sectionHeaderHeight = BxInputController.automaticDimension
+            tableView.sectionFooterHeight = BxInputController.automaticDimension
         } else {
             tableView.rowHeight = 60
             tableView.sectionHeaderHeight = 20
@@ -323,7 +332,7 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     
     
     /// full reload row
-    open func reloadRow(_ row: BxInputRow, with animation: UITableViewRowAnimation = .fade) {
+    open func reloadRow(_ row: BxInputRow, with animation: RowAnimation = .fade) {
         if let indexPath = getIndex(for: row) {
             tableView.reloadRows(at: [indexPath], with: animation)
             //tableView.reloadSections(IndexSet(integer: indexPath.section), with: animation)
@@ -332,7 +341,7 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     }
     
     /// delete row from controller
-    open func deleteRow(_ row: BxInputRow, with animation: UITableViewRowAnimation = .fade) {
+    open func deleteRow(_ row: BxInputRow, with animation: RowAnimation = .fade) {
         if let indexPath = getIndex(for: row) {
             tableView.beginUpdates()
             sections[indexPath.section].rowBinders.remove(at: indexPath.row)
@@ -342,7 +351,7 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     }
     
     /// delete rows from controller
-    open func deleteRows(_ rows: [BxInputRow], with animation: UITableViewRowAnimation = .fade)
+    open func deleteRows(_ rows: [BxInputRow], with animation: RowAnimation = .fade)
     {
         var indexes: [IndexPath] = []
         for row in rows {
@@ -365,7 +374,7 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     }
     
     /// add row after other row to controller
-    open func addRow(_ row: BxInputRow, after currentRow: BxInputRow, with animation: UITableViewRowAnimation = .fade) {
+    open func addRow(_ row: BxInputRow, after currentRow: BxInputRow, with animation: RowAnimation = .fade) {
         if let indexPath = getIndex(for: currentRow) {
             tableView.beginUpdates()
             sections[indexPath.section].rowBinders.insert(row.binder, at: indexPath.row + 1)
@@ -376,7 +385,7 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     }
     
     /// add rows after other row to controller
-    open func addRows(_ rows: [BxInputRow], after currentRow: BxInputRow, with animation: UITableViewRowAnimation = .fade) {
+    open func addRows(_ rows: [BxInputRow], after currentRow: BxInputRow, with animation: RowAnimation = .fade) {
         if let currentIndexPath = getIndex(for: currentRow) {
             tableView.beginUpdates()
             var indexes: [IndexPath] = []
@@ -394,7 +403,7 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     
     /// add section to controller after index
     /// if index is nil then section will be inserted to end of the table
-    open func addSection(_ section: BxInputSection, after index: Int? = nil, with animation: UITableViewRowAnimation = .bottom) {
+    open func addSection(_ section: BxInputSection, after index: Int? = nil, with animation: RowAnimation = .bottom) {
         var insertIndex = sections.count
         if let index = index {
             insertIndex = index
@@ -414,7 +423,7 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     }
     
     /// delete section from controller
-    open func deleteSection(_ section: BxInputSection, with animation: UITableViewRowAnimation = .top) {
+    open func deleteSection(_ section: BxInputSection, with animation: RowAnimation = .top) {
         guard let index = getIndex(for: section) else {
             return
         }
@@ -425,7 +434,7 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     }
     
     /// update content of section without full refreshing tableView
-    open func updateSection(_ section: BxInputSection, with animation: UITableViewRowAnimation = .top) {
+    open func updateSection(_ section: BxInputSection, with animation: RowAnimation = .top) {
         guard let index = getIndex(for: section) else {
             return
         }
@@ -454,7 +463,7 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     }
     
     /// full reload content of section
-    open func reloadSection(_ section: BxInputSection, with animation: UITableViewRowAnimation = .top) {
+    open func reloadSection(_ section: BxInputSection, with animation: RowAnimation = .top) {
         guard let index = getIndex(for: section) else {
             return
         }
@@ -465,7 +474,7 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     }
     
     /// full reload content of sections array
-    open func reloadSections(_ sections: [BxInputSection], with animation: UITableViewRowAnimation = .top) {
+    open func reloadSections(_ sections: [BxInputSection], with animation: RowAnimation = .top) {
         var indexes = IndexSet()
         for section in sections {
             if let index = getIndex(for: section) {
@@ -478,7 +487,7 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     }
     
     /// update only content of row, if cell is shown on the tableView
-    open func updateRow(_ row: BxInputRow, with animation: UITableViewRowAnimation = .fade) {
+    open func updateRow(_ row: BxInputRow, with animation: RowAnimation = .fade) {
         if let indexPath = getIndex(for: row)
             //let cell = tableView.cellForRow(at: indexPath) as? BxInputBaseCell
         {
@@ -490,7 +499,7 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     
     /// set enabled/disabled status for row
     /// recomended use it, because in row change value don't update table
-    open func setEnabledRow(_ row: BxInputRow, enabled: Bool, with animation: UITableViewRowAnimation = .none)
+    open func setEnabledRow(_ row: BxInputRow, enabled: Bool, with animation: RowAnimation = .none)
     {
         if row.isEnabled != enabled {
             row.isEnabled = enabled
@@ -505,7 +514,7 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     
     /// set enabled/disabled status for all section
     /// recomended use it, because in row change value don't update table
-    open func setEnabledSection(_ section: BxInputSection, enabled: Bool, with animation: UITableViewRowAnimation = .none)
+    open func setEnabledSection(_ section: BxInputSection, enabled: Bool, with animation: RowAnimation = .none)
     {
         for row in section.rows {
             row.isEnabled = enabled
@@ -515,7 +524,7 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     
     /// set enabled/disabled status for all section
     /// recomended use it, because in row change value don't update table
-    open func setEnabled(_ enabled: Bool, with animation: UITableViewRowAnimation = .none)
+    open func setEnabled(_ enabled: Bool, with animation: RowAnimation = .none)
     {
         for section in sections {
             for row in section.rows {
@@ -528,7 +537,7 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     // MARK: - Handling methods
     
     /// scroll to row at position
-    open func scrollRow(_ row: BxInputRow, at position: UITableViewScrollPosition = .middle, animated: Bool = true) {
+    open func scrollRow(_ row: BxInputRow, at position: ScrollPosition = .middle, animated: Bool = true) {
         if let indexPath = getIndex(for: row) {
             tableView.scrollToRow(at: indexPath, at: position, animated: animated)
         }
@@ -540,7 +549,7 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     }
     
     /// select row with scroll at position
-    open func selectRow(_ row: BxInputRow, at position: UITableViewScrollPosition = .middle, animated: Bool = true)
+    open func selectRow(_ row: BxInputRow, at position: ScrollPosition = .middle, animated: Bool = true)
     {
         guard activeRow !== row else {
             return

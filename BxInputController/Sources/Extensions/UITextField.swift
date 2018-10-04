@@ -12,6 +12,7 @@
  */
 
 import UIKit
+import BxTextField
 
 /// UITextField extensions make working with them easaly
 extension UITextField {
@@ -22,11 +23,7 @@ extension UITextField {
         if let placeholderText = placeholderText,
             let color = color
         {
-#if swift( >=4.0 )
-            attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [NSAttributedStringKey.foregroundColor : color])
-#else
-            attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [NSForegroundColorAttributeName : color])
-#endif
+            attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [BxTextField.attributedKeyForegroundColor : color])
         } else {
             attributedPlaceholder = nil
             placeholder = placeholderText

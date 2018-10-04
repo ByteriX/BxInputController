@@ -6,6 +6,11 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.13 (04.10.2018)
+##### Improvements
+* Supporting Swift 4.2 and iOS 12
+* Refactoring older version supporting, but left it
+
 ## 2.12.2 (25.08.2018)
 ##### Bug fix
 * fixed issues with calculation memo height

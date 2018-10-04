@@ -16,8 +16,14 @@ import UIKit
 /// UIControl extensions make working with them easaly
 extension UIControl {
     
+#if swift( >=4.2 )
+    public typealias BxControlEvent = UIControl.Event
+#else
+    public typealias BxControlEvent = UIControlEvents
+#endif
+    
     /// remove all targets with defined action and controlEvents, then add new target if it is not null. This method optimize
-    public func changeTarget(_ target: Any?, action selector: Selector, for controlEvents: UIControlEvents)
+    public func changeTarget(_ target: Any?, action selector: Selector, for controlEvents: BxControlEvent)
     {
         let stringSelector = NSStringFromSelector(selector)
         for targetItem in allTargets {

@@ -13,11 +13,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+#if swift( >=4.2 )
+    typealias LaunchOptionsKey = UIApplication.LaunchOptionsKey
+#else
+    typealias LaunchOptionsKey = UIApplicationLaunchOptionsKey
+#endif
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [LaunchOptionsKey: Any]?) -> Bool {
         
         BxInputSettings.standart.titleFont = UIFont.systemFont(ofSize: 18)
-        
         
         return true
     }

@@ -16,6 +16,12 @@ import UIKit
 /// View for showing on selector. It is chosen by user and has button for canceling
 open class BxInputSelectorPictureView : UIImageView {
     
+#if swift( >=4.2 )
+    public typealias ContentMode = UIView.ContentMode
+#else
+    public typealias ContentMode = UIViewContentMode
+#endif
+    
     public var removeHandler: (() -> Void)? = nil
     
     public var isEnabled: Bool = true {
@@ -30,7 +36,7 @@ open class BxInputSelectorPictureView : UIImageView {
     
     internal(set) public var removeButton: UIButton = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
     
-    public required init(picture: BxInputPictureItem, size: CGSize, mode: UIViewContentMode) {
+    public required init(picture: BxInputPictureItem, size: CGSize, mode: ContentMode) {
         self.picture = picture
         super.init(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height))
         self.image = picture.icon

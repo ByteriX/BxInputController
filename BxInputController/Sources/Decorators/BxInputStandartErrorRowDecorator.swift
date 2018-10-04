@@ -13,6 +13,7 @@
 
 import UIKit
 import BxObjC
+import BxTextField
 
 /// Standart decoration for showing error message in row
 open class BxInputStandartErrorRowDecorator : BxInputRowDecorator {
@@ -83,11 +84,7 @@ open class BxInputStandartErrorRowDecorator : BxInputRowDecorator {
                     placeholder = binder.rowData.placeholder
                 }
                 if let placeholder = placeholder {
-#if swift ( >=4.0 )
-                    cell.valueTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedStringKey.foregroundColor : color.withAlphaComponent(0.3)])
-#else
-                    cell.valueTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSForegroundColorAttributeName : color.withAlphaComponent(0.3)])
-#endif
+                    cell.valueTextField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [BxTextField.attributedKeyForegroundColor : color.withAlphaComponent(0.3)])
                 }
             }
             if let subtitleLabel = cell.subtitleLabel {

@@ -19,7 +19,7 @@ open class BxInputFormattedTextCell: BxInputStandartTextCell {
     
     /// Formatted value for only BxInputFormattedTextRow
     open var formattedTextField: BxTextField! {
-        return valueTextField as! BxTextField
+        return valueTextField as? BxTextField
     }
 
     

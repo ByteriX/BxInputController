@@ -102,7 +102,7 @@ extension BxInputController : UITableViewDelegate{
         if let staticRow = row as? BxInputStaticHeight {
             return staticRow.height
         } else if isEstimatedContent {
-            return UITableViewAutomaticDimension
+            return BxInputController.automaticDimension
         } else if let height = settings.cellHeight {
             return height
         } else {
@@ -123,7 +123,7 @@ extension BxInputController : UITableViewDelegate{
         if let staticRow = content as? BxInputStaticHeight {
             return staticRow.height
         } else if isEstimatedContent {
-            return UITableViewAutomaticDimension
+            return BxInputController.automaticDimension
         }
         if type == .header {
             if let height = settings.headerHeight {

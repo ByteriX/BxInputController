@@ -13,6 +13,16 @@
 
 import UIKit
 
+extension UIView {
+    func bxBringSubviewToFront(_ view: UIView) {
+#if swift( >=4.2 )
+        bringSubviewToFront(view)
+#else
+        bringSubview(toFront: view)
+#endif
+    }
+}
+
 /// Binder for BxInputChildSelectorPicturesRow subclasses
 open class BxInputChildSelectorPicturesRowBinder<Row: BxInputChildSelectorPicturesRow, Cell: BxInputChildSelectorPicturesCell, ParentRow: BxInputSelectorPicturesRow> : BxInputChildSelectorRowBinder<Row, Cell, ParentRow>, UITextFieldDelegate, UIScrollViewDelegate
 {
@@ -91,7 +101,7 @@ open class BxInputChildSelectorPicturesRowBinder<Row: BxInputChildSelectorPictur
             parentRow.pictures.append(picture)
             let pictureView = BxInputSelectorPictureView(picture: picture, size: parentRow.iconSize, mode: parentRow.iconMode)
             pictureView.frame = cell.picturesPanel.convert(collectionCell.frame, from: cell.dataSource.picturesCollection)
-            cell.picturesPanel.superview?.bringSubview(toFront: cell.picturesPanel)
+            cell.picturesPanel.superview?.bxBringSubviewToFront(cell.picturesPanel)
             cell.picturesPanel.addSubview(pictureView)
             if let indexPath = cell.dataSource.picturesCollection.indexPath(for: collectionCell) {
                 cell.dataSource.picturesCollection.reloadItems(at: [indexPath])

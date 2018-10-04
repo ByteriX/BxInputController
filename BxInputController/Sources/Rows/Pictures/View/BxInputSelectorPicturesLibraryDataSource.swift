@@ -291,9 +291,18 @@ extension BxInputSelectorPicturesLibraryDataSource : AVCaptureVideoDataOutputSam
 extension BxInputSelectorPicturesLibraryDataSource : UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
     
-    open func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
+#if swift( >=4.2 )
+    public typealias InfoKey = UIImagePickerController.InfoKey
+    static let originalImage = UIImagePickerController.InfoKey.originalImage
+#else
+    public typealias InfoKey = String
+    static let originalImage = UIImagePickerControllerOriginalImage
+#endif
+    
+    
+    open func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [InfoKey : Any])
     {
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let image = info[BxInputSelectorPicturesLibraryDataSource.originalImage] as! UIImage
         if let selectHandler = self.selectHandler,
             let cell = self.picturesCollection.cellForItem(at: IndexPath(item: 0, section: 0)) as? BxInputPictureCollectionCell
         {
