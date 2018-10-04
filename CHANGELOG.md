@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.13.1 (05.10.2018)
+##### Bug fix
+* Supporting Swift 4.1 fixed
+
 ## 2.13 (04.10.2018)
 ##### Improvements
 * Supporting Swift 4.2 and iOS 12

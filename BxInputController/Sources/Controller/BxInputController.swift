@@ -24,7 +24,7 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     public typealias ScrollPosition = UITableView.ScrollPosition
 #else
     static let automaticDimension = UITableViewAutomaticDimension
-    public typealias RowAnimation = UITableView.RowAnimation
+    public typealias RowAnimation = UITableViewRowAnimation
     public typealias ScrollPosition = UITableViewScrollPosition
 #endif
     
