@@ -65,6 +65,7 @@ extension BxInputController {
     /// param willSelect - if it is true and checking fail for a row then this first row will be selected immediately. Default is false
     @discardableResult
     open func checkAllRows(willSelect: Bool = false) -> Bool {
+        deactivateAllRowsCheckers()
         var result = true
         for section in sections {
             if !checkSection(section, willSelect: willSelect && result) {
@@ -72,6 +73,29 @@ extension BxInputController {
             }
         }
         return result
+    }
+    
+    /// deactivate all decorator for checkers of row
+    open func deactivateRowCheckers(_ row: BxInputRow) {
+        if let rowBinder = getRowBinder(for: row) {
+            rowBinder.deacivateCheckers()
+        } else {
+            assert(false, "row not found for checker")
+        }
+    }
+    
+    /// deactivate all decorator for checkers of section
+    open func deactivateSectionCheckers(_ section: BxInputSection) {
+        for rowBinder in section.rowBinders {
+            rowBinder.deacivateCheckers()
+        }
+    }
+    
+    /// deactivate all decorator for checkers of all rows
+    open func deactivateAllRowsCheckers() {
+        for section in sections {
+            deactivateSectionCheckers(section)
+        }
     }
     
 }

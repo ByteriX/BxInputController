@@ -80,9 +80,10 @@ class CheckingRowsController: BxInputController {
     }
     
     @IBAction func checkClick(_ sender: Any) {
-        if checkRow(testDateRow, willSelect: true) {
-            checkRow(emptySelectorDateRow, willSelect: true)
-        }
+        checkAllRows(willSelect: true)
+//        if checkRow(testDateRow, willSelect: true) {
+//            checkRow(emptySelectorDateRow, willSelect: true)
+//        }
     }
     
 }
