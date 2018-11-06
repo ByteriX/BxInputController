@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.13.2 (06.11.2018)
+##### Improvements
+* Checker: update decarator only when isActivated chenged
+
 ## 2.13.1 (05.10.2018)
 ##### Bug fix
 * Supporting Swift 4.1 fixed
