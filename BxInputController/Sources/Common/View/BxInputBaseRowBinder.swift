@@ -133,15 +133,17 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
         }
         // check activation
         if let checker = resultActivation {
-            checker.isActivated = true
-            if let decorator = checker.decorator {
-                //DispatchQueue.main.async { [weak self] in
+            if checker.isActivated == false {
+                checker.isActivated = true
+                if let decorator = checker.decorator {
+                    //DispatchQueue.main.async { [weak self] in
                     if checker.isActivated == true {
                         decorator.activate(binder: self)
                     }
-                //}
+                    //}
+                }
+                owner?.didChangeActive(for: checker)
             }
-            owner?.didChangeActive(for: checker)
         }
         return resultActivation == nil
     }
