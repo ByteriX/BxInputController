@@ -611,64 +611,6 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
         }
     }
     
-    /// add to row checker. The sequence is important for activation. First rights
-    open func addChecker(_ checker: BxInputRowChecker, for row: BxInputRow)
-    {
-        if let binder = getRowBinder(for: row) {
-            binder.addChecker(checker)
-            if let _ = checker as? BxInputDependencyRowsChecker {
-                dependencyCheckerBinders.append(binder)
-            }
-        } else {
-            assert(false, "row not found for checker")
-        }
-    }
-    
-    /// check row and return result of checking
-    /// param willSelect - if it is true and checking fail then this row will be selected immediately. Default is false
-    @discardableResult
-    open func checkRow(_ row: BxInputRow, willSelect: Bool = false) -> Bool {
-        var result = false
-        if let rowBinder = getRowBinder(for: row) {
-            result = rowBinder.checkRow(priority: .always)
-        } else {
-            assert(false, "row not found for checker")
-        }
-        if willSelect && result == false {
-            selectRow(row)
-        }
-        return result
-    }
-    
-    /// check all rows in section and return result of checking
-    /// param willSelect - if it is true and checking fail for a row then this first row will be selected immediately. Default is false
-    @discardableResult
-    open func checkSection(_ section: BxInputSection, willSelect: Bool = false) -> Bool {
-        var result = true
-        for rowBinder in section.rowBinders {
-            if !rowBinder.checkRow(priority: .always) {
-                if willSelect && result {
-                    selectRow(rowBinder.rowData)
-                }
-                result = false
-            }
-        }
-        return result
-    }
-    
-    /// check all rows in table and return result of checking
-    /// param willSelect - if it is true and checking fail for a row then this first row will be selected immediately. Default is false
-    @discardableResult
-    open func checkAllRows(willSelect: Bool = false) -> Bool {
-        var result = true
-        for section in sections {
-            if !checkSection(section, willSelect: willSelect && result) {
-                result = false
-            }
-        }
-        return result
-    }
-    
     // MARK: - Event methods
     
     /// event when value of a row was changed
