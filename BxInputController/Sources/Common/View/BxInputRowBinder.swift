@@ -31,6 +31,8 @@ public protocol BxInputRowBinder : AnyObject {
     
     /// add to row checker. The sequence is important for activation. First rights
     func addChecker(_ checker: BxInputRowChecker)
+    /// Just deactivate all checker. In may need for example for retesting all rows
+    func deacivateCheckers()
     /// use all added checkers with 'priority' for testing value of row
     @discardableResult
     func checkRow(priority: BxInputRowCheckerPriority) -> Bool

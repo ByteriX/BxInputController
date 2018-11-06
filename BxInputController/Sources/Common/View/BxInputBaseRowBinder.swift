@@ -103,6 +103,41 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
         checkers.append(checker)
     }
     
+    private func deacivate(for checker: BxInputRowChecker) {
+        if checker.isActivated == true {
+            checker.isActivated = false
+            if let decorator = checker.decorator {
+                //DispatchQueue.main.async { [weak self] in
+                if checker.isActivated == false {
+                    decorator.deactivate(binder: self)
+                }
+                //}
+            }
+            owner?.didChangeActive(for: checker)
+        }
+    }
+    
+    private func acivate(for checker: BxInputRowChecker) {
+        if checker.isActivated == false {
+            checker.isActivated = true
+            if let decorator = checker.decorator {
+                //DispatchQueue.main.async { [weak self] in
+                if checker.isActivated == true {
+                    decorator.activate(binder: self)
+                }
+                //}
+            }
+            owner?.didChangeActive(for: checker)
+        }
+    }
+    
+    /// Just deactivate all checker. In may need for example for retesting all rows
+    public func deacivateCheckers() {
+        for checker in checkers {
+            deacivate(for: checker)
+        }
+    }
+    
     /// use all added checkers with 'priority' for testing value of row
     @discardableResult
     open func planCheckRow(priority: BxInputRowCheckerPriority) -> Bool {
@@ -117,33 +152,13 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
                     }
                 } else {
                     // deactivation all other checker
-                    if checker.isActivated {
-                        checker.isActivated = false
-                        if let decorator = checker.decorator {
-                            //DispatchQueue.main.async { [weak self] in
-                                if checker.isActivated == false {
-                                    decorator.deactivate(binder: self)
-                                }
-                            //}
-                        }
-                        owner?.didChangeActive(for: checker)
-                    }
+                    deacivate(for: checker)
                 }
             }
         }
         // check activation
         if let checker = resultActivation {
-            if checker.isActivated == false {
-                checker.isActivated = true
-                if let decorator = checker.decorator {
-                    //DispatchQueue.main.async { [weak self] in
-                    if checker.isActivated == true {
-                        decorator.activate(binder: self)
-                    }
-                    //}
-                }
-                owner?.didChangeActive(for: checker)
-            }
+            acivate(for: checker)
         }
         return resultActivation == nil
     }
