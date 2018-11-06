@@ -9,6 +9,11 @@ ByteriX, 2017. All right reserved.
 ## 2.13.2 (06.11.2018)
 ##### Improvements
 * Checker: update decarator only when isActivated chenged
+* Refactoring: BxInputController extension for checker
+* Refactoring BxInputBaseRowBinder: extract deacivate(for checker) acivate(for checker), added deacivateCheckers()
+* Added new methods to BxInputController: deactivateRowCheckers, deactivateSectionCheckers, deactivateAllRowsCheckers
+* Change logic of BxInputController.checkAllRows(willSelect:) as is was with reactivated decoration of checker
+
 
 ## 2.13.1 (05.10.2018)
 ##### Bug fix
