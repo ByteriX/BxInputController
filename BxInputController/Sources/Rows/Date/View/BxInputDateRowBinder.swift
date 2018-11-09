@@ -61,7 +61,7 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
                 datePicker.date = date
                 changeDate()
             } else {
-                datePicker.date = Date()
+                datePicker.date = row.firstSelectionDate
                 editedDate()
             }
             

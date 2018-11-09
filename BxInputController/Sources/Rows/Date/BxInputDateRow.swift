@@ -38,6 +38,8 @@ open class BxInputDateRow : BxInputValueRow
     open var value: Date? = nil
     open var minimumDate: Date? = nil
     open var maximumDate: Date? = nil
+    /// Default date for first selection time. If is nil then will be selected now date
+    open var defaultDate: Date? = nil
     
     /// Return true if value for the row is empty
     open var hasEmptyValue: Bool {
@@ -58,4 +60,8 @@ open class BxInputDateRow : BxInputValueRow
         //
     }
     
+    /// Date for first selection time.
+    var firstSelectionDate : Date {
+        return defaultDate ?? Date()
+    }
 }

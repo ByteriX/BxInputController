@@ -86,6 +86,9 @@ class SimpleAllRowsController: BxInputController {
             this.updateRow(this.coloredActionRow)
         }
         coloredActionRow.isImmediatelyDeselect = true
+        selectorDateRow.minimumDate = Date()
+        selectorDateRow.defaultDate = Date().addingTimeInterval(900000)
+        selectorDateRow.maximumDate = Date().addingTimeInterval(1200000)
         selectorSuggestionsRow.children = suggestionItems
         variantsRow.items = variantsItems
         selectorVariantsRow.items = variantsItems

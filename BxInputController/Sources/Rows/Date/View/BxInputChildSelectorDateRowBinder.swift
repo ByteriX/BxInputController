@@ -36,7 +36,7 @@ open class BxInputChildSelectorDateRowBinder<Row: BxInputChildSelectorDateRow, C
                 cell.datePicker.setDate(date, animated: false)
                 this.changeDate()
             } else {
-                cell.datePicker.setDate(Date(), animated: false)
+                cell.datePicker.setDate(this.parentRow.firstSelectionDate, animated: false)
                 this.editedDate()
             }
         }
