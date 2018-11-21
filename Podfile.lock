@@ -6,7 +6,7 @@ PODS:
   - BxObjC/Control/Rate (1.4.1)
   - BxObjC/Control/ShakeAnimation (1.4.1)
   - BxObjC/Control/TextView (1.4.1)
-  - BxTextField (1.8.0)
+  - BxTextField (1.8.1)
 
 DEPENDENCIES:
   - BxObjC/Common
@@ -23,7 +23,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   BxObjC: 637cda03c7e49b5735216f6ed7ecc1d301d4e9fa
-  BxTextField: b0f1036f499d2cfb89396dcb652639803b9e0a22
+  BxTextField: d3aaf5f2ad1624634b26530514f6b3fed4b5065e
 
 PODFILE CHECKSUM: 522f877a07031991adc1f925cf042cfe438e2156
 
