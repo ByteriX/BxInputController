@@ -334,7 +334,9 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     /// full reload row
     open func reloadRow(_ row: BxInputRow, with animation: RowAnimation = .fade) {
         if let indexPath = getIndex(for: row) {
+            tableView.beginUpdates()
             tableView.reloadRows(at: [indexPath], with: animation)
+            tableView.endUpdates()
             //tableView.reloadSections(IndexSet(integer: indexPath.section), with: animation)
             //tableView.reloadData()
         }

@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.13.4 (21.11.2018)
+##### Bug fix
+* fixed reloadRow with animation
+
 ## 2.13.3 (09.11.2018)
 ##### Improvements
 * default date property for rows of the same type
