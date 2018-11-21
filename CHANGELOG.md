@@ -7,8 +7,9 @@ ByteriX, 2017. All right reserved.
 # Versions
 
 ## 2.13.4 (21.11.2018)
-##### Bug fix
+##### Improvements
 * fixed reloadRow with animation
+* added beginUpdates(), endUpdates() for safy table animation
 
 ## 2.13.3 (09.11.2018)
 ##### Improvements

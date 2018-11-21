@@ -28,17 +28,18 @@ open class BxInputSelectorRowBinder<Row: BxInputSelectorRow, Cell: BxInputSelect
         refreshOpened(animated: true)
         
         if row.isOpened {
+            owner?.beginUpdates()
             owner?.addRows(row.children, after: row)
             
             if let owner = owner, owner.settings.isAutodissmissSelector {
                 owner.dissmissAllRows(exclude: row)
             }
+            owner?.endUpdates()
             
             if row.children.count > 1 {
                 owner?.scrollRow(row, at: .top, animated: true)
             } else if let firstItem = row.children.first {
                 owner?.selectRow(firstItem, at: .middle, animated: true)
-                //parent?.scrollRow(firstItem, at: .middle, animated: true)
             } else {
                 owner?.scrollRow(row, at: .middle, animated: true)
             }

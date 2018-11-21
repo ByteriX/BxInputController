@@ -138,6 +138,28 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
         updateInsets()
     }
     
+    private var updateCount : Int = 0
+    /// start updating table (add, delete, reload)
+    public func beginUpdates() {
+        if updateCount < 0 {
+            assertionFailure("beginUpdates() has issue")
+        }
+        if updateCount == 0 {
+            tableView.beginUpdates()
+        }
+        updateCount += 1
+    }
+    /// stop updating table (add, delete, reload)
+    public func endUpdates() {
+        updateCount -= 1
+        if updateCount < 0 {
+            assertionFailure("endUpdates() has issue")
+        }
+        if updateCount == 0 {
+            tableView.endUpdates()
+        }
+    }
+    
     // MARK: - updating methods
     
     /// event when keyboard will show or hide.
@@ -334,9 +356,9 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     /// full reload row
     open func reloadRow(_ row: BxInputRow, with animation: RowAnimation = .fade) {
         if let indexPath = getIndex(for: row) {
-            tableView.beginUpdates()
+            beginUpdates()
             tableView.reloadRows(at: [indexPath], with: animation)
-            tableView.endUpdates()
+            endUpdates()
             //tableView.reloadSections(IndexSet(integer: indexPath.section), with: animation)
             //tableView.reloadData()
         }
@@ -345,10 +367,10 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     /// delete row from controller
     open func deleteRow(_ row: BxInputRow, with animation: RowAnimation = .fade) {
         if let indexPath = getIndex(for: row) {
-            tableView.beginUpdates()
+            beginUpdates()
             sections[indexPath.section].rowBinders.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: animation)
-            tableView.endUpdates()
+            endUpdates()
         }
     }
     
@@ -367,29 +389,29 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
         indexes.sort { (first, second) -> Bool in
             return first.row > second.row
         }
-        tableView.beginUpdates()
+        beginUpdates()
         for indexPath in indexes {
             sections[indexPath.section].rowBinders.remove(at: indexPath.row)
         }
         tableView.deleteRows(at: indexes, with: animation)
-        tableView.endUpdates()
+        endUpdates()
     }
     
     /// add row after other row to controller
     open func addRow(_ row: BxInputRow, after currentRow: BxInputRow, with animation: RowAnimation = .fade) {
         if let indexPath = getIndex(for: currentRow) {
-            tableView.beginUpdates()
+            beginUpdates()
             sections[indexPath.section].rowBinders.insert(row.binder, at: indexPath.row + 1)
             checkResources(row: row)
             tableView.insertRows(at: [IndexPath(row: indexPath.row + 1, section: indexPath.section)], with: animation)
-            tableView.endUpdates()
+            endUpdates()
         }
     }
     
     /// add rows after other row to controller
     open func addRows(_ rows: [BxInputRow], after currentRow: BxInputRow, with animation: RowAnimation = .fade) {
         if let currentIndexPath = getIndex(for: currentRow) {
-            tableView.beginUpdates()
+            beginUpdates()
             var indexes: [IndexPath] = []
             var index = 1
             for row in rows {
@@ -399,7 +421,7 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
                 index = index + 1
             }
             tableView.insertRows(at: indexes, with: animation)
-            tableView.endUpdates()
+            endUpdates()
         }
     }
     
@@ -411,7 +433,7 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
             insertIndex = index
         }
         refreshResources(section: section)
-        tableView.beginUpdates()
+        beginUpdates()
         sections.insert(section, at: insertIndex)
         tableView.insertSections(IndexSet(integer: insertIndex), with: animation)
 //        var indexes: [IndexPath] = []
@@ -421,7 +443,7 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
 //            index = index + 1
 //        }
 //        tableView.insertRows(at: indexes, with: animation)
-        tableView.endUpdates()
+        endUpdates()
     }
     
     /// delete section from controller
@@ -429,10 +451,10 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
         guard let index = getIndex(for: section) else {
             return
         }
-        tableView.beginUpdates()
+        beginUpdates()
         sections.remove(at: index)
         tableView.deleteSections(IndexSet(integer: index), with: animation)
-        tableView.endUpdates()
+        endUpdates()
     }
     
     /// update content of section without full refreshing tableView
@@ -469,10 +491,10 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
         guard let index = getIndex(for: section) else {
             return
         }
-        tableView.beginUpdates()
+        beginUpdates()
         sections[index] = section
         tableView.reloadSections(IndexSet(integer: index), with: animation)
-        tableView.endUpdates()
+        endUpdates()
     }
     
     /// full reload content of sections array
@@ -483,9 +505,9 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
                 indexes.insert(index)
             }
         }
-        tableView.beginUpdates()
+        beginUpdates()
         tableView.reloadSections(indexes, with: animation)
-        tableView.endUpdates()
+        endUpdates()
     }
     
     /// update only content of row, if cell is shown on the tableView

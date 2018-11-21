@@ -40,8 +40,10 @@ open class BxInputChildSelectorRowBinder<Row: BxInputChildSelectorRow, Cell: UIT
     @objc open func autoclose() {
         if parentRow.isOpened {
             parentRow.isOpened = false
+            owner?.beginUpdates()
             owner?.deleteRow(row)
             owner?.updateRow(parentRow)
+            owner?.endUpdates()
         }
     }
 }
