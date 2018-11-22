@@ -83,7 +83,7 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
         }
     }
 
-    public func copyValue() {
+    open func copyValue() {
         if let date = row.value {
             UIPasteboard.general.string = owner?.settings.dateFormat.string(from: date)
         } else {
@@ -91,7 +91,7 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
         }
     }
     
-    public func deleteValue() {
+    open func deleteValue() {
         row.value = nil
         update()
         didChangeValue()
