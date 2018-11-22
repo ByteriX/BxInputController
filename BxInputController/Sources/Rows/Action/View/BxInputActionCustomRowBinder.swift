@@ -14,10 +14,10 @@
 import UIKit
 
 /// Binder for custom action row
-open class BxInputActionCustomRowBinder<T : BxInputString, Cell>: BxInputStandartTextRowBinder<BxInputActionCustomRow<T>, Cell>
+open class BxInputActionCustomRowBinder<T : BxInputString, Cell>: BxInputStandartTextRowBinder<BxInputActionCustomRow<T>, Cell>, BxInputRowBinderMenuDelete
 where Cell : UITableViewCell, Cell : BxInputFieldCell
 {
-    
+
     /// call when user selected this cell
     override open func didSelected()
     {
@@ -41,6 +41,12 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
         cell?.valueTextField.text = row.stringValue // may be all values rewrite to stringValue
         cell?.accessoryType = .disclosureIndicator
         cell?.selectionStyle = .default
+    }
+    
+    open func deleteValue() {
+        row.value = nil
+        update()
+        didChangeValue()
     }
 }
 

@@ -14,7 +14,7 @@
 import UIKit
 
 /// Binder for icon action row
-open class BxInputIconActionRowBinder<T : BxInputString, Cell>: BxInputBaseTitleRowBinder<BxInputIconActionRow<T>, Cell>
+open class BxInputIconActionRowBinder<T : BxInputString, Cell>: BxInputBaseTitleRowBinder<BxInputIconActionRow<T>, Cell>, BxInputRowBinderMenuDelete
     where Cell : BxInputIconActionCell
 {
     
@@ -60,5 +60,11 @@ open class BxInputIconActionRowBinder<T : BxInputString, Cell>: BxInputBaseTitle
         cell.valueLabel.font = owner?.settings.valueFont
         cell.valueLabel.textColor = owner?.settings.valueColor
         //cell.valueLabel.setPlaceholder(row.placeholder, with: owner?.settings.placeholderColor)
+    }
+    
+    open func deleteValue() {
+        row.value = nil
+        update()
+        didChangeValue()
     }
 }
