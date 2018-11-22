@@ -99,6 +99,10 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
         didChangeValue()
     }
     
+    open var canDeleteValue: Bool {
+        return row.isEnabled && row.value != nil
+    }
+    
     open func deleteValue() {
         row.value = nil
         update()

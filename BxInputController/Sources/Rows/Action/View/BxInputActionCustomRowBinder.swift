@@ -43,6 +43,10 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
         cell?.selectionStyle = .default
     }
     
+    open var canDeleteValue: Bool {
+        return row.isEnabled && row.value != nil
+    }
+    
     open func deleteValue() {
         row.value = nil
         update()

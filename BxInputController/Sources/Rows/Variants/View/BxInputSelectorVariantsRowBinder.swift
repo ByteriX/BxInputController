@@ -10,6 +10,11 @@ import UIKit
 
 open class BxInputSelectorVariantsRowBinder<T: BxInputStringObject, Row: BxInputSelectorVariantsRow<T>, Cell: BxInputSelectorCell>: BxInputSelectorRowBinder<Row, Cell>, BxInputRowBinderMenuDelete
 {
+    
+    open var canDeleteValue: Bool {
+        return row.isEnabled && row.value != nil
+    }
+    
     open func deleteValue() {
         row.value = nil
         update()

@@ -62,6 +62,10 @@ open class BxInputIconActionRowBinder<T : BxInputString, Cell>: BxInputBaseTitle
         //cell.valueLabel.setPlaceholder(row.placeholder, with: owner?.settings.placeholderColor)
     }
     
+    open var canDeleteValue: Bool {
+        return row.isEnabled && row.value != nil
+    }
+    
     open func deleteValue() {
         row.value = nil
         update()

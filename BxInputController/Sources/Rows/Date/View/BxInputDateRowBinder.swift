@@ -82,6 +82,10 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
             datePicker.removeTarget(self, action: #selector(changeDate), for: [.valueChanged, .touchUpInside])
         }
     }
+    
+    open var canCopyValue: Bool {
+        return row.value != nil
+    }
 
     open func copyValue() {
         if let date = row.value {
@@ -91,6 +95,10 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
         }
     }
     
+    open var canDeleteValue: Bool {
+        return row.isEnabled && row.value != nil
+    }
+
     open func deleteValue() {
         row.value = nil
         update()

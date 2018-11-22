@@ -27,12 +27,23 @@ open class BxInputSelectorDateRowBinder<Row: BxInputSelectorDateRow, Cell: BxInp
         }
     }
     
+    open var canCopyValue: Bool {
+        return row.value != nil
+    }
+    
     open func copyValue() {
         if let date = row.value {
             UIPasteboard.general.string = owner?.settings.dateFormat.string(from: date)
         } else {
             UIPasteboard.general.string = ""
         }
+    }
+    
+    open var canPasteValue: Bool {
+        guard let string = UIPasteboard.general.string, owner?.settings.dateFormat.date(from: string) != nil else {
+            return false
+        }
+        return row.isEnabled
     }
     
     open func pasteValue() {
@@ -46,6 +57,10 @@ open class BxInputSelectorDateRowBinder<Row: BxInputSelectorDateRow, Cell: BxInp
                 }
             }
         }
+    }
+    
+    open var canDeleteValue: Bool {
+        return row.isEnabled && row.value != nil
     }
     
     open func deleteValue() {
