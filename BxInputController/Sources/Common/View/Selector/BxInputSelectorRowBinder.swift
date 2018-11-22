@@ -13,7 +13,7 @@
 
 import UIKit
 
-// TODO: change BxInputBaseFieldRowBinder to BxInputBaseRowBinder
+#warning("change BxInputBaseFieldRowBinder to BxInputBaseRowBinder")
 
 /// Binder for a selector row
 open class BxInputSelectorRowBinder<Row: BxInputSelectorRow, Cell: BxInputSelectorCell>: BxInputBaseFieldRowBinder<Row, Cell>
@@ -101,6 +101,20 @@ open class BxInputSelectorRowBinder<Row: BxInputSelectorRow, Cell: BxInputSelect
             cell?.valueTextField.text = row.stringValue
         } else {
             cell?.valueTextField.text = ""
+        }
+    }
+    
+    /// If selector is closed just will open
+    public func toOpen() {
+        if row.isOpened == false {
+            didSelected()
+        }
+    }
+    
+    /// If selector is opened just will close
+    public func toClose() {
+        if row.isOpened == true {
+            didSelected()
         }
     }
 

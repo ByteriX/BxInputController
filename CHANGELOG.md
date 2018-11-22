@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.14 (22.11.2018)
+##### Improvements
+* added to RowSelectors functions: toOpen(), toClose()
+
 ## 2.13.4 (21.11.2018)
 ##### Improvements
 * fixed reloadRow with animation
