@@ -14,9 +14,10 @@
 import UIKit
 
 /// Binder for BxInputDateRow subclasses
-open class BxInputDateRowBinder<Row : BxInputDateRow, Cell>: BxInputStandartTextRowBinder<Row, Cell>
+open class BxInputDateRowBinder<Row : BxInputDateRow, Cell>: BxInputStandartTextRowBinder<Row, Cell>, BxInputRowBinderMenuDelete, BxInputRowBinderMenuCopy, BxInputRowBinderMenuCut
 where Cell : UITableViewCell, Cell : BxInputFieldCell
 {
+
     /// call after common update for text attributes updating
     override open func updateCell()
     {
@@ -80,6 +81,21 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
         {
             datePicker.removeTarget(self, action: #selector(changeDate), for: [.valueChanged, .touchUpInside])
         }
+    }
+
+    public func copyValue() {
+        if let date = row.value {
+            UIPasteboard.general.string = owner?.settings.dateFormat.string(from: date)
+        } else {
+            UIPasteboard.general.string = ""
+        }
+    }
+    
+    public func deleteValue() {
+        row.value = nil
+        update()
+        didChangeValue()
+        cell?.valueTextField.resignFirstResponder()
     }
     
 }
