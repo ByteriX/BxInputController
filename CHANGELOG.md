@@ -9,7 +9,7 @@ ByteriX, 2017. All right reserved.
 ## 2.14 (22.11.2018)
 ##### Improvements
 * added to RowSelectors functions: toOpen(), toClose()
-* new protocols BxInputRowBinderMenu for organize action menu: copy/past/cut/delete
+* new protocols BxInputRowBinderMenu for organization action menu: copy/past/cut/delete
 * added all menu action for Date rows
 * added delete menu action for Variants and Actions rows
 
