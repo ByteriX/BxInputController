@@ -175,5 +175,33 @@ extension BxInputController : UITableViewDelegate{
         return getFooterHeaderEstimatedHeight(from: sectionData.footer)
     }
     
+    open func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool {
+        return getRowBinder(for: indexPath) is BxInputRowBinderMenu
+    }
+    
+    open func tableView(_ tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) -> Bool
+    {
+        let rowBinder = getRowBinder(for: indexPath)
+        return
+            rowBinder is BxInputRowBinderMenuCut && action == #selector(cut(_:)) ||
+            rowBinder is BxInputRowBinderMenuCopy && action == #selector(copy(_:)) ||
+            rowBinder is BxInputRowBinderMenuDelete && action == #selector(delete(_:)) ||
+            rowBinder is BxInputRowBinderMenuPaste && action == #selector(paste(_:))
+    }
+    
+    open func tableView(_ tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?)
+    {
+        let rowBinder = getRowBinder(for: indexPath)
+        if action == #selector(cut(_:)), let rowBinder = rowBinder as? BxInputRowBinderMenuCut {
+            rowBinder.cutValue()
+        } else if action == #selector(copy(_:)), let rowBinder = rowBinder as? BxInputRowBinderMenuCopy {
+            rowBinder.copyValue()
+        } else if action == #selector(delete(_:)), let rowBinder = rowBinder as? BxInputRowBinderMenuDelete {
+            rowBinder.deleteValue()
+        } else if action == #selector(paste(_:)), let rowBinder = rowBinder as? BxInputRowBinderMenuPaste {
+            rowBinder.pasteValue()
+        }
+    }
+    
     
 }
