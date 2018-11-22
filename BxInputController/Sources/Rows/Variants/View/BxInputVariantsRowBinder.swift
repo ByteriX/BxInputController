@@ -14,9 +14,10 @@
 import UIKit
 
 /// Binder for BxInputVariantsRow
-open class BxInputVariantsRowBinder<T : BxInputStringObject, Cell>: BxInputStandartTextRowBinder<BxInputVariantsRow<T>, Cell>, UIPickerViewDelegate, UIPickerViewDataSource
+open class BxInputVariantsRowBinder<T : BxInputStringObject, Cell>: BxInputStandartTextRowBinder<BxInputVariantsRow<T>, Cell>, UIPickerViewDelegate, UIPickerViewDataSource, BxInputRowBinderMenuDelete
 where Cell : UITableViewCell, Cell : BxInputFieldCell
 {
+    
     /// call after common update for text attributes updating
     override open func updateCell()
     {
@@ -96,6 +97,13 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
     {
         changeValue(index: row)
         didChangeValue()
+    }
+    
+    open func deleteValue() {
+        row.value = nil
+        update()
+        didChangeValue()
+        cell?.valueTextField.resignFirstResponder()
     }
 
 }

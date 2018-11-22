@@ -19,7 +19,7 @@ open class BxInputSelectorVariantsRow<T: BxInputStringObject> : BxInputVariantsR
 {
     /// Make and return Binder for binding row with cell.
     override open var binder : BxInputRowBinder {
-        return BxInputSelectorRowBinder<BxInputSelectorVariantsRow<T>, BxInputSelectorCell>(row: self)
+        return BxInputSelectorVariantsRowBinder<T, BxInputSelectorVariantsRow<T>, BxInputSelectorCell>(row: self)
     }
     override open var resourceId : String {
         get { return "BxInputSelectorCell" }
