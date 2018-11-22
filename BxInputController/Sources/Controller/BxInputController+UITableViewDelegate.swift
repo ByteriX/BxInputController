@@ -183,10 +183,10 @@ extension BxInputController : UITableViewDelegate{
     {
         let rowBinder = getRowBinder(for: indexPath)
         return
-            rowBinder is BxInputRowBinderMenuCut && action == #selector(cut(_:)) && getRow(for: indexPath).isEnabled ||
-            rowBinder is BxInputRowBinderMenuCopy && action == #selector(copy(_:)) ||
-            rowBinder is BxInputRowBinderMenuDelete && action == #selector(delete(_:)) && getRow(for: indexPath).isEnabled ||
-            rowBinder is BxInputRowBinderMenuPaste && action == #selector(paste(_:)) && getRow(for: indexPath).isEnabled
+            action == #selector(cut(_:)) && (rowBinder as? BxInputRowBinderMenuCut)?.canCutValue ?? false ||
+            action == #selector(copy(_:)) && (rowBinder as? BxInputRowBinderMenuCopy)?.canCopyValue ?? false ||
+            action == #selector(delete(_:)) && (rowBinder as? BxInputRowBinderMenuDelete)?.canDeleteValue ?? false ||
+            action == #selector(paste(_:)) && (rowBinder as? BxInputRowBinderMenuPaste)?.canPasteValue ?? false
     }
     
     open func tableView(_ tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?)
