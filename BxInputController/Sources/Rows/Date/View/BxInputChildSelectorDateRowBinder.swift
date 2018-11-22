@@ -29,18 +29,23 @@ open class BxInputChildSelectorDateRowBinder<Row: BxInputChildSelectorDateRow, C
         cell.datePicker.maximumDate = parentRow.maximumDate
 
         DispatchQueue.main.async { [weak self] () -> Void in
-            guard let this = self, let cell = this.cell else {
-                return
-            }
-            if let date = this.parentRow.value {
-                cell.datePicker.setDate(date, animated: false)
-                this.changeDate()
-            } else {
-                cell.datePicker.setDate(this.parentRow.firstSelectionDate, animated: false)
-                this.editedDate()
-            }
+            self?.updateDate(animated: false)
         }
     }
+    
+    open func updateDate(animated: Bool) {
+        guard let cell = cell else {
+            return
+        }
+        if let date = parentRow.value {
+            cell.datePicker.setDate(date, animated: animated)
+            changeDate()
+        } else {
+            cell.datePicker.setDate(parentRow.firstSelectionDate, animated: animated)
+            editedDate()
+        }
+    }
+    
     /// event of change isEnabled
     override open func didSetEnabled(_ value: Bool)
     {
