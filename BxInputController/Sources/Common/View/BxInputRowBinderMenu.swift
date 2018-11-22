@@ -45,15 +45,6 @@ public protocol BxInputRowBinderMenuDelete : BxInputRowBinderMenu {
 public protocol BxInputRowBinderMenuAll : BxInputRowBinderMenuPaste, BxInputRowBinderMenuCopy, BxInputRowBinderMenuCut, BxInputRowBinderMenuDelete
 {}
 
-/// Default realization of BxInputRowBinderMenuCut with standart behavior
-extension BxInputRowBinderMenuCut where Self : BxInputRowBinder, Self : BxInputRowBinderMenuCopy, Self : BxInputRowBinderMenuDelete
-{
-    public func cutValue() {
-        copyValue()
-        deleteValue()
-    }
-}
-
 extension BxInputRowBinderMenuCopy where Self : BxInputRowBinder
 {
     public var canCopyValue : Bool {
@@ -79,5 +70,18 @@ extension BxInputRowBinderMenuDelete where Self : BxInputRowBinder
 {
     public var canDeleteValue : Bool {
         return rowData.isEnabled
+    }
+}
+
+/// Default realization of BxInputRowBinderMenuCut with standart behavior
+extension BxInputRowBinderMenuCut where Self : BxInputRowBinder, Self : BxInputRowBinderMenuCopy, Self : BxInputRowBinderMenuDelete
+{
+    public func cutValue() {
+        copyValue()
+        deleteValue()
+    }
+    
+    public var canCutValue : Bool {
+        return canCopyValue && canDeleteValue
     }
 }
