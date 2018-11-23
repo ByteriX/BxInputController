@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.14.1 (24.11.2018)
+##### Bug fix
+* fixed crash with selector
+
 ## 2.14 (22.11.2018)
 ##### Improvements
 * added to RowSelectors functions: toOpen(), toClose()

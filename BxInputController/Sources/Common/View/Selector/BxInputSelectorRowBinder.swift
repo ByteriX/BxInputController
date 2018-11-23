@@ -28,13 +28,13 @@ open class BxInputSelectorRowBinder<Row: BxInputSelectorRow, Cell: BxInputSelect
         refreshOpened(animated: true)
         
         if row.isOpened {
-            owner?.beginUpdates()
+            //owner?.beginUpdates() init crash
             owner?.addRows(row.children, after: row)
             
             if let owner = owner, owner.settings.isAutodissmissSelector {
                 owner.dissmissAllRows(exclude: row)
             }
-            owner?.endUpdates()
+            //owner?.endUpdates()
             
             if row.children.count > 1 {
                 owner?.scrollRow(row, at: .top, animated: true)
