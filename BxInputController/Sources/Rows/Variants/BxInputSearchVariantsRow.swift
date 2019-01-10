@@ -17,6 +17,9 @@ import UIKit
 /// - parameter: T - is associated data model for variants rows, should be inherited from BxInputStringObject
 open class BxInputSearchVariantsRow<T: BxInputStringObject> : BxInputSelectorVariantsRow<T>
 {
+    override open var resourceId : String {
+        get { return "BxInputSearchSelectorCell" }
+    }
     
     /// If you have synchronized model (for example faster DB) you can define this for updating variants
     open var searchHandler: ((_ row: BxInputSearchVariantsRow, _ text: String) -> [T])? = nil
