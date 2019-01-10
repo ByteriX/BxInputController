@@ -606,9 +606,12 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
         if let selectorData = row as? BxInputSelectorRow,
             selectorData.isOpened
         {
-            selectorData.isOpened = false
-            deleteRows(selectorData.children, with: .fade)
-            reloadRow(selectorData, with: .fade)
+            //selectorData.isOpened = false
+            //deleteRows(selectorData.children, with: .fade)
+            //reloadRow(selectorData, with: .fade)
+            if let rowBinder = getRowBinder(for: selectorData) {
+                rowBinder.didSelected()
+            }
         }
     }
     
