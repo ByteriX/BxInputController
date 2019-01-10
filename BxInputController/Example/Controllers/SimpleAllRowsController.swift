@@ -40,13 +40,14 @@ class SimpleAllRowsController: BxInputController {
     // Variants
     internal let variantsRow = BxInputVariantsRow<BxInputVariantsItem>(title: "variants")
     internal let selectorVariantsRow = BxInputSelectorVariantsRow<BxInputVariantsItem>(title: "selector variants")
+    internal let searchVariantsRow = BxInputSearchVariantsRow<BxInputVariantsItem>(title: "search variants")
 
 
     private let variantsItems : [BxInputVariantsItem] = [
-        BxInputVariantsItem(id: "1", name: "value1"),
-        BxInputVariantsItem(id: "2", name: "value2"),
-        BxInputVariantsItem(id: "3", name: "value3"),
-        BxInputVariantsItem(id: "4", name: "value4"),
+        BxInputVariantsItem(id: "1", name: "value1 A"),
+        BxInputVariantsItem(id: "2", name: "value2 B"),
+        BxInputVariantsItem(id: "3", name: "value3 C"),
+        BxInputVariantsItem(id: "4", name: "value4 D"),
         ]
     private let suggestionItems = [
         BxInputChildSelectorSuggestionsRow(title: "value 1"),
@@ -92,6 +93,12 @@ class SimpleAllRowsController: BxInputController {
         selectorSuggestionsRow.children = suggestionItems
         variantsRow.items = variantsItems
         selectorVariantsRow.items = variantsItems
+        searchVariantsRow.searchHandler = {[weak self] (row, text) -> [BxInputVariantsItem] in
+            guard let this = self else { return [] }
+            return this.variantsItems.filter({ (item) -> Bool in
+                return item.name.contains(text)
+            })
+        }
         
         urlRow.patternTextColor = UIColor.gray
         urlRow.enteredTextFont = UIFont.systemFont(ofSize: 14)
@@ -108,7 +115,7 @@ class SimpleAllRowsController: BxInputController {
             BxInputSection(headerText: "Rate", rows: [rateRow]),
             BxInputSection(headerText: "Suggestions", rows: [selectorSuggestionsRow]),
             BxInputSection(headerText: "Text", rows: [shortTextRow, phoneTextRow, urlRow, textMemoRow, selectorTextRow]),
-            BxInputSection(headerText: "Variants", rows: [variantsRow, selectorVariantsRow])
+            BxInputSection(headerText: "Variants", rows: [variantsRow, selectorVariantsRow, searchVariantsRow])
         ]
         
         addChecker(BxInputEmptyValueChecker<BxInputTextRow>(row: shortTextRow, placeholder: "Please put short text"), for: shortTextRow)

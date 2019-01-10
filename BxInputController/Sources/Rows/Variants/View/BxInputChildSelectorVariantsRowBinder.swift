@@ -21,7 +21,7 @@ open class BxInputChildSelectorVariantsRowBinder<T: BxInputStringObject> : BxInp
     {
         super.update()
         cell?.delegate = self
-        cell?.variantsPicker.reloadAllComponents()
+        updateItems()
         var index: Int? = nil
         if let value = parentRow.selectedVariant {
             if let foundIndex = parentRow.variants.index(where: { (item) -> Bool in
@@ -37,13 +37,27 @@ open class BxInputChildSelectorVariantsRowBinder<T: BxInputStringObject> : BxInp
                     variantsPicker.selectRow(index, inComponent: 0, animated: true)
                     self?.changeValue(index: index)
                 } else {
-                    variantsPicker.selectRow(0, inComponent: 0, animated: true)
-                    self?.pickerView(variantsPicker, didSelectRow: 0, inComponent: 0)
+                    if self?.parentRow.isFirstShownSelect ?? false {
+                        self?.selectValue(from: 0)
+                    }
                 }
-                
             }
         }
     }
+    
+    /// select first value
+    internal func selectValue(from index: Int) {
+        if let variantsPicker = cell?.variantsPicker {
+            variantsPicker.selectRow(index, inComponent: 0, animated: true)
+            pickerView(variantsPicker, didSelectRow: index, inComponent: 0)
+        }
+    }
+    
+    /// update items showing
+    internal func updateItems() {
+        cell?.variantsPicker.reloadAllComponents()
+    }
+    
     /// event of change isEnabled
     override open func didSetEnabled(_ value: Bool)
     {

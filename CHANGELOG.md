@@ -6,6 +6,12 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.15 (10.01.2019)
+##### Improvements
+* new row BxInputSearchVariantsRow for searching variants
+* added isFirstShownSelect to variant selector
+* updated example
+
 ## 2.14.1 (24.11.2018)
 ##### Bug fix
 * fixed crash with selector

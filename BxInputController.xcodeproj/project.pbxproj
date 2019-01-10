@@ -10,6 +10,8 @@
 		0B0240F32D7035DFA339DE59 /* Pods_BxInputController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDE3CA360A31AF4DA9BAFDDB /* Pods_BxInputController.framework */; };
 		E30819962191A27300DC64E3 /* BxInputController+Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30819952191A27300DC64E3 /* BxInputController+Checker.swift */; };
 		E32D92D720F6368200F1993B /* BxInputTextSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32D92D620F6368200F1993B /* BxInputTextSourceProtocol.swift */; };
+		E336519621E72B5F00DD09FA /* BxInputSearchVariantsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E336519521E72B5F00DD09FA /* BxInputSearchVariantsRow.swift */; };
+		E336519821E731AD00DD09FA /* BxInputSearchVariantsRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E336519721E731AD00DD09FA /* BxInputSearchVariantsRowBinder.swift */; };
 		E3BD515E21A6904200498E3B /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BD515D21A6904200498E3B /* UITableViewCell.swift */; };
 		E3BD516021A6998000498E3B /* BxInputRowBinderMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BD515F21A6998000498E3B /* BxInputRowBinderMenu.swift */; };
 		E3BD516221A6A26900498E3B /* BxInputSelectorVariantsRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BD516121A6A26900498E3B /* BxInputSelectorVariantsRowBinder.swift */; };
@@ -148,6 +150,8 @@
 		A529CAF1FC63502159F31EBF /* Pods-BxInputController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BxInputController.release.xcconfig"; path = "Pods/Target Support Files/Pods-BxInputController/Pods-BxInputController.release.xcconfig"; sourceTree = "<group>"; };
 		E30819952191A27300DC64E3 /* BxInputController+Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BxInputController+Checker.swift"; sourceTree = "<group>"; };
 		E32D92D620F6368200F1993B /* BxInputTextSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BxInputTextSourceProtocol.swift; sourceTree = "<group>"; };
+		E336519521E72B5F00DD09FA /* BxInputSearchVariantsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BxInputSearchVariantsRow.swift; sourceTree = "<group>"; };
+		E336519721E731AD00DD09FA /* BxInputSearchVariantsRowBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BxInputSearchVariantsRowBinder.swift; sourceTree = "<group>"; };
 		E3BD515D21A6904200498E3B /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
 		E3BD515F21A6998000498E3B /* BxInputRowBinderMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BxInputRowBinderMenu.swift; sourceTree = "<group>"; };
 		E3BD516121A6A26900498E3B /* BxInputSelectorVariantsRowBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BxInputSelectorVariantsRowBinder.swift; sourceTree = "<group>"; };
@@ -605,6 +609,7 @@
 		F96D1F701E5463AC00BDB2CE /* Variants */ = {
 			isa = PBXGroup;
 			children = (
+				E336519521E72B5F00DD09FA /* BxInputSearchVariantsRow.swift */,
 				F96D1F711E5463AC00BDB2CE /* BxInputSelectorVariantsRow.swift */,
 				F96D1F721E5463AC00BDB2CE /* BxInputVariants.swift */,
 				F96D1F731E5463AC00BDB2CE /* BxInputVariantsItem.swift */,
@@ -622,6 +627,7 @@
 				F96D1F761E5463AC00BDB2CE /* BxInputChildSelectorVariantsCell.swift */,
 				F96D1F771E5463AC00BDB2CE /* BxInputChildSelectorVariantsCell.xib */,
 				E3BD516121A6A26900498E3B /* BxInputSelectorVariantsRowBinder.swift */,
+				E336519721E731AD00DD09FA /* BxInputSearchVariantsRowBinder.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -948,6 +954,7 @@
 				F933F5AA1E7BC81300FB1E22 /* BxInputTextRowBinder.swift in Sources */,
 				F9E787001E52F6F800341996 /* BxInputString.swift in Sources */,
 				E3FD688020E208CB00421EA8 /* BxInputIconActionRow.swift in Sources */,
+				E336519821E731AD00DD09FA /* BxInputSearchVariantsRowBinder.swift in Sources */,
 				F9847E741E279815007C26EC /* SelectionController.swift in Sources */,
 				F9E787341E52F6F800341996 /* BxInputEmptyHeaderFooterView.swift in Sources */,
 				F96D1F7B1E5463AC00BDB2CE /* BxInputSwitchRow.swift in Sources */,
@@ -962,6 +969,7 @@
 				F96D1F9B1E54753C00BDB2CE /* SimpleAllRowsController.swift in Sources */,
 				F96D1F7A1E5463AC00BDB2CE /* BxInputCheckRow.swift in Sources */,
 				F9369E381EAF44CB00D6758E /* BxInputBaseFieldRowBinder.swift in Sources */,
+				E336519621E72B5F00DD09FA /* BxInputSearchVariantsRow.swift in Sources */,
 				F907C7EE1E77D027000F3437 /* BxInputFormattedTextRow.swift in Sources */,
 				E3BD516221A6A26900498E3B /* BxInputSelectorVariantsRowBinder.swift in Sources */,
 				F92183DE1E23AB21002E1781 /* AppDelegate.swift in Sources */,
