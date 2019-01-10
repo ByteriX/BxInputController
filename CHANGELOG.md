@@ -6,6 +6,11 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.15.1 (10.01.2019)
+##### Bug fix
+* fixed issue with field of a selector (localization Search)
+* fixed issue with dissmissing selectors
+
 ## 2.15 (10.01.2019)
 ##### Improvements
 * new row BxInputSearchVariantsRow for searching variants
