@@ -37,7 +37,7 @@ open class BxInputChildSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, C
 //        cell?.textView.placeholder = parentRow.placeholder
         cell?.textView.update(from: parentRow.textSettings)
         
-        // TODO: make as Memo update
+        #warning("make as Memo update")
         //row.height = contentHeight I think it doesn't need
     }
     /// event of change isEnabled
@@ -110,7 +110,7 @@ open class BxInputChildSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, C
         }
         let shift = cell.textView.contentSize.height - cell.textView.frame.size.height
         if shift > 0 {
-            // TODO: make as Memo update
+            #warning("make as Memo update")
             row.height = contentHeight
             owner?.reloadRow(row, with: .none)
             owner?.selectRow(row, at: .none, animated: false)

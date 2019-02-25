@@ -16,8 +16,8 @@ import Foundation
 /// Protocol is used for provide user action with a row
 public protocol BxInputActionRow: BxInputValueRow, BxInputString
 {
-    // TODO: Please remove BxInputValueRow & BxInputString I think it is redundant
-    // TODO: it is bad BxInputActionRow in handler!!! let it remove
+    #warning("Please remove BxInputValueRow & BxInputString I think it is redundant")
+    #warning("it is bad BxInputActionRow in handler!!! let it remove")
     
     /// action block
     var handler: ((_ actionRow: BxInputActionRow) -> Void)? {get}

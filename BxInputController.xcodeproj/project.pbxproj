@@ -841,7 +841,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-BxInputController/Pods-BxInputController-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-BxInputController/Pods-BxInputController-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BxObjC/BxObjC.framework",
 				"${BUILT_PRODUCTS_DIR}/BxTextField/BxTextField.framework",
 			);
@@ -852,7 +852,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BxInputController/Pods-BxInputController-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BxInputController/Pods-BxInputController-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CF40B76620726D1400543E26 /* ShellScript */ = {

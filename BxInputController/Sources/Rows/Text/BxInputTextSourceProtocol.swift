@@ -39,7 +39,7 @@ extension BxInputTextSourceProtocol {
             count = string.count
         }
         if count > maxCount {
-            // TODO: I don't know what is the best
+            #warning("I don't know what is the best")
 //            let cutLenght = count - maxCount
 //            if string.count > 1 && cutLenght < string.count {
 //                let resultString = string[string.startIndex..<string.index(string.endIndex, offsetBy: -cutLenght)]

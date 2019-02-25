@@ -32,7 +32,7 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
         }
     }
     
-    // TODO: I think we have more issues with disabled valueTextField better throw them for this row
+    #warning("I think we have more issues with disabled valueTextField better throw them for this row")
     /// UPDATE: Please use BxInputIconActionRowBinder
     /// call after common update for text attributes updating
     override open func updateCell()

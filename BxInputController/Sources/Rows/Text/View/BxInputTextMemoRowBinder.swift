@@ -78,7 +78,7 @@ open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMe
     /// check and change only scroll if need
     open func checkScroll()
     {
-        // TODO: need clear shake from update/reload cell + scroll
+        #warning("need clear shake from update/reload cell + scroll")
         guard let cell = cell else {
             return
         }
@@ -121,7 +121,8 @@ open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMe
             return false
         }
         let shift = cell.textView.contentSize.height - cell.textView.frame.size.height
-        if shift > 0 { //TODO: это негарантирует отсутствие зацикленности
+        if shift > 0 {
+            #warning("это не гарантирует отсутствие зацикленности")
             if isNeedUpdate {
                 owner?.reloadRow(row, with: .none) // row.height will be updated from update()
                 owner?.selectRow(row, at: .none, animated: false)
