@@ -6,6 +6,12 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.15.2 (25.02.2019)
+##### Improvements
+* added isErrorHasShake & isErrorSubtitleAlignment to Settings for the error decorators
+* fixed deprecated from BxInputStandartErrorRowDecorator
+* refactory all TODO to warnings
+
 ## 2.15.1 (10.01.2019)
 ##### Bug fix
 * fixed issue with field of a selector (localization Search)
