@@ -55,11 +55,11 @@ open class BxInputStandartErrorRowDecorator : BxInputRowDecorator {
             view = cell.textView
         }
         
-        if let view = view
+        if let view = view, binder.owner?.settings.isErrorHasShake ?? false
         {
             DispatchQueue.main.async {
                 let shift = view.frame.size.height * 2
-                view.shakeX(withOffset: fabs(shift), breakFactor: 0.5, duration: 0.5 + fabs(shift / 100.0), maxShakes: Int(fabs(shift * 2.0)))
+                view.shakeX(withOffset: abs(shift), breakFactor: 0.5, duration: 0.5 + abs(shift / 100.0), maxShakes: Int(abs(shift * 2.0)))
             }
         }
     }
@@ -89,8 +89,10 @@ open class BxInputStandartErrorRowDecorator : BxInputRowDecorator {
             }
             if let subtitleLabel = cell.subtitleLabel {
                 subtitleLabel.textColor = color
+                if let errorSubtitleAlignment = binder.owner?.settings.errorSubtitleAlignment {
+                    subtitleLabel.textAlignment = errorSubtitleAlignment
+                }
                 if let subtitle = subtitle {
-                    subtitleLabel.textAlignment = .right
                     subtitleLabel.text = subtitle
                 }
             }

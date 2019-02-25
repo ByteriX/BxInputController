@@ -48,8 +48,6 @@ public struct BxInputSettings
     public var valueFont: UIFont = UIFont.systemFont(ofSize:  15)
     /// The color of placeholder in the value field for a row, the font is used from valueFont value.
     public var placeholderColor: UIColor? = nil
-    /// The color for error marking. See BxInputStandartErrorRowDecorator when it used.
-    public var errorColor: UIColor = UIColor.red
     
     /// height of cells for all rows, which don't use a dynamic size or the static size
     public var cellHeight: CGFloat? = 46
@@ -65,6 +63,15 @@ public struct BxInputSettings
     public var subtitleAlignment: NSTextAlignment = .left
     /// date format for showing value of the rows with date type
     public var dateFormat: DateFormatter = DateFormatter(dateStyle: DateFormatter.Style.long, timeStyle: DateFormatter.Style.none)
+    
+    // MARK: - Decorator featurese BxInputStandartErrorRowDecorator
+    
+    /// The color for error marking. See BxInputStandartErrorRowDecorator when it used.
+    public var errorColor: UIColor = UIColor.red
+    /// If user put a incorrected value the field will shake
+    public var isErrorHasShake: Bool = true
+    /// When user put a incorrected value and should shown subtitle you can change that aligment, different with subtitleAlignment. If it is nil then will not change subtitleAlignment.
+    public var errorSubtitleAlignment: NSTextAlignment? = .right
     
     // MARK: - this don't used for a future
     
