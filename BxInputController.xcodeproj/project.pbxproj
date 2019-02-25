@@ -779,7 +779,7 @@
 				TargetAttributes = {
 					F92183BD1E23AA2D002E1781 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = NVEUY947QB;
+						DevelopmentTeam = FDK83T8QNS;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1146,7 +1146,7 @@
 			baseConfigurationReference = 426287E844423C4C137BCD01 /* Pods-BxInputController.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = NVEUY947QB;
+				DEVELOPMENT_TEAM = FDK83T8QNS;
 				INFOPLIST_FILE = BxInputController/Example/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.byterix.BxInputController;
@@ -1161,7 +1161,7 @@
 			baseConfigurationReference = A529CAF1FC63502159F31EBF /* Pods-BxInputController.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = NVEUY947QB;
+				DEVELOPMENT_TEAM = FDK83T8QNS;
 				INFOPLIST_FILE = BxInputController/Example/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.byterix.BxInputController;
