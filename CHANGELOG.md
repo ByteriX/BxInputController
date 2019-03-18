@@ -8,7 +8,7 @@ ByteriX, 2017. All right reserved.
 
 ## 2.15.3 (19.03.2019)
 ##### Bug fix
-* fixed issue with multiline subtitle
+* fixed issue with multiline subtitle. Thanks to Vlad Markov.
 
 ## 2.15.2 (25.02.2019)
 ##### Improvements
