@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.15.3 (19.03.2019)
+##### Bug fix
+* fixed issue with multiline subtitle
+
 ## 2.15.2 (25.02.2019)
 ##### Improvements
 * added isErrorHasShake & isErrorSubtitleAlignment to Settings for the error decorators
