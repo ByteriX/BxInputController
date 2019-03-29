@@ -1,12 +1,12 @@
 PODS:
-  - BxObjC/Common (1.4.1)
-  - BxObjC/Control/Navigation (1.4.1):
+  - BxObjC/Common (1.4.2)
+  - BxObjC/Control/Navigation (1.4.2):
     - BxObjC/Common
     - BxObjC/Control/ShakeAnimation
-  - BxObjC/Control/Rate (1.4.1)
-  - BxObjC/Control/ShakeAnimation (1.4.1)
-  - BxObjC/Control/TextView (1.4.1)
-  - BxTextField (1.8.1)
+  - BxObjC/Control/Rate (1.4.2)
+  - BxObjC/Control/ShakeAnimation (1.4.2)
+  - BxObjC/Control/TextView (1.4.2)
+  - BxTextField (1.9.0)
 
 DEPENDENCIES:
   - BxObjC/Common
@@ -22,8 +22,8 @@ SPEC REPOS:
     - BxTextField
 
 SPEC CHECKSUMS:
-  BxObjC: 637cda03c7e49b5735216f6ed7ecc1d301d4e9fa
-  BxTextField: d3aaf5f2ad1624634b26530514f6b3fed4b5065e
+  BxObjC: 007cd184acfb92ba90fe5b024687037fd51ede36
+  BxTextField: 42e66a660b00df1ca75ea85fe26f9129a4b95350
 
 PODFILE CHECKSUM: 522f877a07031991adc1f925cf042cfe438e2156
 
