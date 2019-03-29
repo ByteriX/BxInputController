@@ -41,7 +41,7 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
             variantsPicker.reloadAllComponents()
             var index: Int? = nil
             if let value = row.selectedVariant {
-                if let foundIndex = row.variants.index(where: { (item) -> Bool in
+                if let foundIndex = row.variants.firstIndex(where: { (item) -> Bool in
                     return item === value
                 }) {
                     index = foundIndex

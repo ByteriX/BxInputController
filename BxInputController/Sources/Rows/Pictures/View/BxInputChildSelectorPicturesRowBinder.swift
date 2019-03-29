@@ -148,7 +148,7 @@ open class BxInputChildSelectorPicturesRowBinder<Row: BxInputChildSelectorPictur
                 let pictureView = pictureView else {
                 return
             }
-            if let index = this.parentRow.pictures.index(where: { (currentPicture) -> Bool in
+            if let index = this.parentRow.pictures.firstIndex(where: { (currentPicture) -> Bool in
                 return currentPicture === pictureView.picture
             }) {
                 this.parentRow.pictures.remove(at: index)
@@ -164,7 +164,7 @@ open class BxInputChildSelectorPicturesRowBinder<Row: BxInputChildSelectorPictur
     }
     
     func removePictureView(_ pictureView: BxInputSelectorPictureView) {
-        if let index = cell?.selectedPictureViews.index(of: pictureView) {
+        if let index = cell?.selectedPictureViews.firstIndex(of: pictureView) {
             cell?.selectedPictureViews.remove(at: index)
         }
         UIView.animate(withDuration: 0.25) {[weak self] () in

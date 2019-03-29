@@ -24,7 +24,7 @@ open class BxInputChildSelectorVariantsRowBinder<T: BxInputStringObject> : BxInp
         updateItems()
         var index: Int? = nil
         if let value = parentRow.selectedVariant {
-            if let foundIndex = parentRow.variants.index(where: { (item) -> Bool in
+            if let foundIndex = parentRow.variants.firstIndex(where: { (item) -> Bool in
                 return item === value
             }) {
                 index = foundIndex

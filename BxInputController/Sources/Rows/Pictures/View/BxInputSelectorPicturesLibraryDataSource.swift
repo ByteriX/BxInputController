@@ -84,7 +84,7 @@ open class BxInputSelectorPicturesLibraryDataSource : NSObject {
         {
             return false
         }
-        if let _ = data.pictures.index(where: { (currentPicture) -> Bool in
+        if let _ = data.pictures.firstIndex(where: { (currentPicture) -> Bool in
             if let currentPicture = currentPicture as? BxInputPictureLibraryItem {
                 return currentPicture == picture
             } else {
