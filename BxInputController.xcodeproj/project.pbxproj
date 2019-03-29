@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0B0240F32D7035DFA339DE59 /* Pods_BxInputController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDE3CA360A31AF4DA9BAFDDB /* Pods_BxInputController.framework */; };
 		E30819962191A27300DC64E3 /* BxInputController+Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30819952191A27300DC64E3 /* BxInputController+Checker.swift */; };
+		E3113836224E20AA00C47133 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3113835224E20AA00C47133 /* Array.swift */; };
 		E32D92D720F6368200F1993B /* BxInputTextSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32D92D620F6368200F1993B /* BxInputTextSourceProtocol.swift */; };
 		E336519621E72B5F00DD09FA /* BxInputSearchVariantsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E336519521E72B5F00DD09FA /* BxInputSearchVariantsRow.swift */; };
 		E336519821E731AD00DD09FA /* BxInputSearchVariantsRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E336519721E731AD00DD09FA /* BxInputSearchVariantsRowBinder.swift */; };
@@ -150,6 +151,7 @@
 		426287E844423C4C137BCD01 /* Pods-BxInputController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BxInputController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BxInputController/Pods-BxInputController.debug.xcconfig"; sourceTree = "<group>"; };
 		A529CAF1FC63502159F31EBF /* Pods-BxInputController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BxInputController.release.xcconfig"; path = "Pods/Target Support Files/Pods-BxInputController/Pods-BxInputController.release.xcconfig"; sourceTree = "<group>"; };
 		E30819952191A27300DC64E3 /* BxInputController+Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BxInputController+Checker.swift"; sourceTree = "<group>"; };
+		E3113835224E20AA00C47133 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		E32D92D620F6368200F1993B /* BxInputTextSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BxInputTextSourceProtocol.swift; sourceTree = "<group>"; };
 		E336519521E72B5F00DD09FA /* BxInputSearchVariantsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BxInputSearchVariantsRow.swift; sourceTree = "<group>"; };
 		E336519721E731AD00DD09FA /* BxInputSearchVariantsRowBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BxInputSearchVariantsRowBinder.swift; sourceTree = "<group>"; };
@@ -706,6 +708,7 @@
 		F9E786BB1E52F6F800341996 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E3113835224E20AA00C47133 /* Array.swift */,
 				F9E786BC1E52F6F800341996 /* Formatter.swift */,
 				F9E786BD1E52F6F800341996 /* UIImage.swift */,
 				F9DF02D61EADDD53006EC83E /* UITextField.swift */,
@@ -774,7 +777,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Byterix;
 				TargetAttributes = {
 					F92183BD1E23AA2D002E1781 = {
@@ -900,6 +903,7 @@
 				F933F5C21E7BDE3F00FB1E22 /* BxInputSelectorTextRowBinder.swift in Sources */,
 				F9E787321E52F6F800341996 /* BxInputSectionStringHeader.swift in Sources */,
 				E3BD515E21A6904200498E3B /* UITableViewCell.swift in Sources */,
+				E3113836224E20AA00C47133 /* Array.swift in Sources */,
 				F96D1F831E5463AC00BDB2CE /* BxInputPictureLibraryItem.swift in Sources */,
 				F9064DE31F2FC3330098E4C9 /* BxInputBlockChecker.swift in Sources */,
 				F96D1F801E5463AC00BDB2CE /* BxInputSelectorPicturesRow.swift in Sources */,
@@ -1037,6 +1041,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1087,7 +1092,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1095,6 +1100,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1137,7 +1143,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
