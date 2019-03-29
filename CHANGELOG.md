@@ -6,6 +6,11 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.16.0 (29.03.2019)
+##### Bug fix
+* Swift 5, iOS 12.2, XCode 10.2 supporting
+* fixed warnings
+
 ## 2.15.3 (19.03.2019)
 ##### Bug fix
 * fixed issue with multiline subtitle. Thanks to Vlad Markov.
