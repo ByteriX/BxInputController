@@ -6,6 +6,12 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.16.1 (16.04.2019)
+##### Improvements
+* extracted method getForegenView from BxInputStandartErrorRowDecorator
+* published textView from BxInputTextMemoCell
+* fixed BxInputStandartErrorRowDecorator for shake view
+
 ## 2.16.0 (29.03.2019)
 ##### Bug fix
 * Swift 5, iOS 12.2, XCode 10.2 supporting
