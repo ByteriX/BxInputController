@@ -33,7 +33,7 @@ open class BxInputStandartErrorRowDecorator : BxInputRowDecorator {
     /// method will return view when will use to foregen changes: Shake for example
     open func getForegenView(binder: BxInputRowBinder) -> UIView? {
         var view: UIView? = nil
-        // foregen changes with views
+        // First searching
         if let cell = binder.viewCell as? BxInputFieldCell,
             let text = cell.valueTextField.text,
             text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty == false ||
@@ -48,6 +48,10 @@ open class BxInputStandartErrorRowDecorator : BxInputRowDecorator {
         }  else if let cell = binder.viewCell as? BxInputTextMemoCell
         {
             view = cell.textView
+        }
+        // Last chance find view
+        if view == nil, let cell = binder.viewCell as? BxInputFieldCell {
+            view = cell.valueTextField
         }
         return view
     }
