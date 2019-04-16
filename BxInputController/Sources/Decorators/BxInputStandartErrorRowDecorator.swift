@@ -30,13 +30,8 @@ open class BxInputStandartErrorRowDecorator : BxInputRowDecorator {
         //
     }
     
-    /// method calls when need show activation of something event
-    open func activate(binder: BxInputRowBinder)
-    {
-        // common changes
-        UIView.animate(withDuration: 0.5) { [weak self] in
-            self?.update(binder: binder)
-        }
+    /// method will return view when will use to foregen changes: Shake for example
+    open func getForegenView(binder: BxInputRowBinder) -> UIView? {
         var view: UIView? = nil
         // foregen changes with views
         if let cell = binder.viewCell as? BxInputFieldCell,
@@ -54,6 +49,18 @@ open class BxInputStandartErrorRowDecorator : BxInputRowDecorator {
         {
             view = cell.textView
         }
+        return view
+    }
+    
+    /// method calls when need show activation of something event
+    open func activate(binder: BxInputRowBinder)
+    {
+        // common changes
+        UIView.animate(withDuration: 0.5) { [weak self] in
+            self?.update(binder: binder)
+        }
+        // foregen changes with views
+        let view: UIView? = getForegenView(binder: binder)
         
         if let view = view, binder.owner?.settings.isErrorHasShake ?? false
         {
