@@ -205,12 +205,12 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
         
         var bottom = self.bottomExtendedEdges()
 
-        let height = self.view.frame.size.height - contentRect.size.height
+        var height = self.view.frame.size.height - contentRect.size.height
+        if #available(iOS 11.0, *) {
+            height -= self.view.safeAreaInsets.bottom // that is incuded
+        }
         if height > bottom {
             bottom = height
-            if #available(iOS 11.0, *) {
-                bottom -= self.view.safeAreaInsets.bottom // that is incuded 
-            }
         }
         let extendedEdgesBounds = self.extendedEdgesBounds()
         let top = extendedEdgesBounds.origin.y - contentRect.origin.y
