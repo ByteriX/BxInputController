@@ -202,10 +202,15 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     /// calculation insets for tableView. Please override it and don't override updateInsets()
     /// for that method contentRect is already defined
     open var tableInsets : UIEdgeInsets {
-        var bottom = bottomLayoutGuide.length
+        
+        var bottom = self.bottomExtendedEdges()
+
         let height = self.view.frame.size.height - contentRect.size.height
         if height > bottom {
             bottom = height
+            if #available(iOS 11.0, *) {
+                bottom -= self.view.safeAreaInsets.bottom // that is incuded 
+            }
         }
         let extendedEdgesBounds = self.extendedEdgesBounds()
         let top = extendedEdgesBounds.origin.y - contentRect.origin.y
