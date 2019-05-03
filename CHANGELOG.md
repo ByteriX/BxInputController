@@ -6,6 +6,11 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.16.2 (03.05.2019)
+##### Bug fix
+* fixed bottom layout for keyboard of iPhone X and iOS 11 and later
+* added TabBar to example for testing bottom layout
+
 ## 2.16.1 (16.04.2019)
 ##### Improvements
 * extracted method getForegenView from BxInputStandartErrorRowDecorator
