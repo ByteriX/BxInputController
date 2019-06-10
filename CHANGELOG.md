@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.16.3 (10.06.2019)
+##### Bug fix
+* opened BxInputBaseRowChecker.isOK()
+
 ## 2.16.2 (03.05.2019)
 ##### Bug fix
 * fixed bottom layout for keyboard of iPhone X and iOS 11 and later

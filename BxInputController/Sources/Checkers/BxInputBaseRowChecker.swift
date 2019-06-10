@@ -32,7 +32,7 @@ open class BxInputBaseRowChecker<Row : BxInputRow> : BxInputRowChecker
     public var row: Row
     
     /// Checking method. Default fail
-    public func isOK() -> Bool
+    open func isOK() -> Bool
     {
         return false
     }
