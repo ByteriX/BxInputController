@@ -7,8 +7,9 @@ ByteriX, 2017. All right reserved.
 # Versions
 
 ## 2.16.3 (10.06.2019)
-##### Bug fix
+##### Improvements
 * opened BxInputBaseRowChecker.isOK()
+* pods update Swift version
 
 ## 2.16.2 (03.05.2019)
 ##### Bug fix
