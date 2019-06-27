@@ -20,7 +20,7 @@ public protocol BxInputActionRow: BxInputValueRow, BxInputString
     #warning("it is bad BxInputActionRow in handler!!! let it remove")
     
     /// action block
-    var handler: ((_ actionRow: BxInputActionRow) -> Void)? {get}
+    var handler: ((_ actionRow: BxInputActionRow) -> Void)? {get set}
     
     /// Is used for visual deselect after handling an action
     var isImmediatelyDeselect: Bool {get}

@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.16.5 (27.06.2019)
+##### Improvements
+* change handler from BxInputActionRow as editable
+
 ## 2.16.4 (11.06.2019)
 ##### Improvements
 * updated build script
