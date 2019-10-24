@@ -24,6 +24,7 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
         
         owner?.dissmissAllRows()
         row.value = !row.value
+        didChangeValue()
         update()
     }
     

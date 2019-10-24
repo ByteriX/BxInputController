@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.16.6 (24.10.2019)
+##### Bug fix
+* fixed call didChangeValue() from BxInputCheckRow
+
 ## 2.16.5 (27.06.2019)
 ##### Improvements
 * change handler from BxInputActionRow as editable
