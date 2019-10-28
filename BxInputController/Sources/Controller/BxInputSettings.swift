@@ -117,7 +117,7 @@ extension BxInputSettings {
         if #available(iOS 13.0, *) {
             return UIColor.secondaryLabel
         } else {
-            return UIColor.gray
+            return UIColor.darkGray
         }
     }
     
@@ -125,7 +125,7 @@ extension BxInputSettings {
         if #available(iOS 13.0, *) {
             return UIColor.tertiaryLabel
         } else {
-            return UIColor.lightGray
+            return UIColor.gray
         }
     }
     
