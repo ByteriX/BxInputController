@@ -22,11 +22,11 @@ public struct BxInputSettings
     // MARK: - Header/Footer
     
     /// The color of text in a header
-    public var headerColor: UIColor = UIColor.darkGray
+    public var headerColor: UIColor = secondaryLabel
     /// The font of text in a header
     public var headerFont: UIFont = UIFont.systemFont(ofSize:  16)
     /// The color of text in a footer
-    public var footerColor: UIColor = UIColor.lightGray
+    public var footerColor: UIColor = tertiaryLabel
     /// The font of text in a footer
     public var footerFont: UIFont = UIFont.systemFont(ofSize:  12)
     
@@ -35,19 +35,19 @@ public struct BxInputSettings
     /// it uses from selector rows, when user choose value then selector automatical will closed, if isAutodissmissSelector would be true
     public var isAutodissmissSelector: Bool = true
     /// The color of text in the title label for a row
-    public var titleColor: UIColor = UIColor.black
+    public var titleColor: UIColor = label
     /// The font of text in the title label for a row
     public var titleFont: UIFont = UIFont.boldSystemFont(ofSize:  15)
     /// The color of subtext in the subtitle label for a row
-    public var subtitleColor: UIColor = UIColor.black
+    public var subtitleColor: UIColor = label
     /// The font of subtext in the title label for a row
     public var subtitleFont: UIFont = UIFont.systemFont(ofSize:  10)
     /// The color of text in the value field for a row
-    public var valueColor: UIColor = UIColor.black
+    public var valueColor: UIColor = label
     /// The font of text in the value field for a row
     public var valueFont: UIFont = UIFont.systemFont(ofSize:  15)
     /// The color of placeholder in the value field for a row, the font is used from valueFont value.
-    public var placeholderColor: UIColor? = nil
+    public var placeholderColor: UIColor? = placeholderText
     
     /// height of cells for all rows, which don't use a dynamic size or the static size
     public var cellHeight: CGFloat? = 46
@@ -99,6 +99,50 @@ public struct BxInputSettings
     /// Default initializer
     public init() {
         // all defined
+    }
+    
+}
+
+extension BxInputSettings {
+    
+    static var label : UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.label
+        } else {
+            return UIColor.black
+        }
+    }
+    
+    static var secondaryLabel : UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.secondaryLabel
+        } else {
+            return UIColor.gray
+        }
+    }
+    
+    static var tertiaryLabel : UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.tertiaryLabel
+        } else {
+            return UIColor.lightGray
+        }
+    }
+    
+    static var quaternaryLabel : UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.quaternaryLabel
+        } else {
+            return UIColor.lightGray
+        }
+    }
+    
+    static var placeholderText : UIColor? {
+        if #available(iOS 13.0, *) {
+            return UIColor.placeholderText
+        } else {
+            return nil
+        }
     }
     
 }
