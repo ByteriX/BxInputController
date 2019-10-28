@@ -6,6 +6,12 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.17.0 (28.10.2019)
+##### Improvements
+* fixed background of rate
+* supporting iOS 13 and dark mode
+
+
 ## 2.16.6 (24.10.2019)
 ##### Bug fix
 * fixed call didChangeValue() from BxInputCheckRow
