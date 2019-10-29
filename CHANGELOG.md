@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.17.1 (29.10.2019)
+##### Improvements
+* public mode colors in Settings
+
 ## 2.17.0 (28.10.2019)
 ##### Improvements
 * fixed background of rate

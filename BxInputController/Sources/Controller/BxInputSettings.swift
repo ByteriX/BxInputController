@@ -105,7 +105,7 @@ public struct BxInputSettings
 
 extension BxInputSettings {
     
-    static var label : UIColor {
+    public static var label : UIColor {
         if #available(iOS 13.0, *) {
             return UIColor.label
         } else {
@@ -113,7 +113,7 @@ extension BxInputSettings {
         }
     }
     
-    static var secondaryLabel : UIColor {
+    public static var secondaryLabel : UIColor {
         if #available(iOS 13.0, *) {
             return UIColor.secondaryLabel
         } else {
@@ -121,7 +121,7 @@ extension BxInputSettings {
         }
     }
     
-    static var tertiaryLabel : UIColor {
+    public static var tertiaryLabel : UIColor {
         if #available(iOS 13.0, *) {
             return UIColor.tertiaryLabel
         } else {
@@ -129,7 +129,7 @@ extension BxInputSettings {
         }
     }
     
-    static var quaternaryLabel : UIColor {
+    public static var quaternaryLabel : UIColor {
         if #available(iOS 13.0, *) {
             return UIColor.quaternaryLabel
         } else {
@@ -137,7 +137,7 @@ extension BxInputSettings {
         }
     }
     
-    static var placeholderText : UIColor? {
+    public static var placeholderText : UIColor? {
         if #available(iOS 13.0, *) {
             return UIColor.placeholderText
         } else {
