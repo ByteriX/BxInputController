@@ -9,6 +9,7 @@ ByteriX, 2017. All right reserved.
 ## 2.17.2 (30.10.2019)
 ##### Improvements
 * added two new methods: getSectionIndex(for: currentRow) and getSection(for: currentRow)
+* fixed method updateSection(). That don't update contented rows
 
 ## 2.17.1 (29.10.2019)
 ##### Improvements

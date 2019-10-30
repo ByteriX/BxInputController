@@ -508,7 +508,9 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
         if isNeedReloadSection {
             reloadSection(section, with: animation)
         } else {
-            #warning("Need update all visual rows")
+            for row in section.rows {
+                updateRow(row)
+            }
         }
     }
     
