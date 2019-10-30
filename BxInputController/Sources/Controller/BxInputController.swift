@@ -310,6 +310,25 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
         return nil
     }
     
+    /// return index of section for row. You can use getIndex(for:) it is identical
+    open func getSectionIndex(for currentRow: BxInputRow) -> Int? {
+        return sections.firstIndex(where: { section in
+            return section.rows.first{ row in
+                return row === currentRow
+            } != nil
+        })
+    }
+    
+    /// return the section for row.
+    open func getSection(for currentRow: BxInputRow) -> BxInputSection? {
+        guard let index = getSectionIndex(for: currentRow),
+            index < sections.count
+        else {
+            return nil
+        }
+        return sections[index]
+    }
+    
     /// return indexPath of cell for row, if row added to content (added to any sections)
     open func getIndex(for currentRow: BxInputRow) -> IndexPath? {
         var sectionIndex = 0
@@ -463,7 +482,7 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     }
     
     /// update content of section without full refreshing tableView
-    open func updateSection(_ section: BxInputSection, with animation: RowAnimation = .top) {
+    open func updateSection(_ section: BxInputSection, with animation: RowAnimation = .automatic) {
         guard let index = getIndex(for: section) else {
             return
         }
@@ -488,11 +507,13 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
         }
         if isNeedReloadSection {
             reloadSection(section, with: animation)
+        } else {
+            #warning("Need update all visual rows")
         }
     }
     
     /// full reload content of section
-    open func reloadSection(_ section: BxInputSection, with animation: RowAnimation = .top) {
+    open func reloadSection(_ section: BxInputSection, with animation: RowAnimation = .automatic) {
         guard let index = getIndex(for: section) else {
             return
         }
@@ -503,7 +524,7 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     }
     
     /// full reload content of sections array
-    open func reloadSections(_ sections: [BxInputSection], with animation: RowAnimation = .top) {
+    open func reloadSections(_ sections: [BxInputSection], with animation: RowAnimation = .automatic) {
         var indexes = IndexSet()
         for section in sections {
             if let index = getIndex(for: section) {

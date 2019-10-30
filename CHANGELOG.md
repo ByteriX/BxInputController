@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.17.2 (30.10.2019)
+##### Improvements
+* added two new methods: getSectionIndex(for: currentRow) and getSection(for: currentRow)
+
 ## 2.17.1 (29.10.2019)
 ##### Improvements
 * public mode colors in Settings
