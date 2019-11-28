@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.18.0 (28.11.2019)
+##### Improvements
+* added BxInputSegmentedVariantsRow: new row with segmented
+
 ## 2.17.2 (30.10.2019)
 ##### Improvements
 * added two new methods: getSectionIndex(for: currentRow) and getSection(for: currentRow)

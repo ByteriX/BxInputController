@@ -41,6 +41,7 @@ class SimpleAllRowsController: BxInputController {
     internal let variantsRow = BxInputVariantsRow<BxInputVariantsItem>(title: "variants")
     internal let selectorVariantsRow = BxInputSelectorVariantsRow<BxInputVariantsItem>(title: "selector variants")
     internal let searchVariantsRow = BxInputSearchVariantsRow<BxInputVariantsItem>(title: "search variants")
+    internal let segmentedVariantsRow = BxInputSegmentedVariantsRow<BxInputVariantsItem>(title: "segmented")
 
 
     private let variantsItems : [BxInputVariantsItem] = [
@@ -99,6 +100,7 @@ class SimpleAllRowsController: BxInputController {
                 return item.name.contains(text)
             })
         }
+        segmentedVariantsRow.items = variantsItems
         
         urlRow.patternTextColor = UIColor.gray
         urlRow.enteredTextFont = UIFont.systemFont(ofSize: 14)
@@ -115,7 +117,7 @@ class SimpleAllRowsController: BxInputController {
             BxInputSection(headerText: "Rate", rows: [rateRow]),
             BxInputSection(headerText: "Suggestions", rows: [selectorSuggestionsRow]),
             BxInputSection(headerText: "Text", rows: [shortTextRow, phoneTextRow, urlRow, textMemoRow, selectorTextRow]),
-            BxInputSection(headerText: "Variants", rows: [variantsRow, selectorVariantsRow, searchVariantsRow])
+            BxInputSection(headerText: "Variants", rows: [variantsRow, selectorVariantsRow, searchVariantsRow, segmentedVariantsRow])
         ]
         
         addChecker(BxInputEmptyValueChecker<BxInputTextRow>(row: shortTextRow, placeholder: "Please put short text"), for: shortTextRow)
