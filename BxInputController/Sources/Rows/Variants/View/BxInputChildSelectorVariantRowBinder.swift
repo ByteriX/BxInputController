@@ -1,8 +1,8 @@
 /**
- *	@file BxInputChildSelectorVariantsRowBinder.swift
+ *	@file BxInputChildSelectorVariantRowBinder.swift
  *	@namespace BxInputController
  *
- *	@details Binder for BxInputChildSelectorVariantsRow
+ *	@details Binder for BxInputChildSelectorVariantRow
  *	@date 06.03.2017
  *	@author Sergey Balalaev
  *
@@ -13,8 +13,8 @@
 
 import UIKit
 
-/// Binder for BxInputChildSelectorVariantsRow
-open class BxInputChildSelectorVariantsRowBinder<T: BxInputStringObject> : BxInputChildSelectorRowBinder<BxInputChildSelectorVariantsRow<T>, BxInputChildSelectorVariantsCell, BxInputSelectorVariantsRow<T>>, BxInputChildSelectorVariantsDelegate, UIPickerViewDelegate, UIPickerViewDataSource
+/// Binder for BxInputChildSelectorVariantRow
+open class BxInputChildSelectorVariantRowBinder<T: BxInputStringObject> : BxInputChildSelectorRowBinder<BxInputChildSelectorVariantRow<T>, BxInputChildSelectorVariantCell, BxInputSelectorVariantRow<T>>, BxInputChildSelectorVariantDelegate, UIPickerViewDelegate, UIPickerViewDataSource
 {
     /// update cell from model data
     override open func update()
@@ -32,9 +32,9 @@ open class BxInputChildSelectorVariantsRowBinder<T: BxInputStringObject> : BxInp
         }
         
         DispatchQueue.main.async { [weak cell, weak self] () -> Void in
-            if let variantsPicker = cell?.variantsPicker {
+            if let variantPicker = cell?.variantPicker {
                 if let index = index {
-                    variantsPicker.selectRow(index, inComponent: 0, animated: true)
+                    variantPicker.selectRow(index, inComponent: 0, animated: true)
                     self?.changeValue(index: index)
                 } else {
                     if self?.parentRow.isFirstShownSelect ?? false {
@@ -47,15 +47,15 @@ open class BxInputChildSelectorVariantsRowBinder<T: BxInputStringObject> : BxInp
     
     /// select first value
     internal func selectValue(from index: Int) {
-        if let variantsPicker = cell?.variantsPicker {
-            variantsPicker.selectRow(index, inComponent: 0, animated: true)
-            pickerView(variantsPicker, didSelectRow: index, inComponent: 0)
+        if let variantPicker = cell?.variantPicker {
+            variantPicker.selectRow(index, inComponent: 0, animated: true)
+            pickerView(variantPicker, didSelectRow: index, inComponent: 0)
         }
     }
     
     /// update items showing
     internal func updateItems() {
-        cell?.variantsPicker.reloadAllComponents()
+        cell?.variantPicker.reloadAllComponents()
     }
     
     /// event of change isEnabled
@@ -65,16 +65,16 @@ open class BxInputChildSelectorVariantsRowBinder<T: BxInputStringObject> : BxInp
         guard let cell = cell else {
             return
         }
-        cell.variantsPicker.isUserInteractionEnabled = value
+        cell.variantPicker.isUserInteractionEnabled = value
         // UI part
         if needChangeDisabledCell {
             if let changeViewEnableHandler = owner?.settings.changeViewEnableHandler {
-                changeViewEnableHandler(cell.variantsPicker, isEnabled)
+                changeViewEnableHandler(cell.variantPicker, isEnabled)
             } else {
-                cell.variantsPicker.alpha = value ? 1 : alphaForDisabledView
+                cell.variantPicker.alpha = value ? 1 : alphaForDisabledView
             }
         } else {
-            cell.variantsPicker.alpha = 1
+            cell.variantPicker.alpha = 1
         }
     }
     
@@ -98,21 +98,21 @@ open class BxInputChildSelectorVariantsRowBinder<T: BxInputStringObject> : BxInp
     /// variants count
     open func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
     {
-        guard let variantsRow = row.parent as? BxInputVariants else
+        guard let variantRow = row.parent as? BxInputVariant else
         {
             return 0
         }
-        return variantsRow.variants.count
+        return variantRow.variants.count
     }
     
     /// variant title
     open func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
-        guard let variantsRow = self.row.parent as? BxInputVariants
+        guard let variantRow = self.row.parent as? BxInputVariant
             else {
                 return nil
         }
-        return variantsRow.variants[row].stringValue
+        return variantRow.variants[row].stringValue
     }
     
     /// event when user choose variant

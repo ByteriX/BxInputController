@@ -1,5 +1,5 @@
 //
-//  BxInputSearchVariantsRowBinder.swift
+//  BxInputSearchVariantRowBinder.swift
 //  BxInputController
 //
 //  Created by Sergey Balalaev on 10/01/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BxInputSearchVariantsRowBinder<T: BxInputStringObject, Row: BxInputSearchVariantsRow<T>, Cell: BxInputSelectorCell>: BxInputSelectorVariantsRowBinder<T, Row, Cell>, UITextFieldDelegate
+open class BxInputSearchVariantRowBinder<T: BxInputStringObject, Row: BxInputSearchVariantRow<T>, Cell: BxInputSelectorCell>: BxInputSelectorVariantRowBinder<T, Row, Cell>, UITextFieldDelegate
 {
     
     override open func update() {
@@ -41,7 +41,7 @@ open class BxInputSearchVariantsRowBinder<T: BxInputStringObject, Row: BxInputSe
             } else {
                 row.items = []
             }
-            if let parentRowBinder = owner?.getRowBinder(for: row.child) as? BxInputChildSelectorVariantsRowBinder<T> {
+            if let parentRowBinder = owner?.getRowBinder(for: row.child) as? BxInputChildSelectorVariantRowBinder<T> {
                 parentRowBinder.updateItems()
                 if row.items.count == 1 && row.value !== row.items.first {
                     parentRowBinder.selectValue(from: 0)

@@ -1,5 +1,5 @@
 //
-//  BxInputSelectorVariantsRowBinder.swift
+//  BxInputSelectorVariantRowBinder.swift
 //  BxInputController
 //
 //  Created by Sergey Balalaev on 22/11/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BxInputSelectorVariantsRowBinder<T: BxInputStringObject, Row: BxInputSelectorVariantsRow<T>, Cell: BxInputSelectorCell>: BxInputSelectorRowBinder<Row, Cell>, BxInputRowBinderMenuDelete
+open class BxInputSelectorVariantRowBinder<T: BxInputStringObject, Row: BxInputSelectorVariantRow<T>, Cell: BxInputSelectorCell>: BxInputSelectorRowBinder<Row, Cell>, BxInputRowBinderMenuDelete
 {
     
     open var canDeleteValue: Bool {

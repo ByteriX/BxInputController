@@ -32,20 +32,20 @@ class CommonController: BxInputController {
     private var emptyDate = BxInputDateRow(title: "empty value")
     private var lastDate = BxInputDateRow(title: "last value", placeholder: "last")
     
-    private var variants : [BxInputVariantsItem] = [
-        BxInputVariantsItem(id: "1", name: "first"),
-        BxInputVariantsItem(id: "2", name: "second"),
-        BxInputVariantsItem(id: "3", name: "last"),
+    private var variants : [BxInputVariantItem] = [
+        BxInputVariantItem(id: "1", name: "first"),
+        BxInputVariantItem(id: "2", name: "second"),
+        BxInputVariantItem(id: "3", name: "last"),
         ]
-    private var otherVariants : [BxInputVariantsItem] = [
-        BxInputVariantsItem(id: "1", name: "value1"),
-        BxInputVariantsItem(id: "2", name: "value2"),
-        BxInputVariantsItem(id: "3", name: "value3"),
-        BxInputVariantsItem(id: "4", name: "value4"),
+    private var otherVariants : [BxInputVariantItem] = [
+        BxInputVariantItem(id: "1", name: "value1"),
+        BxInputVariantItem(id: "2", name: "value2"),
+        BxInputVariantItem(id: "3", name: "value3"),
+        BxInputVariantItem(id: "4", name: "value4"),
         ]
-    private var emptyVariants = BxInputVariantsRow<BxInputVariantsItem>(title: "empty variant", placeholder: "please select value")
-    private var filledVariants = BxInputVariantsRow<BxInputVariantsItem>(title: "filled variant")
-    private var otherVariantsRow = BxInputVariantsRow<BxInputVariantsItem>(title: "other variant")
+    private var emptyVariantRow = BxInputVariantRow<BxInputVariantItem>(title: "empty variant", placeholder: "please select value")
+    private var filledVariantRow = BxInputVariantRow<BxInputVariantItem>(title: "filled variant")
+    private var otherVariantRow = BxInputVariantRow<BxInputVariantItem>(title: "other variant")
     
     private var deselectedActionAlert = BxInputActionStringRow(title: "deselected alert", value: "Value is selected")
     private var actionAlert = BxInputActionCustomRow<ActionItem>(title: "action push", value: ActionItem(name: "Value is selected"))
@@ -60,10 +60,10 @@ class CommonController: BxInputController {
         
         isEstimatedContent = false
         
-        emptyVariants.items = variants
-        filledVariants.items = variants
-        filledVariants.value = variants.first
-        otherVariantsRow.items = otherVariants
+        emptyVariantRow.items = variants
+        filledVariantRow.items = variants
+        filledVariantRow.value = variants.first
+        otherVariantRow.items = otherVariants
         
         emailValue.textSettings.keyboardType = .emailAddress
         passwordValue.textSettings.isSecureTextEntry = true
@@ -119,7 +119,7 @@ class CommonController: BxInputController {
         self.sections = [
             BxInputSection(rows: [nameValue, emailValue, passwordValue, disabledValue]),
             BxInputSection(headerText: "", rows: [filledDate, emptyDate, lastDate]),
-            BxInputSection(headerText: "Section", rows: [emptyVariants, filledVariants, otherVariantsRow], footerText: "Footer"),
+            BxInputSection(headerText: "Section", rows: [emptyVariantRow, filledVariantRow, otherVariantRow], footerText: "Footer"),
             BxInputSection(rows: [deselectedActionAlert, actionAlert, pushAlert, disabledAction, insertSectionAction, selectSectionAction])
         ]
     }

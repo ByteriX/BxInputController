@@ -1,8 +1,8 @@
 /**
- *	@file BxInputVariantsItem.swift
+ *	@file BxInputVariantItem.swift
  *	@namespace BxInputController
  *
- *	@details Simple item class for showing variant in BxInputVariantsRow
+ *	@details Simple item class for showing variant in BxInputVariantRow
  *	@date 15.02.2017
  *	@author Sergey Balalaev
  *
@@ -14,8 +14,8 @@
 import UIKit
 
 
-/// Simple item class for showing variant in BxInputVariantsRow
-open class BxInputVariantsItem: BxInputStringObject
+/// Simple item class for showing variant in BxInputVariantRow
+open class BxInputVariantItem: BxInputStringObject
 {
     public var id: String
     public var name: String

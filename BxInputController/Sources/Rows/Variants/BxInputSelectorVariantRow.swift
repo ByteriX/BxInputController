@@ -1,5 +1,5 @@
 /**
- *	@file BxInputSelectorVariantsRow.swift
+ *	@file BxInputSelectorVariantRow.swift
  *	@namespace BxInputController
  *
  *	@details Selector Row for choosing one item from variants
@@ -13,13 +13,13 @@
 
 import UIKit
 
-/// Selector Row for choosing one item from variants in selector below this row
-/// - parameter: T - is associated data model for variants rows, should be inherited from BxInputStringObject
-open class BxInputSelectorVariantsRow<T: BxInputStringObject> : BxInputVariantsRow<T>, BxInputSelectorRow, BxInputString
+/// Selector Row for choosing one item from variant in selector below this row
+/// - parameter: T - is associated data model for variant rows, should be inherited from BxInputStringObject
+open class BxInputSelectorVariantRow<T: BxInputStringObject> : BxInputVariantRow<T>, BxInputSelectorRow, BxInputString
 {
     /// Make and return Binder for binding row with cell.
     override open var binder : BxInputRowBinder {
-        return BxInputSelectorVariantsRowBinder<T, BxInputSelectorVariantsRow<T>, BxInputSelectorCell>(row: self)
+        return BxInputSelectorVariantRowBinder<T, BxInputSelectorVariantRow<T>, BxInputSelectorCell>(row: self)
     }
     override open var resourceId : String {
         get { return "BxInputSelectorCell" }
@@ -34,7 +34,7 @@ open class BxInputSelectorVariantsRow<T: BxInputStringObject> : BxInputVariantsR
     /// Default is true
     open var isFirstShownSelect: Bool = true
     
-    public var child : BxInputChildSelectorVariantsRow<T>
+    public var child : BxInputChildSelectorVariantRow<T>
     public var children: [BxInputChildSelectorRow] {
         get {
             return [child]
@@ -52,7 +52,7 @@ open class BxInputSelectorVariantsRow<T: BxInputStringObject> : BxInputVariantsR
     override public init(title: String? = nil, subtitle: String? = nil,
                          placeholder: String? = nil, value: T? = nil)
     {
-        child = BxInputChildSelectorVariantsRow<T>()
+        child = BxInputChildSelectorVariantRow<T>()
         super.init(title: title, subtitle: subtitle, placeholder: placeholder, value: value)
         child.parent = self
     }
@@ -66,14 +66,14 @@ open class BxInputSelectorVariantsRow<T: BxInputStringObject> : BxInputVariantsR
     
 }
 
-/// Child Row which show variants selector below parent row
-open class BxInputChildSelectorVariantsRow<T: BxInputStringObject>: BxInputChildSelectorRow, BxInputStaticHeight
+/// Child Row which show variant selector below parent row
+open class BxInputChildSelectorVariantRow<T: BxInputStringObject>: BxInputChildSelectorRow, BxInputStaticHeight
 {
     /// Make and return Binder for binding row with cell.
     open var binder : BxInputRowBinder {
-        return BxInputChildSelectorVariantsRowBinder<T>(row: self)
+        return BxInputChildSelectorVariantRowBinder<T>(row: self)
     }
-    open var resourceId : String = "BxInputChildSelectorVariantsCell"
+    open var resourceId : String = "BxInputChildSelectorVariantCell"
     open var height : CGFloat = 216
     open var estimatedHeight : CGFloat {
         get { return height }

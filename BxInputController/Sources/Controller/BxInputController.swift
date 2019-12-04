@@ -48,8 +48,8 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
     }
     /// this picker is used in a simple date row
     internal(set) public var datePicker: UIDatePicker = UIDatePicker()
-    /// this picker is used in a simple variants row
-    internal(set) public var variantsPicker: UIPickerView = UIPickerView()
+    /// this picker is used in a simple variant row
+    internal(set) public var variantPicker: UIPickerView = UIPickerView()
     /// frame of keyboard, if keyboard is shown then it will have real size else zero size and orign
     internal(set) public var keyboardRect: CGRect = CGRect()
     /// frame of content for inputting, if keyboard is shown then it is less then tableView
@@ -103,7 +103,7 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
         checkResources(sectionResourceId: type(of: self).emptyHeaderFooterId)
         
         datePicker.datePickerMode = .date
-        variantsPicker.showsSelectionIndicator = true
+        variantPicker.showsSelectionIndicator = true
         
         //tableView.tableHeaderView = smallView() it leads to insets
         //tableView.tableFooterView = smallView() it leads to insets

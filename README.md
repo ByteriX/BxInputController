@@ -1,6 +1,6 @@
 # BxInputController
 
-This framework will help iOS developers for simplify development general inputing controllers. Holds a ready-made solutions, such as standard solutions in Apple applications also have custom design such as a photo library, a choice of variants or suggestion. If you need custom inputting view (for example calendar for date putting) then you may add new rows or edit or inherited current rows. The component is limited only to the implementation of the paradigm, it essentially involves the use of S.O.L.I.D. approach. An important limitation is the compulsory use of Interface Builder to implement UI (xib or storyboard, but not from code).
+This framework will help iOS developers for simplify development general inputing controllers. Holds a ready-made solutions, such as standard solutions in Apple applications also have custom design such as a photo library, a choice of variant or suggestion. If you need custom inputting view (for example calendar for date putting) then you may add new rows or edit or inherited current rows. The component is limited only to the implementation of the paradigm, it essentially involves the use of S.O.L.I.D. approach. An important limitation is the compulsory use of Interface Builder to implement UI (xib or storyboard, but not from code).
 
 ## Gif demo
 
@@ -10,7 +10,7 @@ This framework will help iOS developers for simplify development general inputin
 
 - [x] Encapsulation UITableView DataSource/Delegate/Scrolling and other
 - [x] Automatical to register resources (xib, pdf, etc) for cells/headers/footer
-- [x] Library general types for inputting: string, date, value objects (variants), pictures, rating, boolean
+- [x] Library general types for inputting: string, date, value object (variant), pictures, rating, boolean
 - [x] Two style inputting: from keyboard or from selector
 - [x] Easy to use current solution and make a custom
 - [x] S.O.L.I.D. decision: binding View with data models
@@ -117,15 +117,15 @@ class SimpleAllRowsController: BxInputController {
     // Text
     private let shortTextRow = BxInputTextRow(title: "text value", placeholder: "short text")
     private let selectorTextRow = BxInputSelectorTextRow(title: "text with selector", placeholder: "longest text")
-    // Variants
-    private let variantsRow = BxInputVariantsRow<BxInputVariantsItem>(title: "variants")
-    private let selectorVariantsRow = BxInputSelectorVariantsRow<BxInputVariantsItem>(title: "selector variants")
+    // Variant
+    private let variantRow = BxInputVariantRow<BxInputVariantItem>(title: "variant")
+    private let selectorVariantRow = BxInputSelectorVariantRow<BxInputVariantItem>(title: "selector variant")
 
-    private let variantsItems : [BxInputVariantsItem] = [
-        BxInputVariantsItem(id: "1", name: "value1"),
-        BxInputVariantsItem(id: "2", name: "value2"),
-        BxInputVariantsItem(id: "3", name: "value3"),
-        BxInputVariantsItem(id: "4", name: "value4"),
+    private let variantItems : [BxInputVariantItem] = [
+        BxInputVariantItem(id: "1", name: "value1"),
+        BxInputVariantItem(id: "2", name: "value2"),
+        BxInputVariantItem(id: "3", name: "value3"),
+        BxInputVariantItem(id: "4", name: "value4"),
         ]
     private let suggestionItems = [
         BxInputSelectorSuggestionsItemRow(title: "value 1"),
@@ -156,8 +156,8 @@ class SimpleAllRowsController: BxInputController {
         }
         customActionRow.isImmediatelyDeselect = true
         selectorSuggestionsRow.children = suggestionItems
-        variantsRow.items = variantsItems
-        selectorVariantsRow.items = variantsItems
+        variantRow.items = variantItems
+        selectorVariantRow.items = variantItems
 
         self.sections = [
             BxInputSection(headerText: "Action", rows: [stringActionRow, customActionRow]),
@@ -167,7 +167,7 @@ class SimpleAllRowsController: BxInputController {
             BxInputSection(headerText: "Rate", rows: [rateRow]),
             BxInputSection(headerText: "Suggestions", rows: [selectorSuggestionsRow]),
             BxInputSection(headerText: "Text", rows: [shortTextRow, selectorTextRow]),
-            BxInputSection(headerText: "Variants", rows: [variantsRow, selectorVariantsRow])
+            BxInputSection(headerText: "Variant", rows: [variantRow, selectorVariantRow])
         ]
     }
     
@@ -221,27 +221,27 @@ class InputController: BxInputController {
 
     private var email = BxInputTextRow(title: "email value", value: "")
     private var birthdayDate = BxInputDateRow(title: "birthday", placeholder: "YOUR BIRTHDAY")
-    private var selectedVariants = BxInputSelectorVariantsRow<BxInputVariantsItem>(title: "selected", 
+    private var selectedVariant = BxInputSelectorVariantRow<BxInputVariantItem>(title: "selected", 
         placeholder: "SELECT")
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        selectedVariants.items = [
-            BxInputVariantsItem(id: "1", name: "value1"),
-            BxInputVariantsItem(id: "2", name: "value2"),
-            BxInputVariantsItem(id: "3", name: "value3")
+        selectedVariant.items = [
+            BxInputVariantItem(id: "1", name: "value1"),
+            BxInputVariantItem(id: "2", name: "value2"),
+            BxInputVariantItem(id: "3", name: "value3")
         ]
 
         self.sections = [
-            BxInputSection(rows: [email, birthdayDate, selectedVariants])
+            BxInputSection(rows: [email, birthdayDate, selectedVariant])
         ]
     }
 
     func showInputedValues() {
         print(email.value)
         print(birthdayDate.value)
-        print(selectedVariants.selectedVariant.name)
+        print(selectedVariant.selectedVariant.name)
     }
 }
 

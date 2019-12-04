@@ -1,8 +1,8 @@
 /**
- *    @file BxInputSegmentedVariantsRowBinder.swift
+ *    @file BxInputSegmentedVariantRowBinder.swift
  *    @namespace BxInputController
  *
- *    @details Binder for BxInputSegmentedVariantsRow
+ *    @details Binder for BxInputSegmentedVariantRow
  *    @date 28.11.2019
  *    @author Sergey Balalaev
  *
@@ -13,8 +13,8 @@
 
 import UIKit
 
-/// Binder for BxInputVariantsRow
-open class BxInputSegmentedVariantsRowBinder<T : BxInputStringObject, Cell : BxInputSegmentedVariantsCell> : BxInputBaseTitleRowBinder<BxInputSegmentedVariantsRow<T>, Cell>
+/// Binder for BxInputVariantRow
+open class BxInputSegmentedVariantRowBinder<T : BxInputStringObject, Cell : BxInputSegmentedVariantCell> : BxInputBaseTitleRowBinder<BxInputSegmentedVariantRow<T>, Cell>
 {
     
     /// update cell from model data
@@ -64,7 +64,7 @@ open class BxInputSegmentedVariantsRowBinder<T : BxInputStringObject, Cell : BxI
     
 }
 
-extension BxInputSegmentedVariantsRowBinder: BxInputSegmentedVariantsDelegate
+extension BxInputSegmentedVariantRowBinder: BxInputSegmentedVariantDelegate
 {
     open func changeSegmentedControl(_ segmentedControl: UISegmentedControl){
         let index = segmentedControl.selectedSegmentIndex
@@ -75,7 +75,7 @@ extension BxInputSegmentedVariantsRowBinder: BxInputSegmentedVariantsDelegate
     
 }
 
-extension BxInputSegmentedVariantsRowBinder: BxInputRowBinderMenuAll
+extension BxInputSegmentedVariantRowBinder: BxInputRowBinderMenuAll
 {
 
     open var canDeleteValue: Bool {

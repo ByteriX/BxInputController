@@ -1,5 +1,5 @@
 /**
-*    @file BxInputSegmentedVariantsRow.swift
+*    @file BxInputSegmentedVariantRow.swift
 *    @namespace BxInputController
 *
 *    @details Row for choosing one item from segmented control
@@ -13,14 +13,14 @@
 
 import Foundation
 
-open class BxInputSegmentedVariantsRow<T : BxInputStringObject> : BxInputVariantsRow<T> {
+open class BxInputSegmentedVariantRow<T : BxInputStringObject> : BxInputVariantRow<T> {
     
     open override var binder : BxInputRowBinder {
-        return BxInputSegmentedVariantsRowBinder<T, BxInputSegmentedVariantsCell>(row: self)
+        return BxInputSegmentedVariantRowBinder<T, BxInputSegmentedVariantCell>(row: self)
     }
     
     open override var resourceId : String {
-        get { return "BxInputSegmentedVariantsCell" }
+        get { return "BxInputSegmentedVariantCell" }
     }
 //    open var estimatedHeight : CGFloat {
 //        get { return 60 }

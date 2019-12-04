@@ -11,16 +11,16 @@
 		E30819962191A27300DC64E3 /* BxInputController+Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30819952191A27300DC64E3 /* BxInputController+Checker.swift */; };
 		E3113836224E20AA00C47133 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3113835224E20AA00C47133 /* Array.swift */; };
 		E32D92D720F6368200F1993B /* BxInputTextSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32D92D620F6368200F1993B /* BxInputTextSourceProtocol.swift */; };
-		E336519621E72B5F00DD09FA /* BxInputSearchVariantsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E336519521E72B5F00DD09FA /* BxInputSearchVariantsRow.swift */; };
-		E336519821E731AD00DD09FA /* BxInputSearchVariantsRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E336519721E731AD00DD09FA /* BxInputSearchVariantsRowBinder.swift */; };
+		E336519621E72B5F00DD09FA /* BxInputSearchVariantRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E336519521E72B5F00DD09FA /* BxInputSearchVariantRow.swift */; };
+		E336519821E731AD00DD09FA /* BxInputSearchVariantRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E336519721E731AD00DD09FA /* BxInputSearchVariantRowBinder.swift */; };
 		E336519A21E77CBD00DD09FA /* BxInputSearchSelectorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E336519921E77CBD00DD09FA /* BxInputSearchSelectorCell.xib */; };
-		E37F2FD123901911004C0F76 /* BxInputSegmentedVariantsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37F2FD023901911004C0F76 /* BxInputSegmentedVariantsRow.swift */; };
-		E37F2FD323901A09004C0F76 /* BxInputSegmentedVariantsRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37F2FD223901A09004C0F76 /* BxInputSegmentedVariantsRowBinder.swift */; };
-		E37F2FD523901A91004C0F76 /* BxInputSegmentedVariantsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E37F2FD423901A91004C0F76 /* BxInputSegmentedVariantsCell.xib */; };
-		E37F2FD723901AE3004C0F76 /* BxInputSegmentedVariantsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37F2FD623901AE3004C0F76 /* BxInputSegmentedVariantsCell.swift */; };
+		E37F2FD123901911004C0F76 /* BxInputSegmentedVariantRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37F2FD023901911004C0F76 /* BxInputSegmentedVariantRow.swift */; };
+		E37F2FD323901A09004C0F76 /* BxInputSegmentedVariantRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37F2FD223901A09004C0F76 /* BxInputSegmentedVariantRowBinder.swift */; };
+		E37F2FD523901A91004C0F76 /* BxInputSegmentedVariantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E37F2FD423901A91004C0F76 /* BxInputSegmentedVariantCell.xib */; };
+		E37F2FD723901AE3004C0F76 /* BxInputSegmentedVariantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37F2FD623901AE3004C0F76 /* BxInputSegmentedVariantCell.swift */; };
 		E3BD515E21A6904200498E3B /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BD515D21A6904200498E3B /* UITableViewCell.swift */; };
 		E3BD516021A6998000498E3B /* BxInputRowBinderMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BD515F21A6998000498E3B /* BxInputRowBinderMenu.swift */; };
-		E3BD516221A6A26900498E3B /* BxInputSelectorVariantsRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BD516121A6A26900498E3B /* BxInputSelectorVariantsRowBinder.swift */; };
+		E3BD516221A6A26900498E3B /* BxInputSelectorVariantRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BD516121A6A26900498E3B /* BxInputSelectorVariantRowBinder.swift */; };
 		E3FD688020E208CB00421EA8 /* BxInputIconActionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FD687F20E208CB00421EA8 /* BxInputIconActionRow.swift */; };
 		E3FD688320E2096600421EA8 /* BxInputIconActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FD688120E2096600421EA8 /* BxInputIconActionCell.swift */; };
 		E3FD688420E2096600421EA8 /* BxInputIconActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3FD688220E2096600421EA8 /* BxInputIconActionCell.xib */; };
@@ -49,7 +49,7 @@
 		F933F5A61E7BBFD400FB1E22 /* BxInputCheckRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F933F5A51E7BBFD400FB1E22 /* BxInputCheckRowBinder.swift */; };
 		F933F5A81E7BC1E000FB1E22 /* BxInputDateRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F933F5A71E7BC1E000FB1E22 /* BxInputDateRowBinder.swift */; };
 		F933F5AA1E7BC81300FB1E22 /* BxInputTextRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F933F5A91E7BC81300FB1E22 /* BxInputTextRowBinder.swift */; };
-		F933F5AC1E7BCB3000FB1E22 /* BxInputVariantsRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F933F5AB1E7BCB3000FB1E22 /* BxInputVariantsRowBinder.swift */; };
+		F933F5AC1E7BCB3000FB1E22 /* BxInputVariantRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F933F5AB1E7BCB3000FB1E22 /* BxInputVariantRowBinder.swift */; };
 		F933F5B61E7BD01200FB1E22 /* BxInputChildSelectorRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F933F5AE1E7BD01200FB1E22 /* BxInputChildSelectorRowBinder.swift */; };
 		F933F5B71E7BD01200FB1E22 /* BxInputSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F933F5AF1E7BD01200FB1E22 /* BxInputSelectorCell.swift */; };
 		F933F5B81E7BD01200FB1E22 /* BxInputSelectorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F933F5B01E7BD01200FB1E22 /* BxInputSelectorCell.xib */; };
@@ -65,7 +65,7 @@
 		F95DCA571EDCA969007B82AF /* BxInputController.templatespec in Resources */ = {isa = PBXBuildFile; fileRef = F95DCA561EDCA969007B82AF /* BxInputController.templatespec */; };
 		F960F74F1E812244002F11A5 /* BxInputChildSelectorPicturesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F96D1F5C1E5463AC00BDB2CE /* BxInputChildSelectorPicturesCell.xib */; };
 		F960F7501E812244002F11A5 /* BxInputChildSelectorTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F96D1F6F1E5463AC00BDB2CE /* BxInputChildSelectorTextCell.xib */; };
-		F960F7511E812244002F11A5 /* BxInputChildSelectorVariantsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F96D1F771E5463AC00BDB2CE /* BxInputChildSelectorVariantsCell.xib */; };
+		F960F7511E812244002F11A5 /* BxInputChildSelectorVariantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F96D1F771E5463AC00BDB2CE /* BxInputChildSelectorVariantCell.xib */; };
 		F96126581EBC8E9500F00034 /* BxInputEqualValuesChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96126571EBC8E9500F00034 /* BxInputEqualValuesChecker.swift */; };
 		F96D1F781E5463AC00BDB2CE /* BxInputActionCustomRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F461E5463AC00BDB2CE /* BxInputActionCustomRow.swift */; };
 		F96D1F791E5463AC00BDB2CE /* BxInputActionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F471E5463AC00BDB2CE /* BxInputActionRow.swift */; };
@@ -93,11 +93,11 @@
 		F96D1F901E5463AC00BDB2CE /* BxInputSelectorTextRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F6B1E5463AC00BDB2CE /* BxInputSelectorTextRow.swift */; };
 		F96D1F911E5463AC00BDB2CE /* BxInputTextRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F6C1E5463AC00BDB2CE /* BxInputTextRow.swift */; };
 		F96D1F921E5463AC00BDB2CE /* BxInputChildSelectorTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F6E1E5463AC00BDB2CE /* BxInputChildSelectorTextCell.swift */; };
-		F96D1F941E5463AC00BDB2CE /* BxInputSelectorVariantsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F711E5463AC00BDB2CE /* BxInputSelectorVariantsRow.swift */; };
-		F96D1F951E5463AC00BDB2CE /* BxInputVariants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F721E5463AC00BDB2CE /* BxInputVariants.swift */; };
-		F96D1F961E5463AC00BDB2CE /* BxInputVariantsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F731E5463AC00BDB2CE /* BxInputVariantsItem.swift */; };
-		F96D1F971E5463AC00BDB2CE /* BxInputVariantsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F741E5463AC00BDB2CE /* BxInputVariantsRow.swift */; };
-		F96D1F981E5463AC00BDB2CE /* BxInputChildSelectorVariantsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F761E5463AC00BDB2CE /* BxInputChildSelectorVariantsCell.swift */; };
+		F96D1F941E5463AC00BDB2CE /* BxInputSelectorVariantRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F711E5463AC00BDB2CE /* BxInputSelectorVariantRow.swift */; };
+		F96D1F951E5463AC00BDB2CE /* BxInputVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F721E5463AC00BDB2CE /* BxInputVariant.swift */; };
+		F96D1F961E5463AC00BDB2CE /* BxInputVariantItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F731E5463AC00BDB2CE /* BxInputVariantItem.swift */; };
+		F96D1F971E5463AC00BDB2CE /* BxInputVariantRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F741E5463AC00BDB2CE /* BxInputVariantRow.swift */; };
+		F96D1F981E5463AC00BDB2CE /* BxInputChildSelectorVariantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F761E5463AC00BDB2CE /* BxInputChildSelectorVariantCell.swift */; };
 		F96D1F9B1E54753C00BDB2CE /* SimpleAllRowsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F9A1E54753C00BDB2CE /* SimpleAllRowsController.swift */; };
 		F96D1F9E1E54859300BDB2CE /* BxInputSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D1F9C1E54859300BDB2CE /* BxInputSwitchCell.swift */; };
 		F96D1F9F1E54859300BDB2CE /* BxInputSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F96D1F9D1E54859300BDB2CE /* BxInputSwitchCell.xib */; };
@@ -108,7 +108,7 @@
 		F9847E781E279B60007C26EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9847E771E279B60007C26EC /* Assets.xcassets */; };
 		F993083C1E430C9A00EDA3BD /* ReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F993083B1E430C9A00EDA3BD /* ReviewController.swift */; };
 		F99D888B1E6DDB2A003E591B /* BxInputChildSelectorSuggestionRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99D888A1E6DDB2A003E591B /* BxInputChildSelectorSuggestionRowBinder.swift */; };
-		F99D888D1E6DDCA0003E591B /* BxInputChildSelectorVariantsRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99D888C1E6DDCA0003E591B /* BxInputChildSelectorVariantsRowBinder.swift */; };
+		F99D888D1E6DDCA0003E591B /* BxInputChildSelectorVariantRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99D888C1E6DDCA0003E591B /* BxInputChildSelectorVariantRowBinder.swift */; };
 		F99D888F1E6DDE66003E591B /* BxInputChildSelectorTextRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99D888E1E6DDE66003E591B /* BxInputChildSelectorTextRowBinder.swift */; };
 		F99D88911E6DDFF0003E591B /* BxInputChildSelectorPicturesRowBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99D88901E6DDFF0003E591B /* BxInputChildSelectorPicturesRowBinder.swift */; };
 		F9B4A4541F69BF0400393B5D /* UIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B4A4531F69BF0400393B5D /* UIControl.swift */; };
@@ -157,16 +157,16 @@
 		E30819952191A27300DC64E3 /* BxInputController+Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BxInputController+Checker.swift"; sourceTree = "<group>"; };
 		E3113835224E20AA00C47133 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		E32D92D620F6368200F1993B /* BxInputTextSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BxInputTextSourceProtocol.swift; sourceTree = "<group>"; };
-		E336519521E72B5F00DD09FA /* BxInputSearchVariantsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BxInputSearchVariantsRow.swift; sourceTree = "<group>"; };
-		E336519721E731AD00DD09FA /* BxInputSearchVariantsRowBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BxInputSearchVariantsRowBinder.swift; sourceTree = "<group>"; };
+		E336519521E72B5F00DD09FA /* BxInputSearchVariantRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BxInputSearchVariantRow.swift; sourceTree = "<group>"; };
+		E336519721E731AD00DD09FA /* BxInputSearchVariantRowBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BxInputSearchVariantRowBinder.swift; sourceTree = "<group>"; };
 		E336519921E77CBD00DD09FA /* BxInputSearchSelectorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BxInputSearchSelectorCell.xib; sourceTree = "<group>"; };
-		E37F2FD023901911004C0F76 /* BxInputSegmentedVariantsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BxInputSegmentedVariantsRow.swift; sourceTree = "<group>"; };
-		E37F2FD223901A09004C0F76 /* BxInputSegmentedVariantsRowBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BxInputSegmentedVariantsRowBinder.swift; sourceTree = "<group>"; };
-		E37F2FD423901A91004C0F76 /* BxInputSegmentedVariantsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BxInputSegmentedVariantsCell.xib; sourceTree = "<group>"; };
-		E37F2FD623901AE3004C0F76 /* BxInputSegmentedVariantsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BxInputSegmentedVariantsCell.swift; sourceTree = "<group>"; };
+		E37F2FD023901911004C0F76 /* BxInputSegmentedVariantRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BxInputSegmentedVariantRow.swift; sourceTree = "<group>"; };
+		E37F2FD223901A09004C0F76 /* BxInputSegmentedVariantRowBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BxInputSegmentedVariantRowBinder.swift; sourceTree = "<group>"; };
+		E37F2FD423901A91004C0F76 /* BxInputSegmentedVariantCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BxInputSegmentedVariantCell.xib; sourceTree = "<group>"; };
+		E37F2FD623901AE3004C0F76 /* BxInputSegmentedVariantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BxInputSegmentedVariantCell.swift; sourceTree = "<group>"; };
 		E3BD515D21A6904200498E3B /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
 		E3BD515F21A6998000498E3B /* BxInputRowBinderMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BxInputRowBinderMenu.swift; sourceTree = "<group>"; };
-		E3BD516121A6A26900498E3B /* BxInputSelectorVariantsRowBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BxInputSelectorVariantsRowBinder.swift; sourceTree = "<group>"; };
+		E3BD516121A6A26900498E3B /* BxInputSelectorVariantRowBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BxInputSelectorVariantRowBinder.swift; sourceTree = "<group>"; };
 		E3FD687F20E208CB00421EA8 /* BxInputIconActionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BxInputIconActionRow.swift; sourceTree = "<group>"; };
 		E3FD688120E2096600421EA8 /* BxInputIconActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BxInputIconActionCell.swift; sourceTree = "<group>"; };
 		E3FD688220E2096600421EA8 /* BxInputIconActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BxInputIconActionCell.xib; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 		F933F5A51E7BBFD400FB1E22 /* BxInputCheckRowBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputCheckRowBinder.swift; sourceTree = "<group>"; };
 		F933F5A71E7BC1E000FB1E22 /* BxInputDateRowBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputDateRowBinder.swift; sourceTree = "<group>"; };
 		F933F5A91E7BC81300FB1E22 /* BxInputTextRowBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputTextRowBinder.swift; sourceTree = "<group>"; };
-		F933F5AB1E7BCB3000FB1E22 /* BxInputVariantsRowBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputVariantsRowBinder.swift; sourceTree = "<group>"; };
+		F933F5AB1E7BCB3000FB1E22 /* BxInputVariantRowBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputVariantRowBinder.swift; sourceTree = "<group>"; };
 		F933F5AE1E7BD01200FB1E22 /* BxInputChildSelectorRowBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputChildSelectorRowBinder.swift; sourceTree = "<group>"; };
 		F933F5AF1E7BD01200FB1E22 /* BxInputSelectorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSelectorCell.swift; sourceTree = "<group>"; };
 		F933F5B01E7BD01200FB1E22 /* BxInputSelectorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BxInputSelectorCell.xib; sourceTree = "<group>"; };
@@ -244,12 +244,12 @@
 		F96D1F6C1E5463AC00BDB2CE /* BxInputTextRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputTextRow.swift; sourceTree = "<group>"; };
 		F96D1F6E1E5463AC00BDB2CE /* BxInputChildSelectorTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputChildSelectorTextCell.swift; sourceTree = "<group>"; };
 		F96D1F6F1E5463AC00BDB2CE /* BxInputChildSelectorTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BxInputChildSelectorTextCell.xib; sourceTree = "<group>"; };
-		F96D1F711E5463AC00BDB2CE /* BxInputSelectorVariantsRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSelectorVariantsRow.swift; sourceTree = "<group>"; };
-		F96D1F721E5463AC00BDB2CE /* BxInputVariants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputVariants.swift; sourceTree = "<group>"; };
-		F96D1F731E5463AC00BDB2CE /* BxInputVariantsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputVariantsItem.swift; sourceTree = "<group>"; };
-		F96D1F741E5463AC00BDB2CE /* BxInputVariantsRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputVariantsRow.swift; sourceTree = "<group>"; };
-		F96D1F761E5463AC00BDB2CE /* BxInputChildSelectorVariantsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputChildSelectorVariantsCell.swift; sourceTree = "<group>"; };
-		F96D1F771E5463AC00BDB2CE /* BxInputChildSelectorVariantsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BxInputChildSelectorVariantsCell.xib; sourceTree = "<group>"; };
+		F96D1F711E5463AC00BDB2CE /* BxInputSelectorVariantRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSelectorVariantRow.swift; sourceTree = "<group>"; };
+		F96D1F721E5463AC00BDB2CE /* BxInputVariant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputVariant.swift; sourceTree = "<group>"; };
+		F96D1F731E5463AC00BDB2CE /* BxInputVariantItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputVariantItem.swift; sourceTree = "<group>"; };
+		F96D1F741E5463AC00BDB2CE /* BxInputVariantRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputVariantRow.swift; sourceTree = "<group>"; };
+		F96D1F761E5463AC00BDB2CE /* BxInputChildSelectorVariantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputChildSelectorVariantCell.swift; sourceTree = "<group>"; };
+		F96D1F771E5463AC00BDB2CE /* BxInputChildSelectorVariantCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BxInputChildSelectorVariantCell.xib; sourceTree = "<group>"; };
 		F96D1F9A1E54753C00BDB2CE /* SimpleAllRowsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleAllRowsController.swift; sourceTree = "<group>"; };
 		F96D1F9C1E54859300BDB2CE /* BxInputSwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputSwitchCell.swift; sourceTree = "<group>"; };
 		F96D1F9D1E54859300BDB2CE /* BxInputSwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BxInputSwitchCell.xib; sourceTree = "<group>"; };
@@ -260,7 +260,7 @@
 		F9847E771E279B60007C26EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F993083B1E430C9A00EDA3BD /* ReviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewController.swift; sourceTree = "<group>"; };
 		F99D888A1E6DDB2A003E591B /* BxInputChildSelectorSuggestionRowBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputChildSelectorSuggestionRowBinder.swift; sourceTree = "<group>"; };
-		F99D888C1E6DDCA0003E591B /* BxInputChildSelectorVariantsRowBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputChildSelectorVariantsRowBinder.swift; sourceTree = "<group>"; };
+		F99D888C1E6DDCA0003E591B /* BxInputChildSelectorVariantRowBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputChildSelectorVariantRowBinder.swift; sourceTree = "<group>"; };
 		F99D888E1E6DDE66003E591B /* BxInputChildSelectorTextRowBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputChildSelectorTextRowBinder.swift; sourceTree = "<group>"; };
 		F99D88901E6DDFF0003E591B /* BxInputChildSelectorPicturesRowBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BxInputChildSelectorPicturesRowBinder.swift; sourceTree = "<group>"; };
 		F9B4A4531F69BF0400393B5D /* UIControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIControl.swift; sourceTree = "<group>"; };
@@ -621,12 +621,12 @@
 		F96D1F701E5463AC00BDB2CE /* Variants */ = {
 			isa = PBXGroup;
 			children = (
-				E336519521E72B5F00DD09FA /* BxInputSearchVariantsRow.swift */,
-				F96D1F711E5463AC00BDB2CE /* BxInputSelectorVariantsRow.swift */,
-				F96D1F721E5463AC00BDB2CE /* BxInputVariants.swift */,
-				F96D1F731E5463AC00BDB2CE /* BxInputVariantsItem.swift */,
-				F96D1F741E5463AC00BDB2CE /* BxInputVariantsRow.swift */,
-				E37F2FD023901911004C0F76 /* BxInputSegmentedVariantsRow.swift */,
+				E336519521E72B5F00DD09FA /* BxInputSearchVariantRow.swift */,
+				F96D1F711E5463AC00BDB2CE /* BxInputSelectorVariantRow.swift */,
+				F96D1F721E5463AC00BDB2CE /* BxInputVariant.swift */,
+				F96D1F731E5463AC00BDB2CE /* BxInputVariantItem.swift */,
+				F96D1F741E5463AC00BDB2CE /* BxInputVariantRow.swift */,
+				E37F2FD023901911004C0F76 /* BxInputSegmentedVariantRow.swift */,
 				F96D1F751E5463AC00BDB2CE /* View */,
 			);
 			path = Variants;
@@ -635,16 +635,16 @@
 		F96D1F751E5463AC00BDB2CE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F933F5AB1E7BCB3000FB1E22 /* BxInputVariantsRowBinder.swift */,
-				F99D888C1E6DDCA0003E591B /* BxInputChildSelectorVariantsRowBinder.swift */,
-				F96D1F761E5463AC00BDB2CE /* BxInputChildSelectorVariantsCell.swift */,
-				F96D1F771E5463AC00BDB2CE /* BxInputChildSelectorVariantsCell.xib */,
-				E3BD516121A6A26900498E3B /* BxInputSelectorVariantsRowBinder.swift */,
-				E336519721E731AD00DD09FA /* BxInputSearchVariantsRowBinder.swift */,
+				F933F5AB1E7BCB3000FB1E22 /* BxInputVariantRowBinder.swift */,
+				F99D888C1E6DDCA0003E591B /* BxInputChildSelectorVariantRowBinder.swift */,
+				F96D1F761E5463AC00BDB2CE /* BxInputChildSelectorVariantCell.swift */,
+				F96D1F771E5463AC00BDB2CE /* BxInputChildSelectorVariantCell.xib */,
+				E3BD516121A6A26900498E3B /* BxInputSelectorVariantRowBinder.swift */,
+				E336519721E731AD00DD09FA /* BxInputSearchVariantRowBinder.swift */,
 				E336519921E77CBD00DD09FA /* BxInputSearchSelectorCell.xib */,
-				E37F2FD223901A09004C0F76 /* BxInputSegmentedVariantsRowBinder.swift */,
-				E37F2FD623901AE3004C0F76 /* BxInputSegmentedVariantsCell.swift */,
-				E37F2FD423901A91004C0F76 /* BxInputSegmentedVariantsCell.xib */,
+				E37F2FD223901A09004C0F76 /* BxInputSegmentedVariantRowBinder.swift */,
+				E37F2FD623901AE3004C0F76 /* BxInputSegmentedVariantCell.swift */,
+				E37F2FD423901A91004C0F76 /* BxInputSegmentedVariantCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -832,7 +832,7 @@
 				E3FD688420E2096600421EA8 /* BxInputIconActionCell.xib in Resources */,
 				E336519A21E77CBD00DD09FA /* BxInputSearchSelectorCell.xib in Resources */,
 				F933F5B81E7BD01200FB1E22 /* BxInputSelectorCell.xib in Resources */,
-				F960F7511E812244002F11A5 /* BxInputChildSelectorVariantsCell.xib in Resources */,
+				F960F7511E812244002F11A5 /* BxInputChildSelectorVariantCell.xib in Resources */,
 				F95DCA571EDCA969007B82AF /* BxInputController.templatespec in Resources */,
 				F907C7F21E77D25F000F3437 /* BxInputFormattedTextCell.xib in Resources */,
 				F92183EC1E23AFB9002E1781 /* Assets.xcassets in Resources */,
@@ -845,7 +845,7 @@
 				F9847E781E279B60007C26EC /* Assets.xcassets in Resources */,
 				F96D1F8B1E5463AC00BDB2CE /* BxInputRateCell.xib in Resources */,
 				F9E787351E52F6F800341996 /* BxInputEmptyHeaderFooterView.xib in Resources */,
-				E37F2FD523901A91004C0F76 /* BxInputSegmentedVariantsCell.xib in Resources */,
+				E37F2FD523901A91004C0F76 /* BxInputSegmentedVariantCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -928,7 +928,7 @@
 				F9E7870A1E52F6F800341996 /* BxInputController+UITableViewDelegate.swift in Sources */,
 				F9191D491EB2760C0099CD7A /* BxInputDisabledRowDecorator.swift in Sources */,
 				F9E787091E52F6F800341996 /* BxInputController+UITableViewDataSource.swift in Sources */,
-				F96D1F981E5463AC00BDB2CE /* BxInputChildSelectorVariantsCell.swift in Sources */,
+				F96D1F981E5463AC00BDB2CE /* BxInputChildSelectorVariantCell.swift in Sources */,
 				F9B4A4541F69BF0400393B5D /* UIControl.swift in Sources */,
 				F9E787381E52F6F800341996 /* BxInputTextHeaderView.swift in Sources */,
 				F9DF02D91EADE34E006EC83E /* BxInputStandartErrorRowDecorator.swift in Sources */,
@@ -947,19 +947,19 @@
 				F90EE7A71E6DD752006A506C /* BxInputRateRowBinder.swift in Sources */,
 				F96D1F791E5463AC00BDB2CE /* BxInputActionRow.swift in Sources */,
 				F96D1F871E5463AC00BDB2CE /* BxInputSelectorPicturesLibraryDataSource.swift in Sources */,
-				E37F2FD723901AE3004C0F76 /* BxInputSegmentedVariantsCell.swift in Sources */,
+				E37F2FD723901AE3004C0F76 /* BxInputSegmentedVariantCell.swift in Sources */,
 				F96D1F851E5463AC00BDB2CE /* BxInputChildSelectorPicturesCell.swift in Sources */,
 				F9843E271E7DC63300057C7F /* BxInputSectionContentBinder.swift in Sources */,
-				F96D1F951E5463AC00BDB2CE /* BxInputVariants.swift in Sources */,
-				F96D1F971E5463AC00BDB2CE /* BxInputVariantsRow.swift in Sources */,
-				F96D1F941E5463AC00BDB2CE /* BxInputSelectorVariantsRow.swift in Sources */,
+				F96D1F951E5463AC00BDB2CE /* BxInputVariant.swift in Sources */,
+				F96D1F971E5463AC00BDB2CE /* BxInputVariantRow.swift in Sources */,
+				F96D1F941E5463AC00BDB2CE /* BxInputSelectorVariantRow.swift in Sources */,
 				F932068D1F30EC1F0015ACDC /* BxInputTextMemoRow.swift in Sources */,
 				F933F5BA1E7BD01200FB1E22 /* BxInputStandartTextCell.swift in Sources */,
 				F96D1F811E5463AC00BDB2CE /* BxInputPictureImageItem.swift in Sources */,
 				F9843E291E7DC9FA00057C7F /* BxInputStringSectionContentView.swift in Sources */,
 				F9FF096E1E55FADB00A58FCE /* EnabledAllRowsController.swift in Sources */,
 				F9E787071E52F6F800341996 /* BxInputController+InputAccessoryView.swift in Sources */,
-				F96D1F961E5463AC00BDB2CE /* BxInputVariantsItem.swift in Sources */,
+				F96D1F961E5463AC00BDB2CE /* BxInputVariantItem.swift in Sources */,
 				F9E787301E52F6F800341996 /* BxInputSectionContent.swift in Sources */,
 				F96D1F911E5463AC00BDB2CE /* BxInputTextRow.swift in Sources */,
 				F9E787011E52F6F800341996 /* BxInputStringRow.swift in Sources */,
@@ -977,7 +977,7 @@
 				F933F5AA1E7BC81300FB1E22 /* BxInputTextRowBinder.swift in Sources */,
 				F9E787001E52F6F800341996 /* BxInputString.swift in Sources */,
 				E3FD688020E208CB00421EA8 /* BxInputIconActionRow.swift in Sources */,
-				E336519821E731AD00DD09FA /* BxInputSearchVariantsRowBinder.swift in Sources */,
+				E336519821E731AD00DD09FA /* BxInputSearchVariantRowBinder.swift in Sources */,
 				F9847E741E279815007C26EC /* SelectionController.swift in Sources */,
 				F9E787341E52F6F800341996 /* BxInputEmptyHeaderFooterView.swift in Sources */,
 				F96D1F7B1E5463AC00BDB2CE /* BxInputSwitchRow.swift in Sources */,
@@ -992,16 +992,16 @@
 				F96D1F9B1E54753C00BDB2CE /* SimpleAllRowsController.swift in Sources */,
 				F96D1F7A1E5463AC00BDB2CE /* BxInputCheckRow.swift in Sources */,
 				F9369E381EAF44CB00D6758E /* BxInputBaseFieldRowBinder.swift in Sources */,
-				E336519621E72B5F00DD09FA /* BxInputSearchVariantsRow.swift in Sources */,
+				E336519621E72B5F00DD09FA /* BxInputSearchVariantRow.swift in Sources */,
 				F907C7EE1E77D027000F3437 /* BxInputFormattedTextRow.swift in Sources */,
-				E3BD516221A6A26900498E3B /* BxInputSelectorVariantsRowBinder.swift in Sources */,
+				E3BD516221A6A26900498E3B /* BxInputSelectorVariantRowBinder.swift in Sources */,
 				F92183DE1E23AB21002E1781 /* AppDelegate.swift in Sources */,
-				F933F5AC1E7BCB3000FB1E22 /* BxInputVariantsRowBinder.swift in Sources */,
+				F933F5AC1E7BCB3000FB1E22 /* BxInputVariantRowBinder.swift in Sources */,
 				F96D1F7E1E5463AC00BDB2CE /* BxInputChildSelectorDateCell.swift in Sources */,
 				F96D1F8A1E5463AC00BDB2CE /* BxInputRateCell.swift in Sources */,
 				F9E787331E52F6F800341996 /* BxInputSectionView.swift in Sources */,
 				F9E787081E52F6F800341996 /* UIViewController+Keyboard.swift in Sources */,
-				E37F2FD123901911004C0F76 /* BxInputSegmentedVariantsRow.swift in Sources */,
+				E37F2FD123901911004C0F76 /* BxInputSegmentedVariantRow.swift in Sources */,
 				F96D1F881E5463AC00BDB2CE /* BxInputSelectorPictureView.swift in Sources */,
 				F9E787311E52F6F800341996 /* BxInputSectionStringFooter.swift in Sources */,
 				F9E7870C1E52F6F800341996 /* BxInputSettings.swift in Sources */,
@@ -1014,7 +1014,7 @@
 				F9DF02DF1EAE1A44006EC83E /* BxInputEmailChecker.swift in Sources */,
 				F993083C1E430C9A00EDA3BD /* ReviewController.swift in Sources */,
 				E3BD516021A6998000498E3B /* BxInputRowBinderMenu.swift in Sources */,
-				F99D888D1E6DDCA0003E591B /* BxInputChildSelectorVariantsRowBinder.swift in Sources */,
+				F99D888D1E6DDCA0003E591B /* BxInputChildSelectorVariantRowBinder.swift in Sources */,
 				F9843E231E7DC57800057C7F /* BxInputStringSectionContentBinder.swift in Sources */,
 				F9E786FE1E52F6F800341996 /* BxInputSelectorRow.swift in Sources */,
 				F9E786FD1E52F6F800341996 /* BxInputRow.swift in Sources */,
@@ -1025,7 +1025,7 @@
 				F96D1F8D1E5463AC00BDB2CE /* BxInputSelectorSuggestionsRow.swift in Sources */,
 				F96D1F891E5463AC00BDB2CE /* BxInputRateRow.swift in Sources */,
 				F90EE7A11E6DCCC3006A506C /* BxInputSwitchRowBinder.swift in Sources */,
-				E37F2FD323901A09004C0F76 /* BxInputSegmentedVariantsRowBinder.swift in Sources */,
+				E37F2FD323901A09004C0F76 /* BxInputSegmentedVariantRowBinder.swift in Sources */,
 				F907C7F11E77D25F000F3437 /* BxInputFormattedTextCell.swift in Sources */,
 				F9CA1C781EABD9310029A029 /* BxInputEmptyValueChecker.swift in Sources */,
 			);

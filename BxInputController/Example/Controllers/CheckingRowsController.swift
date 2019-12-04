@@ -15,7 +15,7 @@ class CheckingRowsController: BxInputController {
     private var emailRow = BxInputFormattedTextRow(title: "email value", placeholder: "only corrected email")
     private var passwordRow = BxInputTextRow(title: "password value", placeholder: "empty is incorrected")
     
-    internal let genderRow = BxInputSelectorVariantsRow<BxInputVariantsItem>(title: "gender")
+    internal let genderRow = BxInputSelectorVariantRow<BxInputVariantItem>(title: "gender")
     
     private var filledDateRow = BxInputDateRow(title: "filled date", value: Date().addingTimeInterval(300000))
     private var emptyDateRow = BxInputDateRow(title: "not empty value")
@@ -33,9 +33,9 @@ class CheckingRowsController: BxInputController {
         isEstimatedContent = false
 
         genderRow.items = [
-            BxInputVariantsItem(id: "none", name: "none"),
-            BxInputVariantsItem(id: "male", name: "male"),
-            BxInputVariantsItem(id: "famale", name: "famale")]
+            BxInputVariantItem(id: "none", name: "none"),
+            BxInputVariantItem(id: "male", name: "male"),
+            BxInputVariantItem(id: "famale", name: "famale")]
         
         self.sections = [
             BxInputSection(rows: [nameRow, surnameRow, emailRow, passwordRow, genderRow]),

@@ -60,8 +60,8 @@ open class BxInputChildSelectorPicturesRowBinder<Row: BxInputChildSelectorPictur
         cell.selectedPictureViews = []
         
         //            DispatchQueue.main.async { [weak self] () -> Void in
-        //                if let variantsPicker = self?.variantsPicker {
-        //                    self?.pickerView(variantsPicker, didSelectRow: index, inComponent: 0)
+        //                if let variantPicker = self?.variantPicker {
+        //                    self?.pickerView(variantPicker, didSelectRow: index, inComponent: 0)
         //                }
         //            }
         cell.dataSource.rowData = parentRow

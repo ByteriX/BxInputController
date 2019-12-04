@@ -1,5 +1,5 @@
 //
-//  BxInputSegmentedVariantsCell.swift
+//  BxInputSegmentedVariantCell.swift
 //  BxInputController
 //
 //  Created by Sergey Balalaev on 28.11.2019.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-public protocol BxInputSegmentedVariantsDelegate: AnyObject {
+public protocol BxInputSegmentedVariantDelegate: AnyObject {
     
     func changeSegmentedControl(_ segmentedControl: UISegmentedControl);
     
 }
 
-open class BxInputSegmentedVariantsCell : UITableViewCell, BxInputTitleCell {
+open class BxInputSegmentedVariantCell : UITableViewCell, BxInputTitleCell {
     
     /// caption of row
     @IBOutlet weak open var titleLabel: UILabel!
@@ -25,7 +25,7 @@ open class BxInputSegmentedVariantsCell : UITableViewCell, BxInputTitleCell {
     /// rate control
     @IBOutlet weak open var segmentedControl: UISegmentedControl!
     
-    public weak var delegate: BxInputSegmentedVariantsDelegate? = nil
+    public weak var delegate: BxInputSegmentedVariantDelegate? = nil
     
     @IBAction func changeSegmentedControl(_ segmentedControl: UISegmentedControl){
         delegate?.changeSegmentedControl(segmentedControl)

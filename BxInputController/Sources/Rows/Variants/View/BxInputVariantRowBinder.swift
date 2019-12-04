@@ -1,8 +1,8 @@
 /**
- *	@file BxInputVariantsRowBinder.swift
+ *	@file BxInputVariantRowBinder.swift
  *	@namespace BxInputController
  *
- *	@details Binder for BxInputVariantsRow
+ *	@details Binder for BxInputVariantRow
  *	@date 17.03.2017
  *	@author Sergey Balalaev
  *
@@ -13,8 +13,8 @@
 
 import UIKit
 
-/// Binder for BxInputVariantsRow
-open class BxInputVariantsRowBinder<T : BxInputStringObject, Cell>: BxInputStandartTextRowBinder<BxInputVariantsRow<T>, Cell>, UIPickerViewDelegate, UIPickerViewDataSource, BxInputRowBinderMenuDelete
+/// Binder for BxInputVariantRow
+open class BxInputVariantRowBinder<T : BxInputStringObject, Cell>: BxInputStandartTextRowBinder<BxInputVariantRow<T>, Cell>, UIPickerViewDelegate, UIPickerViewDataSource, BxInputRowBinderMenuDelete
 where Cell : UITableViewCell, Cell : BxInputFieldCell
 {
     
@@ -34,11 +34,11 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
     override open func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool
     {
         if super.textFieldShouldBeginEditing(textField),
-            let variantsPicker = owner?.variantsPicker
+            let variantPicker = owner?.variantPicker
         {
-            variantsPicker.dataSource = self
-            variantsPicker.delegate = self
-            variantsPicker.reloadAllComponents()
+            variantPicker.dataSource = self
+            variantPicker.delegate = self
+            variantPicker.reloadAllComponents()
             var index: Int? = nil
             if let value = row.selectedVariant {
                 if let foundIndex = row.variants.firstIndex(where: { (item) -> Bool in
@@ -48,13 +48,13 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
                 }
             }
             if let index = index {
-                variantsPicker.selectRow(index, inComponent: 0, animated: true)
+                variantPicker.selectRow(index, inComponent: 0, animated: true)
                 changeValue(index: index)
             } else {
-                variantsPicker.selectRow(0, inComponent: 0, animated: true)
-                self.pickerView(variantsPicker, didSelectRow: 0, inComponent: 0)
+                variantPicker.selectRow(0, inComponent: 0, animated: true)
+                self.pickerView(variantPicker, didSelectRow: 0, inComponent: 0)
             }
-            cell?.valueTextField.inputView = variantsPicker
+            cell?.valueTextField.inputView = variantPicker
         } else {
             return false
         }

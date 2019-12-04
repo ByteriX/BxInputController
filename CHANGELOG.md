@@ -8,10 +8,10 @@ ByteriX, 2017. All right reserved.
 
 ## 2.18.0 (04.12.2019)
 ##### Improvements
-* added BxInputSegmentedVariantsRow: new row with segmented
-* added example for BxInputSegmentedVariantsRow
-* made context menu for BxInputSegmentedVariantsRow
-* 
+* added BxInputSegmentedVariantRow: new row with segmented
+* added example for BxInputSegmentedVariantRow
+* made context menu for BxInputSegmentedVariantRow
+* renamed all class and exaples code with 'Variants' to 'Variant' : BxInputVariant, BxInputVariantItem, BxInputVariantRow, BxInputSearchVariantRow, BxInputSelectorVariantRow, BxInputSegmentedVariantRow
 
 ## 2.17.2 (30.10.2019)
 ##### Improvements
@@ -78,7 +78,7 @@ ByteriX, 2017. All right reserved.
 
 ## 2.15 (10.01.2019)
 ##### Improvements
-* new row BxInputSearchVariantsRow for searching variants
+* new row BxInputSearchVariantRow for searching variant
 * added isFirstShownSelect to variant selector
 * updated example
 
@@ -157,7 +157,7 @@ ByteriX, 2017. All right reserved.
 
 ## 2.9.3 (16.06.2018)
 ##### Bug fix
-* fixed crash when Variants rows have empty list
+* fixed crash when Variant's rows have empty list
 
 ## 2.9.2 (13.06.2018)
 ##### Bug fix
@@ -491,7 +491,7 @@ ByteriX, 2017. All right reserved.
 ##### Improvements
 * documentation for action, date, pictures, rate, suggestions, variants, text row.
 * move & rename all picture items
-* extract item classes from suggestion & variants rows
+* extract item classes from suggestion & variant's rows
 * rename folder items to rows
 
 ## 0.9.37 (15.02.2017)
@@ -571,7 +571,7 @@ ByteriX, 2017. All right reserved.
 
 ## 0.9.23 (30.01.2017)
 ##### Bug fixing
-* firstable selection of date or variants rows call didChange before showing child row
+* firstable selection of date or variant's rows call didChange before showing child row
 
 ## 0.9.22 (24.01.2017)
 ##### Refactoring

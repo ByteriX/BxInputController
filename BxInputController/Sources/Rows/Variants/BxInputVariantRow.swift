@@ -1,8 +1,8 @@
 /**
- *	@file BxInputVariantsRow.swift
+ *	@file BxInputVariantRow.swift
  *	@namespace BxInputController
  *
- *	@details Row for choosing one item from variants from selector with keyboard frame
+ *	@details Row for choosing one item from variant from selector with keyboard frame
  *	@date 10.01.2017
  *	@author Sergey Balalaev
  *
@@ -13,14 +13,14 @@
 
 import UIKit
 
-/// Row for choosing one item from variants from selector with keyboard frame
-/// - parameter: T - is associated data model for variants rows, should be inherited from BxInputStringObject
-open class BxInputVariantsRow<T : BxInputStringObject> : BxInputValueRow, BxInputVariants
+/// Row for choosing one item from variant from selector with keyboard frame
+/// - parameter: T - is associated data model for variant rows, should be inherited from BxInputStringObject
+open class BxInputVariantRow<T : BxInputStringObject> : BxInputValueRow, BxInputVariant
 {
     
     /// Make and return Binder for binding row with cell.
     open var binder : BxInputRowBinder {
-        return BxInputVariantsRowBinder<T, BxInputStandartTextCell>(row: self)
+        return BxInputVariantRowBinder<T, BxInputStandartTextCell>(row: self)
     }
     
     open var resourceId : String {

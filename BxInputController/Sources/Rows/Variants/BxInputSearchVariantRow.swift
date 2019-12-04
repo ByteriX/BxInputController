@@ -1,5 +1,5 @@
 /**
- *    @file BxInputSearchVariantsRow.swift
+ *    @file BxInputSearchVariantRow.swift
  *    @namespace BxInputController
  *
  *    @details Selector Row for choosing one item from variants with searching
@@ -14,35 +14,35 @@
 import UIKit
 
 /// Selector Row for choosing one item from variants with searching field and selector below this row
-/// - parameter: T - is associated data model for variants rows, should be inherited from BxInputStringObject
-open class BxInputSearchVariantsRow<T: BxInputStringObject> : BxInputSelectorVariantsRow<T>
+/// - parameter: T - is associated data model for variant rows, should be inherited from BxInputStringObject
+open class BxInputSearchVariantRow<T: BxInputStringObject> : BxInputSelectorVariantRow<T>
 {
     override open var resourceId : String {
         get { return "BxInputSearchSelectorCell" }
     }
     
     /// If you have synchronized model (for example faster DB) you can define this for updating variants
-    open var searchHandler: ((_ row: BxInputSearchVariantsRow, _ text: String) -> [T])? = nil
+    open var searchHandler: ((_ row: BxInputSearchVariantRow, _ text: String) -> [T])? = nil
     
     /// Make and return Binder for binding row with cell.
     override open var binder : BxInputRowBinder {
-        return BxInputSearchVariantsRowBinder<T, BxInputSearchVariantsRow<T>, BxInputSelectorCell>(row: self)
+        return BxInputSearchVariantRowBinder<T, BxInputSearchVariantRow<T>, BxInputSelectorCell>(row: self)
     }
     
     override public init(title: String? = nil, subtitle: String? = nil,
                          placeholder: String? = nil, value: T? = nil)
     {
         super.init(title: title, subtitle: subtitle, placeholder: placeholder, value: value)
-        child = BxInputChildSearchVariantsRow<T>()
+        child = BxInputChildSearchVariantRow<T>()
         child.parent = self
         isFirstShownSelect = false
     }
     
 }
 
-/// Child Row which show variants selector below parent row
-open class BxInputChildSearchVariantsRow<T: BxInputStringObject>: BxInputChildSelectorVariantsRow<T>
+/// Child Row which show variant selector below parent row
+open class BxInputChildSearchVariantRow<T: BxInputStringObject>: BxInputChildSelectorVariantRow<T>
 {
     // in a future UIViewTableCell will has preloader
-    //open var resourceId : String = "BxInputChildSearchVariantsCell"
+    //open var resourceId : String = "BxInputChildSearchVariantCell"
 }

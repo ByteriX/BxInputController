@@ -1,5 +1,5 @@
 /**
- *	@file BxInputVariants.swift
+ *	@file BxInputVariant.swift
  *	@namespace BxInputController
  *
  *	@details Row protocol for choosing one item from more
@@ -14,7 +14,7 @@
 import Foundation
 
 /// Row protocol for choosing one item from more
-protocol BxInputVariants {
+protocol BxInputVariant {
     
     /// items for choosing
     var variants: [BxInputStringObject] {get}

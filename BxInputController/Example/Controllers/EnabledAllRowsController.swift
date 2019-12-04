@@ -22,10 +22,10 @@ class EnabledAllRowsController: SimpleAllRowsController {
     internal let enabledSelectorSuggestionsRow = BxInputSwitchRow(title: "selector suggestions", value: true)
     internal let enabledShortTextRow = BxInputSwitchRow(title: "text value", value: true)
     internal let enabledSelectorTextRow = BxInputSwitchRow(title: "text with selector", value: true)
-    internal let enabledVariantsRow = BxInputSwitchRow(title: "variants", value: true)
-    internal let enabledSelectorVariantsRow = BxInputSwitchRow(title: "selector variants", value: true)
+    internal let enabledVariantRow = BxInputSwitchRow(title: "variant", value: true)
+    internal let enabledSelectorVariantRow = BxInputSwitchRow(title: "selector variant", value: true)
     
-    internal let isNormalShowingVariantsRow = BxInputSwitchRow(title: "isNormalShowingDisabledCell", value: false)
+    internal let isNormalShowingVariantRow = BxInputSwitchRow(title: "isNormalShowingDisabledCell", value: false)
     internal let alphaRow = BxInputFormattedTextRow(title: "alphaForDisabledView", prefix: "0.", format: "###")
     internal let enabledSectionActionRow = BxInputSwitchRow(title: "enabled section", value: true)
     internal let enabledAllActionRow = BxInputSwitchRow(title: "enabled all rows", value: true)
@@ -39,16 +39,16 @@ class EnabledAllRowsController: SimpleAllRowsController {
         
         rowsSection.rows = [stringActionRow, customActionRow, switchRow, checkRow, dateRow,
                             selectorDateRow, selectorPicturesRow, rateRow, selectorSuggestionsRow, shortTextRow,
-                            selectorTextRow, variantsRow, selectorVariantsRow]
+                            selectorTextRow, variantRow, selectorVariantRow]
 
         sections = [
             BxInputSection(headerText: "Access menegment enabled/disabled",
                            rows: [enabledStringActionRow, enabledCustomActionRow, enabledSwitchRow, enabledCheckRow,
                 enabledDateRow, enabledSelectorDateRow, enabledSelectorPicturesRow, enabledRateRow,
                 enabledSelectorSuggestionsRow, enabledShortTextRow, enabledSelectorTextRow,
-                enabledVariantsRow, enabledSelectorVariantsRow]),
+                enabledVariantRow, enabledSelectorVariantRow]),
             BxInputSection(headerText: "Settings",
-                           rows: [isNormalShowingVariantsRow, alphaRow, enabledSectionActionRow, enabledAllActionRow]),
+                           rows: [isNormalShowingVariantRow, alphaRow, enabledSectionActionRow, enabledAllActionRow]),
             rowsSection
         ]
     }
@@ -79,16 +79,16 @@ class EnabledAllRowsController: SimpleAllRowsController {
             setEnabledRow(shortTextRow, enabled: enabledShortTextRow.value)
         } else if row === enabledSelectorTextRow {
             setEnabledRow(selectorTextRow, enabled: enabledSelectorTextRow.value)
-        } else if row === enabledVariantsRow {
-            setEnabledRow(variantsRow, enabled: enabledVariantsRow.value)
-        } else if row === enabledSelectorVariantsRow {
-            setEnabledRow(selectorVariantsRow, enabled: enabledSelectorVariantsRow.value)
+        } else if row === enabledVariantRow {
+            setEnabledRow(variantRow, enabled: enabledVariantRow.value)
+        } else if row === enabledSelectorVariantRow {
+            setEnabledRow(selectorVariantRow, enabled: enabledSelectorVariantRow.value)
         } else if row === enabledSectionActionRow {
             setEnabledSection(rowsSection, enabled: enabledSectionActionRow.value, with: .fade)
         } else if row === enabledAllActionRow {
             setEnabled(enabledAllActionRow.value, with: .fade)
-        } else if row === isNormalShowingVariantsRow {
-            settings.isNormalShowingDisabledCell = isNormalShowingVariantsRow.value
+        } else if row === isNormalShowingVariantRow {
+            settings.isNormalShowingDisabledCell = isNormalShowingVariantRow.value
             refresh()
         }
     }
