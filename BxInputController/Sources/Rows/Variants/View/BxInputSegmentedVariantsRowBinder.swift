@@ -74,3 +74,42 @@ extension BxInputSegmentedVariantsRowBinder: BxInputSegmentedVariantsDelegate
     }
     
 }
+
+extension BxInputSegmentedVariantsRowBinder: BxInputRowBinderMenuAll
+{
+
+    open var canDeleteValue: Bool {
+        return row.isEnabled && row.value != nil
+    }
+    
+    open func deleteValue() {
+        row.value = nil
+        update()
+        didChangeValue()
+    }
+    
+    open var canCopyValue : Bool {
+        return row.isEnabled && row.value != nil
+    }
+    
+    open func copyValue(){
+        if let stringValue = row.value?.stringValue {
+            UIPasteboard.general.string = stringValue
+        } else {
+            UIPasteboard.general.string = ""
+        }
+    }
+    
+    open var canPasteValue : Bool {
+        return row.isEnabled && UIPasteboard.general.string != nil
+    }
+    
+    open func pasteValue() {
+        if let string = UIPasteboard.general.string, let value = row.items.first(where: { return $0.stringValue == string }) {
+            row.value = value
+            update()
+            didChangeValue()
+        }
+    }
+    
+}

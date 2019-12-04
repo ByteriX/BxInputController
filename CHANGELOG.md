@@ -6,9 +6,12 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
-## 2.18.0 (28.11.2019)
+## 2.18.0 (04.12.2019)
 ##### Improvements
 * added BxInputSegmentedVariantsRow: new row with segmented
+* added example for BxInputSegmentedVariantsRow
+* made context menu for BxInputSegmentedVariantsRow
+* 
 
 ## 2.17.2 (30.10.2019)
 ##### Improvements
