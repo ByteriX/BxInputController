@@ -12,6 +12,7 @@ ByteriX, 2017. All right reserved.
 * added example for BxInputSegmentedVariantRow
 * made context menu for BxInputSegmentedVariantRow
 * renamed all class and exaples code with 'Variants' to 'Variant' : BxInputVariant, BxInputVariantItem, BxInputVariantRow, BxInputSearchVariantRow, BxInputSelectorVariantRow, BxInputSegmentedVariantRow
+* changed gender from Example to Segmented
 
 ## 2.17.2 (30.10.2019)
 ##### Improvements

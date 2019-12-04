@@ -15,7 +15,7 @@ class CheckingRowsController: BxInputController {
     private var emailRow = BxInputFormattedTextRow(title: "email value", placeholder: "only corrected email")
     private var passwordRow = BxInputTextRow(title: "password value", placeholder: "empty is incorrected")
     
-    internal let genderRow = BxInputSelectorVariantRow<BxInputVariantItem>(title: "gender")
+    internal let genderRow = BxInputSegmentedVariantRow<BxInputVariantItem>(title: "gender")
     
     private var filledDateRow = BxInputDateRow(title: "filled date", value: Date().addingTimeInterval(300000))
     private var emptyDateRow = BxInputDateRow(title: "not empty value")
