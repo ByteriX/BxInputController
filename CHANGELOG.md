@@ -6,13 +6,14 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
-## 2.18.0 (04.12.2019)
+## 2.18.0 (06.12.2019)
 ##### Improvements
 * added BxInputSegmentedVariantRow: new row with segmented
 * added example for BxInputSegmentedVariantRow
 * made context menu for BxInputSegmentedVariantRow
 * renamed all class and exaples code with 'Variants' to 'Variant' : BxInputVariant, BxInputVariantItem, BxInputVariantRow, BxInputSearchVariantRow, BxInputSelectorVariantRow, BxInputSegmentedVariantRow
 * changed gender from Example to Segmented
+* fixed warning from a header and foother layouts and background color
 
 ## 2.17.2 (30.10.2019)
 ##### Improvements
