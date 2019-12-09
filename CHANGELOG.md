@@ -6,6 +6,11 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.18.1 (09.12.2019)
+##### Improvements
+* added width param to BxInputSegmentedVariantRow
+* impovement of design of BxInputSegmentedVariantCell when title is empty
+
 ## 2.18.0 (06.12.2019)
 ##### Improvements
 * added BxInputSegmentedVariantRow: new row with segmented

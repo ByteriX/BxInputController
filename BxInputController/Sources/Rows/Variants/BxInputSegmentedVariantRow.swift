@@ -12,8 +12,25 @@
 */
 
 import Foundation
+import UIKit
+
+public enum BxInputSegmentedVariantWidth {
+    case max
+    case min
+    case fixed(value: CGFloat)
+}
 
 open class BxInputSegmentedVariantRow<T : BxInputStringObject> : BxInputVariantRow<T> {
+    
+    open var width: BxInputSegmentedVariantWidth
+    
+    public init(title: String? = nil, subtitle: String? = nil,
+                placeholder: String? = nil, value: T? = nil,
+                width: BxInputSegmentedVariantWidth = .max)
+    {
+        self.width = width
+        super.init(title: title, subtitle: subtitle, placeholder: placeholder, value: value)
+    }
     
     open override var binder : BxInputRowBinder {
         return BxInputSegmentedVariantRowBinder<T, BxInputSegmentedVariantCell>(row: self)

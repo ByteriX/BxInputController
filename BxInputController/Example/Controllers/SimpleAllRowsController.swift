@@ -41,14 +41,14 @@ class SimpleAllRowsController: BxInputController {
     internal let variantRow = BxInputVariantRow<BxInputVariantItem>(title: "variant")
     internal let selectorVariantRow = BxInputSelectorVariantRow<BxInputVariantItem>(title: "selector variant")
     internal let searchVariantRow = BxInputSearchVariantRow<BxInputVariantItem>(title: "search variant")
-    internal let segmentedVariantRow = BxInputSegmentedVariantRow<BxInputVariantItem>(title: "segmented")
+    internal let segmentedVariantRow = BxInputSegmentedVariantRow<BxInputVariantItem>(title: "Segm.", width: .min)
 
 
     private let variantItems : [BxInputVariantItem] = [
-        BxInputVariantItem(id: "1", name: "value1 A"),
-        BxInputVariantItem(id: "2", name: "value2 B"),
-        BxInputVariantItem(id: "3", name: "value3 C"),
-        BxInputVariantItem(id: "4", name: "value4 D"),
+        BxInputVariantItem(id: "1", name: "val. A"),
+        BxInputVariantItem(id: "2", name: "val. B"),
+        BxInputVariantItem(id: "3", name: "val. C"),
+        BxInputVariantItem(id: "4", name: "val. D"),
         ]
     private let suggestionItems = [
         BxInputChildSelectorSuggestionsRow(title: "value 1"),

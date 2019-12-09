@@ -26,6 +26,8 @@ open class BxInputSegmentedVariantRowBinder<T : BxInputStringObject, Cell : BxIn
             return
         }
         
+        cell.segmentedLeading.isActive = (row.title != nil)
+
         cell.delegate = self
 
         cell.selectionStyle = .none
@@ -40,6 +42,18 @@ open class BxInputSegmentedVariantRowBinder<T : BxInputStringObject, Cell : BxIn
         }
         
         cell.segmentedControl.selectedSegmentIndex = index ?? -1
+        
+        switch row.width {
+        case .max:
+            cell.segmentedControl.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        case .min:
+            cell.segmentedControl.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        case .fixed(let value):
+            cell.segmentedControl.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+            for index in 0..<cell.segmentedControl.numberOfSegments {
+                cell.segmentedControl.setWidth(value, forSegmentAt: index)
+            }
+        }
     }
     /// event of change isEnabled
     override open func didSetEnabled(_ value: Bool)
