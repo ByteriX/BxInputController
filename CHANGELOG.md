@@ -6,6 +6,11 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.18.2 (10.12.2019)
+##### Bug fix
+* fixed issue with bring cursore from TextMemo
+* fixed TextMemo scrolling for iPhone X/Xs/11 when using iOS 11 and later
+
 ## 2.18.1 (09.12.2019)
 ##### Improvements
 * added width param to BxInputSegmentedVariantRow
