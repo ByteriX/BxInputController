@@ -95,9 +95,18 @@ open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMe
         if let position = cell.textView.selectedTextRange?.start,
             let owner = owner
         {
-            let rect = cell.textView.caretRect(for: position)
-            let rectInTable = owner.tableView.convert(rect, from: cell.textView)
-            let shift =  8 + rectInTable.origin.y + rectInTable.size.height - ( owner.tableView.contentOffset.y + owner.tableView.frame.size.height - owner.tableView.contentInset.bottom)
+            let caretRect = cell.textView.caretRect(for: position)
+            let caretRectInTable = owner.tableView.convert(caretRect, from: cell.textView)
+            let caretMaxYInTable = 8 + caretRectInTable.origin.y + caretRectInTable.size.height
+            
+            var currentPosition = owner.tableView.contentOffset.y + owner.tableView.frame.size.height
+            if #available(iOS 11.0, *) {
+                currentPosition -= owner.tableView.adjustedContentInset.bottom
+            } else {
+                currentPosition -= owner.tableView.contentInset.bottom
+            }
+            let shift = caretMaxYInTable - currentPosition
+            
             if shift > 0 {
                 let point = CGPoint(x: owner.tableView.contentOffset.x, y: owner.tableView.contentOffset.y + shift + 4)
                 owner.tableView.setContentOffset(point, animated: true)
