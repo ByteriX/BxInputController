@@ -17,6 +17,10 @@ import BxObjC
 /// Binder for BxInputTextMemoRow
 open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMemoCell> : BxInputBaseRowBinder<Row, Cell>, BxInputTextMemoCellDelegate, UITextViewDelegate
 {
+    
+    /// This field stored position of cursore of textView, how need update on cell
+    private var textPosition : UITextRange? = nil
+    
     /// call when user selected this cell
     override open func didSelected()
     {
@@ -32,7 +36,7 @@ open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMe
             return
         }
         cell.delegate = self
-        //
+        
         cell.textView.font = owner?.settings.valueFont
         cell.textView.textColor = owner?.settings.valueColor
         cell.textView.text = row.value
@@ -43,6 +47,12 @@ open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMe
         cell.textView.layoutIfNeeded()
         checkSize(isNeedUpdate: false)
         //row.height = contentHeight
+
+        if let textPosition = textPosition {
+            cell.textView.selectedTextRange = textPosition
+            self.textPosition = nil
+        }
+        
     }
     /// event of change isEnabled
     override open func didSetEnabled(_ value: Bool)
@@ -124,6 +134,7 @@ open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMe
         if shift > 0 {
             #warning("это не гарантирует отсутствие зацикленности")
             if isNeedUpdate {
+                textPosition = cell.textView.selectedTextRange
                 owner?.reloadRow(row, with: .none) // row.height will be updated from update()
                 owner?.selectRow(row, at: .none, animated: false)
             } else {
