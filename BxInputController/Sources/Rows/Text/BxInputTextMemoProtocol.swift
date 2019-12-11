@@ -1,10 +1,3 @@
-//
-//  BxInputTextMemoProtocol.swift
-//  BxInputController
-//
-//  Created by Sergey Balalaev on 11.12.2019.
-//  Copyright © 2019 Byterix. All rights reserved.
-//
 /**
 *    @file BxInputTextMemoProtocol.swift
 *    @namespace BxInputController
