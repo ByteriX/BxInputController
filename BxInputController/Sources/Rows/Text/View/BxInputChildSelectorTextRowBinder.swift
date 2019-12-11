@@ -15,8 +15,14 @@ import UIKit
 import BxObjC
 
 /// Binder for internal BxInputChildSelectorTextRow subclasses
-open class BxInputChildSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, Cell: BxInputChildSelectorTextCell, ParentRow: BxInputSelectorTextRow> : BxInputChildSelectorRowBinder<Row, Cell, ParentRow>, BxInputChildSelectorTextDelegate, UITextViewDelegate
+open class BxInputChildSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, Cell: BxInputChildSelectorTextCell, ParentRow: BxInputSelectorTextRow> : BxInputChildSelectorRowBinder<Row, Cell, ParentRow>, BxInputChildSelectorTextDelegate, UITextViewDelegate, BxInputTextMemoProtocol
 {
+    
+    /// This field stored position of cursore of textView, how need update on cell
+    internal var textPosition : UITextRange? = nil
+    var memoCell: BxInputTextMemoCellProtocol?{ cell }
+    var memoRow: BxInputTextMemoRowProtocol?{ row }
+    
     /// call when user selected this cell
     override open func didSelected()
     {
@@ -28,17 +34,18 @@ open class BxInputChildSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, C
     override open func update()
     {
         super.update()
-        cell?.delegate = self
-        //
-        cell?.textView.font = owner?.settings.valueFont
-        cell?.textView.textColor = owner?.settings.valueColor
-        cell?.textView.text = parentRow.value
-//        cell?.textView.placeholderColor = owner?.settings.placeholderColor
-//        cell?.textView.placeholder = parentRow.placeholder
-        cell?.textView.update(from: parentRow.textSettings)
+        guard let cell = cell else {
+            return
+        }
+        cell.delegate = self
         
-        #warning("make as Memo update")
-        //row.height = contentHeight I think it doesn't need
+        cell.textView.font = owner?.settings.valueFont
+        cell.textView.textColor = owner?.settings.valueColor
+        cell.textView.text = parentRow.value
+        cell.textView.update(from: parentRow.textSettings)
+        
+        updateTextView()
+        
     }
     /// event of change isEnabled
     override open func didSetEnabled(_ value: Bool)
@@ -69,54 +76,6 @@ open class BxInputChildSelectorTextRowBinder<Row: BxInputChildSelectorTextRow, C
         if checkSize() {
             checkScroll()
         }
-    }
-    
-    /// check and change only scroll if need
-    open func checkScroll()
-    {
-        guard let cell = cell else {
-            return
-        }
-        if let position = cell.textView.selectedTextRange?.start,
-            let owner = owner
-        {
-            let rect = cell.textView.caretRect(for: position)
-            let rectInTable = owner.tableView.convert(rect, from: cell.textView)
-            let shift =  8 + rectInTable.origin.y + rectInTable.size.height - ( owner.tableView.contentOffset.y + owner.tableView.frame.size.height - owner.tableView.contentInset.bottom)
-            if shift > 0 {
-                let point = CGPoint(x: owner.tableView.contentOffset.x, y: owner.tableView.contentOffset.y + shift + 4)
-                owner.tableView.setContentOffset(point, animated: true)
-            }
-        }
-    }
-    
-    /// Copied from Memo. Used by checkSize or update() for calculate full size of cell.
-    open var contentHeight : CGFloat
-    {
-        guard let cell = cell,
-            let textView = cell.textView
-            else {
-                return 0
-        }
-        let result = textView.contentSize.height + cell.topConstraint.constant + cell.bottomConstraint.constant + 1
-        return result
-    }
-    
-    /// check and change only size if need
-    open func checkSize() -> Bool
-    {
-        guard let cell = cell else {
-            return false
-        }
-        let shift = cell.textView.contentSize.height - cell.textView.frame.size.height
-        if shift > 0 {
-            #warning("make as Memo update")
-            row.height = contentHeight
-            owner?.reloadRow(row, with: .none)
-            owner?.selectRow(row, at: .none, animated: false)
-            return false
-        }
-        return true
     }
     
     // MARK - UITextViewDelegate

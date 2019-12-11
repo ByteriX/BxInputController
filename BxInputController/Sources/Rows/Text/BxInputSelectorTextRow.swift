@@ -48,7 +48,7 @@ open class BxInputSelectorTextRow : BxInputTextRow, BxInputSelectorRow
 }
 
 /// Child row for BxInputSelectorTextRow with text input field
-open class BxInputChildSelectorTextRow: BxInputChildSelectorRow, BxInputStaticHeight
+open class BxInputChildSelectorTextRow: BxInputChildSelectorRow, BxInputStaticHeight, BxInputTextMemoRowProtocol
 {
     /// Make and return Binder for binding row with cell.
     open var binder : BxInputRowBinder {

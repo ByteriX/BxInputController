@@ -14,7 +14,7 @@
 import UIKit
 
 /// Row for putting big text string
-open class BxInputTextMemoRow: BxInputTextRow, BxInputStaticHeight
+open class BxInputTextMemoRow: BxInputTextRow, BxInputStaticHeight, BxInputTextMemoRowProtocol
 {
     
     /// Make and return Binder for binding row with cell.

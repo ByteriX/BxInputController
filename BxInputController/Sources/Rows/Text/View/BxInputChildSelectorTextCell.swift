@@ -21,7 +21,7 @@ public protocol BxInputChildSelectorTextDelegate : UITextViewDelegate
 }
 
 /// Cell for selector Row with longest text string
-public class BxInputChildSelectorTextCell: UITableViewCell {
+public class BxInputChildSelectorTextCell: UITableViewCell, BxInputTextMemoCellProtocol {
     
     /// delegate has backword call UITextViewDelegate
     public weak var delegate: BxInputChildSelectorTextDelegate? = nil
@@ -32,8 +32,16 @@ public class BxInputChildSelectorTextCell: UITableViewCell {
     }
 
     /// value editor control
-    @IBOutlet var textView: BxTextView!
+    @IBOutlet public internal(set) var textView: BxTextView!
     
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    
+    public var bottomShift: CGFloat {
+        return bottomConstraint.constant
+    }
+    
+    public var topShift: CGFloat {
+        return topConstraint.constant
+    }
 }

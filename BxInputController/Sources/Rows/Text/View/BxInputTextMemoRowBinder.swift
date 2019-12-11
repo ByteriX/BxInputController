@@ -15,12 +15,14 @@ import UIKit
 import BxObjC
 
 /// Binder for BxInputTextMemoRow
-open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMemoCell> : BxInputBaseRowBinder<Row, Cell>, BxInputTextMemoCellDelegate, UITextViewDelegate
+open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMemoCell> : BxInputBaseRowBinder<Row, Cell>, BxInputTextMemoCellDelegate, UITextViewDelegate, BxInputTextMemoProtocol
 {
     
     /// This field stored position of cursore of textView, how need update on cell
-    private var textPosition : UITextRange? = nil
-    
+    internal var textPosition : UITextRange? = nil
+    var memoCell: BxInputTextMemoCellProtocol?{ cell }
+    var memoRow: BxInputTextMemoRowProtocol?{ row }
+
     /// call when user selected this cell
     override open func didSelected()
     {
@@ -44,14 +46,7 @@ open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMe
         cell.textView.placeholder = row.placeholder
         cell.textView.update(from: row.textSettings)
 
-        cell.textView.layoutIfNeeded()
-        checkSize(isNeedUpdate: false)
-        //row.height = contentHeight
-
-        if let textPosition = textPosition {
-            cell.textView.selectedTextRange = textPosition
-            self.textPosition = nil
-        }
+        updateTextView()
         
     }
     /// event of change isEnabled
@@ -83,75 +78,6 @@ open class BxInputTextMemoRowBinder<Row: BxInputTextMemoRow, Cell: BxInputTextMe
         if checkSize() {
             checkScroll()
         }
-    }
-    
-    /// check and change only scroll if need
-    open func checkScroll()
-    {
-        #warning("need clear shake from update/reload cell + scroll")
-        guard let cell = cell else {
-            return
-        }
-        if let position = cell.textView.selectedTextRange?.start,
-            let owner = owner
-        {
-            let caretRect = cell.textView.caretRect(for: position)
-            let caretRectInTable = owner.tableView.convert(caretRect, from: cell.textView)
-            let caretMaxYInTable = 8 + caretRectInTable.origin.y + caretRectInTable.size.height
-            
-            var currentPosition = owner.tableView.contentOffset.y + owner.tableView.frame.size.height
-            if #available(iOS 11.0, *) {
-                currentPosition -= owner.tableView.adjustedContentInset.bottom
-            } else {
-                currentPosition -= owner.tableView.contentInset.bottom
-            }
-            let shift = caretMaxYInTable - currentPosition
-            
-            if shift > 0 {
-                let point = CGPoint(x: owner.tableView.contentOffset.x, y: owner.tableView.contentOffset.y + shift + 4)
-                owner.tableView.setContentOffset(point, animated: true)
-            }
-        }
-    }
-    
-    /// Used by checkSize or update() for calculate full size of cell
-    open var contentHeight : CGFloat
-    {
-        guard let cell = cell,
-            let textView = cell.textView
-        else {
-            return 0
-        }
-        //let contentView = cell.contentView
-        //print("cell.textView.contentSize.height = \(textView.contentSize.height)")
-        
-        /// That it's strongest then use textView.frame
-        let result = textView.contentSize.height + cell.topConstraint.constant + cell.bottomConstraint.constant + 1
-        
-        //print("contentHeight = \(result)")
-        return result
-    }
-    
-    /// check and change only size if need
-    @discardableResult
-    open func checkSize(isNeedUpdate: Bool = true) -> Bool
-    {
-        guard let cell = cell else {
-            return false
-        }
-        let shift = cell.textView.contentSize.height - cell.textView.frame.size.height
-        if shift > 0 {
-            #warning("это не гарантирует отсутствие зацикленности")
-            if isNeedUpdate {
-                textPosition = cell.textView.selectedTextRange
-                owner?.reloadRow(row, with: .none) // row.height will be updated from update()
-                owner?.selectRow(row, at: .none, animated: false)
-            } else {
-                row.height = contentHeight
-            }
-            return false
-        }
-        return true
     }
     
     // MARK - UITextViewDelegate

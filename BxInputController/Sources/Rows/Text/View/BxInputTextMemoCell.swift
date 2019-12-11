@@ -21,7 +21,8 @@ public protocol BxInputTextMemoCellDelegate : UITextViewDelegate
 }
 
 /// Cell for Row with longest text string
-open class BxInputTextMemoCell: UITableViewCell {
+open class BxInputTextMemoCell: UITableViewCell, BxInputTextMemoCellProtocol {
+    
     
     /// delegate has backword call UITextViewDelegate
     public weak var delegate: BxInputTextMemoCellDelegate? = nil
@@ -37,5 +38,12 @@ open class BxInputTextMemoCell: UITableViewCell {
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
+    public var bottomShift: CGFloat {
+        return bottomConstraint.constant
+    }
+    
+    public var topShift: CGFloat {
+        return topConstraint.constant
+    }
     
 }

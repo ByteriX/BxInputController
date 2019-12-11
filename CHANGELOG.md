@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.18.3 (11.12.2019)
+##### Improvements
+* extracted common logic to BxInputTextMemoProtocol
+
 ## 2.18.2 (10.12.2019)
 ##### Bug fix
 * fixed issue with bring cursore from TextMemo
