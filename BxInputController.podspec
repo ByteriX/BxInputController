@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "BxInputController"
-  s.version      = "2.18.3"
+  s.version      = "2.18.4"
   s.summary      = "Swift library for all"
   s.description  = "This framework will help iOS developers for simplify development general inputing controllers"
   s.homepage     = "https://github.com/ByteriX/BxInputController.git"
@@ -55,7 +55,7 @@ Pod::Spec.new do |s|
   #
 
     s.platform     = :ios, "8.0"
-    s.swift_versions = "4.0"
+    s.swift_versions = ['3.2', '4.0', '4.1', '4.2', '5.0', '5.1', '5.2']
 
 #s.ios.deployment_target = "5.0"
 #s.osx.deployment_target = "10.7"
