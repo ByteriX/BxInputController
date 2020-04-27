@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.18.4 (27.04.2020)
+##### Bug fix
+* The PodSpec support all versions of Swift
+
 ## 2.18.3 (11.12.2019)
 ##### Improvements
 * extracted common logic to BxInputTextMemoProtocol
