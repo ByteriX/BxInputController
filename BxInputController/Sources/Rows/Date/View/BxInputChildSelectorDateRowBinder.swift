@@ -27,6 +27,11 @@ open class BxInputChildSelectorDateRowBinder<Row: BxInputChildSelectorDateRow, C
 
         cell.datePicker.minimumDate = parentRow.minimumDate
         cell.datePicker.maximumDate = parentRow.maximumDate
+        if #available(iOS 13.4, *) {
+            cell.datePicker.preferredDatePickerStyle = .wheels
+        } else {
+            // Fallback on earlier versions
+        }
 
         DispatchQueue.main.async { [weak self] () -> Void in
             self?.updateDate(animated: false)

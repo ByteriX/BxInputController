@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.19.0 (20.01.2021)
+##### Bug fix
+* Fixed date picker from BxInputSelectorDateRow for iOS 14
+
 ## 2.18.4 (27.04.2020)
 ##### Bug fix
 * The PodSpec support all versions of Swift
