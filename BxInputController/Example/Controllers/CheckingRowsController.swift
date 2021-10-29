@@ -73,7 +73,7 @@ class CheckingRowsController: BxInputController {
         
         let dependencyChecker = BxInputDependencyRowsChecker(checkers: [nameChecker, dateChecker], subtitle: "Please put name and date")
         addChecker(dependencyChecker, for: dependencyRow)
-        let equalChecker = BxInputEqualValuesChecker<BxInputTextRow>(row: dependencyRow, comparisonRow: nameRow, subtitle: "should be equal to \"name values\"")
+        let equalChecker = BxInputEqualValuesChecker<BxInputTextRow>(row: dependencyRow, comparisonRow: nameRow, subtitle: "should be equal to \"name value\"")
         addChecker(equalChecker, for: dependencyRow)
         
         addChecker(BxInputEmptyValueChecker<BxInputTextRow>(row: textRow, placeholder: "Please put text for testing reusable"), for: textRow)

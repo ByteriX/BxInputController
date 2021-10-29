@@ -24,12 +24,10 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
         set {
             if let cell = newValue as? Cell {
                 self.cell = cell
+            } else if let cell = newValue{
+                assertionFailure("Error Cell class from \(type(of: self)).\nExpected: \(Cell.self) actual: \(type(of: cell)).\nThis use from row with class \(type(of: row)).")
             } else {
-                if let cell = newValue{
-                    assertionFailure("Error Cell class from \(type(of: self)).\nExpected: \(Cell.self) actual: \(type(of: cell)).\nThis use from row with class \(type(of: row)).")
-                } else {
-                    assertionFailure("Error from \(type(of: self)) get nil cell from tableView.\nThis use from row with class \(type(of: row))")
-                }
+                self.cell = nil
             }
         }
     }
