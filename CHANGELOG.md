@@ -6,6 +6,11 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.19.1 (29.10.2021)
+##### Bug fix
+* Fixed the issue with updating incorrected viewCell from a Binder
+* Added function getRowBinder with selected cell
+
 ## 2.19.0 (20.01.2021)
 ##### Bug fix
 * Fixed date picker from BxInputSelectorDateRow for iOS 14
