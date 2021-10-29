@@ -310,6 +310,18 @@ open class BxInputController : UIViewController, BxKeyboardChangeProtocol
         return nil
     }
     
+    /// if rowBinder registred with current cell then returned with it else nil
+    open func getRowBinder(with cell: UITableViewCell) -> BxInputRowBinder? {
+        for section in sections {
+            for rowBinder in section.rowBinders {
+                if rowBinder.viewCell === cell{
+                    return rowBinder
+                }
+            }
+        }
+        return nil
+    }
+    
     /// return index of section for row. You can use getIndex(for:) it is identical
     open func getSectionIndex(for currentRow: BxInputRow) -> Int? {
         return sections.firstIndex(where: { section in
