@@ -32,7 +32,9 @@ open class BxInputSelectorVariantRow<T: BxInputStringObject> : BxInputVariantRow
     open var timeForAutoselection: TimeInterval = 0.0 // if < 0.5 then autoselection turned off
     /// When user have activated this row will set first value, if this param true
     /// Default is true
-    open var isFirstShownSelect: Bool = true
+    open var isFirstShownAutoselect: Bool = true
+    /// The same as isFirstShownAutoselect but use only when the list content only one element
+    open var isOnlyOneAutoselect: Bool = true
     
     public var child : BxInputChildSelectorVariantRow<T>
     public var children: [BxInputChildSelectorRow] {
@@ -58,10 +60,13 @@ open class BxInputSelectorVariantRow<T: BxInputStringObject> : BxInputVariantRow
     }
     
     convenience public init(title: String? = nil, subtitle: String? = nil,
-                            placeholder: String? = nil, value: T? = nil, isFirstShownSelect: Bool = true)
+                            placeholder: String? = nil, value: T? = nil,
+                            isFirstShownAutoselect: Bool = true,
+                            isOnlyOneAutoselect: Bool = true)
     {
         self.init(title: title, subtitle: subtitle, placeholder: placeholder, value: value)
-        self.isFirstShownSelect = isFirstShownSelect
+        self.isFirstShownAutoselect = isFirstShownAutoselect
+        self.isOnlyOneAutoselect = isOnlyOneAutoselect
     }
     
 }

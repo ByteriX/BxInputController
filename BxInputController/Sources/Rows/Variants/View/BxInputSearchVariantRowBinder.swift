@@ -43,7 +43,7 @@ open class BxInputSearchVariantRowBinder<T: BxInputStringObject, Row: BxInputSea
             }
             if let parentRowBinder = owner?.getRowBinder(for: row.child) as? BxInputChildSelectorVariantRowBinder<T> {
                 parentRowBinder.updateItems()
-                if row.items.count == 1 && row.value !== row.items.first {
+                if row.isOnlyOneAutoselect && row.items.count == 1 && row.value !== row.items.first {
                     parentRowBinder.selectValue(from: 0)
                 }
             }

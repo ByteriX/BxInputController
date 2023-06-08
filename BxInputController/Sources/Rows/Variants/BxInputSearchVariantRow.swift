@@ -35,6 +35,7 @@ open class BxInputSearchVariantRow<T: BxInputStringObject> : BxInputSelectorVari
         super.init(title: title, subtitle: subtitle, placeholder: placeholder, value: value)
         child = BxInputChildSearchVariantRow<T>()
         child.parent = self
+        isFirstShownAutoselect = false
     }
     
 }

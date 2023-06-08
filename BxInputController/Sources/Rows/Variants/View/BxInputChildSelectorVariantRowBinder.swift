@@ -32,13 +32,15 @@ open class BxInputChildSelectorVariantRowBinder<T: BxInputStringObject> : BxInpu
         }
         
         DispatchQueue.main.async { [weak cell, weak self] () -> Void in
-            if let variantPicker = cell?.variantPicker {
+            if let variantPicker = cell?.variantPicker, let self {
                 if let index = index {
                     variantPicker.selectRow(index, inComponent: 0, animated: true)
-                    self?.changeValue(index: index)
+                    self.changeValue(index: index)
                 } else {
-                    if self?.parentRow.isFirstShownSelect ?? false {
-                        self?.selectValue(from: 0)
+                    if self.parentRow.isFirstShownAutoselect ||
+                        self.parentRow.isOnlyOneAutoselect && parentRow.variants.count == 1
+                    {
+                        self.selectValue(from: 0)
                     }
                 }
             }
