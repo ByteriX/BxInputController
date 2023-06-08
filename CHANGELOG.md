@@ -6,9 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
-## 2.19.2 (08.06.2023)
+## 2.20 (08.06.2023)
 ##### Bug fix
-* Revert isFirstShownSelect selection to false from the BxInputSearchVariantRow
+* Reverted isFirstShownSelect selection to false from the BxInputSearchVariantRow
+* Updated target to iOS 11
 
 ## 2.19.1 (29.10.2021)
 ##### Bug fix
