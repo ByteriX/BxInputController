@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "BxInputController"
-  s.version      = "2.20"
+  s.version      = "2.21"
   s.summary      = "Swift library for all"
   s.description  = "This framework will help iOS developers for simplify development general inputing controllers"
   s.homepage     = "https://github.com/ByteriX/BxInputController.git"
