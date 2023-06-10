@@ -38,7 +38,7 @@ open class BxInputChildSelectorVariantRowBinder<T: BxInputStringObject> : BxInpu
                     self.changeValue(index: index)
                 } else {
                     if self.parentRow.isFirstShownAutoselect ||
-                        self.parentRow.isOnlyOneAutoselect && parentRow.variants.count == 1
+                        self.parentRow.isOnlyOneAutoselect && self.parentRow.variants.count == 1
                     {
                         self.selectValue(from: 0)
                     }

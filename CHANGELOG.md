@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.21.1 (10.06.2023)
+##### Bug fix
+* fixed build
+
 ## 2.21 (09.06.2023)
 ##### Improvements
 * renamed isFirstShownSelect to isFirstShownAutoselect from the BxInputSelectorVariantRow
