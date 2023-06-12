@@ -35,7 +35,14 @@ let package = Package(
         .target(
             name: "BxInputController/Common",
             dependencies: [
-                .product(name: "BxObjC", package: "BxObjC"),
+                //.product(name: "BxObjC", package: "BxObjC"),
+
+                .product(name: "BxObjC/Common", package: "BxObjC"),
+                .product(name: "BxObjC/Control/Rate", package: "BxObjC"),
+                .product(name: "BxObjC/Control/TextView", package: "BxObjC"),
+                .product(name: "BxObjC/Control/ShakeAnimation", package: "BxObjC"),
+                .product(name: "BxObjC/Control/Navigation", package: "BxObjC"),
+
 //                .byName(name: "BxObjC/Common"),
 //                .byName(name: "BxObjC/Common"),
 //                .byName(name: "BxObjC/Control/Rate"),
