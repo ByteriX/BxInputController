@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "bxtextfield",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ByteriX/BxTextField.git",
+      "state" : {
+        "revision" : "fe9a65dc2b7357b346ae920589b39774c6e5c4c3",
+        "version" : "1.12.3"
+      }
+    }
+  ],
+  "version" : 2
+}

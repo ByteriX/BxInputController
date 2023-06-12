@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "BxObjC",
+        "repositoryURL": "https://github.com/ByteriX/BxObjC.git",
+        "state": {
+          "branch": null,
+          "revision": "4b1db825b64742f6e0b7ebc9358256c4c99abf4a",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "package": "BxTextField",
+        "repositoryURL": "https://github.com/ByteriX/BxTextField.git",
+        "state": {
+          "branch": null,
+          "revision": "44754e3528d84046c17aa8430b888417b25481c1",
+          "version": "1.12.4"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
