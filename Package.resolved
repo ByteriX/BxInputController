@@ -5,9 +5,9 @@
         "package": "BxObjC",
         "repositoryURL": "https://github.com/ByteriX/BxObjC.git",
         "state": {
-          "branch": null,
-          "revision": "4b1db825b64742f6e0b7ebc9358256c4c99abf4a",
-          "version": "1.10.1"
+          "branch": "master",
+          "revision": "b64a52271414c5e4e486ce402d22b54caef5c5f3",
+          "version": null
         }
       },
       {

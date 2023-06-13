@@ -26,8 +26,9 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         //
-        .package(url: "https://github.com/ByteriX/BxObjC.git", from: "1.0.0"),
-        .package(url: "https://github.com/ByteriX/BxTextField.git", from: "1.0.0")
+        //.package(url: "https://github.com/ByteriX/BxObjC.git", from: "1.0.0"),
+        .package(url: "https://github.com/ByteriX/BxObjC.git", .branch("master")),
+        .package(url: "https://github.com/ByteriX/BxTextField.git", from: "1.0.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -52,7 +53,10 @@ let package = Package(
                 "BxTextField"
             ],
             path: "BxInputController/Sources",
-            exclude: ["Rows/Pictures"]
+            exclude: ["Rows/Pictures"],
+            cSettings: [
+                .unsafeFlags(["-w"])
+            ]
         ),
         .target(
             name: "BxInputController/Photo",
