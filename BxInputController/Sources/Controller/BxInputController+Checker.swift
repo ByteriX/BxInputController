@@ -28,6 +28,15 @@ extension BxInputController {
             assert(false, "row not found for checker")
         }
     }
+
+    /// remove all checkers
+    open func removeAllCheckers() {
+        for section in sections {
+            for rowBinder in section.rowBinders {
+                rowBinder.removeAllCheckers()
+            }
+        }
+    }
     
     /// check row and return result of checking
     /// param willSelect - if it is true and checking fail then this row will be selected immediately. Default is false

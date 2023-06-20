@@ -100,6 +100,13 @@ open class BxInputBaseRowBinder<Row: BxInputRow, Cell : UITableViewCell> : NSObj
     {
         checkers.append(checker)
     }
+
+    /// remove all checker.
+    open func removeAllCheckers()
+    {
+        deacivateCheckers()
+        checkers.removeAll()
+    }
     
     private func deacivate(for checker: BxInputRowChecker) {
         if checker.isActivated == true {
