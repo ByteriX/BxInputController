@@ -16,6 +16,7 @@ import PackageDescription
 
 let package = Package(
     name: "BxInputController",
+    defaultLocalization: "ru",
     platforms: [.iOS(.v11)],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
@@ -36,13 +37,15 @@ let package = Package(
         .target(
             name: "BxInputController/Common",
             dependencies: [
-                //.product(name: "BxObjC", package: "BxObjC"),
+                "BxObjC",
 
-                .product(name: "BxObjC/Common", package: "BxObjC"),
-                .product(name: "BxObjC/Control/Rate", package: "BxObjC"),
-                .product(name: "BxObjC/Control/TextView", package: "BxObjC"),
-                .product(name: "BxObjC/Control/ShakeAnimation", package: "BxObjC"),
-                .product(name: "BxObjC/Control/Navigation", package: "BxObjC"),
+//                .product(name: "BxObjC/Common", package: "BxObjC"),
+//                .product(name: "BxObjC/Control/Rate", package: "BxObjC"),
+//                .product(name: "BxObjC/Control/TextView", package: "BxObjC"),
+//                .product(name: "BxObjC/Control/ShakeAnimation", package: "BxObjC"),
+//                .product(name: "BxObjC/Control/Navigation", package: "BxObjC"),
+
+
 
 //                .byName(name: "BxObjC/Common"),
 //                .byName(name: "BxObjC/Common"),
@@ -60,7 +63,7 @@ let package = Package(
         ),
         .target(
             name: "BxInputController/Photo",
-            dependencies: ["BxInputController/Common"],
+            dependencies: ["BxInputController/Common", "BxObjC", "BxTextField"],
             path: "BxInputController/Sources/Rows/Pictures")
     ],
     swiftLanguageVersions: [.v5]

@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.21.6 (26.06.2023)
+##### Improvements
+* try to fix build for SPM
+
 ## 2.21.5 (21.06.2023)
 ##### Improvements
 * add function removeAllCheckers
