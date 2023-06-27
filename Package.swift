@@ -22,12 +22,15 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "BxInputController",
-            targets: ["BxInputController/Common", "BxInputController/Photo"]),
+            targets: ["BxInputController"]),
+//        .library(
+//            name: "BxInputControllerPhoto",
+//            targets: ["BxInputController", "BxInputControllerPhoto"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         //
-        //.package(url: "https://github.com/ByteriX/BxObjC.git", from: "1.0.0"),
+//        .package(url: "https://github.com/ByteriX/BxObjC.git", from: "1.0.0"),
         .package(url: "https://github.com/ByteriX/BxObjC.git", .branch("master")),
         .package(url: "https://github.com/ByteriX/BxTextField.git", from: "1.0.0"),
     ],
@@ -35,7 +38,7 @@ let package = Package(
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
-            name: "BxInputController/Common",
+            name: "BxInputController",
             dependencies: [
                 "BxObjC",
 
@@ -56,15 +59,17 @@ let package = Package(
                 "BxTextField"
             ],
             path: "BxInputController/Sources",
-            exclude: ["Rows/Pictures"],
-            cSettings: [
-                .unsafeFlags(["-w"])
-            ]
-        ),
-        .target(
-            name: "BxInputController/Photo",
-            dependencies: ["BxInputController/Common", "BxObjC", "BxTextField"],
-            path: "BxInputController/Sources/Rows/Pictures")
+            exclude: ["Rows/Pictures"]
+//            ,
+//            cSettings: [
+//                .unsafeFlags(["-w"])
+//            ]
+        )
+        //,
+//        .target(
+//            name: "BxInputControllerPhoto",
+//            dependencies: ["BxInputController"],
+//            path: "BxInputController/Sources/Rows/Pictures")
     ],
     swiftLanguageVersions: [.v5]
 )
