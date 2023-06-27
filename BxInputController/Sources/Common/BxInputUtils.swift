@@ -28,6 +28,8 @@ class BxInputUtils {
             // will be used global bundle
         } else if let _ = currentBundle.path(forResource: resourceId, ofType: "nib") {
             bundle = currentBundle
+        } else {
+            bundle = Bundle.module
         }
         return UINib(nibName: resourceId, bundle: bundle)
     }
