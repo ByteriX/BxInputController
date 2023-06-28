@@ -18,7 +18,11 @@ import UIKit
 class BxInputUtils {
     
     /// bundle for local resource this component, you can use the same names of resources and your module will have high priority
+#if SWIFT_PACKAGE
+    static internal(set) public var currentBundle: Bundle = Bundle.module
+#else
     static internal(set) public var currentBundle: Bundle = Bundle(for: BxInputController.self)
+#endif
     
     /// return UINib for creating view (header/footer/cell) from the resourceId. About the priority see 'currentBundle'
     static public func getNib(resourceId: String) -> UINib
@@ -28,8 +32,6 @@ class BxInputUtils {
             // will be used global bundle
         } else if let _ = currentBundle.path(forResource: resourceId, ofType: "nib") {
             bundle = currentBundle
-        } else if let _ = Bundle.module.path(forResource: resourceId, ofType: "nib"){
-            bundle = Bundle.module
         } else {
             for currentBundle in Bundle.allBundles {
                 if let _ = currentBundle.path(forResource: resourceId, ofType: "nib"){
