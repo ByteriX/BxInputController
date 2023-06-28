@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.21.7 (28.06.2023)
+##### Improvements
+* fixed resources for SPM
+
 ## 2.21.6 (27.06.2023)
 ##### Improvements
 * try to fix build for SPM
