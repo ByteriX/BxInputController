@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.21.9 (29.06.2023)
+##### Improvements
+* fixed all xib for supporting SPM
+
 ## 2.21.8 (28.06.2023)
 ##### Improvements
 * fixed resources for SPM
