@@ -8,6 +8,8 @@ ByteriX, 2017. All right reserved.
 
 ## 2.21.9 (29.06.2023)
 ##### Improvements
+* revert adding BxInputSelectorPicturesRow for SPM
+##### Bug fix
 * fixed all xib for supporting SPM
 
 ## 2.21.8 (28.06.2023)

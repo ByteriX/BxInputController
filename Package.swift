@@ -1,4 +1,4 @@
-// swift-tools-version: 5.4
+// swift-tools-version:5.4
 /**
  *	@file Package.swift
  *	@namespace BxInputController
@@ -28,9 +28,8 @@ let package = Package(
 //            targets: ["BxInputController", "BxInputControllerPhoto"]),
     ],
     dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        //
-//        .package(url: "https://github.com/ByteriX/BxObjC.git", from: "1.0.0"),
+        // not compile from version
+        //.package(url: "https://github.com/ByteriX/BxObjC.git", from: "1.0.0"),
         .package(url: "https://github.com/ByteriX/BxObjC.git", .branch("master")),
         .package(url: "https://github.com/ByteriX/BxTextField.git", from: "1.0.0"),
     ],
@@ -58,14 +57,10 @@ let package = Package(
 //                .byName(name: "BxObjC/Control/Navigation"),
                 "BxTextField"
             ],
-            path: "BxInputController/Sources",
-            exclude: ["Rows/Pictures"]
+            path: "BxInputController/Sources"
 //            ,
-//            cSettings: [
-//                .unsafeFlags(["-w"])
-//            ]
-        )
-        //,
+//            exclude: ["Rows/Pictures"]
+        ),
 //        .target(
 //            name: "BxInputControllerPhoto",
 //            dependencies: ["BxInputController"],
