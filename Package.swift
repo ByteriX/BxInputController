@@ -57,9 +57,8 @@ let package = Package(
 //                .byName(name: "BxObjC/Control/Navigation"),
                 "BxTextField"
             ],
-            path: "BxInputController/Sources"
-//            ,
-//            exclude: ["Rows/Pictures"]
+            path: "BxInputController/Sources",
+            exclude: ["Rows/Pictures"]
         ),
 //        .target(
 //            name: "BxInputControllerPhoto",

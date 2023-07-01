@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.21.10 (01.07.2023)
+##### Bug fix
+* removed BxInputSelectorPicturesRow from SPM
+
 ## 2.21.9 (29.06.2023)
 ##### Improvements
 * revert adding BxInputSelectorPicturesRow for SPM
