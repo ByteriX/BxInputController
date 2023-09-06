@@ -92,21 +92,21 @@ extension BxInputSegmentedVariantRowBinder: BxInputSegmentedVariantDelegate
 extension BxInputSegmentedVariantRowBinder: BxInputRowBinderMenuAll
 {
 
-    open var canDeleteValue: Bool {
+    public var canDeleteValue: Bool {
         return row.isEnabled && row.value != nil
     }
     
-    open func deleteValue() {
+    public func deleteValue() {
         row.value = nil
         update()
         didChangeValue()
     }
     
-    open var canCopyValue : Bool {
+    public var canCopyValue : Bool {
         return row.isEnabled && row.value != nil
     }
     
-    open func copyValue(){
+    public func copyValue(){
         if let stringValue = row.value?.stringValue {
             UIPasteboard.general.string = stringValue
         } else {
@@ -114,11 +114,11 @@ extension BxInputSegmentedVariantRowBinder: BxInputRowBinderMenuAll
         }
     }
     
-    open var canPasteValue : Bool {
+    public var canPasteValue : Bool {
         return row.isEnabled && UIPasteboard.general.string != nil
     }
     
-    open func pasteValue() {
+    public func pasteValue() {
         if let string = UIPasteboard.general.string, let value = row.items.first(where: { return $0.stringValue == string }) {
             row.value = value
             update()

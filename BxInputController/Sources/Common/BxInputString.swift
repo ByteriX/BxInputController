@@ -13,19 +13,16 @@
 
 import Foundation
 
-/// stringValue protocol for items & rows
-public protocol BxInputStringObject: AnyObject
-{
-    /// string value getter for returning this value
-    var stringValue : String? {get}
-}
-
 /// stringValue protocol for items only (which used with generic types)
 public protocol BxInputString: Any
 {
     /// string value getter for returning this value
     var stringValue : String? {get}
 }
+
+/// stringValue protocol for items & rows
+public protocol BxInputStringObject: AnyObject, BxInputString
+{ }
 
 /// BxInputString realization
 extension String : BxInputString {

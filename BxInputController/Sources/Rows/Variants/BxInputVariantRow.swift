@@ -15,7 +15,7 @@ import UIKit
 
 /// Row for choosing one item from variant from selector with keyboard frame
 /// - parameter: T - is associated data model for variant rows, should be inherited from BxInputStringObject
-open class BxInputVariantRow<T : BxInputStringObject> : BxInputValueRow, BxInputVariant
+open class BxInputVariantRow<T : BxInputStringObject> : BxInputValueRow, BxInputVariant, BxInputValueItemsRow
 {
     
     /// Make and return Binder for binding row with cell.

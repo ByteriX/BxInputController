@@ -14,7 +14,7 @@
 import UIKit
 
 /// Binder for BxInputVariantRow
-open class BxInputVariantRowBinder<T : BxInputStringObject, Cell>: BxInputStandartTextRowBinder<BxInputVariantRow<T>, Cell>, UIPickerViewDelegate, UIPickerViewDataSource, BxInputRowBinderMenuDelete
+open class BxInputVariantRowBinder<T : BxInputStringObject, Cell>: BxInputStandartTextRowBinder<BxInputVariantRow<T>, Cell>, UIPickerViewDelegate, UIPickerViewDataSource, BxInputValueItemsRowBinderProtocol
 where Cell : UITableViewCell, Cell : BxInputFieldCell
 {
     
@@ -98,16 +98,8 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
         changeValue(index: row)
         didChangeValue()
     }
-    
-    open var canDeleteValue: Bool {
-        return row.isEnabled && row.value != nil
-    }
-    
-    open func deleteValue() {
-        row.value = nil
-        update()
-        didChangeValue()
+
+    open func toResetItems() {
         cell?.valueTextField.resignFirstResponder()
     }
-
 }

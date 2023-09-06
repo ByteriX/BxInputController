@@ -8,17 +8,9 @@
 
 import UIKit
 
-open class BxInputSelectorVariantRowBinder<T: BxInputStringObject, Row: BxInputSelectorVariantRow<T>, Cell: BxInputSelectorCell>: BxInputSelectorRowBinder<Row, Cell>, BxInputRowBinderMenuDelete
+open class BxInputSelectorVariantRowBinder<T: BxInputStringObject, Row: BxInputSelectorVariantRow<T>, Cell: BxInputSelectorCell>: BxInputSelectorRowBinder<Row, Cell>, BxInputValueItemsRowBinderProtocol
 {
-    
-    open var canDeleteValue: Bool {
-        return row.isEnabled && row.value != nil
-    }
-    
-    open func deleteValue() {
-        row.value = nil
-        update()
-        didChangeValue()
+    open func toResetItems() {
         toClose()
     }
 }
