@@ -99,7 +99,11 @@ where Cell : UITableViewCell, Cell : BxInputFieldCell
         didChangeValue()
     }
 
-    open func toResetItems() {
+    open func didResetItems() {
         cell?.valueTextField.resignFirstResponder()
+    }
+
+    public func searchValue(_ string: String) -> T? {
+        row.items.first(where: { return $0.stringValue == string })
     }
 }

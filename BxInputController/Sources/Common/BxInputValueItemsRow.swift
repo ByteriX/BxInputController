@@ -18,16 +18,15 @@ public protocol BxInputValueItemsRow: BxInputRow {
 
 public protocol BxInputValueItemsRowBinderProtocol: BxInputRowBinderMenuAll {
 
-    associatedtype Cell: BxInputFieldCell
     associatedtype Row: BxInputValueItemsRow
 
     var row: Row {get}
-    var cell: Cell? {get}
 
     func update()
     func didChangeValue()
 
-    func toResetItems()
+    func didResetItems()
+    func searchValue(_ string: String) -> Row.T?
 }
 
 extension BxInputValueItemsRowBinderProtocol {
@@ -40,7 +39,7 @@ extension BxInputValueItemsRowBinderProtocol {
         row.value = nil
         update()
         didChangeValue()
-        toResetItems()
+        didResetItems()
     }
 
     public var canCopyValue : Bool {
@@ -60,11 +59,13 @@ extension BxInputValueItemsRowBinderProtocol {
     }
 
     public func pasteValue() {
-        if let string = UIPasteboard.general.string, let value = row.items.first(where: { return $0.stringValue == string }) {
+        if let string = UIPasteboard.general.string,
+           let value = searchValue(string)
+        {
             row.value = value
             update()
             didChangeValue()
-            toResetItems()
+            didResetItems()
         }
     }
 

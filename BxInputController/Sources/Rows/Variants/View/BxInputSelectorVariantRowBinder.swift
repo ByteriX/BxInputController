@@ -10,7 +10,11 @@ import UIKit
 
 open class BxInputSelectorVariantRowBinder<T: BxInputStringObject, Row: BxInputSelectorVariantRow<T>, Cell: BxInputSelectorCell>: BxInputSelectorRowBinder<Row, Cell>, BxInputValueItemsRowBinderProtocol
 {
-    open func toResetItems() {
+    open func didResetItems() {
         toClose()
+    }
+
+    public func searchValue(_ string: String) -> T? {
+        row.items.first(where: { return $0.stringValue == string })
     }
 }

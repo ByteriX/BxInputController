@@ -75,5 +75,21 @@ open class BxInputSearchVariantRowBinder<T: BxInputStringObject, Row: BxInputSea
         textField.resignFirstResponder()
         return true
     }
+
+    override open func didResetItems() {
+        super.didResetItems()
+        if let valueTextField = cell?.valueTextField {
+            valueTextField.resignFirstResponder()
+            valueChanged(valueTextField: valueTextField)
+        }
+    }
+
+    override public func searchValue(_ string: String) -> T? {
+        if let valueTextField = cell?.valueTextField {
+            valueTextField.text = string
+            valueChanged(valueTextField: valueTextField)
+        }
+        return row.items.first(where: { return $0.stringValue == string })
+    }
     
 }
