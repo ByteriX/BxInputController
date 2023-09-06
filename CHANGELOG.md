@@ -6,6 +6,10 @@ ByteriX, 2017. All right reserved.
 
 # Versions
 
+## 2.22 (07.09.2023)
+##### Improvements
+* added Copy-Cut-Past to variants, search variants, segmented variants rows
+
 ## 2.21.10 (01.07.2023)
 ##### Bug fix
 * removed BxInputSelectorPicturesRow from SPM
